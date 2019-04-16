@@ -8,13 +8,33 @@
 \chapter{Mathematical representation of physical objects}
 
 \section{Topology and experimental distinguishability}
-To define physical objects we should be able to experimentally tell them apart. This gives us a topology.
+\textbf{Consider whether this is necessary for the thesis. If I can't get it straight for myself, I won't be able to relate it to others effectively}
+\textit{To define physical objects we should be able to experimentally tell them apart. This gives us a topology.}
 
 \section{Manifolds and continuous quantities}
-We tell physical object apart by identifying some measurable properties. In particular, we are interested in properties that are continuous quantities. This gives us manifolds.
+\textit{We tell physical object apart by identifying some measurable properties. In particular, we are interested in properties that are continuous quantities. This gives us manifolds.}
+
+\subsection{Physical objects}
+
+Say we have some object that we want to identify, and we have an idea in mind of all the possible cases we may identify it as. If, through an experiment, we can assign this object a specific number in Euclidean space that gives us a definite case, we have a \textbf{manifold}.
+ 
+Now imagine you get up one morning, and you want to know what the weather will be like that day in Ann Arbor, MI. You check the forecast on your phone, and see that it will be a balmy 33$^{\circ}$F. In this instance, the manifold was the forecast in Ann Arbor that day, and the object you wanted to identify was the temperature. With some room for error, as forecasts are never spot-on, you were able to assign a real number value to the temperature. 
+
+In mathematical language now, say we have a space $\mathrm{X}$, and that there is a physical object $\mathrm{x} \in \mathrm{X}$ that we wish to identify experimentally. If $\exists \mathrm{U}$ s.t. $\mathrm{x} \in \mathrm{U} \subset \mathrm{X}$, and $\exists$ a homeomorphism between $\mathrm{U}$ and $\mathbb{R}$, then $\mathrm{X}$ is a manifold.
+
+\subsection{Quantities}
+$\textit{In quantifying the properties that we want to study, we want to be able to compare two objects with the same "sort" of property, and maybe we also want to identify multiple parameters at the same time.}$
+
+
+Returning to the weather example, we may see that while it is 33$^{\circ}$F in Ann Arbor, it is 75$^{\circ}$F in Phoenix, AZ. Within the temperature subset, we can say that the \textbf{quantity} that we've assigned to the temperature in Phoenix is greater than the quantity assigned to the temperature in Ann Arbor. More precisely, we can say that the \textit{quantity} is the assignment of a specific real number value to the physical object we want to study. So, for some element $\mathrm{x} \in \mathrm{U} \subset {X}$, let $\mathrm{q}$:$\mathrm{U} \to \mathrm{R}$ be the quantity. In other words, our \textbf{coordinate system}. 
+
+Now, we want to identify multiple properties at the same time. Say instead of just looking at temperature, we now also want to check the cloud cover. Checking the forecast, we see that it is still 35$^{\circ}$F, and with 95\% cloud cover. In this instance, the percent of cloud cover is a second quantity. So, in general, we can say that $\mathrm{q}^{i}$:$\mathrm{U} \to \mathrm{R}$ is the $\textit{i}$th quantity ($\textbf{better way to say this?}$); or, the $\textit{i}$th dimension in our coordinate system. 
 
 \subsection{Coordinate transformations}
-Physics is equally valid regardless of coordinate system. Therefore, if we can describe a physical phenomenon in one frame of reference, we should be able to convert that description into another frame of reference. 
+$\textit{Physics is equally valid regardless of coordinate system. Therefore, if we can describe a physical phenomenon in one frame of reference, we should be able to convert that description into another frame of reference. }$
+\textbf{TODO: } Define k-surfaces and the boundary operator. 
+\textbf{TO DO:} Given some parametrization in $S_{k}$, what would be the parametrization in $S_{k-1}$ when a boundary operator is applied?
+
 \subsection{Parametrizations of curves}
 Continuing the idea of validity in multiple views, we may describe the same line, curve, or surface with different, but generally equally valid functions
 \chapter{Mathematical representation of infinitesimal objects}
