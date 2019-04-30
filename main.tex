@@ -1,5 +1,5 @@
 \documentclass{book}
-
+\usepackage{mathtools}
 
 \begin{document}
 
@@ -14,25 +14,44 @@
 \section{Manifolds and continuous quantities}
 \emph{We tell physical object apart by identifying some measurable properties. In particular, we are interested in properties that are continuous quantities. This gives us manifolds.}
 
-\subsection{Physical objects}
+\subsection{Physical objects and quantities}
 
 Say we have some object that we want to identify, and we have an idea in mind of all the possible cases we may identify it as. The ultimate goal is to be able to experimentally determine the range of cases that the object belongs to. 
  
-Now imagine you get up one morning, and you want to know what the weather will be like that day in Ann Arbor, MI. You check the forecast on your phone, and see that it will be a balmy 33$^{\circ}$F. Because the report is made with only so many significant figures, the actual temperature may be anywhere between 32.1 and 33.1. So, what you actually have is a range of possible cases that you've established that the real temperature is within. Furthermore, there are many other possible ranges that your case didn't lie within. For instance, the range could have been from 0.1 to 1.1$^{\circ}$F, or 100.1 to 101.1, etc. And still further, we can see that the ranges of theoretically possible temperatures together cover between just above absolute zero and whatever maximum temperature may exist (however unlikely most of the temperatures may be outside of some very unfortunate scenario). Besides temperature, we could just so describe air pressure, humidity, wind speed, chance of snow, your whereabouts, whatever. 
+Electromagnetic radiation exists in a very wide range of wavelengths, with gamma waves on one end of the spectrum, and radio waves on the far other end. Within this spectrum of wavelengths lies a small section that we can detect with our eyes, what we call visible light. Light may be further subdivided based on its wavelength into smaller sections that we call color. Color is all around us, and is an intimately important part of our lives, but we don't all see color the same way. The range of colors that I consider to be blue may be different from what you consider to be blue, and "blue" itself means different things in different languages: for instance, in English we distinguish between blue and black, but in Old Norse, a close relative of Old English, both colors were under the same word "\textit{blár}." Therefore, it is useful to be able to objectively quantify our colors. The RGB scale is one of these ways to quantify colors: colors are described as numerical combinations of red, green, and blue, in a range from 0 to 256 for each. Therefore, when I call something "blue," I can instead identify the color I'm looking at as being within a range on the RGB scale that we call "blue."
 
-\subsection{Quantities}
-\emph{In quantifying the properties that we want to study, we want to be able to compare two objects with the same "sort" of property, and maybe we also want to identify multiple parameters at the same time.}
+A couple important points should be made now. First, the visible spectrum is, again, only a small section of the electromagnetic spectrum. Therefore, the RGB scale can only be used to quantify a very specific subset of the entire electromagnetic spectrum. "What color is a radio wave?" isn't a meaningful question. Second, other ways of quantifying visible light exist. An example is the CMYK scale (\textbf{C}yan, \textbf{M}agenta, \textbf{Y}ellow, and \textbf{K}ey / black). A color quantified under CMYK can be converted to some quantification under RGB, and vice versa. 
 
-When we have a 
-\subsection{Coordinate transformations}
-$\textit{Physics is equally valid regardless of coordinate system. Therefore, if we can describe a physical phenomenon in one frame of reference, we should be able to convert that description into another frame of reference. }$
- 
+\emph{Here will be written the mathematical formalism for manifolds and quantities
+	\textbf{TO DO: Figure out how math boxes work}}
+%\begin{mathSection}
+%\begin{defn}
+%		An \textbf{object} is a physical characteristic that may be identified through an experiment. For example: mass, velocity, energy, etc. 
+%\end{def}
 
+%\end{mathSection}
 
-\subsection{Parametrizations of curves}
-Continuing the idea of validity in multiple views, we may describe the same line, curve, or surface with different, but generally equally valid functions
-\textbf{TODO: } Define k-surfaces and the boundary operator.
+\subsection{Sub-manifolds}
+
+Instead of worrying about the amount of red, green, and blue in our color (that is, using RGB), perhaps we only care about the red and green (hereafter called RG). What this means is that if we have two colors represented in RGB as ($r_{1}$, $g_{1}$, $b_{1}$) and ($r_{2}$, $g_{2}$, $b_{2}$), then in RG, they would simply be represented as ($r_{1}$, $g_{1}$) and ($r_{2}$, $g_{2}$). Furthermore, if $r_{1} = r_{2}$ and $g_{1} = g_{2}$, then these two colors, though different in RGB if $b_{1} =/= b_{2}$, would appear identical in RG as blue is simply not being taken into account. So, any color quantified in RG can just as easily be quantified in terms of RGB. The reverse, however, is untrue. A color quantified in terms of RGB cannot necessarily be quantified in terms of RG, as the latter cannot represent blue. The dimension of RGB is \textit{higher} that the dimension of RG. 
+
+\emph{Here will go a brief math box on sub-manifolds and coordinate transformations}
+
+Because we can represent any value of RG in RGB, we can, in a sense, embed all of RG in RGB. We can do the same for RB (\textbf{R}ed, \textbf{B}lue), and GB(\textbf{G}reen, \textbf{B}lue). When they're embedded, we can then check how they behave around their boundaries. 
+
+\emph{Math box for k-surfaces and boundary operator}
+
 \textbf{TO DO:} Given some parametrization in $S_{k}$, what would be the parametrization in $S_{k-1}$ when a boundary operator is applied?
+
+
+\subsection{Linear Functionals of K-surfaces}
+Now that we have our embedded surfaces, we would like to see how they compare to one another. For instance, what elements are shared between RG and GB? Clearly, it's only the boundary: only the line along G is shared between them. Therefore, we don't have to worry about overlap when comparing the two. 
+Say we're looking now at RG, and at this point, we decide that we don't even care about green, leaving us only with R. A color, then, represented only with R (some variant of red) can just as well be described with RG or RB, and with RGB. And just as before, the reverse is not necessarily true. 
+
+\emph{Math box on linear functions on k-surfaces, and on using the boundary operator to move between functions defined on different dimensions}
+
+
+
 
 \chapter{Mathematical representation of infinitesimal objects}
 
