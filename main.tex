@@ -1,6 +1,13 @@
 \documentclass{book}
 \usepackage{mathtools}
 
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\newtheorem{defn}[equation]{Definition}
+
+
 \begin{document}
 
 \tableofcontents
@@ -30,6 +37,24 @@ A couple important points should be made now. First, the visible spectrum is, ag
 %\end{def}
 
 %\end{mathSection}
+
+What is a quantity.
+
+\begin{defn}
+	A quantity is a function $q : U \to \mathbb{R}$ that assigns a measurable value to a physical object.
+\end{defn}
+
+\begin{defn}
+	A coordinate system $\vec{q}$ is a collection of $n$ quantities $q^i : U \to \mathbb{R}$ such that there is a one-to-one relationship between the physical objects in $U$ and the values of the quantities in $\mathbb{R}^n$.
+\end{defn}
+
+\begin{defn}
+	Given two coordinate systems  $\vec{q} : U \to \mathbb{R}^n$ and $\vec{p} : V \to \mathbb{R}^n$ such that $U \cap V \neq \emptyset$, we call a coordinate transformation the function $f = \vec{p} \circ (\vec{q})^{-1} : \mathbb{R}^n \to \mathbb{R}^n$.
+\end{defn}
+
+\begin{defn}
+	A manifold is a set of physical objects $X$ such that for any $x \in X$ there exists a $U \subset X$ that contains $x$ and upon which a coordinate system $\vec{q}$ is defined.
+\end{defn}
 
 \subsection{Sub-manifolds}
 
