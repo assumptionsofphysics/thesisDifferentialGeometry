@@ -14,68 +14,91 @@
 
 \chapter{Mathematical representation of physical objects}
 
-\section{Topology and experimental distinguishability}
-\textbf{Consider whether this is necessary for the thesis. If I can't get it straight for myself, I won't be able to relate it to others effectively}
-\textit{To define physical objects we should be able to experimentally tell them apart. This gives us a topology.}
+
 
 \section{Manifolds and continuous quantities}
 \emph{We tell physical object apart by identifying some measurable properties. In particular, we are interested in properties that are continuous quantities. This gives us manifolds.}
 
 \subsection{Physical objects and quantities}
 
-Say we have some object that we want to identify, and we have an idea in mind of all the possible cases we may identify it as. The ultimate goal is to be able to experimentally determine the range of cases that the object belongs to. 
+- \emph{There is a physical object that we want to identify}
+
+Say we're looking at weather. We'll want to know the temperature, wind speed, humidity, whereabouts, etc.
+
+- \emph{We can assign a real number value to it, this gives us quantities}
+
+Fahrenheit, mph, percent humidity, location coordinates maybe
+
+
+- \emph{Having a set of quantities gives us a coordinate system}
+
+
+
+- \emph{Coordinate systems can be transformed between}
+
+
+
+\begin{defn}
+	A \textbf{quantity} is a function $q : U \to \mathbb{R}$ that assigns a measurable value to a physical object.
+\end{defn}
+
+\begin{defn}
+	A \textbf{coordinate system} $\vec{q}$ is a collection of $n$ quantities $q^i : U \to \mathbb{R}$ such that there is a one-to-one relationship between the physical objects in $U$ and the values of the quantities in $\mathbb{R}^n$.
+\end{defn}
+
+\begin{defn}
+	Given two coordinate systems  $\vec{q} : U \to \mathbb{R}^n$ and $\vec{p} : V \to \mathbb{R}^n$ such that $U \cap V \neq \emptyset$, we call a \textbf{coordinate transformation} the function $f = \vec{p} \circ (\vec{q})^{-1} : \mathbb{R}^n \to \mathbb{R}^n$.
+\end{defn}
+
+
+
+
+- \emph{Now that we have sets that can be mapped to the real numbers, we can define manifolds}
+
+For the weather example, a manifold would be the report itself
  
-Electromagnetic radiation exists in a very wide range of wavelengths, with gamma waves on one end of the spectrum, and radio waves on the far other end. Within this spectrum of wavelengths lies a small section that we can detect with our eyes, what we call visible light. Light may be further subdivided based on its wavelength into smaller sections that we call color. Color is all around us, and is an intimately important part of our lives, but we don't all see color the same way. The range of colors that I consider to be blue may be different from what you consider to be blue, and "blue" itself means different things in different languages: for instance, in English we distinguish between blue and black, but in Old Norse, a close relative of Old English, both colors were under the same word "\textit{blár}." Therefore, it is useful to be able to objectively quantify our colors. The RGB scale is one of these ways to quantify colors: colors are described as numerical combinations of red, green, and blue, in a range from 0 to 256 for each. Therefore, when I call something "blue," I can instead identify the color I'm looking at as being within a range on the RGB scale that we call "blue."
+\begin{defn}
+	A \textbf{manifold} is a set of physical objects $X$ such that for any $x \in X$ there exists a $U \subset X$ that contains $x$ and upon which a coordinate system $\vec{q}$ is defined.
+\end{defn}
 
-A couple important points should be made now. First, the visible spectrum is, again, only a small section of the electromagnetic spectrum. Therefore, the RGB scale can only be used to quantify a very specific subset of the entire electromagnetic spectrum. "What color is a radio wave?" isn't a meaningful question. Second, other ways of quantifying visible light exist. An example is the CMYK scale (\textbf{C}yan, \textbf{M}agenta, \textbf{Y}ellow, and \textbf{K}ey / black). A color quantified under CMYK can be converted to some quantification under RGB, and vice versa. 
 
-\emph{Here will be written the mathematical formalism for manifolds and quantities
-	\textbf{TO DO: Figure out how math boxes work}}
-%\begin{mathSection}
-%\begin{defn}
-%		An \textbf{object} is a physical characteristic that may be identified through an experiment. For example: mass, velocity, energy, etc. 
-%\end{def}
 
-%\end{mathSection}
 
-What is a quantity.
+\subsection{Sub-manifolds and k-surfaces}
+
+- \emph{Within a manifold can lie a manifold of a smaller dimension, with a mapping between them}
+If in the original weather report we were worrying about temperature, humidity, and wind speed, perhaps now we're only worrying about temperature and humidity. The latter would the a sub-manifold of the former. 
 
 \begin{defn}
-	A quantity is a function $q : U \to \mathbb{R}$ that assigns a measurable value to a physical object.
+	Given some manifold X of dimension n, a \textbf{sub-manifold} of dimension m is a manifold $Y \subset X$ such that $m \leq n$, with an injective coordinate transformation $f: \mathbb{R}^n \to \mathbb{R}^m$. 
 \end{defn}
 
 \begin{defn}
-	A coordinate system $\vec{q}$ is a collection of $n$ quantities $q^i : U \to \mathbb{R}$ such that there is a one-to-one relationship between the physical objects in $U$ and the values of the quantities in $\mathbb{R}^n$.
+	For some manifold X of dimension n, $S_k$ is the set of all possible \textbf{k-surfaces}, or sub-manifolds of dimension $k \leq n$. 
 \end{defn}
+
+- \emph{A manifold of dimension n can have an edge of dimension n-1. The boundary itself will not have a boundary.}
+A weather report in only a single place, maybe?  
 
 \begin{defn}
-	Given two coordinate systems  $\vec{q} : U \to \mathbb{R}^n$ and $\vec{p} : V \to \mathbb{R}^n$ such that $U \cap V \neq \emptyset$, we call a coordinate transformation the function $f = \vec{p} \circ (\vec{q})^{-1} : \mathbb{R}^n \to \mathbb{R}^n$.
+	The \textbf{boundary operator} $\partial : S_k \to S_{k-1}$ is a transformation such that for $\sigma \in S_k$, $\partial\partial\sigma = \emptyset$. 
 \end{defn}
 
-\begin{defn}
-	A manifold is a set of physical objects $X$ such that for any $x \in X$ there exists a $U \subset X$ that contains $x$ and upon which a coordinate system $\vec{q}$ is defined.
-\end{defn}
-
-\subsection{Sub-manifolds}
-
-Instead of worrying about the amount of red, green, and blue in our color (that is, using RGB), perhaps we only care about the red and green (hereafter called RG). What this means is that if we have two colors represented in RGB as ($r_{1}$, $g_{1}$, $b_{1}$) and ($r_{2}$, $g_{2}$, $b_{2}$), then in RG, they would simply be represented as ($r_{1}$, $g_{1}$) and ($r_{2}$, $g_{2}$). Furthermore, if $r_{1} = r_{2}$ and $g_{1} = g_{2}$, then these two colors, though different in RGB if $b_{1} =/= b_{2}$, would appear identical in RG as blue is simply not being taken into account. So, any color quantified in RG can just as easily be quantified in terms of RGB. The reverse, however, is untrue. A color quantified in terms of RGB cannot necessarily be quantified in terms of RG, as the latter cannot represent blue. The dimension of RGB is \textit{higher} that the dimension of RG. 
-
-\emph{Here will go a brief math box on sub-manifolds and coordinate transformations}
-
-Because we can represent any value of RG in RGB, we can, in a sense, embed all of RG in RGB. We can do the same for RB (\textbf{R}ed, \textbf{B}lue), and GB(\textbf{G}reen, \textbf{B}lue). When they're embedded, we can then check how they behave around their boundaries. 
-
-\emph{Math box for k-surfaces and boundary operator}
-
-\textbf{TO DO:} Given some parametrization in $S_{k}$, what would be the parametrization in $S_{k-1}$ when a boundary operator is applied?
 
 
 \subsection{Linear Functionals of K-surfaces}
-Now that we have our embedded surfaces, we would like to see how they compare to one another. For instance, what elements are shared between RG and GB? Clearly, it's only the boundary: only the line along G is shared between them. Therefore, we don't have to worry about overlap when comparing the two. 
-Say we're looking now at RG, and at this point, we decide that we don't even care about green, leaving us only with R. A color, then, represented only with R (some variant of red) can just as well be described with RG or RB, and with RGB. And just as before, the reverse is not necessarily true. 
-
-\emph{Math box on linear functions on k-surfaces, and on using the boundary operator to move between functions defined on different dimensions}
 
 
+\begin{defn}
+	A \textbf{linear function of k-surfaces} is a function $F : S_k \to \mathbb{R}$ such that for $\sigma_1$, $\sigma_2 \in S_k$, if $\sigma_1 \cap \sigma_2 \subset \partial\sigma_1 \cup \partial\sigma_2$, then $F(\sigma_1\cup\sigma_2) = F(\sigma_1) + F(\sigma_2)$. 
+\end{defn}
+
+
+Given $F : S_k \to \mathbb{R}$, we can then define $G : S_{k+1} \to \mathbb{R}$ such that $G(\sigma) = F(\partial\sigma)$, and $H : S_{k+2} \to \mathbb{R}$ such that $H(\sigma) = G(\partial\sigma) = F(\partial\partial\sigma)$. 
+
+\begin{defn}
+	A linear function may be defined \textbf{infinitesimally}, such that $F : S_k \to \mathbb{R} = \int_{\sigma} f(d\sigma)$. Further, for $G : S_{k+1} \to \mathbb{R}$, $G(\sigma) = \int_{\sigma} g(d\sigma) = F(\partial\sigma) = \int_{\partial\sigma}f(d\partial\sigma)$. 
+\end{defn}
 
 
 \chapter{Mathematical representation of infinitesimal objects}
