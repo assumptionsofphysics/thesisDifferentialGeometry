@@ -30,21 +30,21 @@ Say we're looking at weather. We'll want to know the temperature, wind speed, hu
 Fahrenheit, mph, percent humidity, location coordinates maybe
 
 
-- \emph{Having a set of quantities gives us a coordinate system}
-
-
-
-- \emph{Coordinate systems can be transformed between}
-
 
 
 \begin{defn}
 	A \textbf{quantity} is a function $q : U \to \mathbb{R}$ that assigns a measurable value to a physical object.
 \end{defn}
 
+
+- \emph{Having a set of quantities gives us a coordinate system}
+
 \begin{defn}
 	A \textbf{coordinate system} $\vec{q}$ is a collection of $n$ quantities $q^i : U \to \mathbb{R}$ such that there is a one-to-one relationship between the physical objects in $U$ and the values of the quantities in $\mathbb{R}^n$.
 \end{defn}
+
+
+- \emph{Coordinate systems can be transformed between}
 
 \begin{defn}
 	Given two coordinate systems  $\vec{q} : U \to \mathbb{R}^n$ and $\vec{p} : V \to \mathbb{R}^n$ such that $U \cap V \neq \emptyset$, we call a \textbf{coordinate transformation} the function $f = \vec{p} \circ (\vec{q})^{-1} : \mathbb{R}^n \to \mathbb{R}^n$.
@@ -90,7 +90,7 @@ A weather report in only a single place, maybe?
 
 
 \begin{defn}
-	A \textbf{linear function of k-surfaces} is a function $F : S_k \to \mathbb{R}$ such that for $\sigma_1$, $\sigma_2 \in S_k$, if $\sigma_1 \cap \sigma_2 \subset \partial\sigma_1 \cup \partial\sigma_2$, then $F(\sigma_1\cup\sigma_2) = F(\sigma_1) + F(\sigma_2)$. 
+	A \textbf{linear function of k-surfaces} is a function $F : S_k \to \mathbb{R}$ such that for $\sigma_1$, $\sigma_2 \in S_k$, if $\sigma_1 \cap \sigma_2 \subseteq \partial\sigma_1 \cup \partial\sigma_2$, then $F(\sigma_1\cup\sigma_2) = F(\sigma_1) + F(\sigma_2)$. 
 \end{defn}
 
 
