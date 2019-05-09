@@ -6,6 +6,7 @@
 \usepackage{amssymb}
 
 \newtheorem{defn}[equation]{Definition}
+%\newtheorem{corollary}[defn]{Corollary} Figure out how to set this up
 
 
 \begin{document}
@@ -27,7 +28,7 @@ Say we're looking at weather. We'll want to know the temperature, wind speed, hu
 
 - \emph{We can assign a real number value to it, this gives us quantities}
 
-Fahrenheit, mph, percent humidity, location coordinates maybe
+Fahrenheit, mph, percent humidity, location 
 
 
 
@@ -55,7 +56,7 @@ Fahrenheit, mph, percent humidity, location coordinates maybe
 
 - \emph{Now that we have sets that can be mapped to the real numbers, we can define manifolds}
 
-For the weather example, a manifold would be the report itself
+For the weather example, a manifold would all possible weather conditions (including things that can't necessarily be quantified, like the color of a sunset), with a subsection whereon is defined a weather report, measuring temperature, wind speed, etc. in different places. 
  
 \begin{defn}
 	A \textbf{manifold} is a set of physical objects $X$ such that for any $x \in X$ there exists a $U \subset X$ that contains $x$ and upon which a coordinate system $\vec{q}$ is defined.
@@ -67,24 +68,62 @@ For the weather example, a manifold would be the report itself
 \subsection{Sub-manifolds and k-surfaces}
 
 - \emph{Within a manifold can lie a manifold of a smaller dimension, with a mapping between them}
-If in the original weather report we were worrying about temperature, humidity, and wind speed, perhaps now we're only worrying about temperature and humidity. The latter would the a sub-manifold of the former. 
+If in the original weather report we were worrying about temperature, humidity, and wind speed, perhaps now we're only worrying about temperature and humidity. The latter would be a sub-manifold of the former. 
 
 \begin{defn}
-	Given some manifold X of dimension n, a \textbf{sub-manifold} of dimension m is a manifold $Y \subset X$ such that $m \leq n$, with an injective coordinate transformation $f: \mathbb{R}^n \to \mathbb{R}^m$. 
+	Given some manifold X of dimension n, a \textbf{sub-manifold} of dimension m is a manifold $Y \subset X$ such that $m \leq n$, with an injective coordinate transformation $f: \mathbb{R}^m \to \mathbb{R}^n$. 
 \end{defn}
+The ignored dimensions must be held fixed, otherwise the original manifold is recovered. 
 
 \begin{defn}
 	For some manifold X of dimension n, $S_k$ is the set of all possible \textbf{k-surfaces}, or sub-manifolds of dimension $k \leq n$. 
 \end{defn}
 
 - \emph{A manifold of dimension n can have an edge of dimension n-1. The boundary itself will not have a boundary.}
-A weather report in only a single place, maybe?  
+The boundary of a weather report would be 
 
 \begin{defn}
-	The \textbf{boundary operator} $\partial : S_k \to S_{k-1}$ is a transformation such that for $\sigma \in S_k$, $\partial\partial\sigma = \emptyset$. 
+	Given k-surface $\sigma \subset S_k \subset X$, $\forall x \in \sigma$, $\exists$ a neighborhood $U \subset X$ containing $x$ homeomorphic to an open set in $\mathbb{R}^k$. The \textbf{boundary} of $\sigma$, denoted $\partial\sigma$, consists of points that are not homeomorphic to an open set in $\mathbb{R}^k$. 
+\end{defn}
+
+%\begin{corollary}
+%	Given $\sigma \subset S_k$, $\partial\sigma \subset S_{k-1}$, and $\partial\partial\sigma = \emptyset$. 
+%	\end{corollary} Should be a way to set this up so it numbers as a subsection of a definition
+
+	
+
+
+
+
+
+\chapter{Mathematical representation of infinitesimal objects}
+
+
+
+\section{Differentiable manifolds and densities}
+We are interested in studying distribution on manifolds. Talk about them as a measure. The limit on infinitesimal areas is a density and requires coordinates to be differentiable.
+
+
+\begin{defn}
+	Given some manifold $X$ of dimension $n$, with overlapping subsets $U$ and $V$ with defined coordinate systems $\vec{q}: U \to \mathbb{R}^n$ and $\vec{p}: V \to \mathbb{R}^n$, if the coordinate transformation $f = \vec{q} \circ \vec{p}^{-1}$ is smooth, then $X$ is a \textbf{differentiable manifold}. 
+\end{defn}
+
+\begin{defn}
+	Given $U \subset X$, where X is a manifold, a $\textbf{measure}$ is a function $f : U \to \mathbb{R}^n$ for non-negative elements of $\mathbb{R}^n$. 
+\end{defn}
+
+\begin{defn}
+	Given measure $f$ defined on X, the \textbf{density} of X is the limit of ...?
 \end{defn}
 
 
+
+\section{Vectors and infinitesimal displacements}
+At any point on a manifold, we can calculate the tangent plane. An infinitesimal displacement along this plane (a directional derivative) is a vector. 
+
+
+\section{Covectors and linear functions of displacements}
+We can define functions that convert infinitesimal displacements to a scalar value. 
 
 \subsection{Linear Functionals of K-surfaces}
 
@@ -101,23 +140,37 @@ Given $F : S_k \to \mathbb{R}$, we can then define $G : S_{k+1} \to \mathbb{R}$ 
 \end{defn}
 
 
-\chapter{Mathematical representation of infinitesimal objects}
-
-\section{Differentiable manifolds and densities}
-We are interested in studying distribution on manifolds. Talk about them as a measure. The limit on infinitesimal areas is a density and requires coordinates to be differentiable.
-
-\section{Vectors and infinitesimal displacements}
-At any point on a manifold, we can calculate the tangent plane. An infinitesimal displacement along this plane (a directional derivative) is a vector. 
-\section{Covectors and linear functions of displacements}
-We can define functions that convert infinitesimal displacements to a scalar value. These functions may be 
 \section{Tensors and coordinate transformations}
 Some quantities can undergo one-to-one transformations between coordinate systems. In general, such quantities are tensors. 
+
 \section{K-forms and wedge product}
 In more abstract or complicated coordinate systems, it becomes useful to define geometry on infinitesimal displacements. 
+
+\begin{defn}
+	A \textbf{differential} such as dx, dy, dz describes an infinitesimal displacement along a coordinate axis. 
+\end{defn}
+
+\begin{defn}
+	Given vectors $u, v \in U$, the \textbf{wedge product} $u \wedge v: V \times V \to...$ 
+\end{defn}
+\begin{defn}
+	A \textbf{differential k-form} is made by wedging together k different differentials, which can be used to describe the length, area, volume, etc. of an appropriately dimensioned space. 
+\end{defn}
+
+
 \chapter{Geometry and ???}
 
 \section{Riemannian geometry}
-In order to give a mathematically rigorous definition of lengths of vectors and the angle between them, we use an inner product. Vector spaces with an inner product are Riemannian. 
+In order to give a mathematically rigorous definition of lengths of vectors and the angle between them, we use an inner product. Vector spaces with an inner product are Riemannian.
+
+\begin{defn}
+	Given two vectors $u,v \in V$, the \textbf{inner product} $<u,v> : V \times V \to \mathbb{R}$ is defined as $<u,v> = |u||v|cos(\theta)$, where $\theta$ is the angle between u and v. 
+\end{defn}
+\begin{defn}
+	Given two vectors $u,v \in V$, the vector space V whereon is defined an \textbf{inner product} $<u,v> : V \times V \to \mathbb{R}$ is \textbf{Riemannian}.
+	\end{defn}
+
+
 \subsection{Metric tensor}
 The inner product itself: feed in two vectors, and the outcome is a scalar representing the lengths of the vectors and the angle between them. 
 \subsection{Orthogonal basis}
