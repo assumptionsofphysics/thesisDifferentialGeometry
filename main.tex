@@ -6,7 +6,7 @@
 \usepackage{amssymb}
 
 \newtheorem{defn}[equation]{Definition}
-%\newtheorem{corollary}[defn]{Corollary} Figure out how to set this up
+\newtheorem{coro}[equation]{Corollary}
 
 
 \begin{document}
@@ -30,6 +30,7 @@ Say we're looking at weather. We'll want to know the temperature, wind speed, hu
 
 Fahrenheit, mph, percent humidity, location 
 
+TODO: talk about subset of space
 
 
 
@@ -40,12 +41,17 @@ Fahrenheit, mph, percent humidity, location
 
 - \emph{Having a set of quantities gives us a coordinate system}
 
+TODO: what is missing?
+TODO: Notation?
+
 \begin{defn}
 	A \textbf{coordinate system} $\vec{q}$ is a collection of $n$ quantities $q^i : U \to \mathbb{R}$ such that there is a one-to-one relationship between the physical objects in $U$ and the values of the quantities in $\mathbb{R}^n$.
 \end{defn}
 
 
 - \emph{Coordinate systems can be transformed between}
+
+TODO: When?
 
 \begin{defn}
 	Given two coordinate systems  $\vec{q} : U \to \mathbb{R}^n$ and $\vec{p} : V \to \mathbb{R}^n$ such that $U \cap V \neq \emptyset$, we call a \textbf{coordinate transformation} the function $f = \vec{p} \circ (\vec{q})^{-1} : \mathbb{R}^n \to \mathbb{R}^n$.
@@ -57,6 +63,8 @@ Fahrenheit, mph, percent humidity, location
 - \emph{Now that we have sets that can be mapped to the real numbers, we can define manifolds}
 
 For the weather example, a manifold would all possible weather conditions (including things that can't necessarily be quantified, like the color of a sunset), with a subsection whereon is defined a weather report, measuring temperature, wind speed, etc. in different places. There will always be an uncertainty in the exact report, however small.  
+
+TODO: No uncertainty. Talk about "atlas"
  
 \begin{defn}
 	A \textbf{manifold} is a set of physical objects $X$ such that for any $x \in X$ there exists a $U \subset X$ that contains $x$ and upon which a coordinate system $\vec{q}$ is defined.
@@ -69,28 +77,35 @@ For the weather example, a manifold would all possible weather conditions (inclu
 
 - \emph{Within a manifold can lie a manifold of a smaller dimension, with a mapping between them}
 If in the original weather report we were worrying about temperature, humidity, and wind speed, perhaps now we're only worrying about temperature and humidity. The latter would be a sub-manifold of the former. 
+The ignored dimensions must be held fixed, otherwise the original manifold is recovered. 
+
+TODO: or equal; more emph on fixed values
 
 \begin{defn}
 	Given some manifold X of dimension n, a \textbf{sub-manifold} of dimension m is a manifold $Y \subset X$ such that $m \leq n$, with an injective coordinate transformation $f: \mathbb{R}^m \to \mathbb{R}^n$. 
 \end{defn}
-The ignored dimensions must be held fixed, otherwise the original manifold is recovered. 
+
+TODO: define sub-manifold on points. Then derive the relationship between coordinates (i.e. parametrization)
+
 
 \begin{defn}
 	For some manifold X of dimension n, $S_k$ is the set of all possible \textbf{k-surfaces}, or sub-manifolds of dimension $k \leq n$. 
 \end{defn}
 
-- \emph{A manifold of dimension n can have an edge of dimension n-1. The boundary itself will not have a boundary.}
+- \emph{A manifold of dimension n can have a boundary of dimension n-1. The boundary itself will not have a boundary.}
 The boundary of a weather report would be 
 
 \begin{defn}
-	Given k-surface $\sigma \subset S_k \subset X$, $\forall x \in \sigma$, $\exists$ a neighborhood $U \subset X$ containing $x$ homeomorphic to an open set in $\mathbb{R}^k$. The \textbf{boundary} of $\sigma$, denoted $\partial\sigma$, consists of points that are not homeomorphic to an open set in $\mathbb{R}^k$. 
+	Given k-surface $\sigma \in S_k \subset X$, $\forall x \in \sigma$, $\exists$ a neighborhood $U \subset X$ containing $x$ homeomorphic to an open set in $\mathbb{R}^k$. The \textbf{boundary} of $\sigma$, denoted $\partial\sigma$, consists of points that are not homeomorphic to an open set in $\mathbb{R}^k$. 
 \end{defn}
 
-%\begin{corollary}
-%	Given $\sigma \subset S_k$, $\partial\sigma \subset S_{k-1}$, and $\partial\partial\sigma = \emptyset$. 
-%	\end{corollary} Should be a way to set this up so it numbers as a subsection of a definition
+TODO: define interior point first; then define boundary point as not interior.
 
-	
+\begin{coro}
+	Given $\sigma \subset S_k$, $\partial\sigma \subset S_{k-1}$, and $\partial\partial\sigma = \emptyset$. 
+\end{coro}
+
+TODO: parametrization of the boundary	
 
 
 
@@ -134,6 +149,11 @@ We can define functions that convert infinitesimal displacements to a scalar val
 
 
 Given $F : S_k \to \mathbb{R}$, we can then define $G : S_{k+1} \to \mathbb{R}$ such that $G(\sigma) = F(\partial\sigma)$, and $H : S_{k+2} \to \mathbb{R}$ such that $H(\sigma) = G(\partial\sigma) = F(\partial\partial\sigma)$. 
+
+TODO: show that the functions applied to the empty set must give zero
+TODO: notation for F -> G
+TODO: show that applying the operation twice gives always zero (i.e. H is the zero function)
+TODO: move to end of previous chapter
 
 \begin{defn}
 	A linear function may be defined \textbf{infinitesimally}, such that $F : S_k \to \mathbb{R} = \int_{\sigma} f(d\sigma)$. Further, for $G : S_{k+1} \to \mathbb{R}$, $G(\sigma) = \int_{\sigma} g(d\sigma) = F(\partial\sigma) = \int_{\partial\sigma}f(d\partial\sigma)$. 
