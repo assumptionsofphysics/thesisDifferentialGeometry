@@ -7,7 +7,9 @@
 
 \newtheorem{defn}[equation]{Definition}
 \newtheorem{coro}[equation]{Corollary}
+\newtheorem{prop}[equation]{Proposition}
 \newtheorem{prf}[equation]{Proof}
+\renewenvironment{proof}{\emph{Proof}.}{\qed}
 
 
 \begin{document}
@@ -32,17 +34,20 @@ Say we're looking at weather. We'll want to know the temperature, wind speed, hu
 Fahrenheit, mph, percent humidity, location.
 On some set of all possible weather configurations, we look at a specific subset of possibilities. This is our weather report.  
 
+TODO: find examples that quantities are not always defined on the whole space
 
 
 
 
 
 \begin{defn}
-	A \textbf{quantity} is an invertible function $q : U \to \mathbb{R}$ that assigns a measurable value to a physical object.
+	A \textbf{quantity} is an function $q : U \to \mathbb{R}$ that assigns a measurable value to a physical object.
 \end{defn}
 
 
-- \emph{Having a set of linearly independent quantities sufficient to distinguish one object from another gives us a coordinate system}
+- \emph{Having a set of quantities sufficient to distinguish one object from another gives us a coordinate system}
+
+TODO: enough quantities but no redundancy
 
 
 
@@ -54,7 +59,7 @@ On some set of all possible weather configurations, we look at a specific subset
 
 - \emph{\textbf{Overlapping} coordinate systems can be transformed between}
 
-
+TODO: add the diagram (use Tikz)
 
 \begin{defn}
 	Given two coordinate systems  $[q] : U \to \mathbb{R}^n$ and $[p] : V \to \mathbb{R}^n$ such that $U \cap V \neq \emptyset$, we call a \textbf{coordinate transformation} the function $f = [p] \circ ([q])^{-1} : \mathbb{R}^n \to \mathbb{R}^n$.
@@ -88,16 +93,17 @@ If in the original weather report we were worrying about temperature, humidity, 
 
 
 \begin{defn}
-	Consider a manifold X of dimension n, and a manifold Y of dimension m, such that $m \leq n$. Y is a \textbf{submanifold} of X if:
-	
-	1. Any point on Y is also a point on X; and,
-	
-	2. there are points on X that are not on Y. 
+	Consider a manifold X of dimension n, and a manifold Y of dimension m, such that $m \leq n$. Y is a \textbf{submanifold} or a m-surface of X if any point on Y is also a point on X. 
 \end{defn}
 
+TODO: call it k
+
+TODO: add corollary and paragraph about "parametrization"
+
 \begin{coro}
-	Suppose we have a manifold X of dimension n, with a submanifold Y of dimension m, such that $m \leq n$. Recalling the definition of submanifolds, this means that any point that lies in Y also lies in X, but the inverse is not true. Therefore, the coordinate transformation from X to Y will be onto, while the coordinate transformation from Y to X will be one-to-one. 
+	Suppose we have a manifold X of dimension n, with a submanifold Y of dimension m, such that $m \leq n$. Therefore, the coordinate transformation from X to Y will be onto, while the coordinate transformation from Y to X will be one-to-one. 
 \end{coro}
+
 
 
 \emph{What are the possible submanifolds of a given manifold?}
@@ -113,20 +119,21 @@ The boundary of a weather report would be readings restricted to a specific clim
 
 
 \begin{defn}
-	Given k-surface $\sigma \in S_k$, if for some point $x \in \sigma$ you can construct a neighborhood around x completely within $\sigma$, then x is an \textbf{interior point} of $\sigma$. 
+	Given k-surface $\sigma \in S_k$, if for some point $x \in \sigma$ you can construct a open neighborhood around x in $\mathbb{R}^n$ completely within $\sigma$, then x is an \textbf{interior point} of $\sigma$. 
 \end{defn}
 
 \begin{defn}
-	Given k-surface $\sigma \in S_k$, if some point $x \in \sigma$ is not an interior point (i.e., a neighborhood around x entirely within $S_k$ cannot be made), then $x$ is a \textbf{boundary point. }
+	Given k-surface $\sigma \in S_k$, if some point $x \in \sigma$ is not an interior point, then $x$ is a \textbf{boundary point}.
 \end{defn}
 
 \begin{defn}
 	Given k-surface $\sigma \in S_k$, $\partial\sigma \in S_{k-1}$ is the set of all boundary points of $\sigma$, or, the \textbf{boundary} of $\sigma$. 
 \end{defn}
 
+TODO: explain why boundary is one dimension less and why b of b is empty
 
 \begin{coro}
-	Given $\sigma \subset S_k$, $\partial\sigma \subset S_{k-1}$, and $\partial\partial\sigma = \emptyset$. 
+	Given $\sigma \in S_k$, $\partial\sigma \in S_{k-1}$, and $\partial\partial\sigma = \emptyset$. 
 \end{coro}
 
 TODO: parametrization of the boundary (\emph{consider a cube, rather than a ball})
@@ -135,24 +142,26 @@ TODO: parametrization of the boundary (\emph{consider a cube, rather than a ball
 
 
 \begin{defn}
-	A \textbf{linear function of k-surfaces} is a function $F : S_k \to \mathbb{R}$ such that for $\sigma_1$, $\sigma_2 \in S_k$, if $\sigma_1 \cap \sigma_2 \subseteq \partial\sigma_1 \cup \partial\sigma_2$, then $F(\sigma_1\cup\sigma_2) = F(\sigma_1) + F(\sigma_2)$. 
+	A \textbf{linear function of k-surfaces}, or \textbf{k-functional}, is a function $F : S_k \to \mathbb{R}$ such that for $\sigma_1$, $\sigma_2 \in S_k$, if $\sigma_1 \cap \sigma_2 \subseteq \partial\sigma_1 \cup \partial\sigma_2$, then $F(\sigma_1\cup\sigma_2) = F(\sigma_1) + F(\sigma_2)$. 
 \end{defn}
 
 
 Given $F : S_k \to \mathbb{R}$, we can then define $G : S_{k+1} \to \mathbb{R}$ such that $G(\sigma) = F(\partial\sigma)$, and $H : S_{k+2} \to \mathbb{R}$ such that $H(\sigma) = G(\partial\sigma) = F(\partial\partial\sigma)$. 
 
-\begin{prf}
-	We want to show that a linear functional applied to the empty set gives zero. 
-	
+\begin{prop}
+	A k-functional applied to the empty set gives zero. 
+\end{prop}
+\begin{proof}
 	Let $F : S_k \to \mathbb{R}$ be a linear function. Consider the empty set $\emptyset$. 
-	Trivially, $\emptyset \cap \emptyset \subseteq \partial\emptyset \cup \partial\emptyset$, and $\emptyset = \emptyset\cup\emptyset$. 
-	
-	So, $F(\emptyset) = F(\emptyset\cup\emptyset) = F(\emptyset) + F(\emptyset) \implies F(\emptyset) = 2F(\emptyset) \implies F(\emptyset) = 0$
-	$\qedsymbol$
-\end{prf}
+We have $\emptyset \cap \emptyset \subseteq \partial\emptyset \cup \partial\emptyset$, and $\emptyset = \emptyset\cup\emptyset$. 
+So, $F(\emptyset) = F(\emptyset\cup\emptyset) = F(\emptyset) + F(\emptyset) \implies F(\emptyset) = 2F(\emptyset) \implies F(\emptyset) = 0$
+\end{proof}
 
-TODO: notation for F $\to$ G (\emph{I've asked a couple people about this. General consensus is that the notation is unfortunate, but it is a clear representation of what's happening})
+TODO: Add definition and notation for F $\to$ G
 
+\begin{prop}
+	Let $F \in F_k$ be a k-functional, then $\partial\partial F = 0 $.
+\end{prop}
 \begin{prf}
 	We want to show that a linear functional applied to a surface whereon the boundary operator was applied twice will always give zero.
 	
@@ -172,6 +181,9 @@ TODO: notation for F $\to$ G (\emph{I've asked a couple people about this. Gener
 
 
 \section{Differentiable manifolds and densities}
+
+TODO: Since the k-functional can be defined by how it act on smaller parts, we only need to say how it behaves on infinitesimal parts (i.e. sequence of divisions). I.e. want to write it in terms of an integral
+
 We are interested in studying distribution on manifolds. Talk about them as a measure. The limit on infinitesimal areas is a density and requires coordinates to be differentiable.
 
 
@@ -190,18 +202,18 @@ We are interested in studying distribution on manifolds. Talk about them as a me
 
 
 \section{Vectors and infinitesimal displacements}
+TODO: We start with one dimension
+
 At any point on a manifold, we can calculate the tangent plane. An infinitesimal displacement along this plane (a directional derivative) is a vector. 
 
+TODO: how change of coordinates change the components according to the chain rule
 
 \section{Covectors and linear functions of displacements}
+TODO: linear functions of vectors
+
 We can define functions that convert infinitesimal displacements to a scalar value. 
 
-TODO: Think about the notation for differential of a boundary. It's kind of ugly. The previous statement of others confirming that it's clear, however, still applies. 
-
-\begin{defn}
-	A linear function may be defined \textbf{infinitesimally}, such that $F : S_k \to \mathbb{R} = \int_{\sigma} f(d\sigma)$. Further, for $G : S_{k+1} \to \mathbb{R}$, $G(\sigma) = \int_{\sigma} g(d\sigma) = F(\partial\sigma) = \int_{\partial\sigma}f(d\partial\sigma)$. 
-\end{defn}
-
+TODO: how change of coordinates change the components according to the chain rule
 
 \section{Tensors and coordinate transformations}
 Some quantities can undergo one-to-one transformations between coordinate systems. In general, such quantities are tensors. 
@@ -209,6 +221,13 @@ Some quantities can undergo one-to-one transformations between coordinate system
 \emph{Use some variant of the definition used in d'Inverno}
 
 \section{K-forms and wedge product}
+
+TODO: Think about the notation for differential of a boundary. It's kind of ugly. The previous statement of others confirming that it's clear, however, still applies.  (\emph{I've asked a couple people about this. General consensus is that the notation is unfortunate, but it is a clear representation of what's happening})
+
+\begin{defn}
+	A linear function may be defined \textbf{infinitesimally}, such that $F : S_k \to \mathbb{R} = \int_{\sigma} f(d\sigma)$. Further, for $G : S_{k+1} \to \mathbb{R}$, $G(\sigma) = \int_{\sigma} g(d\sigma) = F(\partial\sigma) = \int_{\partial\sigma}f(d\partial\sigma)$. 
+\end{defn}
+
 In more abstract or complicated coordinate systems, it becomes useful to define geometry on infinitesimal displacements. 
 
 \begin{defn}
