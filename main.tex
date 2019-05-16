@@ -1,5 +1,6 @@
 \documentclass{book}
 \usepackage{mathtools}
+\usepackage{tikz}
 
 \usepackage{amsthm}
 \usepackage{amsmath}
@@ -34,22 +35,14 @@ Say we're looking at weather. We'll want to know the temperature, wind speed, hu
 Fahrenheit, mph, percent humidity, location.
 On some set of all possible weather configurations, we look at a specific subset of possibilities. This is our weather report.  
 
-TODO: find examples that quantities are not always defined on the whole space
-
-
-
-
+Talking about location on the earth, a \textbf{single space cannot cover the entire earth such that a consistent set of quantities will be defined}. The poles must be in two separate subsets, with separate quantities. 
 
 \begin{defn}
 	A \textbf{quantity} is an function $q : U \to \mathbb{R}$ that assigns a measurable value to a physical object.
 \end{defn}
 
 
-- \emph{Having a set of quantities sufficient to distinguish one object from another gives us a coordinate system}
-
-TODO: enough quantities but no redundancy
-
-
+- \emph{Having a set of one-to-one quantities sufficient to distinguish one object from another, but not so many that some end up redundant, gives us a coordinate system}
 
 
 \begin{defn}
@@ -60,6 +53,16 @@ TODO: enough quantities but no redundancy
 - \emph{\textbf{Overlapping} coordinate systems can be transformed between}
 
 TODO: add the diagram (use Tikz)
+
+%\begin{tikzpicture}
+%[roundnode/.style={circle, draw=green!60, fill=green!5, very thick, minimum size=7mm},
+%squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size=5mm},
+%]
+%\node[roundnode]	(U) {U};
+%\node[roundnode]	(V) [below=of U]{V};
+%\node[squarenode]	(realU) [right=of U] {$\mathbb{R}^n$};
+%\node[squarenode]	(realV) [below=of realU] {$\mathbb{R}^n$};
+%\end{tikzpicture}
 
 \begin{defn}
 	Given two coordinate systems  $[q] : U \to \mathbb{R}^n$ and $[p] : V \to \mathbb{R}^n$ such that $U \cap V \neq \emptyset$, we call a \textbf{coordinate transformation} the function $f = [p] \circ ([q])^{-1} : \mathbb{R}^n \to \mathbb{R}^n$.
@@ -93,15 +96,15 @@ If in the original weather report we were worrying about temperature, humidity, 
 
 
 \begin{defn}
-	Consider a manifold X of dimension n, and a manifold Y of dimension m, such that $m \leq n$. Y is a \textbf{submanifold} or a m-surface of X if any point on Y is also a point on X. 
+	Consider a manifold X of dimension n, and a manifold Y of dimension k, such that $k \leq n$. Y is a \textbf{submanifold} or a m-surface of X if any point on Y is also a point on X. 
 \end{defn}
 
-TODO: call it k
+- parameterization of Y can be done in terms of the coordinates of X; $q^i(p^j)$
 
 TODO: add corollary and paragraph about "parametrization"
 
 \begin{coro}
-	Suppose we have a manifold X of dimension n, with a submanifold Y of dimension m, such that $m \leq n$. Therefore, the coordinate transformation from X to Y will be onto, while the coordinate transformation from Y to X will be one-to-one. 
+	Suppose we have a manifold X of dimension n, with a submanifold Y of dimension k, such that $m \leq n$. Therefore, the coordinate transformation from X to Y will be onto, while the coordinate transformation from Y to X will be one-to-one. 
 \end{coro}
 
 
@@ -110,7 +113,7 @@ TODO: add corollary and paragraph about "parametrization"
 
 
 \begin{defn}
-	For some manifold X of dimension n, $S_k$ is the set of all possible \textbf{k-surfaces}, or sub-manifolds of dimension $k \leq n$. 
+	For some manifold X of dimension n, $S^k$ is the set of all possible \textbf{k-surfaces}, or sub-manifolds of dimension $k \leq n$. 
 \end{defn}
 
 - \emph{A manifold of dimension n can have a boundary of dimension n-1. The boundary itself will not have a boundary.}
@@ -119,45 +122,57 @@ The boundary of a weather report would be readings restricted to a specific clim
 
 
 \begin{defn}
-	Given k-surface $\sigma \in S_k$, if for some point $x \in \sigma$ you can construct a open neighborhood around x in $\mathbb{R}^n$ completely within $\sigma$, then x is an \textbf{interior point} of $\sigma$. 
+	Given k-surface $\sigma \in S^k$, if for some point $x \in \sigma$ you can construct a open neighborhood around x in $\mathbb{R}^n$ completely within $\sigma$, then x is an \textbf{interior point} of $\sigma$. 
 \end{defn}
 
 \begin{defn}
-	Given k-surface $\sigma \in S_k$, if some point $x \in \sigma$ is not an interior point, then $x$ is a \textbf{boundary point}.
+	Given k-surface $\sigma \in S^k$, if some point $x \in \sigma$ is not an interior point, then $x$ is a \textbf{boundary point}.
 \end{defn}
 
 \begin{defn}
-	Given k-surface $\sigma \in S_k$, $\partial\sigma \in S_{k-1}$ is the set of all boundary points of $\sigma$, or, the \textbf{boundary} of $\sigma$. 
+	Given k-surface $\sigma \in S^k$, $\partial\sigma \in S^{k-1}$ is the set of all boundary points of $\sigma$, or, the \textbf{boundary} of $\sigma$. 
 \end{defn}
 
-TODO: explain why boundary is one dimension less and why b of b is empty
+- \emph{Dimension is one less since at each section of the boundary, one of the dimensions must be held fixed. }
+
+- \emph{$\partial\partial\sigma$ is empty since all points on the boundary are interior with respect to the boundary}
+
 
 \begin{coro}
-	Given $\sigma \in S_k$, $\partial\sigma \in S_{k-1}$, and $\partial\partial\sigma = \emptyset$. 
+	Given $\sigma \in S^k$, $\partial\sigma \in S^{k-1}$, and $\partial\partial\sigma = \emptyset$. 
 \end{coro}
 
 TODO: parametrization of the boundary (\emph{consider a cube, rather than a ball})
+
+- The boundary appears to be very similar to a line, in that all points on the boundary are interior with respect to the boundary. 
 
 \subsection{Linear Functionals of K-surfaces}
 
 
 \begin{defn}
-	A \textbf{linear function of k-surfaces}, or \textbf{k-functional}, is a function $F : S_k \to \mathbb{R}$ such that for $\sigma_1$, $\sigma_2 \in S_k$, if $\sigma_1 \cap \sigma_2 \subseteq \partial\sigma_1 \cup \partial\sigma_2$, then $F(\sigma_1\cup\sigma_2) = F(\sigma_1) + F(\sigma_2)$. 
+	A \textbf{linear function of k-surfaces}, or \textbf{k-functional}, is a function $F : S^k \to \mathbb{R}$ such that for $\sigma_1$, $\sigma_2 \in S^k$, if $\sigma_1 \cap \sigma_2 \subseteq \partial\sigma_1 \cup \partial\sigma_2$, then $F(\sigma_1\cup\sigma_2) = F(\sigma_1) + F(\sigma_2)$. 
 \end{defn}
 
 
-Given $F : S_k \to \mathbb{R}$, we can then define $G : S_{k+1} \to \mathbb{R}$ such that $G(\sigma) = F(\partial\sigma)$, and $H : S_{k+2} \to \mathbb{R}$ such that $H(\sigma) = G(\partial\sigma) = F(\partial\partial\sigma)$. 
+Given $F : S^k \to \mathbb{R}$, we can then define $G : S^{k+1} \to \mathbb{R}$ such that $G(\sigma) = F(\partial\sigma)$, and $H : S^{k+2} \to \mathbb{R}$ such that $H(\sigma) = G(\partial\sigma) = F(\partial\partial\sigma)$. 
 
 \begin{prop}
 	A k-functional applied to the empty set gives zero. 
 \end{prop}
 \begin{proof}
-	Let $F : S_k \to \mathbb{R}$ be a linear function. Consider the empty set $\emptyset$. 
+	Let $F : S^k \to \mathbb{R}$ be a linear function. Consider the empty set $\emptyset$. 
 We have $\emptyset \cap \emptyset \subseteq \partial\emptyset \cup \partial\emptyset$, and $\emptyset = \emptyset\cup\emptyset$. 
 So, $F(\emptyset) = F(\emptyset\cup\emptyset) = F(\emptyset) + F(\emptyset) \implies F(\emptyset) = 2F(\emptyset) \implies F(\emptyset) = 0$
 \end{proof}
 
-TODO: Add definition and notation for F $\to$ G
+
+\begin{defn}
+	For $F : S^k \to \mathbb{R}$ and k-surface $\sigma$, we say that $\partial F(\sigma) \equiv F(\partial\sigma)$. 
+\end{defn}
+
+\begin{coro}
+	For $F : S^k \to \mathbb{R}$ and $G : S^{k+1} \to \mathbb{R}$, since $F(\partial\sigma) = \partial F(\sigma)$, $\partial F(\sigma) = G(\sigma)$. 
+\end{coro}
 
 \begin{prop}
 	Let $F \in F_k$ be a k-functional, then $\partial\partial F = 0 $.
@@ -165,7 +180,7 @@ TODO: Add definition and notation for F $\to$ G
 \begin{prf}
 	We want to show that a linear functional applied to a surface whereon the boundary operator was applied twice will always give zero.
 	
-	Let $F : S_k \to \mathbb{R}, G : S_{k+1} \to \mathbb{R}, and H : S_{k+2} \to \mathbb{R}$ be linear functions, and let $\sigma$ be an element of $S_k$. $H(\sigma) = G(\partial\sigma) = F(\partial\partial\sigma) = F(\emptyset) = 0$. 
+	Let $F : S^k \to \mathbb{R}, G : S^{k+1} \to \mathbb{R}, and H : S^{k+2} \to \mathbb{R}$ be linear functions, and let $\sigma$ be an element of $S^k$. $H(\sigma) = G(\partial\sigma) = F(\partial\partial\sigma) = F(\emptyset) = 0$. 
 	
 	So, $H(\sigma) = 0$ $\forall$ $\sigma$, and H is the zero function. 
 	$\qedsymbol$
@@ -195,37 +210,50 @@ We are interested in studying distribution on manifolds. Talk about them as a me
 	Given $U \subset X$, where X is a manifold, a $\textbf{measure}$ is a function $f : U \to \mathbb{R}^n$ for non-negative elements of $\mathbb{R}^n$. 
 \end{defn}
 
-\begin{defn}
-	Given measure $f$ defined on X, the \textbf{density} of X is the limit of ...?
-\end{defn}
+%\begin{defn}
+%	Given measure $f$ defined on X, the \textbf{density} of X is the limit of ...?
+%\end{defn}
 
 
 
 \section{Vectors and infinitesimal displacements}
-TODO: We start with one dimension
 
-At any point on a manifold, we can calculate the tangent plane. An infinitesimal displacement along this plane (a directional derivative) is a vector. 
+- For a given line, a vector will be an infinitesimal displacement along that line. 
 
-TODO: how change of coordinates change the components according to the chain rule
+
+
 
 \section{Covectors and linear functions of displacements}
-TODO: linear functions of vectors
+
+For some line P, $\int df(P)$ = $\int \frac{\partial f(P)}{{\partial x^i}} dx^i$ = $\int \frac{{\partial f(P)}}{{\partial x^i}} e^i (dx^j e_j)$
 
 We can define functions that convert infinitesimal displacements to a scalar value. 
 
-TODO: how change of coordinates change the components according to the chain rule
+\begin{defn}
+	Given vectors $X^a$ in the coordinate system $x^a$ and $X'^a$ in coordinate system $x'^a$, $X^a$ and $X'^a$ can be transformed between as $X'^a = \frac{\partial x'^a}{\partial x^b} X^b$. 
+\end{defn}
 
 \section{Tensors and coordinate transformations}
 Some quantities can undergo one-to-one transformations between coordinate systems. In general, such quantities are tensors. 
 
 \emph{Use some variant of the definition used in d'Inverno}
+\begin{defn}
+	A \textbf{tensor} is an object with a one-to-one relationship with objects between coordinate systems. 
+\end{defn}
+
+\begin{defn}
+	A covariant tensor of \textbf{rank 1} is a vector, which transforms as  $X'^a = \frac{\partial x'^a}{\partial x^b} X^b$.  
+\end{defn}
+
+\begin{defn}
+	A covariant tensor of \textbf{rank 2} is some quantity $X^{ab}$ such that $X'^{ab} = \frac{\partial x'^a}{\partial x^c} \frac{\partial x'^b}{\partial x^d} X^{cd}$. 
 
 \section{K-forms and wedge product}
 
 TODO: Think about the notation for differential of a boundary. It's kind of ugly. The previous statement of others confirming that it's clear, however, still applies.  (\emph{I've asked a couple people about this. General consensus is that the notation is unfortunate, but it is a clear representation of what's happening})
 
 \begin{defn}
-	A linear function may be defined \textbf{infinitesimally}, such that $F : S_k \to \mathbb{R} = \int_{\sigma} f(d\sigma)$. Further, for $G : S_{k+1} \to \mathbb{R}$, $G(\sigma) = \int_{\sigma} g(d\sigma) = F(\partial\sigma) = \int_{\partial\sigma}f(d\partial\sigma)$. 
+	A linear function may be defined \textbf{infinitesimally}, such that $F : S^k \to \mathbb{R} = \int_{\sigma} f(d\sigma)$. Further, for $G : S^{k+1} \to \mathbb{R}$, $G(\sigma) = \int_{\sigma} g(d\sigma) = F(\partial\sigma) = \int_{\partial\sigma}f(d\partial\sigma)$. 
 \end{defn}
 
 In more abstract or complicated coordinate systems, it becomes useful to define geometry on infinitesimal displacements. 
@@ -235,19 +263,18 @@ In more abstract or complicated coordinate systems, it becomes useful to define 
 \end{defn}
 
 \begin{defn}
-	Given vectors $u, v \in U$, the \textbf{wedge product} $u \wedge v: V \times V \to V$, and describes the area of a parallelogram with sides u and v. 
+	The \textbf{wedge product} $\wedge$ of two vectors allows for the description of areas in arbitrary dimensions. 
 \end{defn}
 
 - \emph{We want to be able to describe displacements and functions along them independent of coordinate system. This gives us differential forms}
 
-TODO: \emph{\textbf{Definitely fix up this definition of differential forms}}
 
 \begin{defn}
-	A \textbf{differential k-form} is a linear function of contravariant vectors along covariant differential elements used to describe the length, area, volume, etc. of an appropriately dimensioned space 
+	A \textbf{differential k-form} is...
 \end{defn}
 
 
-\chapter{Geometry and ???}
+\chapter{Geometry and (States, Tensors, Forms)???}
 
 \section{Riemannian geometry}
 In order to give a mathematically rigorous definition of lengths of vectors and the angle between them, we use an inner product. Vector spaces with an inner product are Riemannian.
