@@ -1,6 +1,7 @@
 \documentclass{book}
 \usepackage{mathtools}
 \usepackage{tikz}
+\usetikzlibrary{positioning}
 
 \usepackage{amsthm}
 \usepackage{amsmath}
@@ -54,15 +55,15 @@ Talking about location on the earth, a \textbf{single space cannot cover the ent
 
 TODO: add the diagram (use Tikz)
 
-%\begin{tikzpicture}
-%[roundnode/.style={circle, draw=green!60, fill=green!5, very thick, minimum size=7mm},
-%squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size=5mm},
-%]
-%\node[roundnode]	(U) {U};
-%\node[roundnode]	(V) [below=of U]{V};
-%\node[squarenode]	(realU) [right=of U] {$\mathbb{R}^n$};
-%\node[squarenode]	(realV) [below=of realU] {$\mathbb{R}^n$};
-%\end{tikzpicture}
+\begin{tikzpicture}
+[roundnode/.style={circle, draw=green!60, fill=green!5, very thick, minimum size=7mm},
+squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size=5mm},
+]
+\node[roundnode]	(U) {U};
+\node[roundnode]	(V) [below=of U]{V};
+\node[squarednode]	(realU) [right=of U] {$\mathbb{R}^n$};
+\node[squarednode]	(realV) [below=of realU] {$\mathbb{R}^n$};
+\end{tikzpicture}
 
 \begin{defn}
 	Given two coordinate systems  $[q] : U \to \mathbb{R}^n$ and $[p] : V \to \mathbb{R}^n$ such that $U \cap V \neq \emptyset$, we call a \textbf{coordinate transformation} the function $f = [p] \circ ([q])^{-1} : \mathbb{R}^n \to \mathbb{R}^n$.
@@ -247,6 +248,7 @@ Some quantities can undergo one-to-one transformations between coordinate system
 
 \begin{defn}
 	A covariant tensor of \textbf{rank 2} is some quantity $X^{ab}$ such that $X'^{ab} = \frac{\partial x'^a}{\partial x^c} \frac{\partial x'^b}{\partial x^d} X^{cd}$. 
+\end{defn}
 
 \section{K-forms and wedge product}
 
