@@ -31,10 +31,10 @@
 
 Say we're looking at weather. We'll want to know the temperature, wind speed, humidity, whereabouts, etc.
 
-- \emph{We can say it lives in some subset of possibilities, and can give real number values corresponding to that subset. This gives us quantities}
+- \emph{We can give real number values describing that object. This gives us quantities}
 
 Fahrenheit, mph, percent humidity, location.
-On some set of all possible weather configurations, we look at a specific subset of possibilities. This is our weather report.  
+On some set of all possible weather configurations, we look at a specific subset of possibilities described by real numbers. This is our weather report.  
 
 Talking about location on the earth, a \textbf{single space cannot cover the entire earth such that a consistent set of quantities will be defined}. The poles must be in two separate subsets, with separate quantities. 
 
@@ -47,13 +47,13 @@ Talking about location on the earth, a \textbf{single space cannot cover the ent
 
 
 \begin{defn}
-	A \textbf{coordinate system} $[q]$ is a collection of $n$ quantities $q^i : U \to \mathbb{R}$ such that there is a one-to-one relationship between the physical objects in $U$ and the values of the quantities in $\mathbb{R}^n$.
+	A \textbf{coordinate system} $Q$ is a collection of $n$ quantities $q^i : U \to \mathbb{R}$ such that there is a one-to-one relationship between the physical objects in $U$ and the values of the quantities in $\mathbb{R}^n$.
 \end{defn}
 
 
 - \emph{\textbf{Overlapping} coordinate systems can be transformed between}
 
-TODO: add the diagram (use Tikz)
+Moscow may be seen on both a map of Europe and a map of Asia, so its coordinate system can be swapped. Lisbon, however, will not show up on a map of Asia, so its coordinate system cannot be changed. 
 
 \begin{tikzpicture}
 [roundnode/.style={circle, draw=green!60, fill=green!5, very thick, minimum size=7mm},
@@ -62,11 +62,16 @@ squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size
 \node[roundnode]	(U) {U};
 \node[roundnode]	(V) [below=of U]{V};
 \node[squarednode]	(realU) [right=of U] {$\mathbb{R}^n$};
-\node[squarednode]	(realV) [below=of realU] {$\mathbb{R}^n$};
+\node[squarednode]	(realV) [right=of V] {$\mathbb{R}^n$};
+
+\draw[<->] (U) -- (realU) node[midway, above] {$q^i$};
+\draw[<->] (U) -- (V) node[midway, left] {$U\cap V$};
+\draw[<->] (V) -- (realV) node[midway, below] {$p^i$};
+\draw[<->] (realU) -- (realV);
 \end{tikzpicture}
 
 \begin{defn}
-	Given two coordinate systems  $[q] : U \to \mathbb{R}^n$ and $[p] : V \to \mathbb{R}^n$ such that $U \cap V \neq \emptyset$, we call a \textbf{coordinate transformation} the function $f = [p] \circ ([q])^{-1} : \mathbb{R}^n \to \mathbb{R}^n$.
+	Given two coordinate systems  $Q : U \to \mathbb{R}^n$ and $P : V \to \mathbb{R}^n$ such that $U \cap V \neq \emptyset$, we call a \textbf{coordinate transformation} the function $f = P \circ (Q)^{-1} : \mathbb{R}^n \to \mathbb{R}^n$.
 \end{defn}
 
 
@@ -79,11 +84,11 @@ For the weather example, a manifold would be all possible weather conditions (in
 
  
 \begin{defn}
-	A \textbf{manifold} is a set of physical objects $X$ such that for any $x \in X$ there exists a $U \subset X$ that contains $x$ and upon which a coordinate system $[q]$ is defined.
+	A \textbf{manifold} is a set of physical objects $X$ such that for any $x \in X$ there exists a $U \subset X$ that contains $x$ and upon which a coordinate system $Q$ is defined.
 \end{defn}
 
 \begin{defn}
-	For a given manifold X, a collection of subsets of X that completely cover X are called the \textbf{atlases} of X. 
+	For a given manifold X, a collection of quantities defined such that the subsets spanning X each have quantities are called the \textbf{atlases} of X. 
 \end{defn}
 
 
@@ -102,15 +107,28 @@ If in the original weather report we were worrying about temperature, humidity, 
 
 - parameterization of Y can be done in terms of the coordinates of X; $q^i(p^j)$
 
-TODO: add corollary and paragraph about "parametrization"
+
 
 \begin{coro}
 	Suppose we have a manifold X of dimension n, with a submanifold Y of dimension k, such that $m \leq n$. Therefore, the coordinate transformation from X to Y will be onto, while the coordinate transformation from Y to X will be one-to-one. 
 \end{coro}
 
+\begin{tikzpicture}
+[roundnode/.style={circle, draw=green!60, fill=green!5, very thick, minimum size=7mm},
+squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size=5mm},
+]
+\node[roundnode]	(X) {X};
+\node[roundnode]	(Y) [below=of X]{Y};
+\node[squarednode]	(realX) [right=of X] {$\mathbb{R}^n$};
+\node[squarednode]	(realY) [right=of Y] {$\mathbb{R}^n$};
 
+\draw[<->] (X) -- (realX) node[midway, above] {$q^i$};
+\draw[->] (X) -- (Y) node[midway, left] {$U\cap V$};
+\draw[<->] (Y) -- (realY) node[midway, below] {$p^i$};
+\draw[->] (realU) -- (realV);
+\end{tikzpicture}
 
-\emph{What are the possible submanifolds of a given manifold?}
+-What are the possible submanifolds of a given manifold?
 
 
 \begin{defn}
@@ -146,6 +164,8 @@ The boundary of a weather report would be readings restricted to a specific clim
 TODO: parametrization of the boundary (\emph{consider a cube, rather than a ball})
 
 - The boundary appears to be very similar to a line, in that all points on the boundary are interior with respect to the boundary. 
+
+- For a cube, the boundary will suffer discontinuities due to the corners. This is ok, since there are a countable number of discontinuities. 
 
 \subsection{Linear Functionals of K-surfaces}
 
@@ -200,6 +220,8 @@ So, $F(\emptyset) = F(\emptyset\cup\emptyset) = F(\emptyset) + F(\emptyset) \imp
 
 TODO: Since the k-functional can be defined by how it act on smaller parts, we only need to say how it behaves on infinitesimal parts (i.e. sequence of divisions). I.e. want to write it in terms of an integral
 
+- For k-surface $\sigma \in S^k$ and k-functional $F: S^k \to \mathbb{R}$, $F(\sigma) = \int_{\sigma}f(d\sigma)$. 
+
 We are interested in studying distribution on manifolds. Talk about them as a measure. The limit on infinitesimal areas is a density and requires coordinates to be differentiable.
 
 
@@ -242,13 +264,17 @@ Some quantities can undergo one-to-one transformations between coordinate system
 	A \textbf{tensor} is an object with a one-to-one relationship with objects between coordinate systems. 
 \end{defn}
 
-\begin{defn}
+\begin{coro}
 	A covariant tensor of \textbf{rank 1} is a vector, which transforms as  $X'^a = \frac{\partial x'^a}{\partial x^b} X^b$.  
-\end{defn}
+\end{coro}
 
-\begin{defn}
+\begin{coro}
 	A covariant tensor of \textbf{rank 2} is some quantity $X^{ab}$ such that $X'^{ab} = \frac{\partial x'^a}{\partial x^c} \frac{\partial x'^b}{\partial x^d} X^{cd}$. 
-\end{defn}
+\end{coro}
+
+\begin{coro}
+	A covariant tensor of \textbf{rank 0} is a quantity $X$ such that $X' = X$. That is, a scalar. 
+\end{coro}
 
 \section{K-forms and wedge product}
 
@@ -265,15 +291,20 @@ In more abstract or complicated coordinate systems, it becomes useful to define 
 \end{defn}
 
 \begin{defn}
-	The \textbf{wedge product} $\wedge$ of two vectors allows for the description of areas in arbitrary dimensions. 
+	ASK: \emph{Talk about the wedge product in terms of what it does or what it "is"?}
+	The \textbf{wedge product} $\wedge$ of two vectors (is the plane they both lie in) (allows for the study of areas, volumes, and higher dimensional analogues that the vectors lie in). 
 \end{defn}
 
 - \emph{We want to be able to describe displacements and functions along them independent of coordinate system. This gives us differential forms}
 
 
 \begin{defn}
-	A \textbf{differential k-form} is...
+	A \textbf{differential k-form} is the wedge product of k differentials. 
 \end{defn}
+
+\begin{coro}
+	The wedge product of an m-form and a n-form is an (m+n)-form. 
+\end{coro}
 
 
 \chapter{Geometry and (States, Tensors, Forms)???}
@@ -292,6 +323,10 @@ In order to give a mathematically rigorous definition of lengths of vectors and 
 \subsection{Metric tensor}
 A more generalized inner product: feed in two vectors, and the outcome is a scalar representing the lengths of the vectors and the angle between them. 
 \subsection{Orthogonal basis}
+
+\begin{defn}
+	For metric tensor $g_{ab}$ and contravariant vectors $X^a$ and $Y^a$, the two vectors are \textbf{orthogonal} if $g_{ab}X^aY^b = 0$. 
+\end{defn}
 
 \section{Symplectic geometry and state spaces}
 We want to be able to represent our state configurations. Symplectic geometry arises when trying to describe their areas
