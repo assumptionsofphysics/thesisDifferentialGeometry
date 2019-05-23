@@ -47,13 +47,13 @@ Talking about location on the earth, a \textbf{single space cannot cover the ent
 
 
 \begin{defn}
-	A \textbf{coordinate system} $Q$ is a collection of $n$ quantities $q^i : U \to \mathbb{R}$ such that there is a one-to-one relationship between the physical objects in $U$ and the values of the quantities in $\mathbb{R}^n$.
+	A \textbf{coordinate system} $Q$ is a collection of $n$ quantities $q^i : U \to \mathbb{R}$ such that there is a one-to-one relationship between the physical objects in $U$ and elements of $\mathbb{R}^n$.
 \end{defn}
 
 
 - \emph{\textbf{Overlapping} coordinate systems can be transformed between}
 
-Moscow may be seen on both a map of Europe and a map of Asia, so its coordinate system can be swapped. Lisbon, however, will not show up on a map of Asia, so its coordinate system cannot be changed. 
+Moscow may be seen on both a map of Europe and a map of Asia, so its coordinate system can be swapped. Lisbon, however, will not show up on a map of Asia, so its coordinate system cannot be swapped. 
 
 \begin{tikzpicture}
 [roundnode/.style={circle, draw=green!60, fill=green!5, very thick, minimum size=7mm},
@@ -64,9 +64,9 @@ squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size
 \node[squarednode]	(realU) [right=of U] {$\mathbb{R}^n$};
 \node[squarednode]	(realV) [right=of V] {$\mathbb{R}^n$};
 
-\draw[<->] (U) -- (realU) node[midway, above] {$q^i$};
+\draw[<->] (U) -- (realU) node[midway, above] {$Q$};
 \draw[<->] (U) -- (V) node[midway, left] {$U\cap V$};
-\draw[<->] (V) -- (realV) node[midway, below] {$p^i$};
+\draw[<->] (V) -- (realV) node[midway, below] {$P$};
 \draw[<->] (realU) -- (realV);
 \end{tikzpicture}
 
@@ -113,6 +113,9 @@ If in the original weather report we were worrying about temperature, humidity, 
 	Suppose we have a manifold X of dimension n, with a submanifold Y of dimension k, such that $m \leq n$. Therefore, the coordinate transformation from X to Y will be onto, while the coordinate transformation from Y to X will be one-to-one. 
 \end{coro}
 
+
+TODO: \emph{Make more explicit in this picture the one-way arrow between X and Y.}
+
 \begin{tikzpicture}
 [roundnode/.style={circle, draw=green!60, fill=green!5, very thick, minimum size=7mm},
 squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size=5mm},
@@ -122,9 +125,9 @@ squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size
 \node[squarednode]	(realX) [right=of X] {$\mathbb{R}^n$};
 \node[squarednode]	(realY) [right=of Y] {$\mathbb{R}^n$};
 
-\draw[<->] (X) -- (realX) node[midway, above] {$q^i$};
+\draw[<->] (X) -- (realX) node[midway, above] {$Q$};
 \draw[->] (X) -- (Y) node[midway, left] {$U\cap V$};
-\draw[<->] (Y) -- (realY) node[midway, below] {$p^i$};
+\draw[<->] (Y) -- (realY) node[midway, below] {$P$};
 \draw[->] (realU) -- (realV);
 \end{tikzpicture}
 
@@ -174,6 +177,10 @@ TODO: parametrization of the boundary (\emph{consider a cube, rather than a ball
 	A \textbf{linear function of k-surfaces}, or \textbf{k-functional}, is a function $F : S^k \to \mathbb{R}$ such that for $\sigma_1$, $\sigma_2 \in S^k$, if $\sigma_1 \cap \sigma_2 \subseteq \partial\sigma_1 \cup \partial\sigma_2$, then $F(\sigma_1\cup\sigma_2) = F(\sigma_1) + F(\sigma_2)$. 
 \end{defn}
 
+\begin{defn}
+	$F = \cup_{k=0}^nF_k$ is the set of all k-functionals. 
+\end{defn}
+
 
 Given $F : S^k \to \mathbb{R}$, we can then define $G : S^{k+1} \to \mathbb{R}$ such that $G(\sigma) = F(\partial\sigma)$, and $H : S^{k+2} \to \mathbb{R}$ such that $H(\sigma) = G(\partial\sigma) = F(\partial\partial\sigma)$. 
 
@@ -214,11 +221,11 @@ So, $F(\emptyset) = F(\emptyset\cup\emptyset) = F(\emptyset) + F(\emptyset) \imp
 
 \chapter{Mathematical representation of infinitesimal objects}
 
+TODO: Start thinking about the writing in this chapter
 
 
 \section{Differentiable manifolds and densities}
 
-TODO: Since the k-functional can be defined by how it act on smaller parts, we only need to say how it behaves on infinitesimal parts (i.e. sequence of divisions). I.e. want to write it in terms of an integral
 
 - For k-surface $\sigma \in S^k$ and k-functional $F: S^k \to \mathbb{R}$, $F(\sigma) = \int_{\sigma}f(d\sigma)$. 
 
@@ -226,7 +233,7 @@ We are interested in studying distribution on manifolds. Talk about them as a me
 
 
 \begin{defn}
-	Given some manifold $X$ of dimension $n$, with overlapping subsets $U$ and $V$ with defined coordinate systems $[q]: U \to \mathbb{R}^n$ and $[p]: V \to \mathbb{R}^n$, if the coordinate transformation $f = [q] \circ [p]^{-1}$ is smooth, then $X$ is a \textbf{differentiable manifold}. 
+	Given some manifold $X$ of dimension $n$, with overlapping subsets $U$ and $V$ with defined coordinate systems $Q: U \to \mathbb{R}^n$ and $P: V \to \mathbb{R}^n$, if the coordinate transformation $f = Q \circ P^{-1}$ is smooth, then $X$ is a \textbf{differentiable manifold}. 
 \end{defn}
 
 \begin{defn}
@@ -242,6 +249,12 @@ We are interested in studying distribution on manifolds. Talk about them as a me
 \section{Vectors and infinitesimal displacements}
 
 - For a given line, a vector will be an infinitesimal displacement along that line. 
+
+- For a surface, a vector will be an infinitesimal displacement along the tangent plane. 
+
+\begin{defn}
+	For k-surface $\sigma^k \in S^k$, $d : S^k \to V^k$ will give the tangent plane of $\sigma^k$. 
+\end{defn}
 
 
 
@@ -259,26 +272,32 @@ We can define functions that convert infinitesimal displacements to a scalar val
 \section{Tensors and coordinate transformations}
 Some quantities can undergo one-to-one transformations between coordinate systems. In general, such quantities are tensors. 
 
-\emph{Use some variant of the definition used in d'Inverno}
+
 \begin{defn}
 	A \textbf{tensor} is an object with a one-to-one relationship with objects between coordinate systems. 
 \end{defn}
 
 \begin{coro}
-	A covariant tensor of \textbf{rank 1} is a vector, which transforms as  $X'^a = \frac{\partial x'^a}{\partial x^b} X^b$.  
+	A contravariant tensor of \textbf{rank 1} is a vector, which transforms as  $X'^a = \frac{\partial x'^a}{\partial x^b} X^b$.  
 \end{coro}
 
 \begin{coro}
-	A covariant tensor of \textbf{rank 2} is some quantity $X^{ab}$ such that $X'^{ab} = \frac{\partial x'^a}{\partial x^c} \frac{\partial x'^b}{\partial x^d} X^{cd}$. 
+	A covariant tensor of \textbf{rank 1} is a vector, which transforms as $X'_a = \frac{\partial x^b}{\partial x'^a} X_b$. 
 \end{coro}
 
 \begin{coro}
-	A covariant tensor of \textbf{rank 0} is a quantity $X$ such that $X' = X$. That is, a scalar. 
+	A contravariant tensor of \textbf{rank 2} is some quantity $X^{ab}$ such that $X'^{ab} = \frac{\partial x'^a}{\partial x^c} \frac{\partial x'^b}{\partial x^d} X^{cd}$. 
 \end{coro}
+
+\begin{coro}
+	A contravariant tensor of \textbf{rank 0} is a quantity $X$ such that $X' = X$. That is, a scalar. 
+\end{coro}
+
+- In general, objects associated with covariant tensors will have a lower index, and those associated with contravariant tensors will have an upper index. 
 
 \section{K-forms and wedge product}
 
-TODO: Think about the notation for differential of a boundary. It's kind of ugly. The previous statement of others confirming that it's clear, however, still applies.  (\emph{I've asked a couple people about this. General consensus is that the notation is unfortunate, but it is a clear representation of what's happening})
+TODO: Think about the notation for differential of a boundary. It's kind of ugly. The previous statement of others confirming that it's clear, however, still applies.  (\emph{Trying instead maybe $\Delta F_k(\sigma^k) = F_k(\partial\sigma^k)$})
 
 \begin{defn}
 	A linear function may be defined \textbf{infinitesimally}, such that $F : S^k \to \mathbb{R} = \int_{\sigma} f(d\sigma)$. Further, for $G : S^{k+1} \to \mathbb{R}$, $G(\sigma) = \int_{\sigma} g(d\sigma) = F(\partial\sigma) = \int_{\partial\sigma}f(d\partial\sigma)$. 
@@ -286,25 +305,34 @@ TODO: Think about the notation for differential of a boundary. It's kind of ugly
 
 In more abstract or complicated coordinate systems, it becomes useful to define geometry on infinitesimal displacements. 
 
+- \emph{We want to be able to describe displacements and functions along them independent of coordinate system. This gives us differential forms}
+
+
 \begin{defn}
 	A \textbf{differential} such as dx, dy, dz describes an infinitesimal displacement along a coordinate axis. 
 \end{defn}
 
 \begin{defn}
-	ASK: \emph{Talk about the wedge product in terms of what it does or what it "is"?}
-	The \textbf{wedge product} $\wedge$ of two vectors (is the plane they both lie in) (allows for the study of areas, volumes, and higher dimensional analogues that the vectors lie in). 
+	A \textbf{k-form} $f_k : V^k \to \mathbb{R}$ is a skew-symmetric covariant linear functional. 
 \end{defn}
 
-- \emph{We want to be able to describe displacements and functions along them independent of coordinate system. This gives us differential forms}
+\begin{defn}
+	$\Omega_k$ is the set of all forms of dimension k. 
+\end{defn}
+
+\begin{defn}
+	$\Omega = \cup_{k=0}^n$ is the set of all forms. 
+\end{defn}
+
 
 
 \begin{defn}
-	A \textbf{differential k-form} is the wedge product of k differentials. 
+	
+	The \textbf{wedge product} $\wedge : \Omega_k \times \Omega_j \to \Omega_{k+j}$ is used to study areas, volumes, and their higher dimensional equivalents. 
 \end{defn}
 
-\begin{coro}
-	The wedge product of an m-form and a n-form is an (m+n)-form. 
-\end{coro}
+
+
 
 
 \chapter{Geometry and (States, Tensors, Forms)???}
@@ -322,6 +350,7 @@ In order to give a mathematically rigorous definition of lengths of vectors and 
 
 \subsection{Metric tensor}
 A more generalized inner product: feed in two vectors, and the outcome is a scalar representing the lengths of the vectors and the angle between them. 
+
 \subsection{Orthogonal basis}
 
 \begin{defn}
@@ -332,6 +361,10 @@ A more generalized inner product: feed in two vectors, and the outcome is a scal
 We want to be able to represent our state configurations. Symplectic geometry arises when trying to describe their areas
 
 \subsection{Symplectic form and areas}
-Just as the metric tensor lets us define length and angles, the symplectic form lets us define areas. 
+Just as the metric tensor lets us define length and angles, the symplectic form lets us define areas.
+
+\begin{defn}
+	A \textbf{symplectic form} is a 2-form...
+\end{defn} 
 
 \end{document}
