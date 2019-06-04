@@ -10,8 +10,7 @@
 \newtheorem{defn}[equation]{Definition}
 \newtheorem{coro}[equation]{Corollary}
 \newtheorem{prop}[equation]{Proposition}
-\newtheorem{prf}[equation]{Proof}
-\renewenvironment{proof}{\emph{Proof}.}{\qed}
+\renewenvironment{proof}{\emph{Proof}}{\qed}
 
 
 \begin{document}
@@ -164,7 +163,6 @@ The boundary of a weather report would be readings restricted to a specific clim
 	Given $\sigma \in S^k$, $\partial\sigma \in S^{k-1}$, and $\partial\partial\sigma = \emptyset$. 
 \end{coro}
 
-TODO: parametrization of the boundary (\emph{consider a cube, rather than a ball})
 
 - The boundary appears to be very similar to a line, in that all points on the boundary are interior with respect to the boundary. 
 
@@ -172,6 +170,9 @@ TODO: parametrization of the boundary (\emph{consider a cube, rather than a ball
 
 \subsection{Linear Functionals of K-surfaces}
 
+\begin{defn}
+	S $=$ $\cup^n_{k=0}S^k$ is the set of all k-surfaces. 
+\end{defn}
 
 \begin{defn}
 	A \textbf{linear function of k-surfaces}, or \textbf{k-functional}, is a function $F : S^k \to \mathbb{R}$ such that for $\sigma_1$, $\sigma_2 \in S^k$, if $\sigma_1 \cap \sigma_2 \subseteq \partial\sigma_1 \cup \partial\sigma_2$, then $F(\sigma_1\cup\sigma_2) = F(\sigma_1) + F(\sigma_2)$. 
@@ -181,16 +182,21 @@ TODO: parametrization of the boundary (\emph{consider a cube, rather than a ball
 	$F = \cup_{k=0}^nF_k$ is the set of all k-functionals. 
 \end{defn}
 
+\begin{defn}
+	$\Delta : F_k \to F_{k+1}$ is the \textbf{exterior derivative on k-functionals}. 
+\end{defn}
 
-Given $F : S^k \to \mathbb{R}$, we can then define $G : S^{k+1} \to \mathbb{R}$ such that $G(\sigma) = F(\partial\sigma)$, and $H : S^{k+2} \to \mathbb{R}$ such that $H(\sigma) = G(\partial\sigma) = F(\partial\partial\sigma)$. 
+\begin{coro}
+	Given $f : S^k \to \mathbb{R}$, $f(\partial\sigma^{k+1}) = \Delta f(\sigma^{k+1})$. 
+\end{coro}
 
 \begin{prop}
 	A k-functional applied to the empty set gives zero. 
 \end{prop}
 \begin{proof}
-	Let $F : S^k \to \mathbb{R}$ be a linear function. Consider the empty set $\emptyset$. 
+	Let $f : S^k \to \mathbb{R}$ be a linear function. Consider the empty set $\emptyset$. 
 We have $\emptyset \cap \emptyset \subseteq \partial\emptyset \cup \partial\emptyset$, and $\emptyset = \emptyset\cup\emptyset$. 
-So, $F(\emptyset) = F(\emptyset\cup\emptyset) = F(\emptyset) + F(\emptyset) \implies F(\emptyset) = 2F(\emptyset) \implies F(\emptyset) = 0$
+So, $f(\emptyset) = f(\emptyset\cup\emptyset) = f(\emptyset) + f(\emptyset) \implies f(\emptyset) = 2f(\emptyset) \implies f(\emptyset) = 0$
 \end{proof}
 
 
@@ -198,21 +204,17 @@ So, $F(\emptyset) = F(\emptyset\cup\emptyset) = F(\emptyset) + F(\emptyset) \imp
 	For $F : S^k \to \mathbb{R}$ and k-surface $\sigma$, we say that $\partial F(\sigma) \equiv F(\partial\sigma)$. 
 \end{defn}
 
-\begin{coro}
-	For $F : S^k \to \mathbb{R}$ and $G : S^{k+1} \to \mathbb{R}$, since $F(\partial\sigma) = \partial F(\sigma)$, $\partial F(\sigma) = G(\sigma)$. 
-\end{coro}
 
 \begin{prop}
 	Let $F \in F_k$ be a k-functional, then $\partial\partial F = 0 $.
 \end{prop}
-\begin{prf}
-	We want to show that a linear functional applied to a surface whereon the boundary operator was applied twice will always give zero.
-	
+\begin{proof}
+
 	Let $F : S^k \to \mathbb{R}, G : S^{k+1} \to \mathbb{R}, and H : S^{k+2} \to \mathbb{R}$ be linear functions, and let $\sigma$ be an element of $S^k$. $H(\sigma) = G(\partial\sigma) = F(\partial\partial\sigma) = F(\emptyset) = 0$. 
 	
 	So, $H(\sigma) = 0$ $\forall$ $\sigma$, and H is the zero function. 
 	$\qedsymbol$
-\end{prf}
+\end{proof}
 
 
 
@@ -221,8 +223,7 @@ So, $F(\emptyset) = F(\emptyset\cup\emptyset) = F(\emptyset) + F(\emptyset) \imp
 
 \chapter{Mathematical representation of infinitesimal objects}
 
-TODO: Start thinking about the writing in this chapter
-
+TODO: Expand the justification of "for k-surface..." below here
 
 \section{Differentiable manifolds and densities}
 
@@ -240,9 +241,6 @@ We are interested in studying distribution on manifolds. Talk about them as a me
 	Given $U \subset X$, where X is a manifold, a $\textbf{measure}$ is a function $f : U \to \mathbb{R}^n$ for non-negative elements of $\mathbb{R}^n$. 
 \end{defn}
 
-%\begin{defn}
-%	Given measure $f$ defined on X, the \textbf{density} of X is the limit of ...?
-%\end{defn}
 
 
 
@@ -252,11 +250,45 @@ We are interested in studying distribution on manifolds. Talk about them as a me
 
 - For a surface, a vector will be an infinitesimal displacement along the tangent plane. 
 
+
+Consider a point P($x^a$).
+ 
+$dP = \frac{\partial P}{\partial x^a} dx^a = \frac{\partial P}{\partial x^b} dx^b = \frac{\partial P}{\partial x^a}\frac{\partial x^a}{\partial x^b} dx^b$
+
+$\implies dx^a = \frac{\partial x^a}{\partial x^b}dx^b $
+
+
+\begin{defn}
+	The \textbf{tangent plane} $T_p$ of some point P(x) is the set of tangent vectors at P(x). 
+\end{defn}
+ 
 \begin{defn}
 	For k-surface $\sigma^k \in S^k$, $d : S^k \to V^k$ will give the tangent plane of $\sigma^k$. 
 \end{defn}
 
+\begin{defn}
+	Given vectors $X^a$ in the coordinate system $x^a$ and $X'^a$ in coordinate system $x'^a$, $X^a$ and $X'^a$ can be transformed between as $X'^a = \frac{\partial x'^a}{\partial x^b} X^b$. 
+\end{defn}
 
+
+
+\section{Multivectors and Clifford Algebra}
+
+\emph{Note that electrodynamics has been reworked in the language of multivectors. Probably a good example to use}
+
+\subsection{Multivectors}
+
+- We want to be able to give a line, surface, body, etc. an orientation. This gives us multivectors. Talk also about their relationship to k-forms. 
+
+\subsection{Operations between multivectors}
+
+- Here we will be talking about inner and outer products, and how they behave with multivectors of different degrees. Maybe move the wedge product definition up here? 
+
+\subsection{Clifford Algebra}
+
+- Define the Clifford product, and talk about \emph{cliffors} as combinations of multivectors of varying degrees
+
+\subsection{Integrals and Derivatives} 
 
 
 \section{Covectors and linear functions of displacements}
@@ -265,9 +297,8 @@ For some line P, $\int df(P)$ = $\int \frac{\partial f(P)}{{\partial x^i}} dx^i$
 
 We can define functions that convert infinitesimal displacements to a scalar value. 
 
-\begin{defn}
-	Given vectors $X^a$ in the coordinate system $x^a$ and $X'^a$ in coordinate system $x'^a$, $X^a$ and $X'^a$ can be transformed between as $X'^a = \frac{\partial x'^a}{\partial x^b} X^b$. 
-\end{defn}
+
+
 
 \section{Tensors and coordinate transformations}
 Some quantities can undergo one-to-one transformations between coordinate systems. In general, such quantities are tensors. 
@@ -297,7 +328,8 @@ Some quantities can undergo one-to-one transformations between coordinate system
 
 \section{K-forms and wedge product}
 
-TODO: Think about the notation for differential of a boundary. It's kind of ugly. The previous statement of others confirming that it's clear, however, still applies.  (\emph{Trying instead maybe $\Delta F_k(\sigma^k) = F_k(\partial\sigma^k)$})
+
+
 
 \begin{defn}
 	A linear function may be defined \textbf{infinitesimally}, such that $F : S^k \to \mathbb{R} = \int_{\sigma} f(d\sigma)$. Further, for $G : S^{k+1} \to \mathbb{R}$, $G(\sigma) = \int_{\sigma} g(d\sigma) = F(\partial\sigma) = \int_{\partial\sigma}f(d\partial\sigma)$. 
