@@ -17,12 +17,23 @@
 
 \tableofcontents
 
+
+Think about a new outline: 
+- Introduce quantities, manifolds, etc. as before. 
+- K-vectors
+- Outer product
+- Symplectic form
+- K-forms as functions of k-vectors
+- Inner product
+- ???
+
+
 \chapter{Mathematical representation of physical objects}
 
 
 
 \section{Manifolds and continuous quantities}
-\emph{We tell physical object apart by identifying some measurable properties. In particular, we are interested in properties that are continuous quantities. This gives us manifolds.}
+\emph{We tell physical objects apart by identifying some measurable properties. In particular, we are interested in properties that are continuous quantities. This gives us manifolds.}
 
 \subsection{Physical objects and quantities}
 
@@ -38,7 +49,7 @@ On some set of all possible weather configurations, we look at a specific subset
 Talking about location on the earth, a \textbf{single space cannot cover the entire earth such that a consistent set of quantities will be defined}. The poles must be in two separate subsets, with separate quantities. 
 
 \begin{defn}
-	A \textbf{quantity} is an function $q : U \to \mathbb{R}$ that assigns a measurable value to a physical object.
+	A \textbf{quantity} is a function $q : U \to \mathbb{R}$ that assigns a measurable value to a physical object.
 \end{defn}
 
 
@@ -101,7 +112,7 @@ If in the original weather report we were worrying about temperature, humidity, 
 
 
 \begin{defn}
-	Consider a manifold X of dimension n, and a manifold Y of dimension k, such that $k \leq n$. Y is a \textbf{submanifold} or a m-surface of X if any point on Y is also a point on X. 
+	Consider a manifold X of dimension n, and a manifold Y of dimension k, such that $k \leq n$. Y is a \textbf{submanifold} or a k-surface of X if any point on Y is also a point on X. 
 \end{defn}
 
 - parameterization of Y can be done in terms of the coordinates of X; $q^i(p^j)$
@@ -109,7 +120,7 @@ If in the original weather report we were worrying about temperature, humidity, 
 
 
 \begin{coro}
-	Suppose we have a manifold X of dimension n, with a submanifold Y of dimension k, such that $m \leq n$. Therefore, the coordinate transformation from X to Y will be onto, while the coordinate transformation from Y to X will be one-to-one. 
+	Suppose we have a manifold X of dimension n, with a submanifold Y of dimension k, such that $k \leq n$. Therefore, the coordinate transformation from X to Y will be onto, while the coordinate transformation from Y to X will be one-to-one. 
 \end{coro}
 
 
@@ -143,7 +154,7 @@ The boundary of a weather report would be readings restricted to a specific clim
 
 
 \begin{defn}
-	Given k-surface $\sigma \in S^k$, if for some point $x \in \sigma$ you can construct a open neighborhood around x in $\mathbb{R}^n$ completely within $\sigma$, then x is an \textbf{interior point} of $\sigma$. 
+	Given k-surface $\sigma \in S^k$, if for some point $x \in \sigma$ you can construct a open neighborhood around x completely within $\sigma$, then x is an \textbf{interior point} of $\sigma$. 
 \end{defn}
 
 \begin{defn}
@@ -170,12 +181,14 @@ The boundary of a weather report would be readings restricted to a specific clim
 
 \subsection{Linear Functionals of K-surfaces}
 
+TODO: Clean up the definitions here
+
 \begin{defn}
 	S $=$ $\cup^n_{k=0}S^k$ is the set of all k-surfaces. 
 \end{defn}
 
 \begin{defn}
-	A \textbf{linear function of k-surfaces}, or \textbf{k-functional}, is a function $F : S^k \to \mathbb{R}$ such that for $\sigma_1$, $\sigma_2 \in S^k$, if $\sigma_1 \cap \sigma_2 \subseteq \partial\sigma_1 \cup \partial\sigma_2$, then $F(\sigma_1\cup\sigma_2) = F(\sigma_1) + F(\sigma_2)$. 
+	A \textbf{linear function of k-surfaces}, or \textbf{k-functional}, is a function $f : S^k \to \mathbb{R}$ such that for $\sigma_1$, $\sigma_2 \in S^k$, if $\sigma_1 \cap \sigma_2 \subseteq \partial\sigma_1 \cup \partial\sigma_2$, then $f(\sigma_1\cup\sigma_2) = f(\sigma_1) + f(\sigma_2)$. 
 \end{defn}
 
 \begin{defn}
@@ -201,19 +214,18 @@ So, $f(\emptyset) = f(\emptyset\cup\emptyset) = f(\emptyset) + f(\emptyset) \imp
 
 
 \begin{defn}
-	For $F : S^k \to \mathbb{R}$ and k-surface $\sigma$, we say that $\partial F(\sigma) \equiv F(\partial\sigma)$. 
+	For $f : S^k \to \mathbb{R}$ and k-surface $\sigma$, we say that $\partial f(\sigma) \equiv f(\partial\sigma)$. 
 \end{defn}
 
 
 \begin{prop}
-	Let $F \in F_k$ be a k-functional, then $\partial\partial F = 0 $.
+	Let $f \in F_k$ be a k-functional, then $\partial\partial f = 0 $.
 \end{prop}
 \begin{proof}
 
-	Let $F : S^k \to \mathbb{R}, G : S^{k+1} \to \mathbb{R}, and H : S^{k+2} \to \mathbb{R}$ be linear functions, and let $\sigma$ be an element of $S^k$. $H(\sigma) = G(\partial\sigma) = F(\partial\partial\sigma) = F(\emptyset) = 0$. 
+	Let $f : S^k \to \mathbb{R}, g : S^{k+1} \to \mathbb{R},$ and $h : S^{k+2} \to \mathbb{R}$ be linear functions, and let $\sigma$ be an element of $S^k$. $h(\sigma) = g(\partial\sigma) = f(\partial\partial\sigma) = f(\emptyset) = 0$. 
 	
-	So, $H(\sigma) = 0$ $\forall$ $\sigma$, and H is the zero function. 
-	$\qedsymbol$
+	So, $h(\sigma) = 0$ $\forall$ $\sigma$, and h is the zero function. 
 \end{proof}
 
 
@@ -237,9 +249,6 @@ We are interested in studying distribution on manifolds. Talk about them as a me
 	Given some manifold $X$ of dimension $n$, with overlapping subsets $U$ and $V$ with defined coordinate systems $Q: U \to \mathbb{R}^n$ and $P: V \to \mathbb{R}^n$, if the coordinate transformation $f = Q \circ P^{-1}$ is smooth, then $X$ is a \textbf{differentiable manifold}. 
 \end{defn}
 
-\begin{defn}
-	Given $U \subset X$, where X is a manifold, a $\textbf{measure}$ is a function $f : U \to \mathbb{R}^n$ for non-negative elements of $\mathbb{R}^n$. 
-\end{defn}
 
 
 
@@ -263,7 +272,7 @@ $\implies dx^a = \frac{\partial x^a}{\partial x^b}dx^b $
 \end{defn}
  
 \begin{defn}
-	For k-surface $\sigma^k \in S^k$, $d : S^k \to V^k$ will give the tangent plane of $\sigma^k$. 
+	For k-surface $\sigma \in S^k$, $d : S^k \to V^k$ will give the tangent plane of $\sigma$. 
 \end{defn}
 
 \begin{defn}
@@ -286,9 +295,7 @@ $\implies dx^a = \frac{\partial x^a}{\partial x^b}dx^b $
 
 \subsection{Clifford Algebra}
 
-- Define the Clifford product, and talk about \emph{cliffors} as combinations of multivectors of varying degrees
-
-\subsection{Integrals and Derivatives} 
+- Define the Clifford product, and talk about \emph{cliffors} as combinations of multivectors of varying degrees 
 
 
 \section{Covectors and linear functions of displacements}
@@ -317,11 +324,11 @@ Some quantities can undergo one-to-one transformations between coordinate system
 \end{coro}
 
 \begin{coro}
-	A contravariant tensor of \textbf{rank 2} is some quantity $X^{ab}$ such that $X'^{ab} = \frac{\partial x'^a}{\partial x^c} \frac{\partial x'^b}{\partial x^d} X^{cd}$. 
+	A contravariant tensor of \textbf{rank 2} is a matrix $X^{ab}$ that transforms as $X'^{ab} = \frac{\partial x'^a}{\partial x^c} \frac{\partial x'^b}{\partial x^d} X^{cd}$. 
 \end{coro}
 
 \begin{coro}
-	A contravariant tensor of \textbf{rank 0} is a quantity $X$ such that $X' = X$. That is, a scalar. 
+	A contravariant tensor of \textbf{rank 0} is a quantity $X$ that transforms $X' = X$. That is, a scalar. 
 \end{coro}
 
 - In general, objects associated with covariant tensors will have a lower index, and those associated with contravariant tensors will have an upper index. 
@@ -353,14 +360,14 @@ In more abstract or complicated coordinate systems, it becomes useful to define 
 \end{defn}
 
 \begin{defn}
-	$\Omega = \cup_{k=0}^n$ is the set of all forms. 
+	$\Omega = \cup_{k=0}^n\Omega_k$ is the set of all forms. 
 \end{defn}
 
 
 
 \begin{defn}
 	
-	The \textbf{wedge product} $\wedge : \Omega_k \times \Omega_j \to \Omega_{k+j}$ is used to study areas, volumes, and their higher dimensional equivalents. 
+	The \textbf{outer product} $\wedge : \Omega_k \times \Omega_j \to \Omega_{k+j}$ combines forms. 
 \end{defn}
 
 
@@ -369,24 +376,36 @@ In more abstract or complicated coordinate systems, it becomes useful to define 
 
 \chapter{Geometry and (States, Tensors, Forms)???}
 
-\section{Riemannian geometry}
-In order to give a mathematically rigorous definition of lengths of vectors and the angle between them, we use an inner product. Vector spaces with an inner product are Riemannian.
-
-\begin{defn}
-	Given two vectors $u,v \in V$, the \textbf{inner product} $<u,v> : V \times V \to \mathbb{R}$ is defined as $<u,v> = |u||v|cos(\theta)$, where $\theta$ is the angle between u and v. 
-\end{defn}
-\begin{defn}
-	Given two vectors $u,v \in V$, the vector space V whereon is defined an \textbf{inner product} $<u,v> : V \times V \to \mathbb{R}$ is \textbf{Riemannian}.
-	\end{defn}
-
 
 \subsection{Metric tensor}
 A more generalized inner product: feed in two vectors, and the outcome is a scalar representing the lengths of the vectors and the angle between them. 
 
+\begin{defn}
+	A \textbf{metric tensor g} is a function that takes two vectors and returns a real scalar. 
+\end{defn}
+
+
+\section{Riemannian geometry}
+In order to give a mathematically rigorous definition of lengths of vectors and the angle between them, we use an inner product. Vector spaces with an inner product are Riemannian.
+
+\begin{defn}
+	Given two vectors $X^a,Y^a \in V$ and a metric tensor $g_{ab}$, the \textbf{inner product} $<X^a,Y^a> : V \times V \to \mathbb{R}$ is defined as $<X^a,Y^a> = g_{ab}X^aY^b$. 
+\end{defn}
+
+\begin{coro}
+	The magnitude of $<u,v>$ is $|u||v|cos(\theta)$, where $\theta$ is the angle between u and v. 
+\end{coro}
+
+\begin{defn}
+	If a vector space V contains an inner product, then V is \textbf{Riemannian}.
+	\end{defn}
+
+
+
 \subsection{Orthogonal basis}
 
 \begin{defn}
-	For metric tensor $g_{ab}$ and contravariant vectors $X^a$ and $Y^a$, the two vectors are \textbf{orthogonal} if $g_{ab}X^aY^b = 0$. 
+	For contravariant vectors $X^a$ and $Y^a$, the two vectors are \textbf{orthogonal} if $<X^a,Y^b> = 0$. 
 \end{defn}
 
 \section{Symplectic geometry and state spaces}
@@ -395,8 +414,5 @@ We want to be able to represent our state configurations. Symplectic geometry ar
 \subsection{Symplectic form and areas}
 Just as the metric tensor lets us define length and angles, the symplectic form lets us define areas.
 
-\begin{defn}
-	A \textbf{symplectic form} is a 2-form...
-\end{defn} 
 
 \end{document}
