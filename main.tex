@@ -92,7 +92,7 @@ squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size
 
 - \emph{Now that we have sets that can be mapped to the real numbers, we can define manifolds}
 
-For the weather example, a manifold would be all possible weather conditions (including things that can't necessarily be quantified, like the color of a sunset), with a subsection whereon is defined a weather report, measuring temperature, wind speed, etc. in different places. If we're looking to parametrize the entire earth, then our manifold cannot be covered with a single subset, because the earth is roughly a sphere. We will need multiple subsets to cover all of the earth, and all possible weather conditions. 
+For the weather example, a manifold would be all possible weather conditions with a subsection whereon is defined a weather report, measuring temperature, wind speed, etc. in different places. If we're looking to parametrize the entire earth, then our manifold cannot be covered with a single subset, because the earth has poles. We will need multiple subsets to cover all of the earth, and all possible weather conditions. 
 
 
  
@@ -144,14 +144,14 @@ squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size
 \draw[->] (realU) -- (realV);
 \end{tikzpicture}
 
--What are the possible submanifolds of a given manifold?
+What are the possible submanifolds of a given manifold?
 
 
 \begin{defn}
 	For some manifold X of dimension n, $S^k$ is the set of all possible \textbf{k-surfaces}, or sub-manifolds of dimension $k \leq n$. 
 \end{defn}
 
-- \emph{A manifold of dimension n can have a boundary of dimension n-1. The boundary itself will not have a boundary.}
+A manifold of dimension n can have a boundary of dimension n-1. The boundary itself will not have a boundary.
 
 The boundary of a weather report would be readings restricted to a specific climate. 
 
@@ -168,9 +168,9 @@ The boundary of a weather report would be readings restricted to a specific clim
 	Given k-surface $\sigma \in S^k$, $\partial\sigma \in S^{k-1}$ is the set of all boundary points of $\sigma$, or, the \textbf{boundary} of $\sigma$. 
 \end{defn}
 
-- \emph{Dimension is one less since at each section of the boundary, one of the dimensions must be held fixed. }
+Dimension is one less since at each section of the boundary, one of the dimensions must be held fixed.
 
-- \emph{$\partial\partial\sigma$ is empty since all points on the boundary are interior with respect to the boundary}
+$\partial\partial\sigma$ is empty since all points on the boundary are interior with respect to the boundary.
 
 
 \begin{coro}
@@ -178,57 +178,63 @@ The boundary of a weather report would be readings restricted to a specific clim
 \end{coro}
 
 
-- The boundary appears to be very similar to a line, in that all points on the boundary are interior with respect to the boundary. 
+The boundary appears to be very similar to a line, in that all points on the boundary are interior with respect to the boundary. 
 
-- For a cube, the boundary will suffer discontinuities due to the corners. This is ok, since there are a countable number of discontinuities. 
+For a cube, the boundary will suffer discontinuities due to the corners. This is ok, since there are a countable number of discontinuities. 
 
 \subsection{Linear Functionals of K-surfaces}
 
 TODO: Clean up the definitions here
+
+We have the tools now to begin talking about functions along our k-surfaces. 
 
 \begin{defn}
 	S $=$ $\cup^n_{k=0}S^k$ is the set of all k-surfaces. 
 \end{defn}
 
 \begin{defn}
-	A \textbf{linear function of k-surfaces}, or \textbf{k-functional}, is a function $f : S^k \to \mathbb{R}$ such that for $\sigma_1$, $\sigma_2 \in S^k$, if $\sigma_1 \cap \sigma_2 \subseteq \partial\sigma_1 \cup \partial\sigma_2$, then $f(\sigma_1\cup\sigma_2) = f(\sigma_1) + f(\sigma_2)$. 
+	A \textbf{linear function of k-surfaces}, or \textbf{k-functional}, is a function $F : S^k \to \mathbb{R}$ such that for $\sigma_1$, $\sigma_2 \in S^k$, if $\sigma_1 \cap \sigma_2 \subseteq \partial\sigma_1 \cup \partial\sigma_2$, then $F(\sigma_1\cup\sigma_2) = F(\sigma_1) + F(\sigma_2)$. 
+\end{defn}
+
+\begin{defn}
+	$F_k$ is the set of all functionals of dimension k. 
 \end{defn}
 
 \begin{defn}
 	$F = \cup_{k=0}^nF_k$ is the set of all k-functionals. 
 \end{defn}
 
-\begin{defn}
-	$\Delta : F_k \to F_{k+1}$ is the \textbf{exterior derivative on k-functionals}. 
-\end{defn}
+%\begin{defn}
+%	$\Delta : F_k \to F_{k+1}$ is the \textbf{exterior derivative on k-functionals}. 
+%\end{defn}
 
 \begin{coro}
-	Given $f : S^k \to \mathbb{R}$, $f(\partial\sigma^{k+1}) = \Delta f(\sigma^{k+1})$. 
+	Given $F : S^k \to \mathbb{R}$, $F(\partial\sigma^{k+1}) = \Delta F(\sigma^{k+1})$. 
 \end{coro}
 
 \begin{prop}
 	A k-functional applied to the empty set gives zero. 
 \end{prop}
 \begin{proof}
-	Let $f : S^k \to \mathbb{R}$ be a linear function. Consider the empty set $\emptyset$. 
+	Let $F : S^k \to \mathbb{R}$ be a linear function. Consider the empty set $\emptyset$. 
 We have $\emptyset \cap \emptyset \subseteq \partial\emptyset \cup \partial\emptyset$, and $\emptyset = \emptyset\cup\emptyset$. 
-So, $f(\emptyset) = f(\emptyset\cup\emptyset) = f(\emptyset) + f(\emptyset) \implies f(\emptyset) = 2f(\emptyset) \implies f(\emptyset) = 0$
+So, $F(\emptyset) = F(\emptyset\cup\emptyset) = F(\emptyset) + F(\emptyset) \implies F(\emptyset) = 2F(\emptyset) \implies F(\emptyset) = 0$
 \end{proof}
 
 
 \begin{defn}
-	For $f : S^k \to \mathbb{R}$ and k-surface $\sigma$, we say that $\partial f(\sigma) \equiv f(\partial\sigma)$. 
+	For $F : S^k \to \mathbb{R}$ and k-surface $\sigma$, we say that $\partial F(\sigma) \equiv F(\partial\sigma)$. 
 \end{defn}
 
 
 \begin{prop}
-	Let $f \in F_k$ be a k-functional, then $\partial\partial f = 0 $.
+	Let $F \in F_k$ be a k-functional, then $\partial\partial F = 0 $.
 \end{prop}
 \begin{proof}
 
-	Let $f : S^k \to \mathbb{R}, g : S^{k+1} \to \mathbb{R},$ and $h : S^{k+2} \to \mathbb{R}$ be linear functions, and let $\sigma$ be an element of $S^k$. $h(\sigma) = g(\partial\sigma) = f(\partial\partial\sigma) = f(\emptyset) = 0$. 
+	Let $F : S^k \to \mathbb{R}, G : S^{k+1} \to \mathbb{R},$ and $H : S^{k+2} \to \mathbb{R}$ be linear functions, and let $\sigma$ be an element of $S^k$. $H(\sigma) = G(\partial\sigma) = F(\partial\partial\sigma) = F(\emptyset) = 0$. 
 	
-	So, $h(\sigma) = 0$ $\forall$ $\sigma$, and h is the zero function. 
+	So, $H(\sigma) = 0$ $\forall$ $\sigma$, and H is the zero function. 
 \end{proof}
 
 
@@ -292,6 +298,11 @@ $\implies dx^a = \frac{\partial x^a}{\partial x^b}dx^b $
 
 - We want to be able to give a line, surface, body, etc. an orientation. This gives us multivectors. Talk also about their relationship to k-forms. 
 
+\begin{defn}
+	A multivector is a geometrical object with a dimensionally appropriate magnitude and a direction. 
+\end{defn}
+
+
 \subsection{Operations between multivectors}
 
 - Here we will be talking about inner and outer products, and how they behave with multivectors of different degrees. Maybe move the wedge product definition up here? 
@@ -303,7 +314,7 @@ $\implies dx^a = \frac{\partial x^a}{\partial x^b}dx^b $
 
 \section{Covectors and linear functions of displacements}
 
-For some line P, $\int df(P)$ = $\int \frac{\partial f(P)}{{\partial x^i}} dx^i$ = $\int \frac{{\partial f(P)}}{{\partial x^i}} e^i (dx^j e_j)$
+For some line P, $\int df(P)$ = $\int \frac{\partial f(P)}{{\partial x^i}} dx^i$ = $\int \frac{\partial f}{\partial x^i}\frac{\partial x^i}{\partial P}dP$ = $\int \frac{{\partial f}}{{\partial x^i}} e^i (dx^j e_j)$
 
 We can define functions that convert infinitesimal displacements to a scalar value. 
 
@@ -417,5 +428,40 @@ We want to be able to represent our state configurations. Symplectic geometry ar
 \subsection{Symplectic form and areas}
 Just as the metric tensor lets us define length and angles, the symplectic form lets us define areas.
 
+
+
+
+$F(\lambda) = \int_{\lambda}f(d\lambda) = \int_{v_0}^{v_1}\frac{\partial f}{\partial x^i}\frac{\partial x^i}{\partial v}dv
+$
+
+
+$\int\int\frac{\partial^2f}{\partial x^i\partial x^j}e^i\wedge e^j (\frac{\partial x^k}{\partial u}du e_k, \frac{\partial x^l}{\partial v}dv e_l)$
+
+
+
+For vectors a and b, $ab := <a,b> + a\wedge b$
+
+$X = \lambda + \vec{e} + \hat{b} + \bar{T}$
+	
+	
+For 1-form $\omega_1$ and vector $\vec{v}$, $\omega_1(\vec{v}) = <\vec{e},\vec{v}>$ for some vector $\vec{e}$.
+
+Likewise, for 2-form $\omega_2$ and vectors $\vec{v_1},\vec{v_2}$, $\omega_2(\vec{v_1},\vec{v_2}) = <\hat{b},\vec{v_1}\wedge\vec{v_2}>$ for some bivector $\hat{b}$.  
+
+
+Hodge Operator $I := \vec{e_1}\vec{e_2}\vec{e_3}$
+
+$\vec{e} = \frac{\vec{D}}{\sqrt{\epsilon}}$
+
+$\hat{b} = \sqrt{\mu}\hat{H}$
+
+$f := \vec{e} + \hat{b} = \vec{e} + I\vec{b}$
+
+
+$D = \nabla + \sqrt{\epsilon \mu}\frac{\partial}{\partial t}$
+
+$j = \frac{\rho}{\sqrt{\epsilon}} - \sqrt{\mu}\vec{j}$
+
+$Df + \vec{e}Dln(\sqrt{\epsilon}) + \hat{b}Dln(\sqrt{\mu}) = j$
 
 \end{document}
