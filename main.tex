@@ -60,7 +60,7 @@ Talking about location on the earth, a \textbf{single space cannot cover the ent
 
 
 \begin{defn}
-	A \textbf{coordinate system} $Q$ is a collection of $n$ quantities $q^i : U \to \mathbb{R}$ such that there is a one-to-one relationship between the physical objects in $U$ and elements of $\mathbb{R}^n$.
+	A \textbf{coordinate system} $Q$ is a collection of $n$ quantities $q^i : U \to \mathbb{R}^n$ such that there is a one-to-one relationship between the physical objects in $U$ and elements of $\mathbb{R}^n$.
 \end{defn}
 
 
@@ -184,7 +184,7 @@ For a cube, the boundary will suffer discontinuities due to the corners. This is
 
 \subsection{Linear Functionals of K-surfaces}
 
-TODO: Clean up the definitions here
+TODO: Clean up the definitions here, \textbf{or get a narrative started} 
 
 We have the tools now to begin talking about functions along our k-surfaces. 
 
@@ -204,9 +204,9 @@ We have the tools now to begin talking about functions along our k-surfaces.
 	$F = \cup_{k=0}^nF_k$ is the set of all k-functionals. 
 \end{defn}
 
-%\begin{defn}
-%	$\Delta : F_k \to F_{k+1}$ is the \textbf{exterior derivative on k-functionals}. 
-%\end{defn}
+\begin{defn}
+	$\Delta : F_k \to F_{k+1}$ is the \textbf{exterior derivative on k-functionals}. 
+\end{defn}
 
 \begin{coro}
 	Given $F : S^k \to \mathbb{R}$, $F(\partial\sigma^{k+1}) = \Delta F(\sigma^{k+1})$. 
@@ -251,7 +251,7 @@ TODO: Expand the justification of "for k-surface..." below here
 
 - For k-surface $\sigma \in S^k$ and k-functional $F: S^k \to \mathbb{R}$, $F(\sigma) = \int_{\sigma}f(d\sigma)$. 
 
-We are interested in studying distribution on manifolds. Talk about them as a measure. The limit on infinitesimal areas is a density and requires coordinates to be differentiable.
+We are interested in studying distribution on manifolds. The limit on infinitesimal areas is a density and requires coordinates to be differentiable.
 
 
 \begin{defn}
@@ -294,6 +294,9 @@ $\implies dx^a = \frac{\partial x^a}{\partial x^b}dx^b $
 
 \emph{Note that electrodynamics has been reworked in the language of multivectors. Probably a good example to use}
 
+
+
+
 \subsection{Multivectors}
 
 - We want to be able to give a line, surface, body, etc. an orientation. This gives us multivectors. Talk also about their relationship to k-forms. 
@@ -303,9 +306,15 @@ $\implies dx^a = \frac{\partial x^a}{\partial x^b}dx^b $
 \end{defn}
 
 
+
 \subsection{Operations between multivectors}
 
-- Here we will be talking about inner and outer products, and how they behave with multivectors of different degrees. Maybe move the wedge product definition up here? 
+- Here we will be talking about outer products, and how they behave with multivectors of different degrees. Introduce also the geometric product as the sum of the symmetric and antisymmetric products
+
+\begin{defn}
+	
+	The \textbf{outer product} $\wedge : $*set of k-vectors* $\times$ *set of k-vectors* $\to$ *set of k+1-vectors* combines multivectors antisymmetrically. 
+\end{defn}
 
 \subsection{Clifford Algebra}
 
@@ -347,7 +356,7 @@ Some quantities can undergo one-to-one transformations between coordinate system
 
 - In general, objects associated with covariant tensors will have a lower index, and those associated with contravariant tensors will have an upper index. 
 
-\section{K-forms and wedge product}
+\section{K-forms}
 
 
 
@@ -369,6 +378,8 @@ In more abstract or complicated coordinate systems, it becomes useful to define 
 	A \textbf{k-form} $f_k : V^k \to \mathbb{R}$ is a skew-symmetric covariant linear functional. 
 \end{defn}
 
+\emph{K-forms are functions along k-vectors}
+
 \begin{defn}
 	$\Omega_k$ is the set of all forms of dimension k. 
 \end{defn}
@@ -377,18 +388,25 @@ In more abstract or complicated coordinate systems, it becomes useful to define 
 	$\Omega = \cup_{k=0}^n\Omega_k$ is the set of all forms. 
 \end{defn}
 
-
-
 \begin{defn}
-	
-	The \textbf{outer product} $\wedge : \Omega_k \times \Omega_j \to \Omega_{k+j}$ combines forms. 
+	\textbf{Stoke's Theorem}: For k-form $\omega_k$ and k-surface $\sigma^k$, $\int_{\partial \sigma^k}\omega_k = \int_{\sigma^k}\Delta\omega_k$. 
 \end{defn}
 
 
 
 
 
+
+
+
 \chapter{Geometry and (States, Tensors, Forms)???}
+
+
+\section{Symplectic geometry and state spaces}
+We want to be able to represent our state configurations. Symplectic geometry arises when trying to describe their areas
+
+\subsection{Symplectic form and areas}
+
 
 
 \subsection{Metric tensor}
@@ -422,46 +440,10 @@ In order to give a mathematically rigorous definition of lengths of vectors and 
 	For contravariant vectors $X^a$ and $Y^a$, the two vectors are \textbf{orthogonal} if $<X^a,Y^b> = 0$. 
 \end{defn}
 
-\section{Symplectic geometry and state spaces}
-We want to be able to represent our state configurations. Symplectic geometry arises when trying to describe their areas
-
-\subsection{Symplectic form and areas}
-Just as the metric tensor lets us define length and angles, the symplectic form lets us define areas.
 
 
 
 
-$F(\lambda) = \int_{\lambda}f(d\lambda) = \int_{v_0}^{v_1}\frac{\partial f}{\partial x^i}\frac{\partial x^i}{\partial v}dv
-$
 
-
-$\int\int\frac{\partial^2f}{\partial x^i\partial x^j}e^i\wedge e^j (\frac{\partial x^k}{\partial u}du e_k, \frac{\partial x^l}{\partial v}dv e_l)$
-
-
-
-For vectors a and b, $ab := <a,b> + a\wedge b$
-
-$X = \lambda + \vec{e} + \hat{b} + \bar{T}$
-	
-	
-For 1-form $\omega_1$ and vector $\vec{v}$, $\omega_1(\vec{v}) = <\vec{e},\vec{v}>$ for some vector $\vec{e}$.
-
-Likewise, for 2-form $\omega_2$ and vectors $\vec{v_1},\vec{v_2}$, $\omega_2(\vec{v_1},\vec{v_2}) = <\hat{b},\vec{v_1}\wedge\vec{v_2}>$ for some bivector $\hat{b}$.  
-
-
-Hodge Operator $I := \vec{e_1}\vec{e_2}\vec{e_3}$
-
-$\vec{e} = \frac{\vec{D}}{\sqrt{\epsilon}}$
-
-$\hat{b} = \sqrt{\mu}\hat{H}$
-
-$f := \vec{e} + \hat{b} = \vec{e} + I\vec{b}$
-
-
-$D = \nabla + \sqrt{\epsilon \mu}\frac{\partial}{\partial t}$
-
-$j = \frac{\rho}{\sqrt{\epsilon}} - \sqrt{\mu}\vec{j}$
-
-$Df + \vec{e}Dln(\sqrt{\epsilon}) + \hat{b}Dln(\sqrt{\mu}) = j$
 
 \end{document}
