@@ -100,10 +100,6 @@ For the weather example, a manifold would be all possible weather conditions wit
 	A \textbf{manifold} is a set of physical objects $X$ such that for any $x \in X$ there exists a $U \subset X$ that contains $x$ and upon which a coordinate system $Q$ is defined.
 \end{defn}
 
-\begin{defn}
-	For a given manifold X, a collection of quantities defined such that the subsets spanning X each have quantities are called the \textbf{atlases} of X. 
-\end{defn}
-
 
 
 \subsection{Sub-manifolds and k-surfaces}
@@ -205,12 +201,10 @@ We have the tools now to begin talking about functions along our k-surfaces.
 \end{defn}
 
 \begin{defn}
-	$\Delta : F_k \to F_{k+1}$ is the \textbf{exterior derivative on k-functionals}. 
+	$\Delta : F_k \to F_{k+1}$ such that $\Delta F(\sigma^{k+1}) = F(\partial\sigma^{k+1})$ is the \textbf{exterior derivative on k-functionals}. 
 \end{defn}
 
-\begin{coro}
-	Given $F : S^k \to \mathbb{R}$, $F(\partial\sigma^{k+1}) = \Delta F(\sigma^{k+1})$. 
-\end{coro}
+TODO: Not "exterior derivative", choose a name that reminds one of it though
 
 \begin{prop}
 	A k-functional applied to the empty set gives zero. 
@@ -221,10 +215,6 @@ We have $\emptyset \cap \emptyset \subseteq \partial\emptyset \cup \partial\empt
 So, $F(\emptyset) = F(\emptyset\cup\emptyset) = F(\emptyset) + F(\emptyset) \implies F(\emptyset) = 2F(\emptyset) \implies F(\emptyset) = 0$
 \end{proof}
 
-
-\begin{defn}
-	For $F : S^k \to \mathbb{R}$ and k-surface $\sigma$, we say that $\partial F(\sigma) \equiv F(\partial\sigma)$. 
-\end{defn}
 
 
 \begin{prop}
@@ -246,7 +236,7 @@ So, $F(\emptyset) = F(\emptyset\cup\emptyset) = F(\emptyset) + F(\emptyset) \imp
 
 TODO: Expand the justification of "for k-surface..." below here
 
-\section{Differentiable manifolds and densities}
+\section{Differentiable manifolds}
 
 
 - For k-surface $\sigma \in S^k$ and k-functional $F: S^k \to \mathbb{R}$, $F(\sigma) = \int_{\sigma}f(d\sigma)$. 
@@ -290,7 +280,7 @@ $\implies dx^a = \frac{\partial x^a}{\partial x^b}dx^b $
 
 
 
-\section{Multivectors and Clifford Algebra}
+\section{Multivectors}
 
 \emph{Note that electrodynamics has been reworked in the language of multivectors. Probably a good example to use}
 
@@ -316,9 +306,6 @@ $\implies dx^a = \frac{\partial x^a}{\partial x^b}dx^b $
 	The \textbf{outer product} $\wedge : $*set of k-vectors* $\times$ *set of k-vectors* $\to$ *set of k+1-vectors* combines multivectors antisymmetrically. 
 \end{defn}
 
-\subsection{Clifford Algebra}
-
-- Define the Clifford product, and talk about \emph{cliffors} as combinations of multivectors of varying degrees 
 
 
 \section{Covectors and linear functions of displacements}
