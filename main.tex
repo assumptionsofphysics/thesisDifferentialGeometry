@@ -79,12 +79,12 @@ squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size
 
 \draw[<->] (U) -- (realU) node[midway, above] {$Q$};
 \draw[<->] (U) -- (V) node[midway, left] {$U\cap V$};
-\draw[<->] (V) -- (realV) node[midway, below] {$P$};
+\draw[<->] (V) -- (realV) node[midway, below] {$Q'$};
 \draw[<->] (realU) -- (realV);
 \end{tikzpicture}
 
 \begin{defn}
-	Given two coordinate systems  $Q : U \to \mathbb{R}^n$ and $P : V \to \mathbb{R}^n$ such that $U \cap V \neq \emptyset$, we call a \textbf{coordinate transformation} the function $f = P \circ (Q)^{-1} : \mathbb{R}^n \to \mathbb{R}^n$.
+	Given two coordinate systems  $Q : U \to \mathbb{R}^n$ and $Q' : V \to \mathbb{R}^n$ such that $U \cap V \neq \emptyset$, we call a \textbf{coordinate transformation} the function $f = Q' \circ (Q)^{-1} : \mathbb{R}^n \to \mathbb{R}^n$.
 \end{defn}
 
 
@@ -114,7 +114,7 @@ If in the original weather report we were worrying about temperature, humidity, 
 	Consider a manifold X of dimension n, and a manifold Y of dimension k, such that $k \leq n$. Y is a \textbf{submanifold} or a k-surface of X if any point on Y is also a point on X. 
 \end{defn}
 
-- parameterization of Y can be done in terms of the coordinates of X; $q^i(p^j)$
+- parameterization of Y can be done in terms of the coordinates of X; $q^i(q'^j)$
 
 
 
@@ -153,24 +153,24 @@ The boundary of a weather report would be readings restricted to a specific clim
 
 
 \begin{defn}
-	Given k-surface $\sigma \in S^k$, if for some point $x \in \sigma$ you can construct a open neighborhood around x completely within $\sigma$, then x is an \textbf{interior point} of $\sigma$. 
+	Given k-surface $s^k \in S^k$, if for some point $x \in s^k$ you can construct a open neighborhood around x completely within $s^k$, then x is an \textbf{interior point} of $s^k$. 
 \end{defn}
 
 \begin{defn}
-	Given k-surface $\sigma \in S^k$, if some point $x \in \sigma$ is not an interior point, then $x$ is a \textbf{boundary point}.
+	Given k-surface $s^k \in S^k$, if some point $x \in s^k$ is not an interior point, then $x$ is a \textbf{boundary point}.
 \end{defn}
 
 \begin{defn}
-	Given k-surface $\sigma \in S^k$, $\partial\sigma \in S^{k-1}$ is the set of all boundary points of $\sigma$, or, the \textbf{boundary} of $\sigma$. 
+	Given k-surface $s^k \in S^k$, $\partial s^k \in S^{k-1}$ is the set of all boundary points of $s^k$, or, the \textbf{boundary} of $s^k$. 
 \end{defn}
 
 Dimension is one less since at each section of the boundary, one of the dimensions must be held fixed.
 
-$\partial\partial\sigma$ is empty since all points on the boundary are interior with respect to the boundary.
+$\partial\partial s^k$ is empty since all points on the boundary are interior with respect to the boundary.
 
 
 \begin{coro}
-	Given $\sigma \in S^k$, $\partial\sigma \in S^{k-1}$, and $\partial\partial\sigma = \emptyset$. 
+	Given $s^k \in S^k$, $\partial s^k \in S^{k-1}$, and $\partial\partial s^k = \emptyset$. 
 \end{coro}
 
 
@@ -180,8 +180,6 @@ For a cube, the boundary will suffer discontinuities due to the corners. This is
 
 \subsection{Linear Functionals of K-surfaces}
 
-TODO: Clean up the definitions here, \textbf{or get a narrative started} 
-
 We have the tools now to begin talking about functions along our k-surfaces. 
 
 \begin{defn}
@@ -189,7 +187,7 @@ We have the tools now to begin talking about functions along our k-surfaces.
 \end{defn}
 
 \begin{defn}
-	A \textbf{linear function of k-surfaces}, or \textbf{k-functional}, is a function $F : S^k \to \mathbb{R}$ such that for $\sigma_1$, $\sigma_2 \in S^k$, if $\sigma_1 \cap \sigma_2 \subseteq \partial\sigma_1 \cup \partial\sigma_2$, then $F(\sigma_1\cup\sigma_2) = F(\sigma_1) + F(\sigma_2)$. 
+	A \textbf{linear function of k-surfaces}, or \textbf{k-functional}, is a function $f_k : S^k \to \mathbb{R}$ such that for $s^k$, $t^k \in S^k$, if $s^k \cap t^k \subseteq \partial s^k \cup \partial t^k$, then $f_k(s^k\cup t^k) = f_k(s^k) + f_k(t^k)$. 
 \end{defn}
 
 \begin{defn}
@@ -201,30 +199,30 @@ We have the tools now to begin talking about functions along our k-surfaces.
 \end{defn}
 
 \begin{defn}
-	$\Delta : F_k \to F_{k+1}$ such that $\Delta F(\sigma^{k+1}) = F(\partial\sigma^{k+1})$ is the \textbf{exterior derivative on k-functionals}. 
+	$\Delta : F_k \to F_{k+1}$ such that $\Delta f_k(s^{k+1}) = f_k(\partial s^{k+1})$ is the \textbf{(border, edge, boundary, something like this?) derivative on k-functionals}. 
 \end{defn}
 
-TODO: Not "exterior derivative", choose a name that reminds one of it though
 
 \begin{prop}
 	A k-functional applied to the empty set gives zero. 
 \end{prop}
 \begin{proof}
-	Let $F : S^k \to \mathbb{R}$ be a linear function. Consider the empty set $\emptyset$. 
+	Let $f_k : S^k \to \mathbb{R}$ be a linear function. Consider the empty set $\emptyset$. 
 We have $\emptyset \cap \emptyset \subseteq \partial\emptyset \cup \partial\emptyset$, and $\emptyset = \emptyset\cup\emptyset$. 
-So, $F(\emptyset) = F(\emptyset\cup\emptyset) = F(\emptyset) + F(\emptyset) \implies F(\emptyset) = 2F(\emptyset) \implies F(\emptyset) = 0$
+So, $f_k(\emptyset) = f_k(\emptyset\cup\emptyset) = f_k(\emptyset) + f_k(\emptyset) \implies f_k(\emptyset) = 2f_k(\emptyset) \implies f_k(\emptyset) = 0$
 \end{proof}
 
 
 
 \begin{prop}
-	Let $F \in F_k$ be a k-functional, then $\partial\partial F = 0 $.
+	Let $f_k \in F_k$ be a k-functional, then $\partial\partial f_k = 0 $.
 \end{prop}
 \begin{proof}
+\emph{Something seems off: check with Gabriele that the relationships between boundary operators and boundary derivatives are ok. Just make sure that with def 1.16 it's consistent}
 
-	Let $F : S^k \to \mathbb{R}, G : S^{k+1} \to \mathbb{R},$ and $H : S^{k+2} \to \mathbb{R}$ be linear functions, and let $\sigma$ be an element of $S^k$. $H(\sigma) = G(\partial\sigma) = F(\partial\partial\sigma) = F(\emptyset) = 0$. 
+	Let $f_k : S^k \to \mathbb{R}$, $g_{k+1} : S^{k+1} \to \mathbb{R},$ and $h_{k+2}: S^{k+2} \to \mathbb{R}$ be linear functions, and let $s^k$ be an element of $S^k$. $f_k(s^k) = g_{k+1}(\partial s^k) = h_{k+2}(\partial\partial s^k) = f_k(\emptyset) = 0$. 
 	
-	So, $H(\sigma) = 0$ $\forall$ $\sigma$, and H is the zero function. 
+	So, $h^{k+2}(s) = 0$ $\forall$ $s$, and $h^{k+2}$ is the zero function. 
 \end{proof}
 
 
@@ -239,13 +237,13 @@ TODO: Expand the justification of "for k-surface..." below here
 \section{Differentiable manifolds}
 
 
-- For k-surface $\sigma \in S^k$ and k-functional $F: S^k \to \mathbb{R}$, $F(\sigma) = \int_{\sigma}f(d\sigma)$. 
+- For k-surface $s^k \in S^k$ and k-functional $f_k: S^k \to \mathbb{R}$, $f_k(s^k) = \int_{s^k}f(ds^k)$. 
 
 We are interested in studying distribution on manifolds. The limit on infinitesimal areas is a density and requires coordinates to be differentiable.
 
 
 \begin{defn}
-	Given some manifold $X$ of dimension $n$, with overlapping subsets $U$ and $V$ with defined coordinate systems $Q: U \to \mathbb{R}^n$ and $P: V \to \mathbb{R}^n$, if the coordinate transformation $f = Q \circ P^{-1}$ is smooth, then $X$ is a \textbf{differentiable manifold}. 
+	Given some manifold $X$ of dimension $n$, with overlapping subsets $U$ and $V$ with defined coordinate systems $Q: U \to \mathbb{R}^n$ and $Q': V \to \mathbb{R}^n$, if the coordinate transformation $f = Q \circ Q'^{-1}$ is smooth, then $X$ is a \textbf{differentiable manifold}. 
 \end{defn}
 
 
@@ -271,7 +269,7 @@ $\implies dx^a = \frac{\partial x^a}{\partial x^b}dx^b $
 \end{defn}
  
 \begin{defn}
-	For k-surface $\sigma \in S^k$, $d : S^k \to V^k$ will give the tangent plane of $\sigma$. 
+	For k-surface $s^k \in S^k$, $d : S^k \to V^k$ will give the tangent plane of $s^k$. 
 \end{defn}
 
 \begin{defn}
@@ -280,30 +278,36 @@ $\implies dx^a = \frac{\partial x^a}{\partial x^b}dx^b $
 
 
 
-\section{Multivectors}
+\section{K-vectors}
 
-\emph{Note that electrodynamics has been reworked in the language of multivectors. Probably a good example to use}
-
-
+\emph{Note that electrodynamics has been reworked in the language of k-vectors. Probably a good example to use}
 
 
-\subsection{Multivectors}
 
-- We want to be able to give a line, surface, body, etc. an orientation. This gives us multivectors. Talk also about their relationship to k-forms. 
+
+\subsection{K-vectors}
+
+- We want to be able to give a line, surface, body, etc. an orientation. This gives us k-vectors. Talk also about their relationship to k-forms. 
 
 \begin{defn}
-	A multivector is a geometrical object with a dimensionally appropriate magnitude and a direction. 
+	A k-vector is a geometrical object with a dimensionally appropriate magnitude and a direction. 
 \end{defn}
 
+\begin{defn}
+	$\Sigma^k$ is the set of all vectors of dimension k. 
+	\end{defn}
 
+\begin{defn}
+	$\Sigma = \cup_{k=0}^n \Sigma^k$ is the set of all k-vectors. 
+\end{defn}
 
-\subsection{Operations between multivectors}
+\subsection{Operations between k-vectors}
 
-- Here we will be talking about outer products, and how they behave with multivectors of different degrees. Introduce also the geometric product as the sum of the symmetric and antisymmetric products
+- Here we will be talking about outer products, and how they behave with k-vectors of different degrees. Introduce also the geometric product as the sum of the symmetric and antisymmetric products
 
 \begin{defn}
 	
-	The \textbf{outer product} $\wedge : $*set of k-vectors* $\times$ *set of k-vectors* $\to$ *set of k+1-vectors* combines multivectors antisymmetrically. 
+	The \textbf{outer product} $\wedge : \Sigma^k\times \Sigma^j \to \Sigma^{k+j}$ combines k-vectors antisymmetrically. 
 \end{defn}
 
 
@@ -338,7 +342,7 @@ Some quantities can undergo one-to-one transformations between coordinate system
 \end{coro}
 
 \begin{coro}
-	A contravariant tensor of \textbf{rank 0} is a quantity $X$ that transforms $X' = X$. That is, a scalar. 
+	A contravariant tensor of \textbf{rank 0} is a quantity $X$ that transforms $X' = X$. Hence, a scalar. 
 \end{coro}
 
 - In general, objects associated with covariant tensors will have a lower index, and those associated with contravariant tensors will have an upper index. 
@@ -349,7 +353,7 @@ Some quantities can undergo one-to-one transformations between coordinate system
 
 
 \begin{defn}
-	A linear function may be defined \textbf{infinitesimally}, such that $F : S^k \to \mathbb{R} = \int_{\sigma} f(d\sigma)$. Further, for $G : S^{k+1} \to \mathbb{R}$, $G(\sigma) = \int_{\sigma} g(d\sigma) = F(\partial\sigma) = \int_{\partial\sigma}f(d\partial\sigma)$. 
+	A linear function may be defined \textbf{infinitesimally}, such that $f_k : S^k \to \mathbb{R} = \int_{\sigma^k} \phi_k(d\sigma^k)$. Further, for $g : S^{k+1} \to \mathbb{R}$, $g(\sigma) = \int_{\sigma^k} \gamma(d\sigma^k) = F(\partial\sigma^k) = \int_{\partial\sigma^k}\phi(d\partial\sigma^k)$. 
 \end{defn}
 
 In more abstract or complicated coordinate systems, it becomes useful to define geometry on infinitesimal displacements. 
@@ -362,21 +366,21 @@ In more abstract or complicated coordinate systems, it becomes useful to define 
 \end{defn}
 
 \begin{defn}
-	A \textbf{k-form} $f_k : V^k \to \mathbb{R}$ is a skew-symmetric covariant linear functional. 
+	A \textbf{k-form} $\phi_k : V^k \to \mathbb{R}$ is a skew-symmetric covariant linear functional. 
 \end{defn}
 
 \emph{K-forms are functions along k-vectors}
 
 \begin{defn}
-	$\Omega_k$ is the set of all forms of dimension k. 
+	$\Phi_k$ is the set of all forms of dimension k. 
 \end{defn}
 
 \begin{defn}
-	$\Omega = \cup_{k=0}^n\Omega_k$ is the set of all forms. 
+	$\Phi = \cup_{k=0}^n\Phi_k$ is the set of all forms. 
 \end{defn}
 
 \begin{defn}
-	\textbf{Stoke's Theorem}: For k-form $\omega_k$ and k-surface $\sigma^k$, $\int_{\partial \sigma^k}\omega_k = \int_{\sigma^k}\Delta\omega_k$. 
+	\textbf{Stoke's Theorem}: For k-form $\phi_k$ and k-surface $\sigma^k$, $\int_{\partial \sigma^k}\phi_k = \int_{\sigma^k}\Delta\phi_k$. 
 \end{defn}
 
 
