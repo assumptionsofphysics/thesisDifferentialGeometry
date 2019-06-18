@@ -118,11 +118,6 @@ If in the original weather report we were worrying about temperature, humidity, 
 
 
 
-\begin{coro}
-	Suppose we have a manifold X of dimension n, with a submanifold Y of dimension k, such that $k \leq n$. Therefore, the coordinate transformation from X to Y will be onto, while the coordinate transformation from Y to X will be one-to-one. 
-\end{coro}
-
-
 TODO: \emph{Make more explicit in this picture the one-way arrow between X and Y.}
 
 \begin{tikzpicture}
@@ -144,7 +139,7 @@ What are the possible submanifolds of a given manifold?
 
 
 \begin{defn}
-	For some manifold X of dimension n, $S^k$ is the set of all possible \textbf{k-surfaces}, or sub-manifolds of dimension $k \leq n$. 
+	For some manifold X of dimension n, $S^k$ is the set of all possible \textbf{k-surfaces}, or sub-manifolds of dimension $k \leq n$, and S $=$ $\cup^n_{k=0}S^k$ is the set of all k-surfaces. 
 \end{defn}
 
 A manifold of dimension n can have a boundary of dimension n-1. The boundary itself will not have a boundary.
@@ -160,13 +155,15 @@ The boundary of a weather report would be readings restricted to a specific clim
 	Given k-surface $\sigma^k \in S^k$, if some point $x \in \sigma^k$ is not an interior point, then $x$ is a \textbf{boundary point}.
 \end{defn}
 
+
+TODO: Introduce the boundary operator as a map
 \begin{defn}
 	Given k-surface $\sigma^k \in S^k$, $\partial \sigma^k \in S^{k-1}$ is the set of all boundary points of $\sigma^k$, or, the \textbf{boundary} of $\sigma^k$. 
 \end{defn}
 
 Dimension is one less since at each section of the boundary, one of the dimensions must be held fixed.
 
-$\partial\partial s^k$ is empty since all points on the boundary are interior with respect to the boundary.
+$\partial\partial \sigma^k$ is empty since all points on the boundary are interior with respect to the boundary.
 
 
 \begin{coro}
@@ -182,27 +179,22 @@ For a cube, the boundary will suffer discontinuities due to the corners. This is
 
 We have the tools now to begin talking about functions along our k-surfaces. 
 
-\begin{defn}
-	S $=$ $\cup^n_{k=0}S^k$ is the set of all k-surfaces. 
-\end{defn}
 
+TODO: Probably use a number index for the two k-surfaces, instead of two different letters 
 \begin{defn}
 	A \textbf{linear function of k-surfaces}, or \textbf{k-functional}, is a function $f_k : S^k \to \mathbb{R}$ such that for $\sigma^k$, $\tau^k \in S^k$, if $\sigma^k \cap \tau^k \subseteq \partial \sigma^k \cup \partial \tau^k$, then $f_k(\sigma^k\cup \tau^k) = f_k(\sigma^k) + f_k(\tau^k)$. 
 \end{defn}
 
 \begin{defn}
-	$F_k$ is the set of all functionals of dimension k. 
+	$F_k$ is the set of all functionals of dimension k, and $F = \cup_{k=0}^nF_k$ is the set of all k-functionals. 
 \end{defn}
+
 
 \begin{defn}
-	$F = \cup_{k=0}^nF_k$ is the set of all k-functionals. 
+	$\Delta : F_k \to F_{k+1}$ such that $\Delta f_k(\sigma^{k+1}) = f_k(\partial \sigma^{k+1})$ is the \textbf{(border, edge, boundary, something like this? Probably something to do with the interior, instead) on k-functionals}. 
 \end{defn}
-
-\begin{defn}
-	$\Delta : F_k \to F_{k+1}$ such that $\Delta f_k(\sigma^{k+1}) = f_k(\partial \sigma^{k+1})$ is the \textbf{(border, edge, boundary, something like this?) derivative on k-functionals}. 
-\end{defn}
-
-
+TODO: Cannot be Delta, since Delta goes up, not down. It can't be nabla, since nabla is on the differential. Maybe eth or thorn 
+TODO: Delta could be defined earlier, even if we don't really know what it is yet
 \begin{prop}
 	A k-functional applied to the empty set gives zero. 
 \end{prop}
@@ -215,7 +207,9 @@ So, $f_k(\emptyset) = f_k(\emptyset\cup\emptyset) = f_k(\emptyset) + f_k(\emptys
 
 
 \begin{prop}
-	Let $f_k \in F_k$ be a k-functional, then $\partial\partial f_k = 0 $.
+	Let $f_k \in F_k$ be a k-functional, then $\Delta\Delta f_k = 0 $.
+	
+	
 \end{prop}
 \begin{proof}
 
@@ -225,7 +219,7 @@ So, $f_k(\emptyset) = f_k(\emptyset\cup\emptyset) = f_k(\emptyset) + f_k(\emptys
 	So, $h^{k+2}(s) = 0$ $\forall$ $\sigma^k$, and $h^{k+2}$ is the zero function. 
 \end{proof}
 
-
+TODO: Use something like eth or thorn
 
 
 
@@ -243,7 +237,7 @@ We are interested in studying distribution on manifolds. The limit on infinitesi
 
 
 
-\emph{Something was wrong with this definition, but I don't remember what}
+\emph{Move the definition name to the beginning, then give the meaning}
 \begin{defn}
 	Given some manifold $X$ of dimension $n$, with overlapping subsets $U$ and $V$ with defined coordinate systems $Q: U \to \mathbb{R}^n$ and $Q': V \to \mathbb{R}^n$, if the coordinate transformation $f = Q \circ Q'^{-1}$ is smooth, then $X$ is a \textbf{differentiable manifold}. 
 \end{defn}
@@ -258,6 +252,7 @@ We are interested in studying distribution on manifolds. The limit on infinitesi
 
 - For a surface, a vector will be an infinitesimal displacement along the tangent plane. 
 
+\emph{Talking about vectors and covectors seperatelydoesn't really make sense, since they arise simultaneously. Put this with the covector section.}
 
 Consider a point P($x^a$).
  
@@ -265,7 +260,11 @@ $dP = \frac{\partial P}{\partial x^a} dx^a = \frac{\partial P}{\partial x^b} dx^
 
 $\implies dx^a = \frac{\partial x^a}{\partial x^b}dx^b $
 
+TODO: Talk about what the vectors actually are. We have a small range mapped to an infinitesimal segment. Written on the paper I have
 
+
+
+ TODO: Define the tangent plane as the collection of differentials that contain a specific point as the starting spot
 \begin{defn}
 	The \textbf{tangent plane} $T_p$ of some point P(x) is the set of tangent vectors at P(x). 
 \end{defn}
@@ -289,7 +288,7 @@ $\implies dx^a = \frac{\partial x^a}{\partial x^b}dx^b $
 
 \subsection{K-vectors}
 
-- We want to be able to give a line, surface, body, etc. an orientation. This gives us k-vectors. Talk also about their relationship to k-forms. 
+- We want to be able to give a line, surface, body, etc. an orientation. This gives us k-vectors.
 
 \begin{defn}
 	A k-vector is a geometrical object with a dimensionally appropriate magnitude and a direction. 
@@ -305,17 +304,18 @@ $\implies dx^a = \frac{\partial x^a}{\partial x^b}dx^b $
 
 \subsection{Operations between k-vectors}
 
-- Here we will be talking about outer products, and how they behave with k-vectors of different degrees. Introduce also the geometric product as the sum of the symmetric and antisymmetric products
+- Here we will be talking about wedge products, and how they behave with k-vectors of different degrees. 
 
 \begin{defn}
 	
-	The \textbf{outer product} $\wedge : \Sigma^k\times \Sigma^j \to \Sigma^{k+j}$ combines k-vectors antisymmetrically. 
+	The \textbf{wedge product} $\wedge : \Sigma^k\times \Sigma^j \to \Sigma^{k+j}$ combines k-vectors antisymmetrically to generate k-vectors of a higher rank. 
 \end{defn}
 
 
-
+TODO: Move this up 
 \section{Covectors and linear functions of displacements}
 
+TODO: Move this also further up, this should be introduced as early as possible
 For some line P, $\int df(P)$ = $\int \frac{\partial f(P)}{{\partial x^i}} dx^i$ = $\int \frac{\partial f}{\partial x^i}\frac{\partial x^i}{\partial P}dP$ = $\int \frac{{\partial f}}{{\partial x^i}} e^i (dx^j e_j)$
 
 We can define functions that convert infinitesimal displacements to a scalar value. 
@@ -330,8 +330,9 @@ In more abstract or complicated coordinate systems, we want to define functions 
 - \emph{We want to be able to describe displacements and functions along them independent of coordinate system. This gives us differential forms}
 
 
+\emph{don't think about a differential as a displacement, as we're not taking a function along the displacement, rather the segment}
 \begin{defn}
-	A \textbf{differential} such as dx, dy, dz describes an infinitesimal displacement along a coordinate axis. 
+	A \textbf{differential} such as dx, dy, dz describes an infinitesimal segment along a coordinate axis. 
 \end{defn}
 
 \begin{defn}
