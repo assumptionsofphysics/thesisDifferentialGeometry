@@ -153,15 +153,15 @@ The boundary of a weather report would be readings restricted to a specific clim
 
 
 \begin{defn}
-	Given k-surface $s^k \in S^k$, if for some point $x \in s^k$ you can construct a open neighborhood around x completely within $s^k$, then x is an \textbf{interior point} of $s^k$. 
+	Given k-surface $\sigma^k \in S^k$, if for some point $x \in \sigma^k$ you can construct a open neighborhood around x completely within $\sigma^k$, then x is an \textbf{interior point} of $\sigma^k$. 
 \end{defn}
 
 \begin{defn}
-	Given k-surface $s^k \in S^k$, if some point $x \in s^k$ is not an interior point, then $x$ is a \textbf{boundary point}.
+	Given k-surface $\sigma^k \in S^k$, if some point $x \in \sigma^k$ is not an interior point, then $x$ is a \textbf{boundary point}.
 \end{defn}
 
 \begin{defn}
-	Given k-surface $s^k \in S^k$, $\partial s^k \in S^{k-1}$ is the set of all boundary points of $s^k$, or, the \textbf{boundary} of $s^k$. 
+	Given k-surface $\sigma^k \in S^k$, $\partial \sigma^k \in S^{k-1}$ is the set of all boundary points of $\sigma^k$, or, the \textbf{boundary} of $\sigma^k$. 
 \end{defn}
 
 Dimension is one less since at each section of the boundary, one of the dimensions must be held fixed.
@@ -170,7 +170,7 @@ $\partial\partial s^k$ is empty since all points on the boundary are interior wi
 
 
 \begin{coro}
-	Given $s^k \in S^k$, $\partial s^k \in S^{k-1}$, and $\partial\partial s^k = \emptyset$. 
+	Given $\sigma^k \in S^k$, $\partial \sigma^k \in S^{k-1}$, and $\partial\partial \sigma^k = \emptyset$. 
 \end{coro}
 
 
@@ -187,7 +187,7 @@ We have the tools now to begin talking about functions along our k-surfaces.
 \end{defn}
 
 \begin{defn}
-	A \textbf{linear function of k-surfaces}, or \textbf{k-functional}, is a function $f_k : S^k \to \mathbb{R}$ such that for $s^k$, $t^k \in S^k$, if $s^k \cap t^k \subseteq \partial s^k \cup \partial t^k$, then $f_k(s^k\cup t^k) = f_k(s^k) + f_k(t^k)$. 
+	A \textbf{linear function of k-surfaces}, or \textbf{k-functional}, is a function $f_k : S^k \to \mathbb{R}$ such that for $\sigma^k$, $\tau^k \in S^k$, if $\sigma^k \cap \tau^k \subseteq \partial \sigma^k \cup \partial \tau^k$, then $f_k(\sigma^k\cup \tau^k) = f_k(\sigma^k) + f_k(\tau^k)$. 
 \end{defn}
 
 \begin{defn}
@@ -199,7 +199,7 @@ We have the tools now to begin talking about functions along our k-surfaces.
 \end{defn}
 
 \begin{defn}
-	$\Delta : F_k \to F_{k+1}$ such that $\Delta f_k(s^{k+1}) = f_k(\partial s^{k+1})$ is the \textbf{(border, edge, boundary, something like this?) derivative on k-functionals}. 
+	$\Delta : F_k \to F_{k+1}$ such that $\Delta f_k(\sigma^{k+1}) = f_k(\partial \sigma^{k+1})$ is the \textbf{(border, edge, boundary, something like this?) derivative on k-functionals}. 
 \end{defn}
 
 
@@ -218,11 +218,11 @@ So, $f_k(\emptyset) = f_k(\emptyset\cup\emptyset) = f_k(\emptyset) + f_k(\emptys
 	Let $f_k \in F_k$ be a k-functional, then $\partial\partial f_k = 0 $.
 \end{prop}
 \begin{proof}
-\emph{Something seems off: check with Gabriele that the relationships between boundary operators and boundary derivatives are ok. Just make sure that with def 1.16 it's consistent}
 
-	Let $f_k : S^k \to \mathbb{R}$, $g_{k+1} : S^{k+1} \to \mathbb{R},$ and $h_{k+2}: S^{k+2} \to \mathbb{R}$ be linear functions, and let $s^k$ be an element of $S^k$. $f_k(s^k) = g_{k+1}(\partial s^k) = h_{k+2}(\partial\partial s^k) = f_k(\emptyset) = 0$. 
+
+	Let $f_k : S^k \to \mathbb{R}$, $g_{k+1} : S^{k+1} \to \mathbb{R},$ and $h_{k+2}: S^{k+2} \to \mathbb{R}$ be linear functions, and let $\sigma^k$ be an element of $S^k$. $f_k(\sigma^k) = g_{k+1}(\partial \sigma^k) = h_{k+2}(\partial\partial \sigma^k) = f_k(\emptyset) = 0$. 
 	
-	So, $h^{k+2}(s) = 0$ $\forall$ $s$, and $h^{k+2}$ is the zero function. 
+	So, $h^{k+2}(s) = 0$ $\forall$ $\sigma^k$, and $h^{k+2}$ is the zero function. 
 \end{proof}
 
 
@@ -237,11 +237,13 @@ TODO: Expand the justification of "for k-surface..." below here
 \section{Differentiable manifolds}
 
 
-- For k-surface $s^k \in S^k$ and k-functional $f_k: S^k \to \mathbb{R}$, $f_k(s^k) = \int_{s^k}f(ds^k)$. 
+- For k-surface $\sigma^k \in S^k$ and k-functional $f_k: S^k \to \mathbb{R}$, $f_k(\sigma^k) = \int_{\sigma^k}f(d\sigma^k)$. 
 
 We are interested in studying distribution on manifolds. The limit on infinitesimal areas is a density and requires coordinates to be differentiable.
 
 
+
+\emph{Something was wrong with this definition, but I don't remember what}
 \begin{defn}
 	Given some manifold $X$ of dimension $n$, with overlapping subsets $U$ and $V$ with defined coordinate systems $Q: U \to \mathbb{R}^n$ and $Q': V \to \mathbb{R}^n$, if the coordinate transformation $f = Q \circ Q'^{-1}$ is smooth, then $X$ is a \textbf{differentiable manifold}. 
 \end{defn}
@@ -269,7 +271,7 @@ $\implies dx^a = \frac{\partial x^a}{\partial x^b}dx^b $
 \end{defn}
  
 \begin{defn}
-	For k-surface $s^k \in S^k$, $d : S^k \to V^k$ will give the tangent plane of $s^k$. 
+	For k-surface $\sigma^k \in S^k$, $d : S^k \to V^k$ will give the tangent plane of $\sigma^k$. 
 \end{defn}
 
 \begin{defn}
@@ -319,7 +321,37 @@ For some line P, $\int df(P)$ = $\int \frac{\partial f(P)}{{\partial x^i}} dx^i$
 We can define functions that convert infinitesimal displacements to a scalar value. 
 
 
+\begin{defn}
+	A linear function may be defined \textbf{infinitesimally}, such that $f_k : S^k \to \mathbb{R} = \int_{\sigma^k} \omega_k(d\sigma^k)$. Further, for $g_k : S^{k+1} \to \mathbb{R}$, $g_k(\sigma^k) = \int_{\sigma^k} \gamma_k(d\sigma^k) = f_k(\partial\sigma^k) = \int_{\partial\sigma^k}\omega_k(d\partial\sigma^k)$. 
+\end{defn}
 
+In more abstract or complicated coordinate systems, we want to define functions along infinitesimal displacements. 
+
+- \emph{We want to be able to describe displacements and functions along them independent of coordinate system. This gives us differential forms}
+
+
+\begin{defn}
+	A \textbf{differential} such as dx, dy, dz describes an infinitesimal displacement along a coordinate axis. 
+\end{defn}
+
+\begin{defn}
+	A \textbf{k-form} $\omega_k : V^k \to \mathbb{R}$ is a skew-symmetric linear functional along a k-vector. 
+\end{defn}
+
+\begin{defn}
+	$\Omega_k$ is the set of all forms of dimension k. 
+\end{defn}
+
+\begin{defn}
+	$\Omega = \cup_{k=0}^n\Omega_k$ is the set of all forms. 
+\end{defn}
+
+\section{Stoke's Theorem}
+
+
+\begin{defn}
+	\textbf{Stoke's Theorem}: For k-form $\omega_k$ and k-surface $\sigma^k$, $\int_{\partial \sigma^k}\omega_k = \int_{\sigma^k}\Delta\omega_k$. 
+\end{defn}
 
 \section{Tensors and coordinate transformations}
 Some quantities can undergo one-to-one transformations between coordinate systems. In general, such quantities are tensors. 
@@ -347,41 +379,9 @@ Some quantities can undergo one-to-one transformations between coordinate system
 
 - In general, objects associated with covariant tensors will have a lower index, and those associated with contravariant tensors will have an upper index. 
 
-\section{K-forms}
 
 
 
-
-\begin{defn}
-	A linear function may be defined \textbf{infinitesimally}, such that $f_k : S^k \to \mathbb{R} = \int_{\sigma^k} \phi_k(d\sigma^k)$. Further, for $g : S^{k+1} \to \mathbb{R}$, $g(\sigma) = \int_{\sigma^k} \gamma(d\sigma^k) = F(\partial\sigma^k) = \int_{\partial\sigma^k}\phi(d\partial\sigma^k)$. 
-\end{defn}
-
-In more abstract or complicated coordinate systems, it becomes useful to define geometry on infinitesimal displacements. 
-
-- \emph{We want to be able to describe displacements and functions along them independent of coordinate system. This gives us differential forms}
-
-
-\begin{defn}
-	A \textbf{differential} such as dx, dy, dz describes an infinitesimal displacement along a coordinate axis. 
-\end{defn}
-
-\begin{defn}
-	A \textbf{k-form} $\phi_k : V^k \to \mathbb{R}$ is a skew-symmetric covariant linear functional. 
-\end{defn}
-
-\emph{K-forms are functions along k-vectors}
-
-\begin{defn}
-	$\Phi_k$ is the set of all forms of dimension k. 
-\end{defn}
-
-\begin{defn}
-	$\Phi = \cup_{k=0}^n\Phi_k$ is the set of all forms. 
-\end{defn}
-
-\begin{defn}
-	\textbf{Stoke's Theorem}: For k-form $\phi_k$ and k-surface $\sigma^k$, $\int_{\partial \sigma^k}\phi_k = \int_{\sigma^k}\Delta\phi_k$. 
-\end{defn}
 
 
 
