@@ -31,7 +31,7 @@ Ch 3
 - ???
 
 
-\chapter{Mathematical representation of physical objects}
+\chapter{Mathematical representations of physical objects}
 
 
 
@@ -156,10 +156,11 @@ The boundary of a weather report would be readings restricted to a specific clim
 \end{defn}
 
 
-TODO: Introduce the boundary operator as a map
+
 \begin{defn}
-	Given k-surface $\sigma^k \in S^k$, $\partial \sigma^k \in S^{k-1}$ is the set of all boundary points of $\sigma^k$, or, the \textbf{boundary} of $\sigma^k$. 
+	For k-surface $\sigma^k \in S^k$, the \textbf{boundary map} $\partial : S^k \to S^{k-1}$ gives the set of boundary points of $\sigma^k$. 
 \end{defn}
+
 
 Dimension is one less since at each section of the boundary, one of the dimensions must be held fixed.
 
@@ -180,9 +181,8 @@ For a cube, the boundary will suffer discontinuities due to the corners. This is
 We have the tools now to begin talking about functions along our k-surfaces. 
 
 
-TODO: Probably use a number index for the two k-surfaces, instead of two different letters 
 \begin{defn}
-	A \textbf{linear function of k-surfaces}, or \textbf{k-functional}, is a function $f_k : S^k \to \mathbb{R}$ such that for $\sigma^k$, $\tau^k \in S^k$, if $\sigma^k \cap \tau^k \subseteq \partial \sigma^k \cup \partial \tau^k$, then $f_k(\sigma^k\cup \tau^k) = f_k(\sigma^k) + f_k(\tau^k)$. 
+	A \textbf{linear function of k-surfaces}, or \textbf{k-functional}, is a function $f_k : S^k \to \mathbb{R}$ such that for $\sigma^k_1$, $\sigma^k_2 \in S^k$, if $\sigma^k_1 \cap \sigma^k_2 \subseteq \partial \sigma^k_1 \cup \partial \sigma^k_2$, then $f_k(\sigma^k_1\cup \sigma^k_2) = f_k(\sigma^k_1) + f_k(\sigma^k_2)$. 
 \end{defn}
 
 \begin{defn}
@@ -191,10 +191,9 @@ TODO: Probably use a number index for the two k-surfaces, instead of two differe
 
 
 \begin{defn}
-	$\Delta : F_k \to F_{k+1}$ such that $\Delta f_k(\sigma^{k+1}) = f_k(\partial \sigma^{k+1})$ is the \textbf{(border, edge, boundary, something like this? Probably something to do with the interior, instead) on k-functionals}. 
+	$\eth : F_k \to F_{k+1}$ such that $\eth f_k(\sigma^{k+1}) = f_k(\partial \sigma^{k+1})$ is the \textbf{interior operator} on k-functionals. 
 \end{defn}
-TODO: Cannot be Delta, since Delta goes up, not down. It can't be nabla, since nabla is on the differential. Maybe eth or thorn 
-TODO: Delta could be defined earlier, even if we don't really know what it is yet
+
 \begin{prop}
 	A k-functional applied to the empty set gives zero. 
 \end{prop}
@@ -207,7 +206,7 @@ So, $f_k(\emptyset) = f_k(\emptyset\cup\emptyset) = f_k(\emptyset) + f_k(\emptys
 
 
 \begin{prop}
-	Let $f_k \in F_k$ be a k-functional, then $\Delta\Delta f_k = 0 $.
+	Let $f_k \in F_k$ be a k-functional, then $\eth\eth f_k = 0 $.
 	
 	
 \end{prop}
@@ -219,7 +218,7 @@ So, $f_k(\emptyset) = f_k(\emptyset\cup\emptyset) = f_k(\emptyset) + f_k(\emptys
 	So, $h^{k+2}(s) = 0$ $\forall$ $\sigma^k$, and $h^{k+2}$ is the zero function. 
 \end{proof}
 
-TODO: Use something like eth or thorn
+
 
 
 
@@ -227,7 +226,6 @@ TODO: Use something like eth or thorn
 
 \chapter{Mathematical representation of infinitesimal objects}
 
-TODO: Expand the justification of "for k-surface..." below here
 
 \section{Differentiable manifolds}
 
@@ -245,13 +243,10 @@ We are interested in studying distribution on manifolds. The limit on infinitesi
 
 
 
-\section{Vectors and infinitesimal displacements}
+\section{Vectors and Covectors}
 
-- For a given line, a vector will be an infinitesimal displacement along that line. 
+- For a given line, a vector will be an infinitesimal segment along that line. 
 
-- For a surface, a vector will be an infinitesimal displacement along the tangent plane. 
-
-\emph{Talking about vectors and covectors seperately doesn't really make sense, since they arise simultaneously. Put this with the covector section.}
 
 Consider a point P($x^a$).
  
@@ -259,24 +254,50 @@ $dP = \frac{\partial P}{\partial x^a} dx^a = \frac{\partial P}{\partial x^b} dx^
 
 $\implies dx^a = \frac{\partial x^a}{\partial x^b}dx^b $
 
-TODO: Talk about what the vectors actually are. We have a small range mapped to an infinitesimal segment. Written on the paper I have
+\emph{Problem with this chain-rule formulation is that the vector isn't the infinitesimal segment}
 
+\emph{Alternative formulation}
+$dP = w^ue_u + w^ve_v$
 
+\emph{With this, the infinitesimal segment is the vector, which is what we want in the end. Question remains whether we can still use a chain rule formulation to derive this}
 
- TODO: Define the tangent plane as the collection of differentials that contain a specific point as the starting spot
+This gives us vectors and covectors
+
 \begin{defn}
-	The \textbf{tangent plane} $T_p$ of some point P(x) is the set of tangent vectors at P(x). 
+	A \textbf{vector} is a mapping between a small range in the parameterization and an infinitesimal segment. 
 \end{defn}
- 
+
+\begin{defn}
+	The \textbf{tangent plane} $T_p$ of some point P(x) is the set of vectors with P(x) as a shared fixed point. 
+\end{defn}
+
 \begin{defn}
 	For k-surface $\sigma^k \in S^k$, $d : S^k \to V^k$ will give the tangent plane of $\sigma^k$. 
 \end{defn}
 
 \begin{defn}
-	Given vectors $X^a$ in the coordinate system $x^a$ and $X'^a$ in coordinate system $x'^a$, $X^a$ and $X'^a$ can be transformed between as $X'^a = \frac{\partial x'^a}{\partial x^b} X^b$. 
+	A \textbf{differential} such as dx, dy, dz describes an infinitesimal segment along a coordinate axis. 
 \end{defn}
 
+We can define functions that convert infinitesimal segments to a scalar value. 
 
+For some line P, $\int df(P)$ = $\int \frac{\partial f(P)}{{\partial x^i}} dx^i$ = $\int \frac{\partial f}{\partial x^i}\frac{\partial x^i}{\partial P}dP$ = $\int \frac{{\partial f}}{{\partial x^i}} e^i (dx^j e_j)$
+
+\begin{defn}
+	A linear function may be defined \textbf{infinitesimally}, such that $f_k : S^k \to \mathbb{R} = \int_{\sigma^k} \omega_k(d\sigma^k)$. Further, for $g_k : S^{k+1} \to \mathbb{R}$, $g_k(\sigma^k) = \int_{\sigma^k} \gamma_k(d\sigma^k) = f_k(\partial\sigma^k) = \int_{\partial\sigma^k}\omega_k(d\partial\sigma^k)$. 
+\end{defn}
+
+\begin{defn}
+	A \textbf{k-form} $\omega_k : V^k \to \mathbb{R}$ is a skew-symmetric linear functional that converts an infinitesimal segment into a scalar value. 
+\end{defn}
+
+\begin{defn}
+	$\Omega_k$ is the set of all forms of dimension k. 
+\end{defn}
+
+\begin{defn}
+	$\Omega = \cup_{k=0}^n\Omega_k$ is the set of all forms. 
+\end{defn}
 
 \section{K-vectors}
 
@@ -312,39 +333,9 @@ TODO: Talk about what the vectors actually are. We have a small range mapped to 
 
 
 TODO: Move this up 
-\section{Covectors and linear functions of displacements}
-
-TODO: Move this also further up, this should be introduced as early as possible
-For some line P, $\int df(P)$ = $\int \frac{\partial f(P)}{{\partial x^i}} dx^i$ = $\int \frac{\partial f}{\partial x^i}\frac{\partial x^i}{\partial P}dP$ = $\int \frac{{\partial f}}{{\partial x^i}} e^i (dx^j e_j)$
-
-We can define functions that convert infinitesimal displacements to a scalar value. 
 
 
-\begin{defn}
-	A linear function may be defined \textbf{infinitesimally}, such that $f_k : S^k \to \mathbb{R} = \int_{\sigma^k} \omega_k(d\sigma^k)$. Further, for $g_k : S^{k+1} \to \mathbb{R}$, $g_k(\sigma^k) = \int_{\sigma^k} \gamma_k(d\sigma^k) = f_k(\partial\sigma^k) = \int_{\partial\sigma^k}\omega_k(d\partial\sigma^k)$. 
-\end{defn}
 
-In more abstract or complicated coordinate systems, we want to define functions along infinitesimal displacements. 
-
-- \emph{We want to be able to describe displacements and functions along them independent of coordinate system. This gives us differential forms}
-
-
-\emph{don't think about a differential as a displacement, as we're not taking a function along the displacement, rather the segment}
-\begin{defn}
-	A \textbf{differential} such as dx, dy, dz describes an infinitesimal segment along a coordinate axis. 
-\end{defn}
-
-\begin{defn}
-	A \textbf{k-form} $\omega_k : V^k \to \mathbb{R}$ is a skew-symmetric linear functional along a k-vector. 
-\end{defn}
-
-\begin{defn}
-	$\Omega_k$ is the set of all forms of dimension k. 
-\end{defn}
-
-\begin{defn}
-	$\Omega = \cup_{k=0}^n\Omega_k$ is the set of all forms. 
-\end{defn}
 
 \section{Stoke's Theorem}
 
