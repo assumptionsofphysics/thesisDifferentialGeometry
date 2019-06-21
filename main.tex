@@ -33,7 +33,7 @@ Ch 3
 
 \chapter{Mathematical representations of physical objects}
 
-
+TODO: Find somewhere to discuss what a coordinate line and saxis are, talk about their relationship with dx
 
 \section{Manifolds and continuous quantities}
 \emph{We tell physical objects apart by identifying some measurable properties. In particular, we are interested in properties that are continuous quantities. This gives us manifolds.}
@@ -236,7 +236,7 @@ We are interested in studying distribution on manifolds. The limit on infinitesi
 
 
 \begin{defn}
-	A \textbf{differentiable manifold} is a manifold $X$ of dimension $n$, with overlapping subsets $U$ and $V$ with defined coordinate systems $Q: U \to \mathbb{R}^n$ and $Q': V \to \mathbb{R}^n$, such that the coordinate transformation $f = Q \circ Q'^{-1}$ is smooth. 
+	A \textbf{differentiable manifold} is a manifold $X$ of dimension $n$ such that if there are overlapping subsets $U$ and $V$ with defined coordinate systems $Q: U \to \mathbb{R}^n$ and $Q': V \to \mathbb{R}^n$, then the coordinate transformation $f = Q \circ Q'^{-1}$ is smooth. 
 \end{defn}
 
 
@@ -263,6 +263,16 @@ $dP = w^ue_u + w^ve_v$
 
 This gives us vectors and covectors
 
+TODO: Not a mapping, it IS the segment itself 
+
+TODO: Combine the vector and tangent plane definitions
+
+TODO: Emphasize in this section that we're dealing only with covectors and vectors 
+
+REMINDER: Covectors take an infinitesimal segment and give a scalar value. Then, say that a linear functional on a line is the same as an integral of a covector over the infinitesimal segments 
+
+NOTE: Try to talk about orientation in terms of coordinates (flipping orientation flips a coordinate)
+
 \begin{defn}
 	A \textbf{vector} is a mapping between a small range in the parameterization and an infinitesimal segment. 
 \end{defn}
@@ -271,21 +281,28 @@ This gives us vectors and covectors
 	The \textbf{tangent plane} $T_p$ of some point P(x) is the set of vectors with P(x) as a shared fixed point. 
 \end{defn}
 
-\begin{defn}
-	For k-surface $\sigma^k \in S^k$, $d : S^k \to V^k$ will give the tangent plane of $\sigma^k$. 
-\end{defn}
 
+
+NOTE: dx is an element of the tangent space such that if you take dx at all points and sum it, you get the original
+
+TODO: First define a coordinate axis and line, discussed far above
 \begin{defn}
-	A \textbf{differential} such as dx, dy, dz describes an infinitesimal segment along a coordinate axis. 
+	A \textbf{differential} $dq^i$ describes an infinitesimal segment along a coordinate line. 
 \end{defn}
 
 We can define functions that convert infinitesimal segments to a scalar value. 
 
 For some line P, $\int df(P)$ = $\int \frac{\partial f(P)}{{\partial x^i}} dx^i$ = $\int \frac{\partial f}{\partial x^i}\frac{\partial x^i}{\partial P}dP$ = $\int \frac{{\partial f}}{{\partial x^i}} e^i (dx^j e_j)$
 
+
+
+TODO: Maybe change this to a proposition, that every linear functional has a corresponding one-form. 
 \begin{defn}
-	A linear function may be defined \textbf{infinitesimally}, such that $f_k : S^k \to \mathbb{R} = \int_{\sigma^k} \omega_k(d\sigma^k)$. Further, for $g_k : S^{k+1} \to \mathbb{R}$, $g_k(\sigma^k) = \int_{\sigma^k} \gamma_k(d\sigma^k) = f_k(\partial\sigma^k) = \int_{\partial\sigma^k}\omega_k(d\partial\sigma^k)$. 
+	A linear function may be defined \textbf{infinitesimally}, such that for $f_k : S^k \to \mathbb{R}$, $f_k = \int_{\sigma^k} \omega_k(d\sigma^k)$. Further, for $g_k : S^{k+1} \to \mathbb{R}$, $g_k(\sigma^k) = \int_{\sigma^k} \gamma_k(d\sigma^k) = f_k(\partial\sigma^k) = \int_{\partial\sigma^k}\omega_k(d\partial\sigma^k)$. 
 \end{defn}
+
+TODO: Move this part on k-forms to the section with k-vectors. The relationship between k-vectors and k-forms is the generalization of the relationship between vectors and covectors. This section here should just be dealing with 1-forms (covectors). Also, the function within the integration should be denoted with the same letter (idea is that the function is being restricted to the infinitesimal parts. The change in function doesn't really come into play until stoke's theorem). 
+
 
 \begin{defn}
 	A \textbf{k-form} $\omega_k : V^k \to \mathbb{R}$ is a skew-symmetric linear functional that converts an infinitesimal segment into a scalar value. 
