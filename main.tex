@@ -118,8 +118,6 @@ If in the original weather report we were worrying about temperature, humidity, 
 
 
 
-TODO: \emph{Make more explicit in this picture the one-way arrow between X and Y.}
-
 \begin{tikzpicture}
 [roundnode/.style={circle, draw=green!60, fill=green!5, very thick, minimum size=7mm},
 squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size=5mm},
@@ -229,6 +227,8 @@ So, $f_k(\emptyset) = f_k(\emptyset\cup\emptyset) = f_k(\emptyset) + f_k(\emptys
 
 \section{Differentiable manifolds}
 
+Now that we are able to represent functions along lines as sums of functions along segments, we can start doing calculus. 
+
 
 - For k-surface $\sigma^k \in S^k$ and k-functional $f_k: S^k \to \mathbb{R}$, $f_k(\sigma^k) = \int_{\sigma^k}f(d\sigma^k)$. 
 
@@ -245,7 +245,7 @@ We are interested in studying distribution on manifolds. The limit on infinitesi
 
 \section{Vectors and Covectors}
 
-- For a given line, a vector will be an infinitesimal segment along that line. 
+- Starting with the 1D case: for a given line, a vector will be an infinitesimal segment along that line. 
 
 
 Consider a point P($x^a$).
@@ -261,24 +261,15 @@ $dP = w^ue_u + w^ve_v$
 
 \emph{With this, the infinitesimal segment is the vector, which is what we want in the end. Question remains whether we can still use a chain rule formulation to derive this}
 
-This gives us vectors and covectors
+This gives us vectors and covectors: the former being infinitesimal segments, and the latter being functions from vectors to real numbers
 
-TODO: Not a mapping, it IS the segment itself 
-
-TODO: Combine the vector and tangent plane definitions
-
-TODO: Emphasize in this section that we're dealing only with covectors and vectors 
 
 REMINDER: Covectors take an infinitesimal segment and give a scalar value. Then, say that a linear functional on a line is the same as an integral of a covector over the infinitesimal segments 
 
 NOTE: Try to talk about orientation in terms of coordinates (flipping orientation flips a coordinate)
 
 \begin{defn}
-	A \textbf{vector} is a mapping between a small range in the parameterization and an infinitesimal segment. 
-\end{defn}
-
-\begin{defn}
-	The \textbf{tangent plane} $T_p$ of some point P(x) is the set of vectors with P(x) as a shared fixed point. 
+	A \textbf{vector} is an infinitesimal segment along a line, plane, etc. A \textbf{tangent plane}, then, is a collection of vectors that share a fixed point. 
 \end{defn}
 
 
@@ -297,26 +288,16 @@ For some line P, $\int df(P)$ = $\int \frac{\partial f(P)}{{\partial x^i}} dx^i$
 
 
 TODO: Maybe change this to a proposition, that every linear functional has a corresponding one-form. 
-\begin{defn}
-	A linear function may be defined \textbf{infinitesimally}, such that for $f_k : S^k \to \mathbb{R}$, $f_k = \int_{\sigma^k} \omega_k(d\sigma^k)$. Further, for $g_k : S^{k+1} \to \mathbb{R}$, $g_k(\sigma^k) = \int_{\sigma^k} \gamma_k(d\sigma^k) = f_k(\partial\sigma^k) = \int_{\partial\sigma^k}\omega_k(d\partial\sigma^k)$. 
-\end{defn}
+\begin{prop}
+	Every linear function has a corresponding covector, such that for $f : S \to \mathbb{R}$, $f = \int_{\sigma} f(d\sigma)$. Further, for $g : S^{2} \to \mathbb{R}$, $g(\sigma) = \int_{\sigma} g(d\sigma) = f(\partial\sigma) = \int_{\partial\sigma}f(d\partial\sigma)$. 
+\end{prop}
 
-TODO: Move this part on k-forms to the section with k-vectors. The relationship between k-vectors and k-forms is the generalization of the relationship between vectors and covectors. This section here should just be dealing with 1-forms (covectors). Also, the function within the integration should be denoted with the same letter (idea is that the function is being restricted to the infinitesimal parts. The change in function doesn't really come into play until stoke's theorem). 
+TODO:  This section here should just be dealing with 1-forms (covectors). Also, the function within the integration should be denoted with the same letter (idea is that the function is being restricted to the infinitesimal parts. The change in function doesn't really come into play until stoke's theorem). 
 
 
-\begin{defn}
-	A \textbf{k-form} $\omega_k : V^k \to \mathbb{R}$ is a skew-symmetric linear functional that converts an infinitesimal segment into a scalar value. 
-\end{defn}
 
-\begin{defn}
-	$\Omega_k$ is the set of all forms of dimension k. 
-\end{defn}
 
-\begin{defn}
-	$\Omega = \cup_{k=0}^n\Omega_k$ is the set of all forms. 
-\end{defn}
-
-\section{K-vectors}
+\section{K-vectors and K-forms}
 
 \emph{Note that electrodynamics has been reworked in the language of k-vectors. Probably a good example to use}
 
@@ -326,6 +307,10 @@ TODO: Move this part on k-forms to the section with k-vectors. The relationship 
 \subsection{K-vectors}
 
 - We want to be able to give a line, surface, body, etc. an orientation. This gives us k-vectors.
+
+- Here we will be talking about wedge products, and how they behave with k-vectors of different degrees. 
+
+
 
 \begin{defn}
 	A k-vector is a geometrical object with a dimensionally appropriate magnitude and a direction. 
@@ -339,17 +324,23 @@ TODO: Move this part on k-forms to the section with k-vectors. The relationship 
 	$\Sigma = \cup_{k=0}^n \Sigma^k$ is the set of all k-vectors. 
 \end{defn}
 
-\subsection{Operations between k-vectors}
-
-- Here we will be talking about wedge products, and how they behave with k-vectors of different degrees. 
-
 \begin{defn}
 	
 	The \textbf{wedge product} $\wedge : \Sigma^k\times \Sigma^j \to \Sigma^{k+j}$ combines k-vectors antisymmetrically to generate k-vectors of a higher rank. 
 \end{defn}
 
+\begin{defn}
+	A \textbf{k-form} $\omega_k : V^k \to \mathbb{R}$ is a skew-symmetric linear functional that converts an infinitesimal segment into a scalar value. 
+\end{defn}
 
-TODO: Move this up 
+\begin{defn}
+	$\Omega_k$ is the set of all forms of dimension k. 
+\end{defn}
+
+\begin{defn}
+	$\Omega = \cup_{k=0}^n\Omega_k$ is the set of all forms. 
+\end{defn}
+
 
 
 
