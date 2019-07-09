@@ -33,7 +33,6 @@ Ch 3
 
 \chapter{Mathematical representations of physical objects}
 
-TODO: Find somewhere to discuss what a coordinate line and saxis are, talk about their relationship with dx
 
 \section{Manifolds and continuous quantities}
 \emph{We tell physical objects apart by identifying some measurable properties. In particular, we are interested in properties that are continuous quantities. This gives us manifolds.}
@@ -63,6 +62,14 @@ Talking about location on the earth, a \textbf{single space cannot cover the ent
 	A \textbf{coordinate system} $Q$ is a collection of $n$ quantities $q^i : U \to \mathbb{R}^n$ such that there is a one-to-one relationship between the physical objects in $U$ and elements of $\mathbb{R}^n$.
 \end{defn}
 
+
+\begin{defn}
+	A \textbf{coordinate line} is the set of points in U obtained by allowing one quantity to vary and holding the others fixed. 
+\end{defn}
+
+\begin{defn}
+	A \textbf{coordinate axis} is a coordinate line with the fixed quantities held at 0. 
+\end{defn}
 
 - \emph{\textbf{Overlapping} coordinate systems can be transformed between}
 
@@ -230,7 +237,7 @@ So, $f_k(\emptyset) = f_k(\emptyset\cup\emptyset) = f_k(\emptyset) + f_k(\emptys
 Now that we are able to represent functions along lines as sums of functions along segments, we can start doing calculus. 
 
 
-- For k-surface $\sigma^k \in S^k$ and k-functional $f_k: S^k \to \mathbb{R}$, $f_k(\sigma^k) = \int_{\sigma^k}f(d\sigma^k)$. 
+- For k-surface $\sigma^k \in S^k$ and k-functional $f_k: S^k \to \mathbb{R}$, $f_k(\sigma^k) = \int_{\sigma^k}f_k(d\sigma^k)$. 
 
 We are interested in studying distribution on manifolds. The limit on infinitesimal areas is a density and requires coordinates to be differentiable.
 
@@ -272,13 +279,10 @@ NOTE: Try to talk about orientation in terms of coordinates (flipping orientatio
 	A \textbf{vector} is an infinitesimal segment along a line, plane, etc. A \textbf{tangent plane}, then, is a collection of vectors that share a fixed point. 
 \end{defn}
 
-
-
 NOTE: dx is an element of the tangent space such that if you take dx at all points and sum it, you get the original
 
-TODO: First define a coordinate axis and line, discussed far above
 \begin{defn}
-	A \textbf{differential} $dq^i$ describes an infinitesimal segment along a coordinate line. 
+	A \textbf{differential} $dx$ is the element of the tangent plane such that $x = \int dx$. 
 \end{defn}
 
 We can define functions that convert infinitesimal segments to a scalar value. 
@@ -286,13 +290,10 @@ We can define functions that convert infinitesimal segments to a scalar value.
 For some line P, $\int df(P)$ = $\int \frac{\partial f(P)}{{\partial x^i}} dx^i$ = $\int \frac{\partial f}{\partial x^i}\frac{\partial x^i}{\partial P}dP$ = $\int \frac{{\partial f}}{{\partial x^i}} e^i (dx^j e_j)$
 
 
-
-TODO: Maybe change this to a proposition, that every linear functional has a corresponding one-form. 
 \begin{prop}
-	Every linear function has a corresponding covector, such that for $f : S \to \mathbb{R}$, $f = \int_{\sigma} f(d\sigma)$. Further, for $g : S^{2} \to \mathbb{R}$, $g(\sigma) = \int_{\sigma} g(d\sigma) = f(\partial\sigma) = \int_{\partial\sigma}f(d\partial\sigma)$. 
+	Every linear functional has a corresponding covector, such that for $f : S \to \mathbb{R}$, $f = \int_{\sigma} f(d\sigma)$. Further, for $g : S^{2} \to \mathbb{R}$, $g(\sigma) = \int_{\sigma} g(d\sigma) = f(\partial\sigma) = \int_{\partial\sigma}f(d\partial\sigma)$. 
 \end{prop}
 
-TODO:  This section here should just be dealing with 1-forms (covectors). Also, the function within the integration should be denoted with the same letter (idea is that the function is being restricted to the infinitesimal parts. The change in function doesn't really come into play until stoke's theorem). 
 
 
 
@@ -308,12 +309,14 @@ TODO:  This section here should just be dealing with 1-forms (covectors). Also, 
 
 - We want to be able to give a line, surface, body, etc. an orientation. This gives us k-vectors.
 
+- Further, we're now talking about vectors and covectors in arbitrary dimensions
+
 - Here we will be talking about wedge products, and how they behave with k-vectors of different degrees. 
 
 
 
 \begin{defn}
-	A k-vector is a geometrical object with a dimensionally appropriate magnitude and a direction. 
+	A \textbf{k-vector} is a geometrical object with a dimensionally appropriate magnitude and a direction. A vector as discussed previously is a 1-vector. 
 \end{defn}
 
 \begin{defn}
@@ -330,7 +333,7 @@ TODO:  This section here should just be dealing with 1-forms (covectors). Also, 
 \end{defn}
 
 \begin{defn}
-	A \textbf{k-form} $\omega_k : V^k \to \mathbb{R}$ is a skew-symmetric linear functional that converts an infinitesimal segment into a scalar value. 
+	A \textbf{k-form} $\omega_k : V^k \to \mathbb{R}$ is a skew-symmetric linear functional that converts an infinitesimal segment into a scalar value. A covector as discussed previously is a 1-form. 
 \end{defn}
 
 \begin{defn}
