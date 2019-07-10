@@ -67,6 +67,8 @@ Talking about location on the earth, a \textbf{single space cannot cover the ent
 	A \textbf{coordinate line} is the set of points in $\mathbb{R}^n$ obtained by allowing one quantity to vary and holding the others fixed. 
 \end{defn}
 
+
+NOTE: This may not be necessary, creates problems in intuition with polar coordinates
 \begin{defn}
 	A \textbf{coordinate axis} is a coordinate line with the fixed quantities held at 0. 
 \end{defn}
@@ -274,11 +276,15 @@ This gives us vectors and covectors: the former being infinitesimal segments, an
 
 
 \begin{defn}
-	A \textbf{vector} is an infinitesimal segment along a line, plane, etc. A \textbf{tangent plane}, then, is a collection of vectors that share a fixed point. 
+	A \textbf{vector} is an infinitesimal segment along a line. A \textbf{tangent plane}, then, is a collection of vectors that share a fixed point. 
 \end{defn}
+
+NOTE: Need a formal definition of a covector as a linear function of a vector
 
 NOTE: dx is an element of the tangent space such that if you take dx at all points and sum it, you get the original
 
+
+NOTE: Not integrating, just summing the dx segments
 \begin{defn}
 	A \textbf{differential} $dx$ is the element of the tangent plane such that $x = \int dx$. 
 \end{defn}
@@ -287,9 +293,14 @@ We can define functions that convert infinitesimal segments to a scalar value.
 
 For some line P, $\int df(P)$ = $\int \frac{\partial f(P)}{{\partial x^i}} dx^i$ = $\int \frac{\partial f}{\partial x^i}\frac{\partial x^i}{\partial P}dP$ = $\int \frac{{\partial f}}{{\partial x^i}} e^i (dx^j e_j)$
 
+NOTE: Talk about covectors using the variable omega, and omega will go from V to R
 
+TODO: Put a 1 in there for 1-vectors and 1-forms. Generalizes easier. 
+
+
+TODO: Try to break this definition, since it doesn't discuss orientation at all. Orientation should be absolutely necessary. 
 \begin{prop}
-	Every linear functional has a corresponding covector, such that for $f : S \to \mathbb{R}$, $f = \int_{\sigma} f(d\sigma)$. In words, a linear functional applied over a line is the same as an integral of a covector over the infinitesimal segments of that line. Further, for $g : S^{2} \to \mathbb{R}$, $g(\sigma) = \int_{\sigma} g(d\sigma) = f(\partial\sigma) = \int_{\partial\sigma}f(d\partial\sigma)$. 
+	Every linear 1-functional has a corresponding covector, such that for $f : S \to \mathbb{R}$, $f = \int_{\lambda} f(d\lambda)$. In words, a linear functional applied over a line is the same as an integral of a covector over the infinitesimal segments of that line. Further, for $g : S^{2} \to \mathbb{R}$, $g(\lambda) = \int_{\sigma} g(d\sigma) = f(\partial\sigma) = \int_{\partial\sigma}f(d\partial\sigma)$. 
 \end{prop}
 
 
@@ -312,22 +323,34 @@ For some line P, $\int df(P)$ = $\int \frac{\partial f(P)}{{\partial x^i}} dx^i$
 - Here we will be talking about wedge products, and how they behave with k-vectors of different degrees. 
 
 
-
+NOTE: It's a parallelopiped in the k-surface
 \begin{defn}
 	A \textbf{k-vector} is a geometrical object with a dimensionally appropriate magnitude and a direction. A vector as discussed previously is a 1-vector. 
 \end{defn}
 
 - \emph{Talking about orientation in terms of quantities: if we flip a quantity, we flip the orientation. Also, it should follow naturally that adding k-vectors of equal magnitude and opposite orientation will give zero.}
 
+
+
+TODO: Talk about fixing a corner of the paralellopiped just a point was fixed. A k-form is being given a paralellopiped 
+
+TODO: In wedge, talk about how switching sides we switch the orientation
+
+TODO: After defining the set of all forms, say that every linear k-functional has a corresponding k-form such that... just as in the previous proposition in vectors and covectors 
+
 \begin{defn}
-	$\Sigma^k$ is the set of all vectors of dimension k and $\Sigma = \cup_{k=0}^n \Sigma^k$ is the set of all k-vectors. 
+	$V^k$ is the set of all vectors of dimension k and $V = \cup_{k=0}^n V^k$ is the set of all k-vectors. 
 	\end{defn}
 
 
+
+NOTE: wedge can be discussed as constructing parallelopiped 
 \begin{defn}
 	
 	The \textbf{wedge product} $\wedge : \Sigma^k\times \Sigma^j \to \Sigma^{k+j}$ combines k-vectors antisymmetrically to generate k-vectors of a higher rank. 
 \end{defn}
+
+NOTE: talk about vectors and k-vectors using variable v. 
 
 \begin{defn}
 	A \textbf{k-form} $\omega_k : V^k \to \mathbb{R}$ is a skew-symmetric linear functional that converts an infinitesimal segment into a scalar value. A covector as discussed previously is a 1-form. 
@@ -345,10 +368,18 @@ For some line P, $\int df(P)$ = $\int \frac{\partial f(P)}{{\partial x^i}} dx^i$
 \section{Stoke's Theorem}
 
 
+
+TODO: We have to define the exterior derivative. Want to show that the $\eth$ becomes the exterior derivative over the corresponding k-form. We're defining the exterior derivative as the thing that gives us stoke's theorem. 
+
+Would be cool to have a diagram showing the relationship between the exterior derivative, k-functionals, k-forms. So $\eth$ allows us to go from $F_k$ to $F_{k+1}$, exterior derivative goes between $\omega_k$ to $\omega_{k+1}$ and integration goes between $F_k$ and $\omega_k$. 
+
+
 \begin{defn}
-	\textbf{Stoke's Theorem}: For k-form $\omega_k$ and k-surface $\sigma^k$, $\int_{\partial \sigma^k}\omega_k = \int_{\sigma^k}\Delta\omega_k$. 
+	\textbf{Stoke's Theorem}: For k-form $\omega_k$ and k-surface $\sigma^k$, $\int_{\partial \sigma^k}\omega_k = \int_{\sigma^k}\eth\omega_k$. 
 \end{defn}
 
+
+NOTE: If we can stay coordinate free up until this point, maybe we can start talking about coordinates here in the coordinate transformation section
 \section{Tensors and coordinate transformations}
 Some quantities can undergo one-to-one transformations between coordinate systems. In general, such quantities are tensors. 
 
