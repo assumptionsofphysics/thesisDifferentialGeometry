@@ -68,10 +68,7 @@ Talking about location on the earth, a \textbf{single space cannot cover the ent
 \end{defn}
 
 
-NOTE: This may not be necessary, creates problems in intuition with polar coordinates
-\begin{defn}
-	A \textbf{coordinate axis} is a coordinate line with the fixed quantities held at 0. 
-\end{defn}
+
 
 - \emph{\textbf{Overlapping} coordinate systems can be transformed between}
 
@@ -276,31 +273,32 @@ This gives us vectors and covectors: the former being infinitesimal segments, an
 
 
 \begin{defn}
-	A \textbf{vector} is an infinitesimal segment along a line. A \textbf{tangent plane}, then, is a collection of vectors that share a fixed point. 
+	A \textbf{vector} $v^1 \in V^1$ is an infinitesimal segment along a line. A \textbf{tangent plane}, then, is a collection of vectors that share a fixed point. 
 \end{defn}
 
-NOTE: Need a formal definition of a covector as a linear function of a vector
 
-NOTE: dx is an element of the tangent space such that if you take dx at all points and sum it, you get the original
-
-
-NOTE: Not integrating, just summing the dx segments
 \begin{defn}
-	A \textbf{differential} $dx$ is the element of the tangent plane such that $x = \int dx$. 
+	A \textbf{covector} $\omega_1 : V^1 \to \mathbb{R}$ is a linear function along vectors. 
+\end{defn}
+
+
+
+\begin{defn}
+	A \textbf{differential} $dx$ is the element of the tangent plane of a line which if summed at all points will return the line itself. 
 \end{defn}
 
 We can define functions that convert infinitesimal segments to a scalar value. 
 
 For some line P, $\int df(P)$ = $\int \frac{\partial f(P)}{{\partial x^i}} dx^i$ = $\int \frac{\partial f}{\partial x^i}\frac{\partial x^i}{\partial P}dP$ = $\int \frac{{\partial f}}{{\partial x^i}} e^i (dx^j e_j)$
 
-NOTE: Talk about covectors using the variable omega, and omega will go from V to R
 
-TODO: Put a 1 in there for 1-vectors and 1-forms. Generalizes easier. 
+
+
 
 
 TODO: Try to break this definition, since it doesn't discuss orientation at all. Orientation should be absolutely necessary. 
 \begin{prop}
-	Every linear 1-functional has a corresponding covector, such that for $f : S \to \mathbb{R}$, $f = \int_{\lambda} f(d\lambda)$. In words, a linear functional applied over a line is the same as an integral of a covector over the infinitesimal segments of that line. Further, for $g : S^{2} \to \mathbb{R}$, $g(\lambda) = \int_{\sigma} g(d\sigma) = f(\partial\sigma) = \int_{\partial\sigma}f(d\partial\sigma)$. 
+	Every linear 1-functional has a corresponding covector, such that for $f : S \to \mathbb{R}$, $f = \int_{\lambda} \omega_1(d\lambda)$. In words, a linear functional applied over a line is the same as an integral of a covector over the infinitesimal segments of that line. Further, for $g : S^{2} \to \mathbb{R}$, $g(\sigma) = \int_{\sigma} \omega_2(d\sigma) = f(\partial\sigma) = \int_{\partial\sigma}\omega_1(d\partial\sigma)$. 
 \end{prop}
 
 
@@ -323,44 +321,40 @@ TODO: Try to break this definition, since it doesn't discuss orientation at all.
 - Here we will be talking about wedge products, and how they behave with k-vectors of different degrees. 
 
 
-NOTE: It's a parallelopiped in the k-surface
+
 \begin{defn}
-	A \textbf{k-vector} is a geometrical object with a dimensionally appropriate magnitude and a direction. A vector as discussed previously is a 1-vector. 
+	A \textbf{k-vector} $v^k \in V^k$ is an infinitesimal parallelepiped on a k-surface. A vector as discussed previously is a 1-vector. A \textbf{tangent space} is then a collection of k-vectors that share a fixed corner. 
 \end{defn}
 
 - \emph{Talking about orientation in terms of quantities: if we flip a quantity, we flip the orientation. Also, it should follow naturally that adding k-vectors of equal magnitude and opposite orientation will give zero.}
 
 
-
-TODO: Talk about fixing a corner of the paralellopiped just a point was fixed. A k-form is being given a paralellopiped 
-
 TODO: In wedge, talk about how switching sides we switch the orientation
 
-TODO: After defining the set of all forms, say that every linear k-functional has a corresponding k-form such that... just as in the previous proposition in vectors and covectors 
 
 \begin{defn}
-	$V^k$ is the set of all vectors of dimension k and $V = \cup_{k=0}^n V^k$ is the set of all k-vectors. 
+	$V^k$ is the set of all vectors of rank k and $V = \cup_{k=0}^n V^k$ is the set of all k-vectors. 
 	\end{defn}
 
 
 
-NOTE: wedge can be discussed as constructing parallelopiped 
+NOTE: wedge can be discussed as constructing parallelepiped 
 \begin{defn}
 	
 	The \textbf{wedge product} $\wedge : \Sigma^k\times \Sigma^j \to \Sigma^{k+j}$ combines k-vectors antisymmetrically to generate k-vectors of a higher rank. 
 \end{defn}
 
-NOTE: talk about vectors and k-vectors using variable v. 
-
 \begin{defn}
-	A \textbf{k-form} $\omega_k : V^k \to \mathbb{R}$ is a skew-symmetric linear functional that converts an infinitesimal segment into a scalar value. A covector as discussed previously is a 1-form. 
+	A \textbf{k-form} $\omega_k : V^k \to \mathbb{R}$ is a skew-symmetric linear functional that converts an infinitesimal parallelepiped into a scalar value. A covector as discussed previously is a 1-form. 
 \end{defn}
 
 \begin{defn}
 	$\Omega_k$ is the set of all forms of dimension k and $\Omega = \cup_{k=0}^n\Omega_k$ is the set of all forms. 
 \end{defn}
 
-
+\begin{prop}
+	Every linear k-functional has a corresponding k-form, such that for $f_k : S^k \to \mathbb{R}$, $f_k = \int_{\sigma^k} \omega_k(d\sigma^k)$. In words, a linear functional applied over a k-surface is the same as an integral of a k-form over the infinitesimal parallelepipedes of that k-surface. Further, for $g_{k+1} : S^{k+1} \to \mathbb{R}$, $g_{k+1}(\sigma^{k+1}) = \int_{\sigma^{k+1}} \omega_{k+1}(d\sigma^{k+1}) = f_k(\partial\sigma^{k+1}) = \int_{\partial\sigma^{k+1}}\omega_k(d\partial\sigma^{k+1})$. 
+\end{prop}
 
 
 
