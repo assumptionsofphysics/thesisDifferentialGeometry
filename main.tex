@@ -365,11 +365,29 @@ NOTE: wedge can be discussed as constructing parallelepiped
 
 TODO: We have to define the exterior derivative. Want to show that the $\eth$ becomes the exterior derivative over the corresponding k-form. We're defining the exterior derivative as the thing that gives us stoke's theorem. 
 
+\begin{defn}
+	$\eth : \Omega_k \to \Omega_{k+1}$ is the \textbf{exterior derivative} on k-forms. 
+\end{defn}
+
+\begin{prop}
+	The interior operator $\eth$ on k-functionals is equivalent to the exterior derivative on k-forms. 
+\end{prop}
+
+\begin{proof}
+	
+	Consider k-surface $\sigma$ and (k-1)-functional $f$ with associated (k-1)-form $\omega$. 
+	
+	f($\sigma$) = $\int_{\sigma}\omega(d\sigma)$ and $\eth f(\sigma) = f(\partial\sigma)$
+	
+	$\implies \eth f(\sigma) = \int_{\partial\sigma} \omega(d\partial\sigma) = \int_{\sigma} \eth\omega(d\sigma)$
+\end{proof}
+
+
 Would be cool to have a diagram showing the relationship between the exterior derivative, k-functionals, k-forms. So $\eth$ allows us to go from $F_k$ to $F_{k+1}$, exterior derivative goes between $\omega_k$ to $\omega_{k+1}$ and integration goes between $F_k$ and $\omega_k$. 
 
 
 \begin{defn}
-	\textbf{Stoke's Theorem}: For k-form $\omega_k$ and k-surface $\sigma^k$, $\int_{\partial \sigma^k}\omega_k = \int_{\sigma^k}\eth\omega_k$. 
+	\textbf{Stoke's Theorem}: For (k-1)-form $\omega$ and k-surface $\sigma$, $\int_{\partial \sigma}\omega = \int_{\sigma}\eth\omega$. 
 \end{defn}
 
 
