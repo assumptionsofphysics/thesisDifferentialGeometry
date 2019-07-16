@@ -363,7 +363,7 @@ NOTE: wedge can be discussed as constructing parallelepiped
 
 
 
-TODO: We have to define the exterior derivative. Want to show that the $\eth$ becomes the exterior derivative over the corresponding k-form. We're defining the exterior derivative as the thing that gives us stoke's theorem. 
+
 
 \begin{defn}
 	$\eth : \Omega_k \to \Omega_{k+1}$ is the \textbf{exterior derivative} on k-forms. 
@@ -383,7 +383,22 @@ TODO: We have to define the exterior derivative. Want to show that the $\eth$ be
 \end{proof}
 
 
-Would be cool to have a diagram showing the relationship between the exterior derivative, k-functionals, k-forms. So $\eth$ allows us to go from $F_k$ to $F_{k+1}$, exterior derivative goes between $\omega_k$ to $\omega_{k+1}$ and integration goes between $F_k$ and $\omega_k$. 
+ 
+
+\begin{tikzpicture}
+[roundnode/.style={circle, draw=green!60, fill=green!5, very thick, minimum size=7mm},
+squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size=5mm},
+]
+\node[roundnode]	(f2) {$F_{k+1}$};
+\node[roundnode]	(f1) [below=of f2]{$F_k$};
+\node[squarednode]	(w2) [right=of f2] {$\Omega_{k+1}$};
+\node[squarednode]	(w1) [right=of f1] {$\Omega_k$};
+
+\draw[<-] (f2) -- (w2) node[midway, above] {$\int$};
+\draw[<-] (f2) -- (f1) node[midway, left] {$\eth$};
+\draw[<-] (f1) -- (w1) node[midway, below] {$\int$};
+\draw[<-] (w2) -- (w1) node[midway, right] {$\eth$};
+\end{tikzpicture}
 
 
 \begin{defn}
