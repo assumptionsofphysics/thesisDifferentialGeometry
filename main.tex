@@ -329,8 +329,6 @@ TODO: Try to break this definition, since it doesn't discuss orientation at all.
 - \emph{Talking about orientation in terms of quantities: if we flip a quantity, we flip the orientation. Also, it should follow naturally that adding k-vectors of equal magnitude and opposite orientation will give zero.}
 
 
-TODO: In wedge, talk about how switching sides we switch the orientation
-
 
 \begin{defn}
 	$V^k$ is the set of all vectors of rank k and $V = \cup_{k=0}^n V^k$ is the set of all k-vectors. 
@@ -341,7 +339,7 @@ TODO: In wedge, talk about how switching sides we switch the orientation
 NOTE: wedge can be discussed as constructing parallelepiped 
 \begin{defn}
 	
-	The \textbf{wedge product} $\wedge : \Sigma^k\times \Sigma^j \to \Sigma^{k+j}$ combines k-vectors antisymmetrically to generate parallelepipeds. 
+	The \textbf{wedge product} $\wedge : V^k\times V^j \to V^{k+j}$ combines k-vectors antisymmetrically to generate parallelepipeds. 
 \end{defn}
 
 \begin{coro}
@@ -381,7 +379,7 @@ NOTE: wedge can be discussed as constructing parallelepiped
 	
 	Consider k-surface $\sigma$ and (k-1)-functional $f$ with associated (k-1)-form $\omega$. 
 	
-	f($\sigma$) = $\int_{\sigma}\omega(d\sigma)$ and $\eth f(\sigma) = f(\partial\sigma)$
+	$f$($\sigma$) = $\int_{\sigma}\omega(d\sigma)$ and $\eth f(\sigma) = f(\partial\sigma)$
 	
 	$\implies \eth f(\sigma) = \int_{\partial\sigma} \omega(d\partial\sigma) = \int_{\sigma} \eth\omega(d\sigma)$
 \end{proof}
