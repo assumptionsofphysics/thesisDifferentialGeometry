@@ -278,7 +278,7 @@ This gives us vectors and covectors: the former being infinitesimal segments, an
 
 
 \begin{defn}
-	A \textbf{covector} $\omega_1 : V^1 \to \mathbb{R}$ is a linear function along vectors. 
+	A \textbf{covector} $\omega_1 : V^1 \to \mathbb{R}$ is a linear function of vectors. 
 \end{defn}
 
 
@@ -298,7 +298,7 @@ For some line P, $\int df(P)$ = $\int \frac{\partial f(P)}{{\partial x^i}} dx^i$
 
 TODO: Try to break this definition, since it doesn't discuss orientation at all. Orientation should be absolutely necessary. 
 \begin{prop}
-	Every linear 1-functional has a corresponding covector, such that for $f : S \to \mathbb{R}$, $f = \int_{\lambda} \omega_1(d\lambda)$. In words, a linear functional applied over a line is the same as an integral of a covector over the infinitesimal segments of that line. Further, for $g : S^{2} \to \mathbb{R}$, $g(\sigma) = \int_{\sigma} \omega_2(d\sigma) = f(\partial\sigma) = \int_{\partial\sigma}\omega_1(d\partial\sigma)$. 
+	Every linear 1-functional has a corresponding covector, such that for $f : S \to \mathbb{R}$, $f = \int_{\lambda} \omega_1(d\lambda)$. In words, a linear functional applied over a line is the same as an integral of a covector over the infinitesimal segments of that line. 
 \end{prop}
 
 
@@ -363,9 +363,9 @@ NOTE: wedge can be discussed as constructing parallelepiped
 
 \section{Stoke's Theorem}
 
+TODO: Show that the definition on local coordinates on the wikipedia page for exterior derivative follow from our definitions
 
-
-
+TODO: Start talking about coordinates before this
 
 \begin{defn}
 	$\eth : \Omega_k \to \Omega_{k+1}$ is the \textbf{exterior derivative} on k-forms. 
@@ -376,7 +376,7 @@ NOTE: wedge can be discussed as constructing parallelepiped
 \end{prop}
 
 \begin{proof}
-	
+	\emph{This proof is basically the definition of the exterior derivative. Take this derivation and turn it into a definition for 2.13. The definition and proposition}
 	Consider k-surface $\sigma$ and (k-1)-functional $f$ with associated (k-1)-form $\omega$. 
 	
 	$f$($\sigma$) = $\int_{\sigma}\omega(d\sigma)$ and $\eth f(\sigma) = f(\partial\sigma)$
@@ -407,6 +407,7 @@ squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size
 	\textbf{Stoke's Theorem}: For (k-1)-form $\omega$ and k-surface $\sigma$, $\int_{\partial \sigma}\omega = \int_{\sigma}\eth\omega$. 
 \end{defn}
 
+NOTE: It seems that we don't even needs to worry about orientation as long as we're in coordinate free space. If possible, it would be cool to be able to not talk about orientation at all. It's just a choice of sign on both the direction of integration and the k-form. We can show that changing the sign of the integration necessitates also changing the sign of the k-form, thus making the orientation itself unnecessary (may not be needed). "suppose that you have a k-form, and you have chosen your coordinates, you can switch the order of integration and put a minus on the form, but then components of hte form change, so the form has different components dependign on orientation." "Or, we can say that there is some coordinate for which we go from a to be and others from b to a, components are thus the same, coordinates are different, but make up a class. It's just a different way to keep track of the sign." Components flip sign under a mirror, or flip, or whatever. 
 
 NOTE: If we can stay coordinate free up until this point, maybe we can start talking about coordinates here in the coordinate transformation section
 \section{Tensors and coordinate transformations}
