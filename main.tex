@@ -35,12 +35,20 @@ Ch 3
 
 
 \section{Manifolds and continuous quantities}
-\emph{We tell physical objects apart by identifying some measurable properties. In particular, we are interested in properties that are continuous quantities. This gives us manifolds.}
+
+\subsection{Summary}
+
+In mathematical science, our goal in general is to be able to assign a numerical value to a physical property of some object. There also ought to be no question of repeatability: two systems prepared identically and measured identically must give the same result (\emph{reference quantum mechanics??}). This directly gives us \textbf{quantities} as functions that assign real values to physical objects. We then group quantities into sets, requiring those sets to be sufficient to distinguish one physical object from another, and calling those sets \textbf{coordinate systems}. Varying a quantity while keeping the others fixed gives us \textbf{coordinate lines}, and because certain physical properties can be equally well described in different coordinate systems, we introduce \textbf{coordinate transformations}. All of these mathematical constructions together, along with the requirement that the set of possible measured values must be completely covered by subsets with defined quantities, gives us \textbf{manifolds}. 
+
+Within manifolds may lie smaller manifolds: \textbf{submanifolds}, or \textbf{k-surfaces}. Having a notion of certain points existing on a submanifold and certain points existing outside of it gives us the notion of the \textbf{interior} of a surface. The \textbf{boundary} of a surface follows naturally as being the set of points on that surface that are not on the interior, and therewith also the \textbf{boundary operator}, which takes us from a k-surface to its boundary. 
+
+We now want to be able to talk about functions along our k-surfaces. We define then \textbf{k-functionals} as linear functions along our k-surfaces. Because of our requirement of linearity, we will be able to start talking about functions over infinitesimals in Chapter 2. Finally, we introduce the \textbf{interior operator}, which applied to a k-functional is equivalent to applying a boundary operator to a (k+1)-surface, and will allow us to talk about Stoke's Theorem in Chapter 2.  
+
 
 \subsection{Physical objects and quantities}
 
-- \emph{There is a physical object that we want to identify}
 
+Our goal in general is to be able to identify and describe physical objects through measurement and experiment. 
 Say we're looking at weather. We'll want to know the temperature, wind speed, humidity, whereabouts, etc.
 
 - \emph{We can give real number values describing that object. This gives us quantities}
@@ -48,7 +56,7 @@ Say we're looking at weather. We'll want to know the temperature, wind speed, hu
 Fahrenheit, mph, percent humidity, location.
 On some set of all possible weather configurations, we look at a specific subset of possibilities described by real numbers. This is our weather report.  
 
-Talking about location on the earth, a \textbf{single space cannot cover the entire earth such that a consistent set of quantities will be defined}. The poles must be in two separate subsets, with separate quantities. 
+ 
 
 \begin{defn}
 	A \textbf{quantity} is a function $q : U \to \mathbb{R}$ that assigns a measurable value to a physical object.
@@ -56,7 +64,7 @@ Talking about location on the earth, a \textbf{single space cannot cover the ent
 
 
 - \emph{Having a set of one-to-one quantities sufficient to distinguish one object from another, but not so many that some end up redundant, gives us a coordinate system}
-
+In identifying them, it is necessary that we are able to distinguish between different objects by those measurable properties. 
 
 \begin{defn}
 	A \textbf{coordinate system} $Q$ is a collection of $n$ quantities $q^i : U \to \mathbb{R}^n$ such that there is a one-to-one relationship between the physical objects in $U$ and elements of $\mathbb{R}^n$.
@@ -100,7 +108,7 @@ squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size
 
 For the weather example, a manifold would be all possible weather conditions with a subsection whereon is defined a weather report, measuring temperature, wind speed, etc. in different places. If we're looking to parametrize the entire earth, then our manifold cannot be covered with a single subset, because the earth has poles. We will need multiple subsets to cover all of the earth, and all possible weather conditions. 
 
-
+Talking about location on the earth, a \textbf{single space cannot cover the entire earth such that a consistent set of quantities will be defined}. The poles must be in two separate subsets, with separate quantities.
  
 \begin{defn}
 	A \textbf{manifold} is a set of physical objects $X$ such that for any $x \in X$ there exists a $U \subset X$ that contains $x$ and upon which a coordinate system $Q$ is defined.
