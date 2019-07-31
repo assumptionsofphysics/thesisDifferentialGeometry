@@ -140,9 +140,7 @@ In general, we will be using the term "k-surface", instead of "submanifold."
 	For some manifold X of dimension n, $S^k$ is the set of all possible \textbf{k-surfaces}, or sub-manifolds of dimension $k \leq n$, and S $=$ $\cup^n_{k=0}S^k$ is the set of all k-surfaces. 
 \end{defn}
 
-A manifold of dimension n can have a boundary of dimension n-1. The boundary itself will not have a boundary.
-
-The boundary of a weather report would be readings restricted to a specific climate. 
+Now that we are able to define manifolds within manifolds, we have a notion of where a point lies relative to some manifold. Specifically, we are able to say whether a point is exterior to the k-surface, \textbf{interior} to the k-surface (that is, on the surface, and surrounded by points also on the surface), and on the \textbf{boundary} of the k-surface (lying on the "edge" of the surface).  
 
 
 \begin{defn}
@@ -153,30 +151,27 @@ The boundary of a weather report would be readings restricted to a specific clim
 	Given k-surface $\sigma^k \in S^k$, if some point $x \in \sigma^k$ is not an interior point, then $x$ is a \textbf{boundary point}.
 \end{defn}
 
-
+Later on, it will become important to be able to concentrate entirely on the boundary of a k-surface. Therefore, we must make use of the \textbf{boundary operator} in order to go from a k-surface to it's boundary. 
 
 \begin{defn}
 	For k-surface $\sigma^k \in S^k$, the \textbf{boundary operator} $\partial : S^k \to S^{k-1}$ gives the set of boundary points of $\sigma^k$. 
 \end{defn}
 
+The dimension of the boundary is one less than the dimension of the k-surface itself. To get an intuitive feel for why this must be so, consider a cube (\textbf{embedded?}) in $\mathbb{R}^3$. The boundary of a cube would be its twelve edges. Orienting our coordinate system such that the origin is on a corner of the cube, with the coordinate axes lying along the three edges, we see that when traveling along the boundary of the cube, one of the three coordinates will be held fixed. When transitioning between edges, the fixed coordinate will also change. (\textbf{Maybe have a picture here demonstrating what I mean?})
 
-Dimension is one less since at each section of the boundary, one of the dimensions must be held fixed.
 
-$\partial\partial \sigma^k$ is empty since all points on the boundary are interior with respect to the boundary.
+The boundary of our weather report is a little more abstract. (\textbf{The boundary is a specific climate? But different climates can have the same weather depending on the day. })
 
+Furthermore, $\partial\partial \sigma^k$ is empty. Consider once again a cube in $\mathbb{R}^3$. Geometrically, it can be seen that any point on the boundary of the cube (on the edge) is interior with respect to the boundary, since any neighborhoood constructed around any point on the edge will still be on the edge. There will be discontinuities at each of the corners, but because there are countably many discontinuities (that is, eight), we don't have a problem. (\textbf{Elaborate on why that's ok})
 
 \begin{coro}
 	Given $\sigma^k \in S^k$, $\partial \sigma^k \in S^{k-1}$, and $\partial\partial \sigma^k = \emptyset$. 
 \end{coro}
 
 
-NOTE: The boundary appears to be very similar to a line, in that all points on the boundary are interior with respect to the boundary. 
-
-For a cube, the boundary will suffer discontinuities due to the corners. This is ok, since there are a countable number of discontinuities. 
-
 \subsection{Linear Functionals of K-surfaces}
 
-We have the tools now to begin talking about functions along our k-surfaces. 
+Now that we have discussed k-surfaces, we want to be able to have functions applied over them. We require that these functions be linear; that is, if two k-surfaces overlap only on their boundary, then applying a function over the two surfaces at once is equivalent to applying the function to each of them separately, and summing their contributions. We call linear functions of k-surfaces \textbf{k-functionals}. 
 
 
 \begin{defn}
@@ -187,10 +182,13 @@ We have the tools now to begin talking about functions along our k-surfaces.
 	$F_k$ is the set of all functionals of dimension k, and $F = \cup_{k=0}^nF_k$ is the set of all k-functionals. 
 \end{defn}
 
+In the previous section, we discussed the boundary operator as a map from a k-surface to its boundary. It's reasonable, then, that we ought to be able to use our k-functionals on the boundary. To do so, however, we need an operator on k-functionals that is equivalent to the boundary operator on k-surfaces. In complement to "boundary", we define the \textbf{interior operator} thusly:
 
 \begin{defn}
 	$\eth : F_k \to F_{k+1}$ such that $\eth f_k(\sigma^{k+1}) = f_k(\partial \sigma^{k+1})$ is the \textbf{interior operator} on k-functionals. 
 \end{defn}
+
+Because applying the interior operator to a k-functional is equivalent to applying the boundary operator to a k-surface, it must be that properties of the boundary operator hold true for the interior operator. 
 
 \begin{prop}
 	A k-functional applied to the empty set gives zero. 
@@ -217,6 +215,7 @@ So, $f_k(\emptyset) = f_k(\emptyset\cup\emptyset) = f_k(\emptyset) + f_k(\emptys
 	So, $h^{k+2}(s) = 0$ $\forall$ $\sigma^k$, and $h^{k+2}$ is the zero function. 
 \end{proof}
 
+\subsection{Conclusion}
 
 
 
