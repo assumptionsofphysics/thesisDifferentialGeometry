@@ -38,7 +38,7 @@ Ch 3
 
 \subsection{Summary}
 
-In mathematical science, our goal in general is to be able to assign a numerical value to a physical property of some object. There also ought to be no question of repeatability: two systems prepared identically and measured identically must give the same result (\emph{reference quantum mechanics??}). This directly gives us \textbf{quantities} as functions that assign real values to physical objects. We then group quantities into sets, requiring those sets to be sufficient to distinguish one physical object from another, and calling those sets \textbf{coordinate systems}. Varying a quantity while keeping the others fixed gives us \textbf{coordinate lines}, and because certain physical properties can be equally well described in different coordinate systems, we introduce \textbf{coordinate transformations}. All of these mathematical constructions together, along with the requirement that the set of possible measured values must be completely covered by subsets with defined quantities, gives us \textbf{manifolds}. 
+In mathematical science, our goal in general is to be able to assign a numerical value to a physical property of some object. This directly gives us \textbf{quantities} as functions that assign real values to physical objects. We then group quantities into sets, requiring those sets to be sufficient to distinguish one physical object from another, and calling those sets \textbf{coordinate systems}. Varying a quantity while keeping the others fixed gives us \textbf{coordinate lines}, and because certain physical properties can be equally well described in different coordinate systems, we introduce \textbf{coordinate transformations}. All of these mathematical constructions together, along with the requirement that the set of possible measured values must be completely covered by subsets with defined quantities, gives us \textbf{manifolds}. 
 
 Within manifolds may lie smaller manifolds: \textbf{submanifolds}, or \textbf{k-surfaces}. Having a notion of certain points existing on a submanifold and certain points existing outside of it gives us the notion of the \textbf{interior} of a surface. The \textbf{boundary} of a surface follows naturally as being the set of points on that surface that are not on the interior, and therewith also the \textbf{boundary operator}, which takes us from a k-surface to its boundary. 
 
@@ -47,40 +47,35 @@ We now want to be able to talk about functions along our k-surfaces. We define t
 
 \subsection{Physical objects and quantities}
 
-
-Our goal in general is to be able to identify and describe physical objects through measurement and experiment. 
-Say we're looking at weather. We'll want to know the temperature, wind speed, humidity, whereabouts, etc.
-
-- \emph{We can give real number values describing that object. This gives us quantities}
-
-Fahrenheit, mph, percent humidity, location.
-On some set of all possible weather configurations, we look at a specific subset of possibilities described by real numbers. This is our weather report.  
-
- 
+At the heart of investigation in science is the identifying and organizing of objects based on their properties, through measurement and experiment. This could be as simple as setting a block on a scale to determine its weight, or as complex as determining which economic policies lead to a recession. For our purposes here, we will be dealing only with properties that can be described using real numbers, such as mass, temperature, velocity, etc. The identification of a particular physical property with a real number is called a \textbf{quantity}.
 
 \begin{defn}
 	A \textbf{quantity} is a function $q : U \to \mathbb{R}$ that assigns a measurable value to a physical object.
 \end{defn}
 
+\emph{Say we're looking at weather. We'll want to know the temperature, wind speed, humidity, whereabouts, etc.
+Fahrenheit, mph, percent humidity, location.
+On some set of all possible weather configurations, we look at a specific subset of possibilities described by real numbers. This is our weather report.  }
 
-- \emph{Having a set of one-to-one quantities sufficient to distinguish one object from another, but not so many that some end up redundant, gives us a coordinate system}
-In identifying them, it is necessary that we are able to distinguish between different objects by those measurable properties. 
+It's quite possible, however, that we won't be able to distinguish between two objects with only one quantity. Say, for instance, that we're talking about weather. Knowing what the temperature will be tomorrow is certainly useful, but as anyone from Florida can tell you, 80$^o$F with 95$\%$ humidity is very different than 80$^o$F with 30$\%$ humidity. In distinguishing objects, then, we will often want to define more than one quantity, to give an even more descriptive way of categorizing objects: the \textbf{coordinate system}.
 
 \begin{defn}
 	A \textbf{coordinate system} $Q$ is a collection of $n$ quantities $q^i : U \to \mathbb{R}^n$ such that there is a one-to-one relationship between the physical objects in $U$ and elements of $\mathbb{R}^n$.
 \end{defn}
 
+Though we can identify multiple quantities, it is still sometimes necessary to isolate specific quantities to identify their particular influence on a system. In an n-dimensional space, holding (n-1) quantities fixed and then allowing the nth quantity to vary would allow us to know specifically the effect that the nth quantity will have on the system, with the assurance that comes from knowing that all other factors are kept the same. On our coordinate system, this varying quantity manifests itself as a line. 
 
 \begin{defn}
 	A \textbf{coordinate line} is the set of points in $\mathbb{R}^n$ obtained by allowing one quantity to vary and holding the others fixed. 
 \end{defn}
 
+With coordinate systems defined now, we must recognize that in many instances, two different coordinate systems function just as well to describe a certain object. Mathematically, this occurs when two sets, each with defined coordinate systems, overlap. The points that lie within this overlapping section may be described in either coordinate system. To give an example from geography, consider the "point" Moscow. It could very well show up on a map of Asia, with specific x and y coordinates, while also showing up on a map of Europe, with different, but equally valid x and y coordinates. Therefore, Moscow's position is described just as well on either map, and so its position can be freely transformed from one coordinate system to another. Alternatively, consider the "point" Lisbon. Lisbon will show up on a map of Europe, with valid x and y coordinates, but you would never find Lisbon on a map of Asia. Therefore, its position may only be described in terms of the coordinates on the map of Europe.
 
 
+\begin{defn}
+	Given two coordinate systems  $Q : U \to \mathbb{R}^n$ and $Q' : V \to \mathbb{R}^n$ such that $U \cap V \neq \emptyset$, we call a \textbf{coordinate transformation} the function $f = Q' \circ (Q)^{-1} : \mathbb{R}^n \to \mathbb{R}^n$.
+\end{defn}
 
-- \emph{\textbf{Overlapping} coordinate systems can be transformed between}
-
-Moscow may be seen on both a map of Europe and a map of Asia, so its coordinate system can be swapped. Lisbon, however, will not show up on a map of Asia, so its coordinate system cannot be swapped. 
 
 \begin{tikzpicture}
 [roundnode/.style={circle, draw=green!60, fill=green!5, very thick, minimum size=7mm},
@@ -97,22 +92,18 @@ squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size
 \draw[<->] (realU) -- (realV);
 \end{tikzpicture}
 
-\begin{defn}
-	Given two coordinate systems  $Q : U \to \mathbb{R}^n$ and $Q' : V \to \mathbb{R}^n$ such that $U \cap V \neq \emptyset$, we call a \textbf{coordinate transformation} the function $f = Q' \circ (Q)^{-1} : \mathbb{R}^n \to \mathbb{R}^n$.
-\end{defn}
 
 
+So, we now have a notion of sets that may be mapped to the real numbers. This allows us to define one of the most important tools in mathematical physics: the \textbf{manifold.}
 
-
-- \emph{Now that we have sets that can be mapped to the real numbers, we can define manifolds}
-
-For the weather example, a manifold would be all possible weather conditions with a subsection whereon is defined a weather report, measuring temperature, wind speed, etc. in different places. If we're looking to parametrize the entire earth, then our manifold cannot be covered with a single subset, because the earth has poles. We will need multiple subsets to cover all of the earth, and all possible weather conditions. 
-
-Talking about location on the earth, a \textbf{single space cannot cover the entire earth such that a consistent set of quantities will be defined}. The poles must be in two separate subsets, with separate quantities.
- 
 \begin{defn}
 	A \textbf{manifold} is a set of physical objects $X$ such that for any $x \in X$ there exists a $U \subset X$ that contains $x$ and upon which a coordinate system $Q$ is defined.
 \end{defn}
+
+Earlier, weather was given as an example of a set of physical objects (\textbf{specify above that weather would be a set of physical objects}), with readings such as temperature and humidity allowing us to define a coordinate system. In this context, the "manifold" would be a full weather report (\textbf{clarify this example}) 
+
+The Earth is a classic example of a manifold, which allows for further discussion of the geography example. Because of the poles, every location on earth cannot be quantified with only one set of coordinates. (\textbf{Elaborate})
+ 
 
 
 
@@ -120,17 +111,12 @@ Talking about location on the earth, a \textbf{single space cannot cover the ent
 
 - \emph{Within a manifold can lie a manifold of equal or smaller dimension, with a mapping between them}
 
-If in the original weather report we were worrying about temperature, humidity, and wind speed, we could instead hold one of the three values fixed (say, humidity), and vary the other two. The latter manifold, with humidity held constant, would be a sub-manifold of the former, where all three variables are allowed to change.  
-
+A manifold may be a subset of another larger manifold, which may have more quantities, simply more points, etc. Back to the weather example, if in the original weather report we were worrying about temperature, humidity, and wind speed, we could instead hold one of the three values fixed (say, humidity), and vary the other two. The latter manifold, with humidity held constant, would be a \textbf{submanifold} of the former, where all three variables are allowed to change.  
 
 
 \begin{defn}
-	Consider a manifold X of dimension n, and a manifold Y of dimension k, such that $k \leq n$. Y is a \textbf{submanifold} or a k-surface of X if any point on Y is also a point on X. 
+	Consider a manifold X of dimension n, and a manifold Y of dimension k, such that $k \leq n$. Y is a \textbf{submanifold} or a \textbf{k-surface} of X if any point on Y is also a point on X. 
 \end{defn}
-
-- parameterization of Y can be done in terms of the coordinates of X; $q^i(q'^j)$
-
-
 
 \begin{tikzpicture}
 [roundnode/.style={circle, draw=green!60, fill=green!5, very thick, minimum size=7mm},
@@ -139,7 +125,7 @@ squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size
 \node[roundnode]	(X) {X};
 \node[roundnode]	(Y) [below=of X]{Y};
 \node[squarednode]	(realX) [right=of X] {$\mathbb{R}^n$};
-\node[squarednode]	(realY) [right=of Y] {$\mathbb{R}^n$};
+\node[squarednode]	(realY) [right=of Y] {$\mathbb{R}^k$};
 
 \draw[<->] (X) -- (realX) node[midway, above] {$Q$};
 \draw[->] (X) -- (Y) node[midway, left] {$U\cap V$};
@@ -147,7 +133,7 @@ squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size
 \draw[->] (realU) -- (realV);
 \end{tikzpicture}
 
-What are the possible submanifolds of a given manifold?
+In general, we will be using the term "k-surface", instead of "submanifold." 
 
 
 \begin{defn}
