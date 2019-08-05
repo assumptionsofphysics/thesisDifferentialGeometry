@@ -38,7 +38,7 @@ Ch 3
 - Riem geom (Inner product, ..)
 - ???
 
-- \textbf{Need an introduction here. Figur eout wwhat the very general pupose is. Get a general scope going on, what our goals are. Check whats in the book}
+
 
 \chapter{Mathematical representations of physical objects}
 
@@ -92,28 +92,23 @@ squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size
 \draw[<->] (realU) -- (realV);
 \end{tikzpicture}
 
-
-\textbf{This paragraph doesnt follow. Be specific with what Im trying to talk about}
-So, we now have a notion of sets that may be mapped to the real numbers. This allows us to define one of the most important tools in mathematical physics: the \textbf{manifold.}
+Consider now a set of configurations of a system. Every one of these configurations is somehow mappable to the real numbers, with an appropriate coordinate system. However, a specified coordinate system may not be applicable to every point in the set. What we have, therefore, is a stitched-together collection of sets of state configurations, each of which contains a map to the real numbers. This is a \textbf{manifold}. 
 
 \begin{defn}
 	A \textbf{manifold} is a set of physical objects $X$ such that for any $x \in X$ there exists a $U \subset X$ that contains $x$ and upon which a coordinate system $Q$ is defined.
 \end{defn}
 
-\textbf{Not a set of physical objects, a set of possible states}
-Earlier, weather was given as an example of a set of physical objects (\textbf{specify above that weather would be a set of physical objects}), with readings such as temperature and humidity allowing us to define a coordinate system. In this context, the "manifold" would be a full weather report (\textbf{no, its the set of weather configurations}) 
+
+Earlier, weather was given as an example of a set possible states of a system, with readings such as temperature and humidity allowing us to define a coordinate system. In this context, the "manifold" would be the set of possible weather configurations, with each point being a single weather report. 
 
 The Earth is a classic example of a manifold, which allows for further discussion of the geography example. Because of the poles, every location on earth cannot be quantified with only one set of coordinates. (\textbf{Elaborate})
  
 
-\textbf{Analogy: The }
+\textbf{Analogy }
 
 \section{Sub-manifolds and k-surfaces}
 
-- \emph{Within a manifold can lie a manifold of equal or smaller dimension, with a mapping between them}
-
-\textbf{Reword first sentence. Definitely talk about classifying submaniflds based on their dimensionality. K-surfaces have k-freedoms. Boundaries occur where the varying is stopped}
-A manifold may be a subset of another larger manifold, which may have more quantities, simply more points, etc. Back to the weather example, if in the original weather report we were worrying about temperature, humidity, and wind speed, we could instead hold one of the three values fixed (say, humidity), and vary the other two. The latter manifold, with humidity held constant, would be a \textbf{submanifold} of the former, where all three variables are allowed to change.
+Consider an n-dimensional manifold; that is, a manifold with n degrees of freedom. We can construct another manifold with k degrees of freedom within the original, as long as k is not greater than n. Back to the weather example, if in the original weather report we were worrying about temperature, humidity, and wind speed, we could instead hold one of the three values fixed (say, humidity), and vary the other two. The latter manifold, with humidity held constant, would be a \textbf{submanifold} of the former, where all three variables are allowed to change. The boundary of this smaller manifold occurs where the varying is stopped by one means or another. 
 
 
 \begin{defn}
@@ -135,7 +130,7 @@ squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size
 \draw[->] (realU) -- (realV);
 \end{tikzpicture}
 
-In general, we will be using the term "k-surface", instead of "submanifold." 
+In general, we will be using the term "k-surface", instead of "submanifold." There will be many terms throughout this thesis prefaced by "k-". In general, this means that the object in question has k degrees of freedom. Such objects will be sorted based on the number of degrees of freedom that they have.  
 
 
 \begin{defn}
@@ -232,15 +227,7 @@ So, $f_k(\emptyset) = f_k(\emptyset\cup\emptyset) = f_k(\emptyset) + f_k(\emptys
 \section{Summary}
 
 
-- \emph{Very much fix this summary. It's not terribly clear to an outside reader. Far too much stuff here, too much to digest. Coordinate lines and systems may not be necessary}
-In mathematical science, our goal in general is to be able to assign a numerical value to a physical property of some object. This directly gives us \textbf{quantities} as functions that assign real values to physical objects. We then group quantities into sets, requiring those sets to be sufficient to distinguish one physical object from another (\textbf{states are in configurations, quantities identify a configuration}), and calling those sets \textbf{coordinate systems} (\textbf{need to connect audiennce's experience with coordinate with our own}). Varying a quantity while keeping the others fixed gives us \textbf{coordinate lines}, and because certain physical properties can be equally well described in different coordinate systems, we introduce \textbf{coordinate transformations}. (\textbf{A manifold is a set of things that can be distinguished through coordinate systems})All of these mathematical constructions together, along with the requirement that the set of possible measured values must be completely covered by subsets with defined quantities, gives us \textbf{manifolds}. 
-
-\textbf{The k in k-surface isnt clear}
-Within manifolds may lie smaller manifolds: \textbf{submanifolds}, or \textbf{k-surfaces}. Having a notion of certain points existing on a submanifold and certain points existing outside of it gives us the notion of the \textbf{interior} of a surface. The \textbf{boundary} of a surface follows naturally as being the set of points on that surface that are not on the interior (\textbf{we may not want to say that we have always submanifold with a boundary. Also someone may not even have clear what a surface is. }), and therewith also the \textbf{boundary operator}, which takes us from a k-surface to its boundary. 
-
-\textbf{No sense of linearity defined yet. Need anew name for }
-We now want to be able to talk about functions along our k-surfaces. We define then \textbf{k-functionals} as linear functions along our k-surfaces. Because of our requirement of linearity, we will be able to start talking about functions over infinitesimals in Chapter 2. Finally, we introduce the \textbf{interior functional}, which applied to a k-functional is equivalent to applying a boundary operator to a (k+1)-surface, and will allow us to talk about Stoke's Theorem in Chapter 2.  
-
+In this first section, we've laid the groundwork for a physical treatment of differential geometry. By starting with the idea of distinguishing states of a system, we are quickly able to come to an intuitive understanding of manifolds. 
 
 
 
@@ -327,7 +314,6 @@ For some line P, $\int df(P)$ = $\int \frac{\partial f(P)}{{\partial x^i}} dx^i$
 
 
 
-\subsection{K-vectors}
 
 - We want to be able to give a line, surface, body, etc. an orientation. This gives us k-vectors.
 
