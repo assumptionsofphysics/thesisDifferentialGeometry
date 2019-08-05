@@ -63,12 +63,7 @@ Normally, we think of coordinate systems in the context of quantifying an object
 \end{defn}
 
 
-\textbf{May not be able to talk about coordinate lines without defining manifolds. Maybe only the last sentence is the issue}
-Though we can identify multiple quantities, it is still sometimes necessary to isolate specific quantities to identify their particular influence on a system. In an n-dimensional space, holding (n-1) quantities fixed and then allowing the nth quantity to vary would allow us to know specifically the effect that the nth quantity will have on the system, with the assurance that comes from knowing that all other factors are kept the same. \textbf{On our space, this varying quantity manifests itself as a line \textit{maybe get rid of this last sentence}, we may only need to talk about coordinate lines, and introduce also coordinate surfaces, volumes, etc. with submanifolds}. 
 
-\begin{defn}
-	A \textbf{coordinate line} is the set of points in $\mathbb{R}^n$ obtained by allowing one quantity to vary and holding the others fixed. 
-\end{defn}
 
 
 \textbf{Use the word atlas with different charts. Also, while working through the text, try to sketch pictures to demonstrate concepts. Try to talk about with A5 B7 D3 kind of atlas}
@@ -147,6 +142,13 @@ In general, we will be using the term "k-surface", instead of "submanifold."
 	For some manifold X of dimension n, $S^k$ is the set of all possible \textbf{k-surfaces}, or sub-manifolds of dimension $k \leq n$, and S $=$ $\cup^n_{k=0}S^k$ is the set of all k-surfaces. 
 \end{defn}
 
+\textbf{May not be able to talk about coordinate lines without defining manifolds. Maybe only the last sentence is the issue}
+Though we can identify multiple quantities, it is still sometimes necessary to isolate specific quantities to identify their particular influence on a system. In an n-dimensional space, holding (n-1) quantities fixed and then allowing the nth quantity to vary would allow us to know specifically the effect that the nth quantity will have on the system, with the assurance that comes from knowing that all other factors are kept the same. \textbf{On our space, this varying quantity manifests itself as a line \textit{maybe get rid of this last sentence}, we may only need to talk about coordinate lines, and introduce also coordinate surfaces, volumes, etc. with submanifolds}. 
+
+\begin{defn}
+	A \textbf{coordinate line} is the set of points in $\mathbb{R}^n$ obtained by allowing one quantity to vary and holding the others fixed. 
+\end{defn}
+
 \textbf{Replace this whole paragraph with the talk about limit points}
 Now that we are able to define manifolds within manifolds, we have a notion of where a point lies relative to some manifold. Specifically, we are able to say whether a point is exterior to the k-surface, \textbf{interior} to the k-surface (that is, on the surface, and surrounded by points also on the surface), and on the \textbf{boundary} of the k-surface (lying on the "edge" of the surface).  
 
@@ -161,8 +163,7 @@ Now that we are able to define manifolds within manifolds, we have a notion of w
 	Given k-surface $\sigma^k \in S^k$, if some point $x \in \sigma^k$ is not an interior point, then $x$ is a \textbf{boundary point}.
 \end{defn}
 
-
-\textbf{Maybe give an example of a set without a bpundary}
+Intuitively, we can talk about the boundary of a set being a wall, beyond which a particle confined to the set cannot go. Consider, for instance, a particle confined to the inside of a sphere. The particle is free to move anywhere within the sphere, but is stopped from leaving by the surface of the sphere itself. Thus, the surface is the boundary. On the other hand, consider a particle confined to the surface of a sphere. The particle can travel along the surface as long as it wants without being stopped by any kind of wall. Thus, the surface of a sphere does not have a boundary. 
 
 Later on, it will become important to be able to concentrate entirely on the boundary of a k-surface. Therefore, we must make use of the \textbf{boundary operator} in order to go from a k-surface to it's boundary. 
 
@@ -170,13 +171,12 @@ Later on, it will become important to be able to concentrate entirely on the bou
 	For k-surface $\sigma^k \in S^k$, the \textbf{boundary operator} $\partial : S^k \to S^{k-1}$ gives the set of boundary points of $\sigma^k$. 
 \end{defn}
 
-The dimension of the boundary is one less than the dimension of the k-surface itself. To get an intuitive feel for why this must be so, consider a cube (\textbf{embedded? yes}) in $\mathbb{R}^3$. \textbf{The boundary of a cube would be its sides, because they stop movement out of the cube}. Orienting our coordinate system such that the origin is on a corner of the cube, with the coordinate axes lying along the three edges, we see that when traveling along the boundary of the cube, one of the three coordinates will be held fixed. When transitioning between edges, the fixed coordinate will also change. (\textbf{Maybe have a picture here demonstrating what I mean?})
+The dimension of the boundary is one less than the dimension of the k-surface itself. To get an intuitive feel for why this must be so, consider a cube embedded in $\mathbb{R}^3$. For a particle confined to the inside of the cube, the boundary of a cube would be its sides, because they stop movement out of the cube. So, consider the particle confined to the cube's boundaries: its sides. When the particle is moving along a side, one of the dimensions must be held fixed \textbf{include a picture here}, so the dimension of the boundary of a set is one less than the dimension of the set. 
 
 
 The boundary of our weather report is a little more abstract. (\textbf{The boundary is a specific climate? But different climates can have the same weather depending on the day. })
 
-\textbf{Fix this example}
-Furthermore, $\partial\partial \sigma^k$ is empty. Consider once again a cube in $\mathbb{R}^3$. Geometrically, it can be seen that any point on the boundary of the cube (on the edge) is interior with respect to the boundary, since any neighborhoood constructed around any point on the edge will still be on the edge. There will be discontinuities at each of the corners, but because there are countably many discontinuities (that is, eight), we don't have a problem. (\textbf{Elaborate on why that's ok})
+Furthermore, $\partial\partial \sigma^k$ is empty. Consider once again a cube in $\mathbb{R}^3$. As stated before, the boundary of a cube is its sides. A particle confined to its sides can move in a straight line along the outside of the cube (switching sides as needed) forever, so there is no boundary. Note that a single side of the cube makes up only part of the boundary of the cube, 
 
 \begin{coro}
 	Given $\sigma^k \in S^k$, $\partial \sigma^k \in S^{k-1}$, and $\partial\partial \sigma^k = \emptyset$. 
@@ -197,7 +197,7 @@ Now that we have discussed k-surfaces, we want to be able to have functions appl
 	$F_k$ is the set of all functionals of dimension k, and $F = \cup_{k=0}^nF_k$ is the set of all k-functionals. 
 \end{defn}
 
-In the previous section, we discussed the boundary operator as a map from a k-surface to its boundary. It's reasonable, then, that we ought to be able to use our k-functionals on the boundary. To do so, however, we need an operator on k-functionals that is equivalent to the boundary operator on k-surfaces. In complement to "boundary", we define the \textbf{interior functional or boundary fuctional} \textit{extend this paragraph to include the definition}
+In the previous section, we discussed the boundary operator as a map from a k-surface to its boundary. It's reasonable, then, that we ought to be able to use our k-functionals on the boundary. To do so, however, we need an operator on k-functionals that is equivalent to the boundary operator on k-surfaces. In complement to "boundary", we define the \textbf{interior functional} \textit{extend this paragraph to include the definition}
 
 \begin{defn}
 	$\eth : F_k \to F_{k+1}$ such that $\eth f_k(\sigma^{k+1}) = f_k(\partial \sigma^{k+1})$ is the \textbf{interior functional} on k-functionals. 
