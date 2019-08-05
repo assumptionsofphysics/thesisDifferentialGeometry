@@ -34,32 +34,15 @@ Ch 3
 
 \chapter{Mathematical representations of physical objects}
 
-BNumber system is bad. Cant have a chapter with only one section
-\section{Manifolds and continuous quantities}
-
-\subsection{Summary}
-
-- \emph{Very much fix this summary. It's not terribly clear to an outside reader. Far too much stuff here, too much to digest. Coordinate lines and systems may not be necessary}
-In mathematical science, our goal in general is to be able to assign a numerical value to a physical property of some object. This directly gives us \textbf{quantities} as functions that assign real values to physical objects. We then group quantities into sets, requiring those sets to be sufficient to distinguish one physical object from another (\textbf{states are in configurations, quantities identify a configuration}), and calling those sets \textbf{coordinate systems} (\textbf{need to connect audiennce's experience with coordinate with our own}). Varying a quantity while keeping the others fixed gives us \textbf{coordinate lines}, and because certain physical properties can be equally well described in different coordinate systems, we introduce \textbf{coordinate transformations}. (\textbf{A manifold is a set of things that can be distinguished through coordinate systems})All of these mathematical constructions together, along with the requirement that the set of possible measured values must be completely covered by subsets with defined quantities, gives us \textbf{manifolds}. 
-
-\textbf{The k in k-surface isnt clear}
-Within manifolds may lie smaller manifolds: \textbf{submanifolds}, or \textbf{k-surfaces}. Having a notion of certain points existing on a submanifold and certain points existing outside of it gives us the notion of the \textbf{interior} of a surface. The \textbf{boundary} of a surface follows naturally as being the set of points on that surface that are not on the interior (\textbf{we may not want to say that we have always submanifold with a boundary. Also someone may not even have clear what a surface is. }), and therewith also the \textbf{boundary operator}, which takes us from a k-surface to its boundary. 
-
-\textbf{No sense of linearity defined yet. Need anew name for }
-We now want to be able to talk about functions along our k-surfaces. We define then \textbf{k-functionals} as linear functions along our k-surfaces. Because of our requirement of linearity, we will be able to start talking about functions over infinitesimals in Chapter 2. Finally, we introduce the \textbf{interior operator}, which applied to a k-functional is equivalent to applying a boundary operator to a (k+1)-surface, and will allow us to talk about Stoke's Theorem in Chapter 2.  
 
 
-\subsection{Physical objects and quantities}
+\section{Physical objects and quantities}
 
-At the heart of investigation in science is the identifying and organizing of objects based on their properties, through measurement and experiment. This could be as simple as setting a block on a scale to determine its weight, or as complex as determining which economic policies lead to a recession. For our purposes here, we will be dealing only with properties that can be described using real numbers, such as mass, temperature, velocity, etc. The identification of a particular physical property with a real number is called a \textbf{quantity}.
+At the heart of scientific investigation is the identifying and organizing of objects based on their properties, through measurement and experiment. This could be as simple as setting a block on a scale to determine its weight, or as complex as determining which economic policies lead to a recession. For our purposes here, we will be dealing only with properties that can be described using real numbers, such as mass, temperature, velocity, etc. The identification of a particular physical property with a real number is called a \textbf{quantity}.
 
 \begin{defn}
 	A \textbf{quantity} is a function $q : U \to \mathbb{R}$ that assigns a measurable value to a physical object.
 \end{defn}
-
-\emph{Say we're looking at weather. We'll want to know the temperature, wind speed, humidity, whereabouts, etc.
-Fahrenheit, mph, percent humidity, location.
-On some set of all possible weather configurations, we look at a specific subset of possibilities described by real numbers. This is our weather report.  }
 
 
 \textbf{Emphaseize that a coordinate system must be enough to distinguish, but not redundant. Also emphaseize that this isn't only true for position, which people usually think of with coordinate system }
@@ -120,7 +103,7 @@ The Earth is a classic example of a manifold, which allows for further discussio
 
 \textbf{Analogy: The }
 
-\subsection{Sub-manifolds and k-surfaces}
+\section{Sub-manifolds and k-surfaces}
 
 - \emph{Within a manifold can lie a manifold of equal or smaller dimension, with a mapping between them}
 
@@ -190,7 +173,7 @@ Furthermore, $\partial\partial \sigma^k$ is empty. Consider once again a cube in
 \end{coro}
 
 
-\subsection{Linear Functionals of K-surfaces}
+\section{Linear Functionals of K-surfaces}
 
 
 \textbf{Extra condition, the length isnt a 1 form. The limit of alternating horizontal and vertical lines isn't the length of the diagonal. Length of limit isnt limit of length. So fix the definition. Maybe adding requirement of limit}
@@ -236,8 +219,17 @@ So, $f_k(\emptyset) = f_k(\emptyset\cup\emptyset) = f_k(\emptyset) + f_k(\emptys
 	So, $h^{k+2}(s) = 0$ $\forall$ $\sigma^k$, and $h^{k+2}$ is the zero function. 
 \end{proof}
 
-\subsection{Summary}
+\section{Summary}
 
+
+- \emph{Very much fix this summary. It's not terribly clear to an outside reader. Far too much stuff here, too much to digest. Coordinate lines and systems may not be necessary}
+In mathematical science, our goal in general is to be able to assign a numerical value to a physical property of some object. This directly gives us \textbf{quantities} as functions that assign real values to physical objects. We then group quantities into sets, requiring those sets to be sufficient to distinguish one physical object from another (\textbf{states are in configurations, quantities identify a configuration}), and calling those sets \textbf{coordinate systems} (\textbf{need to connect audiennce's experience with coordinate with our own}). Varying a quantity while keeping the others fixed gives us \textbf{coordinate lines}, and because certain physical properties can be equally well described in different coordinate systems, we introduce \textbf{coordinate transformations}. (\textbf{A manifold is a set of things that can be distinguished through coordinate systems})All of these mathematical constructions together, along with the requirement that the set of possible measured values must be completely covered by subsets with defined quantities, gives us \textbf{manifolds}. 
+
+\textbf{The k in k-surface isnt clear}
+Within manifolds may lie smaller manifolds: \textbf{submanifolds}, or \textbf{k-surfaces}. Having a notion of certain points existing on a submanifold and certain points existing outside of it gives us the notion of the \textbf{interior} of a surface. The \textbf{boundary} of a surface follows naturally as being the set of points on that surface that are not on the interior (\textbf{we may not want to say that we have always submanifold with a boundary. Also someone may not even have clear what a surface is. }), and therewith also the \textbf{boundary operator}, which takes us from a k-surface to its boundary. 
+
+\textbf{No sense of linearity defined yet. Need anew name for }
+We now want to be able to talk about functions along our k-surfaces. We define then \textbf{k-functionals} as linear functions along our k-surfaces. Because of our requirement of linearity, we will be able to start talking about functions over infinitesimals in Chapter 2. Finally, we introduce the \textbf{interior operator}, which applied to a k-functional is equivalent to applying a boundary operator to a (k+1)-surface, and will allow us to talk about Stoke's Theorem in Chapter 2.  
 
 
 
