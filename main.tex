@@ -15,6 +15,14 @@
 
 \begin{document}
 
+\section{Foreword}
+In transitioning to more advanced classes, the physics student will find their familiar mathematical tools are inadequate to describe certain physical phenomena. The methods of traditional vector calculus in three dimensions, though very useful in Electromagnetism and Classical Mechanics, are not always usable in higher dimensions, such as those used in General Relativity. For that, we need differential geometry. When trying to learn a subject in mathematics, however, you tend to find books written for mathematicians. As such, they are filled with long, obtuse definitions and prose that, while mathematically very precise, isn't exactly light reading. 
+
+What follows is a purely physical treatment of differential geometry used in physics. While it is less mathematically rigorous than a typical textbook, the hope is that the reader will be able to gain a geometric intuition for the math they use, so that the math isn't simply a black box beyond understanding, and that further study in the subject will be aided by a solid grounding here. The focus is always on readability, applicability, and physicality, so pictures are prevalent (\textbf{\textit{Will} be prevalent}). 
+
+\textbf{some conclusion to the introduction}
+
+
 \tableofcontents
 
 
@@ -38,15 +46,17 @@ Ch 3
 
 \section{Physical objects and quantities}
 
-At the heart of scientific investigation is the identifying and organizing of objects based on their properties, through measurement and experiment. This could be as simple as setting a block on a scale to determine its weight, or as complex as determining which economic policies lead to a recession. For our purposes here, we will be dealing only with properties that can be described using real numbers, such as mass, temperature, velocity, etc. The identification of a particular physical property with a real number is called a \textbf{quantity}.
+At the heart of scientific investigation is the identifying and organizing of objects based on their properties, through measurement and experiment. This could be as simple as setting a block on a scale to determine its weight, or as complex as determining which economic policies lead to a recession. For our purposes here, we will be dealing only with properties that can be described using real numbers, such as mass, temperature, velocity, etc. The identification of a particular physical property with a real number is a \textbf{quantity}.
 
 \begin{defn}
 	A \textbf{quantity} is a function $q : U \to \mathbb{R}$ that assigns a measurable value to a physical object.
 \end{defn}
 
 
-\textbf{Emphaseize that a coordinate system must be enough to distinguish, but not redundant. Also emphaseize that this isn't only true for position, which people usually think of with coordinate system }
-It's quite possible, however, that we won't be able to distinguish between two objects with only one quantity. Say, for instance, that we're talking about weather. Knowing what the temperature will be tomorrow is certainly useful, but as anyone from Florida can tell you, 80$^o$F with 95$\%$ humidity is very different than 80$^o$F with 30$\%$ humidity. In distinguishing objects, then, we will often want to define more than one quantity, to give an even more descriptive way of categorizing objects: the \textbf{coordinate system}.
+
+It's quite possible, however, that we won't be able to distinguish between two objects with only one quantity. Say, for instance, that we're talking about weather. Knowing what the temperature will be tomorrow is certainly useful, but as anyone from Florida can tell you, 80$^o$F with 95$\%$ humidity is very different than 80$^o$F with 30$\%$ humidity. In distinguishing objects, then, we will often want to define more than one quantity, to give an even more descriptive way of categorizing objects. By defining enough quantities to distinguish one object from another, but not so many such that we have redundancies, we can define a \textbf{coordinate system}.
+
+Normally, we think of coordinate systems in the context of quantifying an object's position, in terms of its x-, y-, and z-coordinates, but this is by no means the only context that coordinate systems arise in. Consider, for instance, phase space. Configurations of a state can be distinguished by position as well as by momentum, which would be our two quantities, thus giving us a coordinate system. 
 
 \begin{defn}
 	A \textbf{coordinate system} $Q$ is a collection of $n$ quantities $q^i : U \to \mathbb{R}^n$ such that there is a one-to-one relationship between the physical objects in $U$ and elements of $\mathbb{R}^n$.
@@ -229,7 +239,7 @@ In mathematical science, our goal in general is to be able to assign a numerical
 Within manifolds may lie smaller manifolds: \textbf{submanifolds}, or \textbf{k-surfaces}. Having a notion of certain points existing on a submanifold and certain points existing outside of it gives us the notion of the \textbf{interior} of a surface. The \textbf{boundary} of a surface follows naturally as being the set of points on that surface that are not on the interior (\textbf{we may not want to say that we have always submanifold with a boundary. Also someone may not even have clear what a surface is. }), and therewith also the \textbf{boundary operator}, which takes us from a k-surface to its boundary. 
 
 \textbf{No sense of linearity defined yet. Need anew name for }
-We now want to be able to talk about functions along our k-surfaces. We define then \textbf{k-functionals} as linear functions along our k-surfaces. Because of our requirement of linearity, we will be able to start talking about functions over infinitesimals in Chapter 2. Finally, we introduce the \textbf{interior operator}, which applied to a k-functional is equivalent to applying a boundary operator to a (k+1)-surface, and will allow us to talk about Stoke's Theorem in Chapter 2.  
+We now want to be able to talk about functions along our k-surfaces. We define then \textbf{k-functionals} as linear functions along our k-surfaces. Because of our requirement of linearity, we will be able to start talking about functions over infinitesimals in Chapter 2. Finally, we introduce the \textbf{interior functional}, which applied to a k-functional is equivalent to applying a boundary operator to a (k+1)-surface, and will allow us to talk about Stoke's Theorem in Chapter 2.  
 
 
 
