@@ -16,7 +16,7 @@
 \begin{document}
 
 \section{Foreword}
-In transitioning to more advanced classes, the physics student will find their familiar mathematical tools are inadequate to describe certain physical phenomena. The methods of traditional vector calculus in three dimensions, though very useful in Electromagnetism and Classical Mechanics, are not always usable in higher dimensions, such as those used in General Relativity. For that, we need differential geometry. When trying to learn a subject in mathematics, however, you tend to find books written for mathematicians. As such, they are filled with long, obtuse definitions and prose that, while mathematically very precise, isn't exactly light reading. 
+In transitioning to more advanced classes, the physics student will find their familiar mathematical tools are inadequate to describe certain physical phenomena. The methods of traditional vector calculus in three dimensions, though very useful in Electromagnetism and Classical Mechanics, are not always usable in higher dimensions, such as those used in General Relativity and Hamiltonian Mechanics. For that, we need differential geometry. When trying to learn a subject in mathematics, however, you tend to find books written for mathematicians. As such, they are filled with long, obtuse definitions and prose that, while mathematically very precise, isn't exactly light reading. 
 
 What follows is a purely physical treatment of differential geometry used in physics. While it is less mathematically rigorous than a typical textbook, the hope is that the reader will be able to gain a geometric intuition for the math they use, so that the math isn't simply a black box beyond understanding, and that further study in the subject will be aided by a solid grounding here. The focus is always on readability, applicability, and physicality, so pictures are prevalent (\textbf{\textit{Will} be prevalent}). 
 
@@ -195,10 +195,12 @@ Now that we have discussed k-surfaces, we want to be able to have functions appl
 In the previous section, we discussed the boundary operator as a map from a k-surface to its boundary. It's reasonable, then, that we ought to be able to use our k-functionals on the boundary. To do so, however, we need an operator on k-functionals that is equivalent to the boundary operator on k-surfaces. In complement to "boundary", we define the \textbf{interior functional} \textit{extend this paragraph to include the definition}
 
 \begin{defn}
-	$\eth : F_k \to F_{k+1}$ such that $\eth f_k(\sigma^{k+1}) = f_k(\partial \sigma^{k+1})$ is the \textbf{interior functional} on k-functionals. 
+	$\eth : F_k \to F_{k+1}$ such that $\eth f_k(\sigma^{k+1}) = f_k(\partial \sigma^{k+1})$ is the \textbf{boundary functional} on k-functionals. 
 \end{defn}
 
 Because applying the interior operator to a k-functional is equivalent to applying the boundary operator to a k-surface, it must be that properties of the boundary operator hold true for the interior operator. 
+
+NOTE: maybe we don't need $\eth$, we could just use $\partial$
 
 \begin{prop}
 	A k-functional applied to the empty set gives zero. 
@@ -231,6 +233,9 @@ In this first section, we've laid the groundwork for a physical treatment of dif
 
 
 
+NOTES on tensors: Talking about tensors as multilinear maps makes it so that vectors and momentum would be treated as functions, which doesn't really make sense. It may be interesting to explicitally mention this problem, while defining tensors in terms of how they transform. 
+
+NOTE: Distinguish somewhere between exterior product/space and exterior/boundary/interior points
 
 \chapter{Mathematical representation of infinitesimal objects}
 
@@ -254,6 +259,8 @@ We are interested in studying distribution on manifolds. The limit on infinitesi
 
 
 \section{Vectors and Covectors}
+NOTE: Maybe we can say that not all k-functionals can be described using integrals, like length as discussed before
+
 
 - Starting with the 1D case: for a given line, a vector will be an infinitesimal segment along that line. 
 
@@ -359,6 +366,8 @@ For some line P, $\int df(P)$ = $\int \frac{\partial f(P)}{{\partial x^i}} dx^i$
 \end{prop}
 
 \section{Coordinates and components?}
+
+NOTE: Will have to talk about what the basis is. We start by saying that in a neighborhood we have a coordinate system, and that coordinate system can be used to identify the components of the vectors and components of the covectors. Also probably talk about how to make the wedge product with the components, and how to talk about the exterior derivative
 
 Let $d\lambda$ be an infinitesimal segment that starts at a point $P$. Then the coordinate differences $dx^i$ uniquely identifies $d\lambda$. Therefore we can write $d\lambda = dx^i \frac{\partial \lambda}{\partial x^i} = dx^i e_i$ where $e_i$ gives us the infinitesimal segment along the coordinate lines of $x^i$.
 
