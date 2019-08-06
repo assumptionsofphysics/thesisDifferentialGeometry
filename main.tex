@@ -16,11 +16,11 @@
 \begin{document}
 
 \section{Foreword}
-In transitioning to more advanced classes, the physics student will find their familiar mathematical tools are inadequate to describe certain physical phenomena. The methods of traditional vector calculus in three dimensions, though very useful in Electromagnetism and Classical Mechanics, are not always usable in higher dimensions, such as those used in General Relativity and Hamiltonian Mechanics. For that, we need differential geometry. When trying to learn a subject in mathematics, however, you tend to find books written for mathematicians. As such, they are filled with long, obtuse definitions and prose that, while mathematically very precise, isn't exactly light reading. 
+In transitioning to more advanced classes, the physics student will find their familiar mathematical tools are inadequate to describe certain physical phenomena. The methods of traditional vector calculus in three dimensions, though very useful in Electromagnetism and Classical Mechanics, are not always usable in higher dimensions, such as those used in General Relativity and Hamiltonian Mechanics. For that, we need differential geometry. When trying to learn a subject in mathematics, however, you tend to find books written for mathematicians, in a language that mathematicians are familiar with. As such, they are filled with long, obtuse definitions and prose that, while mathematically very precise, isn't exactly light reading, and can even be overkill for a proper physical understanding. 
 
 What follows is a purely physical treatment of differential geometry used in physics. While it is less mathematically rigorous than a typical textbook, the hope is that the reader will be able to gain a geometric intuition for the math they use, so that the math isn't simply a black box beyond understanding, and that further study in the subject will be aided by a solid grounding here. The focus is always on readability, applicability, and physicality, so pictures are prevalent (\textbf{\textit{Will} be prevalent}). 
 
-\textbf{some conclusion to the introduction}
+
 
 
 \tableofcontents
@@ -66,8 +66,8 @@ Normally, we think of coordinate systems in the context of quantifying an object
 
 
 
-\textbf{Use the word atlas with different charts. Also, while working through the text, try to sketch pictures to demonstrate concepts. Try to talk about with A5 B7 D3 kind of atlas}
-With coordinate systems defined now, we must recognize that in many instances, two different coordinate systems function just as well to describe a certain object. \textbf{Reword being specific of sets} Mathematically, this occurs when two sets, each with defined coordinate systems, overlap. The points that lie within this overlapping section may be described in either coordinate system. To give an example from geography, consider the "point" Moscow. It could very well show up on a map of Asia, with specific x and y coordinates, while also showing up on a map of Europe, with different, but equally valid x and y coordinates. Therefore, Moscow's position is described just as well on either map, and so its position can be freely transformed from one coordinate system to another. Alternatively, consider the "point" Lisbon. Lisbon will show up on a map of Europe, with valid x and y coordinates, but you would never find Lisbon on a map of Asia. Therefore, its position may only be described in terms of the coordinates on the map of Europe.
+
+With coordinate systems defined now, we recognize that in many instances, two different coordinate systems function just as well to describe a certain object. Mathematically, this occurs when two sets, each with defined coordinate systems, overlap. The points that lie within this overlapping section may be described in either coordinate system. To give an example from geography, consider an atlas of the world: a collection of maps. Depending on the atlas you're looking at, certain places may show up in multiple maps. Consider Moscow, for instance. It could very well show up on a map of Asia, perhaps in a square labeled B2, while also showing up on a map of Europe, perhaps in a square labeled C8. Either way of describing Moscow's position is equally valid, and you can freely "transform" between the coordinate systems as far as Moscow is concerned. Alternatively, consider the "point" Lisbon. Lisbon will show up on a map of Europe, perhaps in square F1, but you would never find Lisbon on a map of Asia. Therefore, its position may only be described in terms of the coordinates on the map of Europe.
 
 
 \begin{defn}
@@ -101,10 +101,15 @@ Consider now a set of configurations of a system. Every one of these configurati
 
 Earlier, weather was given as an example of a set possible states of a system, with readings such as temperature and humidity allowing us to define a coordinate system. In this context, the "manifold" would be the set of possible weather configurations, with each point being a single weather report. 
 
-The Earth is a classic example of a manifold, which allows for further discussion of the geography example. Because of the poles, every location on earth cannot be quantified with only one set of coordinates. (\textbf{Elaborate})
+The Earth is a classic example of a manifold, which allows for further discussion of the geography example. Because of the poles, every location on earth cannot be quantified with only one set of coordinates. This can be plainly seen on a typical flat map, such as a Mercator Projection. Land proportions grow the closer to a pole they are, making Greenland appear massive, and the Sahara proportionally far smaller. Furthermore, because the poles have been unraveled, in a sense, the South Pole, which ought to be a single point, is an entire line along the southern edge of the map. 
+
+A proportionally accurate projection of the Earth onto a flat surface requires two different maps. For instance, you could then have a map of the top hemisphere, centered at the north pole, and then of the bottom hemisphere, centered at the south pole. 
+
  
 
-\textbf{Analogy }
+\textbf{Insert a picture of the Mercator Projection}
+
+\textbf{Insert pictures of "polar" projections}
 
 \section{Sub-manifolds and k-surfaces}
 
@@ -137,26 +142,28 @@ In general, we will be using the term "k-surface", instead of "submanifold." The
 	For some manifold X of dimension n, $S^k$ is the set of all possible \textbf{k-surfaces}, or sub-manifolds of dimension $k \leq n$, and S $=$ $\cup^n_{k=0}S^k$ is the set of all k-surfaces. 
 \end{defn}
 
-\textbf{May not be able to talk about coordinate lines without defining manifolds. Maybe only the last sentence is the issue}
-Though we can identify multiple quantities, it is still sometimes necessary to isolate specific quantities to identify their particular influence on a system. In an n-dimensional space, holding (n-1) quantities fixed and then allowing the nth quantity to vary would allow us to know specifically the effect that the nth quantity will have on the system, with the assurance that comes from knowing that all other factors are kept the same. \textbf{On our space, this varying quantity manifests itself as a line \textit{maybe get rid of this last sentence}, we may only need to talk about coordinate lines, and introduce also coordinate surfaces, volumes, etc. with submanifolds}. 
+
+Though we can identify multiple quantities, it is still sometimes necessary to isolate specific quantities to identify their particular influence on a system. In an n-dimensional space, holding (n-1) quantities fixed and then allowing the nth quantity to vary would allow us to know specifically the effect that the nth quantity will have on the system, with the assurance that comes from knowing that all other factors are kept the same. On our space, this varying quantity manifests itself as a line. 
 
 \begin{defn}
 	A \textbf{coordinate line} is the set of points in $\mathbb{R}^n$ obtained by allowing one quantity to vary and holding the others fixed. 
 \end{defn}
 
-\textbf{Replace this whole paragraph with the talk about limit points}
-Now that we are able to define manifolds within manifolds, we have a notion of where a point lies relative to some manifold. Specifically, we are able to say whether a point is exterior to the k-surface, \textbf{interior} to the k-surface (that is, on the surface, and surrounded by points also on the surface), and on the \textbf{boundary} of the k-surface (lying on the "edge" of the surface).  
-
-
 \begin{defn}
-	Given k-surface $\sigma^k \in S^k$, if for some point $x \in \sigma^k$ you can construct a open neighborhood around x completely within $\sigma^k$, then x is an \textbf{interior point} of $\sigma^k$. 
+	A \textbf{coordinate k-surface} is the set of points in $\mathbb{R}^n$ obtained by allowing k quantities to vary and holding (n-k) quantities fixed.  
 \end{defn}
 
 
-\textbf{Boundary points aren't relaly the points that aren't interior, they are the limit points that dont have an open set}
+Now that we have k-surfaces, we have a notion of where points lie relative to some k-surface. When varying coordinates to creates coordinate lines, surfaces, volumes, etc., the varying can be brought to a halt by one means or another. Where the varying ends lies the \textbf{boundary} of our set. 
+
 \begin{defn}
-	Given k-surface $\sigma^k \in S^k$, if some point $x \in \sigma^k$ is not an interior point, then $x$ is a \textbf{boundary point}.
+	Given k-surface $\sigma^k \in S^k$, the \textbf{boundary} of $\sigma^k$, denoted by $\partial\sigma^k \in S^{k-1}$ is the limit of varied coordinates. Points lying on the boundary are called \textbf{boundary points.}
 \end{defn}
+
+\begin{defn}
+	Given k-surface $\sigma^k \in S^k$, if $x \in \sigma^k$ is not a boundary point of $\sigma^k$, then x is an \textbf{interior point}. The set of interior points is the \textbf{interior} of $\sigma^k$.  
+\end{defn}
+
 
 Intuitively, we can talk about the boundary of a set being a wall, beyond which a particle confined to the set cannot go. Consider, for instance, a particle confined to the inside of a sphere. The particle is free to move anywhere within the sphere, but is stopped from leaving by the surface of the sphere itself. Thus, the surface is the boundary. On the other hand, consider a particle confined to the surface of a sphere. The particle can travel along the surface as long as it wants without being stopped by any kind of wall. Thus, the surface of a sphere does not have a boundary. 
 
@@ -169,7 +176,6 @@ Later on, it will become important to be able to concentrate entirely on the bou
 The dimension of the boundary is one less than the dimension of the k-surface itself. To get an intuitive feel for why this must be so, consider a cube embedded in $\mathbb{R}^3$. For a particle confined to the inside of the cube, the boundary of a cube would be its sides, because they stop movement out of the cube. So, consider the particle confined to the cube's boundaries: its sides. When the particle is moving along a side, one of the dimensions must be held fixed \textbf{include a picture here}, so the dimension of the boundary of a set is one less than the dimension of the set. 
 
 
-The boundary of our weather report is a little more abstract. (\textbf{The boundary is a specific climate? But different climates can have the same weather depending on the day. })
 
 Furthermore, $\partial\partial \sigma^k$ is empty. Consider once again a cube in $\mathbb{R}^3$. As stated before, the boundary of a cube is its sides. A particle confined to its sides can move in a straight line along the outside of the cube (switching sides as needed) forever, so there is no boundary. Note that a single side of the cube makes up only part of the boundary of the cube, 
 
@@ -192,7 +198,7 @@ Now that we have discussed k-surfaces, we want to be able to have functions appl
 	$F_k$ is the set of all functionals of dimension k, and $F = \cup_{k=0}^nF_k$ is the set of all k-functionals. 
 \end{defn}
 
-In the previous section, we discussed the boundary operator as a map from a k-surface to its boundary. It's reasonable, then, that we ought to be able to use our k-functionals on the boundary. To do so, however, we need an operator on k-functionals that is equivalent to the boundary operator on k-surfaces. In complement to "boundary", we define the \textbf{interior functional} \textit{extend this paragraph to include the definition}
+In the previous section, we discussed the boundary operator as a map from a k-surface to its boundary. It's reasonable, then, that we ought to be able to use our k-functionals on the boundary. To do so, however, we need an operator on k-functionals that is equivalent to the boundary operator on k-surfaces. In complement to "boundary operator", we define the \textbf{boundary functional} as the operator on k-functionals that forces the k-functional to act only on the boundary of the k-surface. 
 
 \begin{defn}
 	$\eth : F_k \to F_{k+1}$ such that $\eth f_k(\sigma^{k+1}) = f_k(\partial \sigma^{k+1})$ is the \textbf{boundary functional} on k-functionals. 
