@@ -42,8 +42,9 @@ At the heart of scientific investigation is the identifying and organizing of ob
 
 
 
-It's quite possible, however, that we won't be able to distinguish between two objects with only one quantity. Say, for instance, that we're talking about weather. Knowing what the temperature will be tomorrow is certainly useful, but as anyone from Florida can tell you, 80$^o$F with 95$\%$ humidity is very different than 80$^o$F with 30$\%$ humidity. In distinguishing objects, then, we will often want to define more than one quantity, to give an even more descriptive way of categorizing objects. By defining enough quantities to distinguish one state configuration from another, but not so many such that we have redundancies, we can define a \textbf{coordinate system}.
+It's quite possible, however, that we won't be able to distinguish between two objects with only one quantity. Say, for instance, that we're talking about weather. Knowing what the temperature will be tomorrow is certainly useful, but as anyone from Florida can tell you, 80$^o$F with 95$\%$ humidity is very different than 80$^o$F with 30$\%$ humidity. In distinguishing objects, then, we will often want to define more than one quantity, to give an even more descriptive way of categorizing objects. By defining enough quantities to distinguish one case from another, but not so many such that we have redundancies, we can define a \textbf{coordinate system}.
 
+\textit{Point out that we're generalizing the concept of a coordinate system, so that position is the template for the general case}
 Normally, we think of coordinate systems in the context of quantifying an object's position, in terms of its x-, y-, and z-coordinates, but this is by no means the only context that coordinate systems arise in. Consider, for instance, phase space. Configurations of a state can be distinguished by position as well as by momentum, which would be our two quantities, thus giving us a coordinate system. 
 
 \begin{defn}
@@ -80,20 +81,20 @@ squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size
 \draw[<->] (realU) -- (realV);
 \end{tikzpicture}
 
-Consider now a set of configurations of a system. Every one of these configurations is somehow mappable to the real numbers, with an appropriate coordinate system. However, a specified coordinate system may not be applicable to every point in the set. What we have, therefore, is a stitched-together collection of sets of state configurations, each of which contains a map to the real numbers. This is a \textbf{manifold}. 
+Consider now a set of configurations of a system. Every one of these configurations is somehow mappable to the real numbers, with an appropriate coordinate system. However, a specified coordinate system may not be applicable to every point in the set. What we have, therefore, is a stitched-together collection of sets of configurations, each of which contains a map to the real numbers. This is a \textbf{manifold}. 
 
 \begin{defn}
 	A \textbf{manifold} is a set of physical objects $X$ such that for any $x \in X$ there exists a $U \subset X$ that contains $x$ and upon which a coordinate system $Q$ is defined.
 \end{defn}
 
 
-Earlier, weather was given as an example of a set possible states of a system, with readings such as temperature and humidity allowing us to define a coordinate system. In this context, the "manifold" would be the set of possible weather configurations, with each point being a single weather report. 
+Earlier, weather was given as an example of a set possible cases of a system, with readings such as temperature and humidity allowing us to define a coordinate system. In this context, the "manifold" would be the set of possible weather configurations, with each point being a single weather report. 
 
 The Earth is a classic example of a manifold, which allows for further discussion of the geography example. Because of the poles, every location on earth cannot be quantified with only one set of coordinates. This can be plainly seen on a typical flat map, such as a Mercator Projection. Land proportions grow the closer to a pole they are, making Greenland appear massive, and the Sahara proportionally far smaller. Furthermore, because the poles have been unraveled, in a sense, the South Pole, which ought to be a single point, is an entire line along the southern edge of the map. 
 
 A proportionally accurate projection of the Earth onto a flat surface requires two different maps. For instance, you could then have a map of the top hemisphere, centered at the north pole, and then of the bottom hemisphere, centered at the south pole. 
 
- 
+\textit{Talk about a lot of different examples, so that manifolds are clearly everyday objects}
 
 \textbf{Insert a picture of the Mercator Projection}
 
@@ -102,6 +103,7 @@ A proportionally accurate projection of the Earth onto a flat surface requires t
 \section{Sub-manifolds and k-surfaces}
 
 Consider an n-dimensional manifold; that is, a manifold with n degrees of freedom. We can construct another manifold with k degrees of freedom within the original, as long as k is not greater than n. Back to the weather example, if in the original weather report we were worrying about temperature, humidity, and wind speed, we could instead hold one of the three values fixed (say, humidity), and vary the other two. The latter manifold, with humidity held constant, would be a \textbf{submanifold} of the former, where all three variables are allowed to change. The boundary of this smaller manifold occurs where the varying is stopped by one means or another. 
+\textit{Define boundary up here instead of further down}
 
 
 \begin{defn}
@@ -127,7 +129,7 @@ In general, we will be using the term "k-surface", instead of "submanifold." The
 
 
 \begin{defn}
-	For some manifold X of dimension n, $S^k$ is the set of all possible \textbf{k-surfaces}, or sub-manifolds of dimension $k \leq n$, and S $=$ $\cup^n_{k=0}S^k$ is the set of all k-surfaces. 
+	For some manifold X of dimension n, $S^k$ is the set of all possible \textbf{k-surfaces}, or sub-manifolds of dimension $k \leq n$, and S $=$ $\cup^n_{k=0}S^k$ is the set of all surfaces. 
 \end{defn}
 
 
@@ -142,18 +144,16 @@ Though we can identify multiple quantities, it is still sometimes necessary to i
 \end{defn}
 
 
+\textit{stops at the edge. Boundary could be on the submanifold or not, if not it would be a limit point. May not be necessary to talk about, so that people won't get confused}
 Now that we have k-surfaces, we have a notion of where points lie relative to some k-surface. When varying coordinates to creates coordinate lines, surfaces, volumes, etc., the varying can be brought to a halt by one means or another (\textbf{isn't clear what "one means or another" means}). Where the varying ends lies the \textbf{boundary} of our set. 
 
 \begin{defn}
 	Given k-surface $\sigma^k \in S^k$, the \textbf{boundary} of $\sigma^k$, denoted by $\partial\sigma^k \in S^{k-1}$ is the limit of varied coordinates. Points lying on the boundary are called \textbf{boundary points.}
 \end{defn}
 
-\begin{defn}
-	Given k-surface $\sigma^k \in S^k$, if $x \in \sigma^k$ is not a boundary point of $\sigma^k$, then x is an \textbf{interior point}. The set of interior points is the \textbf{interior} of $\sigma^k$.  
-\end{defn}
 
 
-Intuitively, we can talk about the boundary of a set being a wall, beyond which a particle confined to the set cannot go. Consider, for instance, a particle confined to the inside of a sphere. The particle is free to move anywhere within the sphere, but is stopped from leaving by the surface of the sphere itself. Thus, the surface is the boundary. On the other hand, consider a particle confined to the surface of a sphere. The particle can travel along the surface as long as it wants without being stopped by any kind of wall. Thus, the surface of a sphere does not have a boundary. 
+Intuitively, we can talk about the boundary of a k-surface being a wall, beyond which a point confined to the k-surface cannot go. Consider, for instance, a particle confined to the inside of a sphere. The particle is free to move anywhere within the sphere, but is stopped from leaving by the surface of the sphere itself. Thus, the surface is the boundary. On the other hand, consider a particle confined to the surface of a sphere. The particle can travel along the surface as long as it wants without being stopped by any kind of wall. Thus, the surface of a sphere does not have a boundary. \textbf{Probably have a picture}
 
 Later on, it will become important to be able to concentrate entirely on the boundary of a k-surface. Therefore, we must make use of the \textbf{boundary operator} in order to go from a k-surface to it's boundary. 
 
@@ -161,10 +161,12 @@ Later on, it will become important to be able to concentrate entirely on the bou
 	For k-surface $\sigma^k \in S^k$, the \textbf{boundary operator} $\partial : S^k \to S^{k-1}$ gives the set of boundary points of $\sigma^k$. 
 \end{defn}
 
+
+\textit{Stick with the sphere example, or give another example of a surface that has a boundary}
 The dimension of the boundary is one less than the dimension of the k-surface itself. To get an intuitive feel for why this must be so, consider a cube embedded in $\mathbb{R}^3$. For a particle confined to the inside of the cube, the boundary of a cube would be its sides, because they stop movement out of the cube. So, consider the particle confined to the cube's boundaries: its sides. When the particle is moving along a side, one of the dimensions must be held fixed \textbf{include a picture here}, so the dimension of the boundary of a set is one less than the dimension of the set. 
 
 
-
+\textit{Stick with sphere}
 Furthermore, $\partial\partial \sigma^k$ is empty. Consider once again a cube in $\mathbb{R}^3$. As stated before, the boundary of a cube is its sides. A particle confined to its sides can move in a straight line along the outside of the cube (switching sides as needed) forever, so there is no boundary. Note that a single side of the cube makes up only part of the boundary of the cube, 
 
 \begin{coro}
@@ -182,13 +184,15 @@ Now that we have discussed k-surfaces, we want to be able to have functions appl
 	A \textbf{linear function of k-surfaces}, or \textbf{k-functional}, is a function $f_k : S^k \to \mathbb{R}$ such that for $\sigma^k_1$, $\sigma^k_2 \in S^k$, if $\sigma^k_1 \cap \sigma^k_2 \subseteq \partial \sigma^k_1 \cup \partial \sigma^k_2$, then $f_k(\sigma^k_1\cup \sigma^k_2) = f_k(\sigma^k_1) + f_k(\sigma^k_2)$. 
 \end{defn}
 
-One caveat to this definition that isn't immediately intuitive is that a length function is not a k-functional. Consider the one-dimensional case, where length L $= \int \sqrt{1+f'(x)^2} dx$. This is clearly not a linear function, due to the square root. This comes from the infinitesimal segment of a curve $ds$ being made up of alternating horizontal and vertical infinitesimals $dx$ and $dy$. This is distinct from the limit of length L $= \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$. Simply put, the length of the limit is not the same thing as the limit of the length. 
+\textit{Put the limit in the definition. "We require the thing to be linear, and to commute with the limit, so that th elimit of the function is the function of the limit". Then specify why length function doesn't satisfy the commuting with the limit}
+One caveat to this definition that isn't immediately intuitive is that a length function is not a k-functional. Consider the one-dimensional case, where length L $= \int \sqrt{1+f'(x)^2} dx$. This is clearly not a linear function, due to the square root (\textbf{Write actually that ds = $\sqrt{dx^2 + dy^2}$}. The point that we want to make is thta the integral does not commute with the limit. Have a picture of this, approximating the diagonal as horizontal and verticals). This comes from the infinitesimal segment of a curve $ds$ being made up of alternating horizontal and vertical infinitesimals $dx$ and $dy$. This is distinct from the limit of length L $= \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$. Simply put, the length of the limit is not the same thing as the limit of the length. (\textbf{Explain better what the limit is. Just explain this paragraph better. "diagonal can be seen as the limit, but the length doesn't work". Don't talk about differentials at all yet})
 
 \begin{defn}
-	$F_k$ is the set of all functionals of dimension k, and $F = \cup_{k=0}^nF_k$ is the set of all k-functionals. 
+	$F_k$ is the set of all functionals of dimension k, and $F = \cup_{k=0}^nF_k$ is the set of all functionals. 
 \end{defn}
 
-In the previous section, we discussed the boundary operator as a map from a k-surface to its boundary. It's reasonable, then, that we ought to be able to use our k-functionals on the boundary. To do so, however, we need an operator on k-functionals that is equivalent to the boundary operator on k-surfaces. In complement to "boundary operator", we define the \textbf{boundary functional}\footnote{In most other treatments, the boundary functional is referred to as the "exterior derivative", and denoted with $d$. The name "boundary functional" was chosen to avoid confusion between the exterior space and the topological exterior, which, despite both having the name "exterior" have nothing to do with one another.} as the operator on k-functionals that forces the k-functional to act only on the boundary of the k-surface. 
+\textbf{Boundary operator is used to apply a k-functional to a k+1-surface. Don't really say that they are equivalent. Also, not really that we need it, but that we can create it}
+In the previous section, we discussed the boundary operator as a map from a k-surface to its boundary. It's reasonable, then, that we ought to be able to use our k-functionals on the boundary. To do so, however, we need an operator on k-functionals that is equivalent to the boundary operator on k-surfaces. In complement to "boundary operator", we define the \textbf{boundary functional} as the operator on k-functionals that forces the k-functional to act only on the boundary of the k-surface. 
 
 \begin{defn}
 	$\eth : F_k \to F_{k+1}$ such that $\eth f_k(\sigma^{k+1}) = f_k(\partial \sigma^{k+1})$ is the \textbf{boundary functional} on k-functionals. 
