@@ -142,7 +142,7 @@ Though we can identify multiple quantities, it is still sometimes necessary to i
 \end{defn}
 
 
-Now that we have k-surfaces, we have a notion of where points lie relative to some k-surface. When varying coordinates to creates coordinate lines, surfaces, volumes, etc., the varying can be brought to a halt by one means or another. Where the varying ends lies the \textbf{boundary} of our set. 
+Now that we have k-surfaces, we have a notion of where points lie relative to some k-surface. When varying coordinates to creates coordinate lines, surfaces, volumes, etc., the varying can be brought to a halt by one means or another (\textbf{isn't clear what "one means or another" means}). Where the varying ends lies the \textbf{boundary} of our set. 
 
 \begin{defn}
 	Given k-surface $\sigma^k \in S^k$, the \textbf{boundary} of $\sigma^k$, denoted by $\partial\sigma^k \in S^{k-1}$ is the limit of varied coordinates. Points lying on the boundary are called \textbf{boundary points.}
@@ -175,18 +175,20 @@ Furthermore, $\partial\partial \sigma^k$ is empty. Consider once again a cube in
 \section{Linear Functionals of K-surfaces}
 
 
-\textbf{Extra condition, the length isnt a 1 form. The limit of alternating horizontal and vertical lines isn't the length of the diagonal. Length of limit isnt limit of length. So fix the definition. Maybe adding requirement of limit}
+
 Now that we have discussed k-surfaces, we want to be able to have functions applied over them. We require that these functions be linear; that is, if two k-surfaces overlap only on their boundary, then applying a function over the two surfaces at once is equivalent to applying the function to each of them separately, and summing their contributions. We call linear functions of k-surfaces \textbf{k-functionals}. 
 
 \begin{defn}
 	A \textbf{linear function of k-surfaces}, or \textbf{k-functional}, is a function $f_k : S^k \to \mathbb{R}$ such that for $\sigma^k_1$, $\sigma^k_2 \in S^k$, if $\sigma^k_1 \cap \sigma^k_2 \subseteq \partial \sigma^k_1 \cup \partial \sigma^k_2$, then $f_k(\sigma^k_1\cup \sigma^k_2) = f_k(\sigma^k_1) + f_k(\sigma^k_2)$. 
 \end{defn}
 
+One caveat to this definition that isn't immediately intuitive is that a length function is not a k-functional. Consider the one-dimensional case, where length L $= \int \sqrt{1+f'(x)^2} dx$. This is clearly not a linear function, due to the square root. This comes from the infinitesimal segment of a curve $ds$ being made up of alternating horizontal and vertical infinitesimals $dx$ and $dy$. This is distinct from the limit of length L $= \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$. Simply put, the length of the limit is not the same thing as the limit of the length. 
+
 \begin{defn}
 	$F_k$ is the set of all functionals of dimension k, and $F = \cup_{k=0}^nF_k$ is the set of all k-functionals. 
 \end{defn}
 
-In the previous section, we discussed the boundary operator as a map from a k-surface to its boundary. It's reasonable, then, that we ought to be able to use our k-functionals on the boundary. To do so, however, we need an operator on k-functionals that is equivalent to the boundary operator on k-surfaces. In complement to "boundary operator", we define the \textbf{boundary functional} as the operator on k-functionals that forces the k-functional to act only on the boundary of the k-surface. 
+In the previous section, we discussed the boundary operator as a map from a k-surface to its boundary. It's reasonable, then, that we ought to be able to use our k-functionals on the boundary. To do so, however, we need an operator on k-functionals that is equivalent to the boundary operator on k-surfaces. In complement to "boundary operator", we define the \textbf{boundary functional}\footnote{In most other treatments, the boundary functional is referred to as the "exterior derivative", and denoted with $d$. The name "boundary functional" was chosen to avoid confusion between the exterior space and the topological exterior, which, despite both having the name "exterior" have nothing to do with one another.} as the operator on k-functionals that forces the k-functional to act only on the boundary of the k-surface. 
 
 \begin{defn}
 	$\eth : F_k \to F_{k+1}$ such that $\eth f_k(\sigma^{k+1}) = f_k(\partial \sigma^{k+1})$ is the \textbf{boundary functional} on k-functionals. 
