@@ -44,8 +44,8 @@ At the heart of scientific investigation is the identifying and organizing of ob
 
 It's quite possible, however, that we won't be able to distinguish between two objects with only one quantity. Say, for instance, that we're talking about weather. Knowing what the temperature will be tomorrow is certainly useful, but as anyone from Florida can tell you, 80$^o$F with 95$\%$ humidity is very different than 80$^o$F with 30$\%$ humidity. In distinguishing objects, then, we will often want to define more than one quantity, to give an even more descriptive way of categorizing objects. By defining enough quantities to distinguish one case from another, but not so many such that we have redundancies, we can define a \textbf{coordinate system}.
 
-\textit{Point out that we're generalizing the concept of a coordinate system, so that position is the template for the general case}
-Normally, we think of coordinate systems in the context of quantifying an object's position, in terms of its x-, y-, and z-coordinates, but this is by no means the only context that coordinate systems arise in. Consider, for instance, phase space. Configurations of a state can be distinguished by position as well as by momentum, which would be our two quantities, thus giving us a coordinate system. 
+
+Normally, we think of coordinate systems in the context of quantifying an object's position, in terms of its x-, y-, and z-coordinates, but this is just a specific case. Coordinate systems as discussed here are far more general, and find immediate application throughout physics. Consider, for instance, phase space. Configurations in phase space can be distinguished by position as well as by momentum, which would be our two quantities, thus giving us a coordinate system. 
 
 \begin{defn}
 	A \textbf{coordinate system} $Q$ is a collection of $n$ quantities $q^i : U \to \mathbb{R}^n$ such that there is a one-to-one relationship between the physical objects in $U$ and elements of $\mathbb{R}^n$.
@@ -90,15 +90,25 @@ Consider now a set of configurations of a system. Every one of these configurati
 
 Earlier, weather was given as an example of a set possible cases of a system, with readings such as temperature and humidity allowing us to define a coordinate system. In this context, the "manifold" would be the set of possible weather configurations, with each point being a single weather report. 
 
-The Earth is a classic example of a manifold, which allows for further discussion of the geography example. Because of the poles, every location on earth cannot be quantified with only one set of coordinates. This can be plainly seen on a typical flat map, such as a Mercator Projection. Land proportions grow the closer to a pole they are, making Greenland appear massive, and the Sahara proportionally far smaller. Furthermore, because the poles have been unraveled, in a sense, the South Pole, which ought to be a single point, is an entire line along the southern edge of the map. 
+The Earth is a classic example of a manifold, which allows for further discussion of the geography example. Because of the poles, every location on earth cannot be quantified with only one set of coordinates. This can be plainly seen on a typical flat map, such as a Mercator Projection. Land proportions grow the closer to a pole they are, making Greenland appear massive, and the Sahara proportionally far smaller. Furthermore, because the poles have been unraveled, in a sense, the South Pole, which ought to be a single point, is an entire line along the southern edge of the map. A proportionally accurate projection of the Earth onto a flat surface requires at least two separate maps. For instance, you could then have a map of the top hemisphere, centered at the north pole, and then of the bottom hemisphere, centered at the south pole. 
 
-A proportionally accurate projection of the Earth onto a flat surface requires two different maps. For instance, you could then have a map of the top hemisphere, centered at the north pole, and then of the bottom hemisphere, centered at the south pole. 
+
 
 \textit{Talk about a lot of different examples, so that manifolds are clearly everyday objects}
 
 \textbf{Insert a picture of the Mercator Projection}
 
 \textbf{Insert pictures of "polar" projections}
+
+Another example of a manifold would be the possible results of a blood drawing. The doctor takes your blood for analysis, the results of which are collected on a report, detailing things such as blood pressure, cholesterol levels, white blood cell count, etc. Further examples include: 
+
+- The conditions of your car, with the dials on the dashboard being your method of reading them 
+
+- The freight on a ship, with the bill of lading detailing amounts
+
+- Any sort of information that can be condensed down to a series of real numbers
+
+The plethora of examples is to show the ubiquitousness of manifolds, and that they are very familiar, everyday objects. This versatility proves their usefulness in physics, and in scientific investigation in general. 
 
 \section{Sub-manifolds and k-surfaces}
 
@@ -133,7 +143,7 @@ In general, we will be using the term "k-surface", instead of "submanifold." The
 \end{defn}
 
 
-Though we can identify multiple quantities, it is still sometimes necessary to isolate specific quantities to identify their particular influence on a system. In an n-dimensional space, holding (n-1) quantities fixed and then allowing the nth quantity to vary would allow us to know specifically the effect that the nth quantity will have on the system, with the assurance that comes from knowing that all other factors are kept the same. On our space, this varying quantity manifests itself as a line. 
+Though we can identify multiple quantities, it is still sometimes necessary to isolate specific quantities to identify their particular influence on a system. In an n-dimensional space, holding (n-1) quantities fixed and then allowing the nth quantity to vary would allow us to know specifically the effect that the nth quantity will have on the system, \emph{with the assurance that comes from knowing that all other factors are kept the same} (\textbf{Don't really like the way this is worded}). On our space, this varying quantity manifests itself as a line. 
 
 \begin{defn}
 	A \textbf{coordinate line} is the set of points in $\mathbb{R}^n$ obtained by allowing one quantity to vary and holding the others fixed. 
@@ -144,8 +154,7 @@ Though we can identify multiple quantities, it is still sometimes necessary to i
 \end{defn}
 
 
-\textit{stops at the edge. Boundary could be on the submanifold or not, if not it would be a limit point. May not be necessary to talk about, so that people won't get confused}
-Now that we have k-surfaces, we have a notion of where points lie relative to some k-surface. When varying coordinates to creates coordinate lines, surfaces, volumes, etc., the varying can be brought to a halt by one means or another (\textbf{isn't clear what "one means or another" means}). Where the varying ends lies the \textbf{boundary} of our set. 
+Now that we have k-surfaces, we have a notion of where points lie relative to some k-surface. When varying coordinates to creates coordinate lines, surfaces, volumes, etc., the varying can be brought to a halt by the geometry of the object that we're working on. Where the varying ends lies the \textbf{boundary} of our set. 
 
 \begin{defn}
 	Given k-surface $\sigma^k \in S^k$, the \textbf{boundary} of $\sigma^k$, denoted by $\partial\sigma^k \in S^{k-1}$ is the limit of varied coordinates. Points lying on the boundary are called \textbf{boundary points.}
@@ -242,12 +251,13 @@ NOTE: Distinguish somewhere between exterior product/space and exterior/boundary
 
 \section{Differentiable manifolds}
 
-Now that we are able to represent functions along lines as sums of functions along segments, we can start doing calculus. 
 
 
-- For k-surface $\sigma^k \in S^k$ and k-functional $f_k: S^k \to \mathbb{R}$, $f_k(\sigma^k) = \int_{\sigma^k}f_k(d\sigma^k)$. 
+With the tools defined in the previous section, we are able to start doing calculus along our manifolds. Consider $f_k \in F_k$ and $\sigma_1^k$ and $\sigma_2^k \in S^k$. Recalling definition 1.12, we say that $f_k$ is linear if $\sigma^k_1 \cap \sigma^k_2 \subseteq \partial \sigma^k_1 \cup \partial \sigma^k_2$, then $f_k(\sigma^k_1\cup \sigma^k_2) = f_k(\sigma^k_1) + f_k(\sigma^k_2)$. Shrink $\sigma_1^k$ and $\sigma_2^k$ down to infinitesimally small limits. Denote these limits with $d$. So, we have $f_k(d\sigma^k_1) + f_k(d\sigma^k_2)$. This is simply the integral $\int_{\sigma^k_1}^{\sigma^k_2} f_k(d\sigma^k)$. (\textbf{Fix this derivation, building up to the integral doesn't seem exactly correct})
 
-We are interested in studying distribution on manifolds. The limit on infinitesimal areas is a density and requires coordinates to be differentiable.
+We can also break up a k-surface into its constituent infinitesimal elements, and apply a k-functional along each of them individually, summing their contributions. So, for k-surface $\sigma^k \in S^k$ and k-functional $f_k: S^k \to \mathbb{R}$, $f_k(\sigma^k) = \int_{\sigma^k}f_k(d\sigma^k)$.
+
+This property of breaking up manifolds into infinitesimal parts is not common to every manifold. So that we can do calculus on our manifolds, and thus in physics in general, we require that the manifolds we work with be \textbf{differentiable}. (\textbf{Build up better to the defining characteristics of a differentiable manifold. The coordinate transformatino requirement in the definition seems to come out of nowhere and the reader doesn't have any intuition for it yet})
 
 
 \begin{defn}
@@ -262,8 +272,7 @@ We are interested in studying distribution on manifolds. The limit on infinitesi
 NOTE: Maybe we can say that not all k-functionals can be described using integrals, like length as discussed before
 
 
-- Starting with the 1D case: for a given line, a vector will be an infinitesimal segment along that line. 
-
+We want to formalize now the relationship between a k-functional over a k-surface, and the integral of a k-functional over infinitesimal segments. 
 
 Consider a point P($x^a$).
  
@@ -271,15 +280,13 @@ $dP = \frac{\partial P}{\partial x^a} dx^a = \frac{\partial P}{\partial x^b} dx^
 
 $\implies dx^a = \frac{\partial x^a}{\partial x^b}dx^b $
 
-\emph{Problem with this chain-rule formulation is that the vector isn't the infinitesimal segment}
 
-\emph{Alternative formulation}
-$dP = w^ue_u + w^ve_v$
 
-\emph{With this, the infinitesimal segment is the vector, which is what we want in the end. Question remains whether we can still use a chain rule formulation to derive this}
+
 
 This gives us vectors and covectors: the former being infinitesimal segments, and the latter being functions from vectors to real numbers
 
+- Starting with the 1D case: for a given line, a vector will be an infinitesimal segment along that line. 
 
 
 \begin{defn}
