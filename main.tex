@@ -253,9 +253,9 @@ NOTE: Distinguish somewhere between exterior product/space and exterior/boundary
 
 
 
-With the tools defined in the previous section, we are able to start doing calculus along our manifolds. Consider $f_k \in F_k$ and $\sigma_1^k$ and $\sigma_2^k \in S^k$. Recalling definition 1.12, we say that $f_k$ is linear if $\sigma^k_1 \cap \sigma^k_2 \subseteq \partial \sigma^k_1 \cup \partial \sigma^k_2$, then $f_k(\sigma^k_1\cup \sigma^k_2) = f_k(\sigma^k_1) + f_k(\sigma^k_2)$. Shrink $\sigma_1^k$ and $\sigma_2^k$ down to infinitesimally small limits. Denote these limits with $d$. So, we have $f_k(d\sigma^k_1) + f_k(d\sigma^k_2)$. This is simply the integral $\int_{\sigma^k_1}^{\sigma^k_2} f_k(d\sigma^k)$. (\textbf{Fix this derivation, building up to the integral doesn't seem exactly correct})
+With the tools defined in the previous section, we are able to start doing calculus along our manifolds. Consider $f_k \in F_k$ and $\sigma_1^k$ and $\sigma_2^k \in S^k$. Recalling definition 1.12, we say that $f_k$ is linear if $\sigma^k_1 \cap \sigma^k_2 \subseteq \partial \sigma^k_1 \cup \partial \sigma^k_2$, then $f_k(\sigma^k_1\cup \sigma^k_2) = f_k(\sigma^k_1) + f_k(\sigma^k_2)$. Shrink $\sigma_1^k$ and $\sigma_2^k$ down to infinitesimally small limits. Denote these limits with $d$. So, we have $f_k(d\sigma^k_1) + f_k(d\sigma^k_2)$. This is simply the integral $\int_{\sigma^k_1}^{\sigma^k_2} f_k(d\sigma^k)$. (\textbf{Fix this derivation, building up to the integral doesn't seem exactly correct. Generally avoid math in the paragraphs. What we really want to say is that we have a union series, not just two, taking the limit where n goes to infinity, calling those infinitesimal segments dsigma. It's not an integral of sigma1 and sigma2})
 
-We can also break up a k-surface into its constituent infinitesimal elements, and apply a k-functional along each of them individually, summing their contributions. So, for k-surface $\sigma^k \in S^k$ and k-functional $f_k: S^k \to \mathbb{R}$, $f_k(\sigma^k) = \int_{\sigma^k}f_k(d\sigma^k)$.
+We can also break up a k-surface into its constituent infinitesimal elements, and apply a k-functional along each of them individually, summing their contributions. So, for k-surface $\sigma^k \in S^k$ and k-functional $f_k: S^k \to \mathbb{R}$, $f_k(\sigma^k) = \int_{\sigma^k}f_k(d\sigma^k)$ (\textbf{This second paragraph is better, and is the actual point of integrals. The first paragraph is a disaster}).
 
 This property of breaking up manifolds into infinitesimal parts is not common to every manifold. So that we can do calculus on our manifolds, and thus in physics in general, we require that the manifolds we work with be \textbf{differentiable}. (\textbf{Build up better to the defining characteristics of a differentiable manifold. The coordinate transformatino requirement in the definition seems to come out of nowhere and the reader doesn't have any intuition for it yet})
 
@@ -280,7 +280,7 @@ $dP(x^a) = \frac{\partial P}{\partial x^a} dx^a = \frac{\partial P}{\partial x^b
 
 $\implies dx^a = \frac{\partial x^a}{\partial x^b}dx^b $
 
-\textbf{(\emph{Clean up this derivation. Show how the point differential is derived and implement it in the covector-vector derivation.})}
+\textbf{(\emph{Clean up this derivation. Show how the point differential is derived and implement it in the covector-vector derivation. Only thing that needs to be said now is that these infinitesimal things form a vector space ( they are additive). Going horizontally and then vertically is the same as going diagonally. Once we declare that a vector space, then we have the definition})}
 
 What we have here, finally, is a sort of infinitesimal function applied on an infinitesimal segment, which returns a scalar value. We call such infinitesimal segments \textbf{vectors}, and the functions that take them to the real numbers \textbf{covectors}. 
 
@@ -301,6 +301,8 @@ From this, we can also define a special class of infinitesimal segments: a \text
 
 What's really nice about this is a consistent conceptual relationship between functionals over surfaces, and infinitesimal functions over infinitesimal segments. These two sides can be related using integration. 
 
+
+(\textbf{Put this derivation thing where we're talking about components. In any case, needs to be fixed up since df looks like a gradient, and it shouldn't be})
 For some line P, $\int df(P)$ = $\int \frac{\partial f(P)}{{\partial x^i}} dx^i$ = $\int \frac{\partial f}{\partial x^i}\frac{\partial x^i}{\partial P}dP$ = $\int \frac{{\partial f}}{{\partial x^i}} e^i (dx^j e_j)$
 
 
@@ -309,7 +311,7 @@ These sorts of functions are very familiar to us already. A force applied over a
 
 
 \begin{prop}
-	Many linear 1-functionals have a corresponding covector, such that for $f : S \to \mathbb{R}$, $f = \int_{\lambda} \omega_1(d\lambda)$. In words, a linear functional applied over a line is the same as an integral of a covector over the infinitesimal segments of that line. 
+	All linear 1-functionals have a corresponding covector, such that for $f : S \to \mathbb{R}$, $f = \int_{\lambda} \omega_1(d\lambda)$. In words, a linear functional applied over a line is the same as an integral of a covector over the infinitesimal segments of that line. (\textbf{Maybe put the definitions down here with this proposition})
 \end{prop}
 
 
@@ -321,6 +323,7 @@ These sorts of functions are very familiar to us already. A force applied over a
 \emph{Note that electrodynamics has been reworked in the language of k-vectors. Probably a good example to use}
 
 Conceptually, this section will be an expansion and generalization of the previous section. Whereas before we were only worrying about 1-surfaces and 1-functionals, now we will be going up to the general k-surfaces and k-functionals. Just as before, we will be following a brief derivation of the new geometric objects in question. 
+\textbf{Generalizing that infinitesimal surfaces form a vector space. Maybe don't need the derivation}
 
 \textbf{PUT IN A DERIVATION HERE, A LA PREVIOUS SECTION}
 
@@ -328,6 +331,8 @@ Conceptually, this section will be an expansion and generalization of the previo
 \begin{defn}
 	A \textbf{k-vector} $v^k \in V^k$ is an infinitesimal parallelepiped on a k-surface. A vector as discussed previously is a 1-vector. A \textbf{tangent space} is then a collection of k-vectors that share a fixed corner. 
 \end{defn}
+
+(\textbf{What we can also talk about is the orientation of k-vectors})
 
 
 - \emph{Talking about orientation in terms of quantities: if we flip a quantity, we flip the orientation. Also, it should follow naturally that adding k-vectors of equal magnitude and opposite orientation will give zero.}
@@ -340,14 +345,14 @@ Conceptually, this section will be an expansion and generalization of the previo
 
 Parallelepipeds are 3D objects, more flexible than a cube, whose sides are parallelograms, which are more flexible than squares. In general, an infinitesimal bit along a k-surface will take the form of a paralellepiped. In the case of k = 1, an infinitesimal segment of a line may be thought of as a parallelepiped without width or heighth. By that same token, when k = 2, an infinitesimal area on a 2-surface may be thought of as a parallelepiped without height. 
 
-The sides of a k-vector are themselves k-vectors of lower degree. They are adjoined end-to-end or side-to-side to create k-vectors of higher degree. Each one of these sides will have an orientation, discussed later. The tool used to combine k-vectors is the \textbf{wedge product}. 
+The sides of a k-vector are themselves k-vectors of lower degree. They are adjoined end-to-end or side-to-side to create k-vectors of higher degree. Each one of these sides will have an orientation, discussed later. The tool used to combine k-vectors is the \textbf{wedge product}. (\textbf{Talk about how switching the order switches the sign with the wedge product}) 
 
 \begin{defn}
 	
 	The \textbf{wedge product} $\wedge : V^k\times V^j \to V^{k+j}$ combines k-vectors antisymmetrically to generate parallelepipeds. 
 \end{defn}
 
-In $\mathbb{R}^3$, the wedge product is simply the cross product "$\times$", familiar to anyone who's studied vector calculus and electromagnetism. 
+In $\mathbb{R}^3$, the wedge product is simply the cross product "$\times$", familiar to anyone who's studied vector calculus and electromagnetism. (\textbf{Nooooooooooooooooooooo. Here we can talk about perpendicular as the difference between cross and wedge, talking aobut how the cross product doesn't generalize, since in 4D for instance there isn't only one perpendicular. So wedge is better. Cross also needs a notion of angles, such as on riemannian manifold, which is less general})
 
 \begin{coro}
 	The orientation of each side of the parallelepiped is different, as determined by the factors in the wedge product. 
@@ -356,20 +361,24 @@ In $\mathbb{R}^3$, the wedge product is simply the cross product "$\times$", fam
 Now that we have a generalization of vectors, we need a generalization of covectors to use on them. These are \textbf{k-forms}, and are, as always, categorized by the number of degrees of freedom. 
 
 \begin{defn}
-	A \textbf{k-form} $\omega_k : V^k \to \mathbb{R}$ is a skew-symmetric linear functional that converts an infinitesimal parallelepiped into a scalar value. A covector as discussed previously is a 1-form. 
+	A \textbf{k-form} $\omega_k : V^k \to \mathbb{R}$ is a linear functional that converts an infinitesimal parallelepiped into a scalar value. A covector as discussed previously is a 1-form. 
 \end{defn}
+
+(\textbf{Talk about how the k-form can be talked about as a wedge of the sides of the parallelopiped, in which case it does become skew-symmetric, then we have a wedge product in the k-form itself})
 
 \begin{defn}
 	$\Omega_k$ is the set of all forms of dimension k and $\Omega = \cup_{k=0}^n\Omega_k$ is the set of all forms. 
 \end{defn}
 
-To finish up the generalization of the previous section, we establish the relationship between k-functionals and k-forms, between k-surfaces and k-vectors. They are related by an integral, though, as in the case of a length function when k = 1, not every k-functional can be related to a k-form in this way. A k-functional that returns the "k-volume", if you will, cannot be turned into a k-form. 
+To finish up the generalization of the previous section, we establish the relationship between k-functionals and k-forms, between k-surfaces and k-vectors. They are related by an integral, though, as in the case of a length function when k = 1, not every k-functional can be related to a k-form in this way. 
 
 \begin{prop}
-	Many linear k-functional has a corresponding k-form, such that for $f_k : S^k \to \mathbb{R}$, $f_k = \int_{\sigma^k} \omega_k(d\sigma^k)$. In words, a linear functional applied over a k-surface is the same as an integral of a k-form over the infinitesimal parallelepipedes of that k-surface. 
+	Every linear k-functional has a corresponding k-form, such that for $f_k : S^k \to \mathbb{R}$, $f_k = \int_{\sigma^k} \omega_k(d\sigma^k)$. In words, a linear functional applied over a k-surface is the same as an integral of a k-form over the infinitesimal parallelepipedes of that k-surface. 
 \end{prop}
 
-\section{Coordinates and components?}
+\textbf{(Make a note that the vector has an orientation, and it's associated with the order of integration. Flipping the integral is the same as getting a minus sign on the vector.)}
+
+\section{Coordinates and components?} 
 
 NOTE: Will have to talk about what the basis is. We start by saying that in a neighborhood we have a coordinate system, and that coordinate system can be used to identify the components of the vectors and components of the covectors. Also probably talk about how to make the wedge product with the components, and how to talk about the exterior derivative
 
