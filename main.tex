@@ -269,26 +269,20 @@ This property of breaking up manifolds into infinitesimal parts is not common to
 
 
 \section{Vectors and Covectors}
-NOTE: Maybe we can say that not all k-functionals can be described using integrals, like length as discussed before
 
 
-We want to formalize now the relationship between a k-functional over a k-surface, and the integral of a k-functional over infinitesimal segments. 
+Say we are given a line (that is, a 1-surface), and we want to apply a 1-functional over it to get some appropriate real number quantity. Just as in the case of general k-surfaces, we are able to say that applying a 1-functional over a line is equivalent to breaking up that line into smaller bits, applying the functional over the bits separately, and summing the individual contributions. Because we are now dealing with differentiable manifolds, we are able to shrink those bits down to infinitesimal sizes. 
 
-Consider a point P($x^a$).
- 
-$dP = \frac{\partial P}{\partial x^a} dx^a = \frac{\partial P}{\partial x^b} dx^b = \frac{\partial P}{\partial x^a}\frac{\partial x^a}{\partial x^b} dx^b$
+Consider a line P, with 1-functional $f$. $ df(P)$ = $ \frac{\partial f(P)}{{\partial x^i}} dx^i$ = $ \frac{\partial f}{\partial x^i}\frac{\partial x^i}{\partial P}dP$ = $\frac{{\partial f}}{{\partial x^i}} e^i (dx^j e_j)$. 
+
+A single point along the line P is P($x^a$). Infinitesimally, we may write that  
+$dP(x^a) = \frac{\partial P}{\partial x^a} dx^a = \frac{\partial P}{\partial x^b} dx^b = \frac{\partial P}{\partial x^a}\frac{\partial x^a}{\partial x^b} dx^b$
 
 $\implies dx^a = \frac{\partial x^a}{\partial x^b}dx^b $
 
+\textbf{(\emph{Clean up this derivation. Show how the point differential is derived and implement it in the covector-vector derivation.})}
 
-
-
-
-This gives us vectors and covectors: the former being infinitesimal segments, and the latter being functions from vectors to real numbers
-
-- Starting with the 1D case: for a given line, a vector will be an infinitesimal segment along that line. 
-
-This derivation brings to light two new tools that allow us to better describe k-functionals over infinitesimals. 
+What we have here, finally, is a sort of infinitesimal function applied on an infinitesimal segment, which returns a scalar value. We call such infinitesimal segments \textbf{vectors}, and the functions that take them to the real numbers \textbf{covectors}. 
 
 \begin{defn}
 	A \textbf{vector} $v^1 \in V^1$ is an infinitesimal segment along a line. A \textbf{tangent plane}, then, is a collection of vectors that share a fixed point. 
@@ -299,23 +293,23 @@ This derivation brings to light two new tools that allow us to better describe k
 	A \textbf{covector} $\omega_1 : V^1 \to \mathbb{R}$ is a linear function of vectors. 
 \end{defn}
 
-
+From this, we can also define a special class of infinitesimal segments: a \textbf{differential element}. 
 
 \begin{defn}
-	A \textbf{differential} $dx$ is the element of the tangent plane of a line which if summed at all points will return the line itself. 
+	A \textbf{differential element} $dx$ is the member of the tangent plane of a line which if summed at all points will return the line itself. 
 \end{defn}
 
-We can define functions that convert infinitesimal segments to a scalar value. 
+What's really nice about this is a consistent conceptual relationship between functionals over surfaces, and infinitesimal functions over infinitesimal segments. These two sides can be related using integration. 
 
 For some line P, $\int df(P)$ = $\int \frac{\partial f(P)}{{\partial x^i}} dx^i$ = $\int \frac{\partial f}{\partial x^i}\frac{\partial x^i}{\partial P}dP$ = $\int \frac{{\partial f}}{{\partial x^i}} e^i (dx^j e_j)$
 
 
-
+These sorts of functions are very familiar to us already. A force applied over a displacement, for instance, returns work. Working infinitesimally, the force would be the covector, with the infinitesimal segments of the displacement being the vector, with work being the real number scalar that is returned. It is important to note, however, that not every 1-functional can be written in an integral form in this way. As discussed in the previous section, length doesn't behave in this way
 
 
 
 \begin{prop}
-	Every linear 1-functional has a corresponding covector, such that for $f : S \to \mathbb{R}$, $f = \int_{\lambda} \omega_1(d\lambda)$. In words, a linear functional applied over a line is the same as an integral of a covector over the infinitesimal segments of that line. 
+	Many linear 1-functionals have a corresponding covector, such that for $f : S \to \mathbb{R}$, $f = \int_{\lambda} \omega_1(d\lambda)$. In words, a linear functional applied over a line is the same as an integral of a covector over the infinitesimal segments of that line. 
 \end{prop}
 
 
