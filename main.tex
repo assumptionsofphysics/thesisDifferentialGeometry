@@ -269,18 +269,19 @@ This property of breaking up manifolds into infinitesimal parts is not common to
 \section{Vectors and Covectors}
 
 
-Say we are given a line (that is, a 1-surface), and we want to apply a 1-functional over it to get some appropriate real number quantity. Just as in the case of general k-surfaces, we are able to say that applying a 1-functional over a line is equivalent to breaking up that line into smaller bits, applying the functional over the bits separately, and summing the individual contributions. Because we are now dealing with differentiable manifolds, we are able to shrink those bits down to infinitesimal sizes. 
+Say we are given a line (that is, a 1-surface), and we want to apply a 1-functional over it to get some appropriate real number quantity. Just as in the case of general k-surfaces, we are able to say that applying a 1-functional over a line is equivalent to breaking up that line into smaller length segments, applying the functional over the segments separately, and summing the individual contributions. Because we are now dealing with differentiable manifolds, we are able to shrink those segments down to infinitesimal sizes. 
 
 
-\textbf{(\emph{Clean up this derivation. Show how the point differential is derived and implement it in the covector-vector derivation. Only thing that needs to be said now is that these infinitesimal things form a vector space ( they are additive). Going horizontally and then vertically is the same as going diagonally. Once we declare that a vector space, then we have the definition})}
 
 
-What we have here, finally, is a sort of infinitesimal function applied on an infinitesimal segment, which returns a scalar value. We call such infinitesimal segments \textbf{vectors}, and the functions that take them to the real numbers \textbf{covectors}. 
+An infinitesimal plus an infinitesimal is still an infinitesimal. Therefore, a horizontal infinitesimal plus a vertical infinitesimal is the same as a diagonal infinitesimal. We say, then, that the infinitesimals form a vector space, the elements of which are called \textbf{vectors}. 
+
 
 \begin{defn}
 	A \textbf{vector} $v^1 \in V^1$ is an infinitesimal segment along a line. A \textbf{tangent plane}, then, is a collection of vectors that share a fixed point. 
 \end{defn}
 
+Just as our segments have become infinitesimal, the functionals acting on them become in a sense infinitesimal as well. A linear function on vectors that returns a real number is a \textbf{covector}.
 
 \begin{defn}
 	A \textbf{covector} $\omega_1 : V^1 \to \mathbb{R}$ is a linear function of vectors. 
@@ -289,7 +290,7 @@ What we have here, finally, is a sort of infinitesimal function applied on an in
 From this, we can also define a special class of infinitesimal segments: a \textbf{differential element}. 
 
 \begin{defn}
-	A \textbf{differential element} $dx$ is the member of the tangent plane of a line which if summed at all points will return the line itself. 
+	A \textbf{differential element} $dx^i$ is the member of the tangent plane of a line which if summed at all points will return the line itself. 
 \end{defn}
 
 What's really nice about this is a consistent conceptual relationship between functionals over surfaces, and infinitesimal functions over infinitesimal segments. These two sides can be related using integration. 
@@ -297,12 +298,11 @@ What's really nice about this is a consistent conceptual relationship between fu
 
 
 
-These sorts of functions are very familiar to us already. A force applied over a displacement, for instance, returns work. Working infinitesimally, the force would be the covector, with the infinitesimal segments of the displacement being the vector, with work being the real number scalar that is returned. It is important to note, however, that not every 1-functional can be written in an integral form in this way. As discussed in the previous section, length doesn't behave in this way
-
+These sorts of functions are very familiar to us already. A force applied over a displacement, for instance, returns work. Working infinitesimally, the force would be the covector, with the infinitesimal segments of the displacement being the vector, with work being the real number scalar that is returned. 
 
 
 \begin{prop}
-	All linear 1-functionals have a corresponding covector, such that for $f : S \to \mathbb{R}$, $f = \int_{\lambda} \omega_1(d\lambda)$. In words, a linear functional applied over a line is the same as an integral of a covector over the infinitesimal segments of that line. (\textbf{Maybe put the definitions down here with this proposition})
+	All linear 1-functionals have a corresponding covector, such that for $f : S \to \mathbb{R}$, $f = \int_{\lambda} \omega_1(d\lambda)$. In words, a linear functional applied over a line is the same as an integral of a covector over the infinitesimal segments of that line. 
 \end{prop}
 
 
@@ -321,37 +321,35 @@ For some line P, $\int df(P)$ = $\int \frac{\partial f(P)}{{\partial x^i}} dx^i$
 
 \emph{Note that electrodynamics has been reworked in the language of k-vectors. Probably a good example to use}
 
-Conceptually, this section will be an expansion and generalization of the previous section. Whereas before we were only worrying about 1-surfaces and 1-functionals, now we will be going up to the general k-surfaces and k-functionals. Just as before, we will be following a brief derivation of the new geometric objects in question. 
-\textbf{Generalizing that infinitesimal surfaces form a vector space. Maybe don't need the derivation}
+Conceptually, this section will be an expansion and generalization of the previous section. Whereas before we were only worrying about 1-surfaces and 1-functionals, now we will be going up to the general k-surfaces and k-functionals. The "k" refers to the number of degrees of freedom of the surface or functional. 
 
-\textbf{PUT IN A DERIVATION HERE, A LA PREVIOUS SECTION}
+Just as before in the k = 1 case, we will be splitting the k-surfaces up into smaller degree-appropriate parts. Applying a k-functional over the entire k-surface is equivalent to applying the k-functional to each individual part separately, and summing the contributions. And, since we are only working on differentiable manifolds, we may make our individual parts infinitesimal. These infinitesimal pieces form a vector space of degree k, the elements of which are called \textbf{k-vectors}. 
 
 
 \begin{defn}
 	A \textbf{k-vector} $v^k \in V^k$ is an infinitesimal parallelepiped on a k-surface. A vector as discussed previously is a 1-vector. A \textbf{tangent space} is then a collection of k-vectors that share a fixed corner. 
 \end{defn}
 
-(\textbf{What we can also talk about is the orientation of k-vectors})
-
-
-- \emph{Talking about orientation in terms of quantities: if we flip a quantity, we flip the orientation. Also, it should follow naturally that adding k-vectors of equal magnitude and opposite orientation will give zero.}
-
-
 
 \begin{defn}
 	$V^k$ is the set of all vectors of rank k and $V = \cup_{k=0}^n V^k$ is the set of all vectors. 
 	\end{defn}
 
-Parallelepipeds are 3D objects, more flexible than a cube, whose sides are parallelograms, which are more flexible than squares. In general, an infinitesimal bit along a k-surface will take the form of a paralellepiped. In the case of k = 1, an infinitesimal segment of a line may be thought of as a parallelepiped without width or heighth. By that same token, when k = 2, an infinitesimal area on a 2-surface may be thought of as a parallelepiped without height. 
+Parallelepipeds are 3D objects, more flexible than a cube, whose sides are parallelograms, which are in turn more flexible than squares. In general, an infinitesimal bit along a k-surface will take the form of a paralellepiped. In the case of k = 1, an infinitesimal segment of a line may be thought of as a parallelepiped without width or heighth. By that same thinking, when k = 2, an infinitesimal area on a 2-surface may be thought of as a parallelepiped without height. 
 
-The sides of a k-vector are themselves k-vectors of lower degree. They are adjoined end-to-end or side-to-side to create k-vectors of higher degree. Each one of these sides will have an orientation, discussed later. The tool used to combine k-vectors is the \textbf{wedge product}. (\textbf{Talk about how switching the order switches the sign with the wedge product}) 
+The sides of a k-vector are themselves k-vectors of lower degree. They are adjoined end-to-end or side-to-side to create k-vectors of higher degree. Each one of these sides will have an orientation. The tool used to combine k-vectors is the \textbf{wedge product}. 
+
+The orientation of a 1-vector is obvious: just follow where the tip is pointing. The orientation of a general k-surface is less immediately obvious. It comes, however, from the wedge product. Each side of the infinitesimal parallelepiped has its own orientation determined by the wedge product of the infinitesimal edges with one another. It is important to note, however, that unlike the scalar product, the wedge product is not commutative. When the order of the factors is swapped, the resultant product is the negative of the original product. 
+
+To gain an intuition for why this must be so, consider an x-y coordinate plane, with x in the horizontal direction and y in the vertical direction. The coordinate system may be rotated freely (creating an equivalence class of directions), but try swapping x and y, so that x is now vertical and y is now horizontal. The original coordinate system can no longer be reached simply through rotation; it would require a flipping of one of the axes. 
+\textbf{Probably put a picture of that here}
 
 \begin{defn}
 	
 	The \textbf{wedge product} $\wedge : V^k\times V^j \to V^{k+j}$ combines k-vectors antisymmetrically to generate parallelepipeds. 
 \end{defn}
 
-In $\mathbb{R}^3$, the wedge product is simply the cross product "$\times$", familiar to anyone who's studied vector calculus and electromagnetism. (\textbf{Nooooooooooooooooooooo. Here we can talk about perpendicular as the difference between cross and wedge, talking aobut how the cross product doesn't generalize, since in 4D for instance there isn't only one perpendicular. So wedge is better. Cross also needs a notion of angles, such as on riemannian manifold, which is less general})
+It may seem that the cross product in multivariable calculus and the wedge product are the same thing, but this is not the case. (\textbf{Here we can talk about perpendicular as the difference between cross and wedge, talking aobut how the cross product doesn't generalize, since in 4D for instance there isn't only one perpendicular. So wedge is better. Cross also needs a notion of angles, such as on riemannian manifold, which is less general})
 
 \begin{coro}
 	The orientation of each side of the parallelepiped is different, as determined by the factors in the wedge product. 
@@ -363,13 +361,13 @@ Now that we have a generalization of vectors, we need a generalization of covect
 	A \textbf{k-form} $\omega_k : V^k \to \mathbb{R}$ is a linear functional that converts an infinitesimal parallelepiped into a scalar value. A covector as discussed previously is a 1-form. 
 \end{defn}
 
-(\textbf{Talk about how the k-form can be talked about as a wedge of the sides of the parallelopiped, in which case it does become skew-symmetric, then we have a wedge product in the k-form itself})
+The wedge product can also be used with k-forms to generate forms of higher degree.
 
 \begin{defn}
 	$\Omega_k$ is the set of all forms of dimension k and $\Omega = \cup_{k=0}^n\Omega_k$ is the set of all forms. 
 \end{defn}
 
-To finish up the generalization of the previous section, we establish the relationship between k-functionals and k-forms, between k-surfaces and k-vectors. They are related by an integral, though, as in the case of a length function when k = 1, not every k-functional can be related to a k-form in this way. 
+To finish up the generalization of the previous section, we establish the relationship between k-functionals and k-forms, between k-surfaces and k-vectors. The latter two are infinitesimal variants of the former two, and are related to one another by an integral. 
 
 \begin{prop}
 	Every linear k-functional has a corresponding k-form, such that for $f_k : S^k \to \mathbb{R}$, $f_k = \int_{\sigma^k} \omega_k(d\sigma^k)$. In words, a linear functional applied over a k-surface is the same as an integral of a k-form over the infinitesimal parallelepipedes of that k-surface. 
