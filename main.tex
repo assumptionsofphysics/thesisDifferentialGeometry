@@ -251,13 +251,11 @@ NOTE: Distinguish somewhere between exterior product/space and exterior/boundary
 
 \section{Differentiable manifolds}
 
+In the previous section, we began to discuss functionals applied over successive k-surfaces. It turns out that with the rules we've already established, we can break up a k-surface into multiple sections, such that applying a functional over the entire surface is equivalent to applying it to each of the sections individually, and then summing their contributions. What if we could make these sections infinitesimally small? How would our manifolds behave, and more importantly, what happens to the functionals?
 
+Consider now k-surface $\sigma^k \in S^k$, with k-functional $f_k$. We can break this surface up into infinitesimal parts, denoting each individual section as $d\sigma^k$. Summing the contributions is equivalent to an integral of the function over the whole surface. So, for k-surface $\sigma^k \in S^k$ and k-functional $f_k: S^k \to \mathbb{R}$, $f_k(\sigma^k) = \int_{\sigma^k}f_k(d\sigma^k)$.
 
-With the tools defined in the previous section, we are able to start doing calculus along our manifolds. Consider $f_k \in F_k$ and $\sigma_1^k$ and $\sigma_2^k \in S^k$. Recalling definition 1.12, we say that $f_k$ is linear if $\sigma^k_1 \cap \sigma^k_2 \subseteq \partial \sigma^k_1 \cup \partial \sigma^k_2$, then $f_k(\sigma^k_1\cup \sigma^k_2) = f_k(\sigma^k_1) + f_k(\sigma^k_2)$. Shrink $\sigma_1^k$ and $\sigma_2^k$ down to infinitesimally small limits. Denote these limits with $d$. So, we have $f_k(d\sigma^k_1) + f_k(d\sigma^k_2)$. This is simply the integral $\int_{\sigma^k_1}^{\sigma^k_2} f_k(d\sigma^k)$. (\textbf{Fix this derivation, building up to the integral doesn't seem exactly correct. Generally avoid math in the paragraphs. What we really want to say is that we have a union series, not just two, taking the limit where n goes to infinity, calling those infinitesimal segments dsigma. It's not an integral of sigma1 and sigma2})
-
-We can also break up a k-surface into its constituent infinitesimal elements, and apply a k-functional along each of them individually, summing their contributions. So, for k-surface $\sigma^k \in S^k$ and k-functional $f_k: S^k \to \mathbb{R}$, $f_k(\sigma^k) = \int_{\sigma^k}f_k(d\sigma^k)$ (\textbf{This second paragraph is better, and is the actual point of integrals. The first paragraph is a disaster}).
-
-This property of breaking up manifolds into infinitesimal parts is not common to every manifold. So that we can do calculus on our manifolds, and thus in physics in general, we require that the manifolds we work with be \textbf{differentiable}. (\textbf{Build up better to the defining characteristics of a differentiable manifold. The coordinate transformatino requirement in the definition seems to come out of nowhere and the reader doesn't have any intuition for it yet})
+This property of breaking up manifolds into infinitesimal parts is not common to every manifold. So that we can do calculus on our manifolds, and thus in physics in general, we require that the manifolds we work with be \textbf{differentiable}. Essentially, what we're doing here is looking at an entire manifold, with all of its constituent subsections and coordinate systems, and disregarding the coordinate systems that are not differentiable. Differentiability, then, is a property of the coordinate system that we're dealing with, not of the points on the manifold. 
 
 
 \begin{defn}
@@ -273,14 +271,9 @@ This property of breaking up manifolds into infinitesimal parts is not common to
 
 Say we are given a line (that is, a 1-surface), and we want to apply a 1-functional over it to get some appropriate real number quantity. Just as in the case of general k-surfaces, we are able to say that applying a 1-functional over a line is equivalent to breaking up that line into smaller bits, applying the functional over the bits separately, and summing the individual contributions. Because we are now dealing with differentiable manifolds, we are able to shrink those bits down to infinitesimal sizes. 
 
-Consider a line P, with 1-functional $f$. $ df(P)$ = $ \frac{\partial f(P)}{{\partial x^i}} dx^i$ = $ \frac{\partial f}{\partial x^i}\frac{\partial x^i}{\partial P}dP$ = $\frac{{\partial f}}{{\partial x^i}} e^i (dx^j e_j)$. 
-
-A single point along the line P is P($x^a$). Infinitesimally, we may write that  
-$dP(x^a) = \frac{\partial P}{\partial x^a} dx^a = \frac{\partial P}{\partial x^b} dx^b = \frac{\partial P}{\partial x^a}\frac{\partial x^a}{\partial x^b} dx^b$
-
-$\implies dx^a = \frac{\partial x^a}{\partial x^b}dx^b $
 
 \textbf{(\emph{Clean up this derivation. Show how the point differential is derived and implement it in the covector-vector derivation. Only thing that needs to be said now is that these infinitesimal things form a vector space ( they are additive). Going horizontally and then vertically is the same as going diagonally. Once we declare that a vector space, then we have the definition})}
+
 
 What we have here, finally, is a sort of infinitesimal function applied on an infinitesimal segment, which returns a scalar value. We call such infinitesimal segments \textbf{vectors}, and the functions that take them to the real numbers \textbf{covectors}. 
 
@@ -302,8 +295,6 @@ From this, we can also define a special class of infinitesimal segments: a \text
 What's really nice about this is a consistent conceptual relationship between functionals over surfaces, and infinitesimal functions over infinitesimal segments. These two sides can be related using integration. 
 
 
-(\textbf{Put this derivation thing where we're talking about components. In any case, needs to be fixed up since df looks like a gradient, and it shouldn't be})
-For some line P, $\int df(P)$ = $\int \frac{\partial f(P)}{{\partial x^i}} dx^i$ = $\int \frac{\partial f}{\partial x^i}\frac{\partial x^i}{\partial P}dP$ = $\int \frac{{\partial f}}{{\partial x^i}} e^i (dx^j e_j)$
 
 
 These sorts of functions are very familiar to us already. A force applied over a displacement, for instance, returns work. Working infinitesimally, the force would be the covector, with the infinitesimal segments of the displacement being the vector, with work being the real number scalar that is returned. It is important to note, however, that not every 1-functional can be written in an integral form in this way. As discussed in the previous section, length doesn't behave in this way
@@ -315,8 +306,16 @@ These sorts of functions are very familiar to us already. A force applied over a
 \end{prop}
 
 
+\underline{\textbf{PUT MATH STUFF DOWN HERE FOR NOW}}
 
+Consider a line P, with 1-functional $f$. $ df(P)$ = $ \frac{\partial f(P)}{{\partial x^i}} dx^i$ = $ \frac{\partial f}{\partial x^i}\frac{\partial x^i}{\partial P}dP$ = $\frac{{\partial f}}{{\partial x^i}} e^i (dx^j e_j)$. 
 
+A single point along the line P is P($x^a$). Infinitesimally, we may write that  
+$dP(x^a) = \frac{\partial P}{\partial x^a} dx^a = \frac{\partial P}{\partial x^b} dx^b = \frac{\partial P}{\partial x^a}\frac{\partial x^a}{\partial x^b} dx^b$
+
+$\implies dx^a = \frac{\partial x^a}{\partial x^b}dx^b $
+
+For some line P, $\int df(P)$ = $\int \frac{\partial f(P)}{{\partial x^i}} dx^i$ = $\int \frac{\partial f}{\partial x^i}\frac{\partial x^i}{\partial P}dP$ = $\int \frac{{\partial f}}{{\partial x^i}} e^i (dx^j e_j)$
 
 \section{K-vectors and K-forms}
 
