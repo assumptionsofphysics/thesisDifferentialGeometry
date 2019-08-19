@@ -253,9 +253,11 @@ NOTE: Distinguish somewhere between exterior product/space and exterior/boundary
 
 In the previous section, we began to discuss functionals applied over successive k-surfaces. It turns out that with the rules we've already established, we can break up a k-surface into multiple sections, such that applying a functional over the entire surface is equivalent to applying it to each of the sections individually, and then summing their contributions. What if we could make these sections infinitesimally small? How would our manifolds behave, and more importantly, what happens to the functionals?
 
-Consider now k-surface $\sigma^k \in S^k$, with k-functional $f_k$. We can break this surface up into infinitesimal parts, denoting each individual section as $d\sigma^k$. Summing the contributions is equivalent to an integral of the function over the whole surface. So, for k-surface $\sigma^k \in S^k$ and k-functional $f_k: S^k \to \mathbb{R}$, $f_k(\sigma^k) = \int_{\sigma^k}f_k(d\sigma^k)$.
+Consider now a k-surface $\sigma^k \in S^k$, with a k-functional $f_k$. We can break this surface up into infinitesimal parts, denoting each individual section as $d\sigma^k$. Summing the contributions is equivalent to an integral of the function over the whole surface. So, for k-surface $\sigma^k \in S^k$ and k-functional $f_k: S^k \to \mathbb{R}$, $f_k(\sigma^k) = \int_{\sigma^k}f_k(d\sigma^k)$.
 
-This property of breaking up manifolds into infinitesimal parts is not common to every manifold. So that we can do calculus on our manifolds, and thus in physics in general, we require that the manifolds we work with be \textbf{differentiable}. Essentially, what we're doing here is looking at an entire manifold, with all of its constituent subsections and coordinate systems, and disregarding the coordinate systems that are not differentiable. Differentiability, then, is a property of the coordinate system that we're dealing with, not of the points on the manifold. 
+(\textbf{Do the finite sum case first, then take the limit to get to the integral})
+
+This property of breaking up manifolds into infinitesimal parts is not common to every manifold. So that we can do calculus on our manifolds, and thus in physics in general, we require that the manifolds we work with be \textbf{differentiable}. Essentially, what we're doing here is looking at an entire manifold, with all of its constituent subsections and coordinate systems, and disregarding the coordinate systems that are not differentiable. Differentiability, then, is a property of the coordinate system that we're dealing with, not of the points on the manifold. (\textbf{First sentence makes it seem like it's a property of the manifold})
 
 
 \begin{defn}
@@ -268,13 +270,14 @@ This property of breaking up manifolds into infinitesimal parts is not common to
 
 \section{Vectors and Covectors}
 
+(\textbf{Say that we're starting in the k=1 case and will be generalizing})
 
 Say we are given a line (that is, a 1-surface), and we want to apply a 1-functional over it to get some appropriate real number quantity. Just as in the case of general k-surfaces, we are able to say that applying a 1-functional over a line is equivalent to breaking up that line into smaller length segments, applying the functional over the segments separately, and summing the individual contributions. Because we are now dealing with differentiable manifolds, we are able to shrink those segments down to infinitesimal sizes. 
 
 
 
 
-An infinitesimal plus an infinitesimal is still an infinitesimal. Therefore, a horizontal infinitesimal plus a vertical infinitesimal is the same as a diagonal infinitesimal. We say, then, that the infinitesimals form a vector space, the elements of which are called \textbf{vectors}. 
+An infinitesimal plus an infinitesimal is still an infinitesimal. Therefore, a horizontal infinitesimal plus a vertical infinitesimal is the same as a diagonal infinitesimal (\textbf{Not necessarily true, in the limit they converge}). We say, then, that the infinitesimals form a vector space, the elements of which are called \textbf{vectors}. 
 
 
 \begin{defn}
@@ -289,17 +292,16 @@ Just as our segments have become infinitesimal, the functionals acting on them b
 
 From this, we can also define a special class of infinitesimal segments: a \textbf{differential element}. 
 
-\begin{defn}
-	A \textbf{differential element} $dx^i$ is the member of the tangent plane of a line which if summed at all points will return the line itself. 
-\end{defn}
+
 
 What's really nice about this is a consistent conceptual relationship between functionals over surfaces, and infinitesimal functions over infinitesimal segments. These two sides can be related using integration. 
 
 
 
 
-These sorts of functions are very familiar to us already. A force applied over a displacement, for instance, returns work. Working infinitesimally, the force would be the covector, with the infinitesimal segments of the displacement being the vector, with work being the real number scalar that is returned. 
+These sorts of functions are very familiar to us already. A force applied over a displacement, for instance, returns work. Working infinitesimally, the force would be the covector, with the infinitesimal segments of the displacement being the vector, with work being the real number scalar that is returned. (\textbf{Make work the running example, introduce earlier in 1.3. Also, in the integrated form, the k-functional would be work given a full line, with the covector being the force. Draw up the relationship between the integrated part and the differentiated part})
 
+(\textbf{Make a commuting diagram here with integrals on one side and differential on the other})
 
 \begin{prop}
 	All linear 1-functionals have a corresponding covector, such that for $f : S \to \mathbb{R}$, $f = \int_{\lambda} \omega_1(d\lambda)$. In words, a linear functional applied over a line is the same as an integral of a covector over the infinitesimal segments of that line. 
@@ -323,6 +325,8 @@ For some line P, $\int df(P)$ = $\int \frac{\partial f(P)}{{\partial x^i}} dx^i$
 
 Conceptually, this section will be an expansion and generalization of the previous section. Whereas before we were only worrying about 1-surfaces and 1-functionals, now we will be going up to the general k-surfaces and k-functionals. The "k" refers to the number of degrees of freedom of the surface or functional. 
 
+(\textbf{Not saying here how they're being split up})
+
 Just as before in the k = 1 case, we will be splitting the k-surfaces up into smaller degree-appropriate parts. Applying a k-functional over the entire k-surface is equivalent to applying the k-functional to each individual part separately, and summing the contributions. And, since we are only working on differentiable manifolds, we may make our individual parts infinitesimal. These infinitesimal pieces form a vector space of degree k, the elements of which are called \textbf{k-vectors}. 
 
 
@@ -339,8 +343,12 @@ Parallelepipeds are 3D objects, more flexible than a cube, whose sides are paral
 
 The sides of a k-vector are themselves k-vectors of lower degree. They are adjoined end-to-end or side-to-side to create k-vectors of higher degree. Each one of these sides will have an orientation. The tool used to combine k-vectors is the \textbf{wedge product}. 
 
+
+(\textbf{Rework this paragraph. Never mentioned before that the infinitesimal segments has a tip})
 The orientation of a 1-vector is obvious: just follow where the tip is pointing. The orientation of a general k-surface is less immediately obvious. It comes, however, from the wedge product. Each side of the infinitesimal parallelepiped has its own orientation determined by the wedge product of the infinitesimal edges with one another. It is important to note, however, that unlike the scalar product, the wedge product is not commutative. When the order of the factors is swapped, the resultant product is the negative of the original product. 
 
+
+(\textbf{What's here is the math, then the intuition. Go the other way: intuition, then math})
 To gain an intuition for why this must be so, consider an x-y coordinate plane, with x in the horizontal direction and y in the vertical direction. The coordinate system may be rotated freely (creating an equivalence class of directions), but try swapping x and y, so that x is now vertical and y is now horizontal. The original coordinate system can no longer be reached simply through rotation; it would require a flipping of one of the axes. 
 \textbf{Probably put a picture of that here}
 
@@ -356,6 +364,8 @@ It may seem that the cross product in multivariable calculus and the wedge produ
 \end{coro}
 
 Now that we have a generalization of vectors, we need a generalization of covectors to use on them. These are \textbf{k-forms}, and are, as always, categorized by the number of degrees of freedom. 
+
+(\textbf{Introduce a wedge product for k-forms. don't talk about it until after propositoin 2.12. Keep it the same structure as the previous section})
 
 \begin{defn}
 	A \textbf{k-form} $\omega_k : V^k \to \mathbb{R}$ is a linear functional that converts an infinitesimal parallelepiped into a scalar value. A covector as discussed previously is a 1-form. 
@@ -376,6 +386,8 @@ To finish up the generalization of the previous section, we establish the relati
 \textbf{(Make a note that the vector has an orientation, and it's associated with the order of integration. Flipping the integral is the same as getting a minus sign on the vector.)}
 
 \section{Coordinates and components?} 
+
+(\textbf{Talk about differential elements here, not up above})
 
 NOTE: Will have to talk about what the basis is. We start by saying that in a neighborhood we have a coordinate system, and that coordinate system can be used to identify the components of the vectors and components of the covectors. Also probably talk about how to make the wedge product with the components, and how to talk about the exterior derivative
 
