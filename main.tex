@@ -198,6 +198,8 @@ Now that we have discussed k-surfaces, we want to be able to have functions appl
 \textit{Put the limit in the definition. "We require the thing to be linear, and to commute with the limit, so that th elimit of the function is the function of the limit". Then specify why length function doesn't satisfy the commuting with the limit}
 One caveat to this definition that isn't immediately intuitive is that a length function is not a k-functional. Consider the one-dimensional case, where length L $= \int \sqrt{1+f'(x)^2} dx$. This is clearly not a linear function, due to the square root (\textbf{Write actually that ds = $\sqrt{dx^2 + dy^2}$}. The point that we want to make is thta the integral does not commute with the limit. Have a picture of this, approximating the diagonal as horizontal and verticals). This comes from the infinitesimal segment of a curve $ds$ being made up of alternating horizontal and vertical infinitesimals $dx$ and $dy$. This is distinct from the limit of length L $= \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$. Simply put, the length of the limit is not the same thing as the limit of the length. (\textbf{Explain better what the limit is. Just explain this paragraph better. "diagonal can be seen as the limit, but the length doesn't work". Don't talk about differentials at all yet})
 
+A good example of a k-functional, and indeed, the one that will be carried through to the next section, is a work function. Given a path, the work function will return the force applied on a particle between the starting point and ending point. (\textbf{Word this better})
+
 \begin{defn}
 	$F_k$ is the set of all functionals of dimension k, and $F = \cup_{k=0}^nF_k$ is the set of all functionals. 
 \end{defn}
@@ -255,11 +257,9 @@ NOTE: Distinguish somewhere between exterior product/space and exterior/boundary
 
 In the previous section, we began to discuss functionals applied over successive k-surfaces. It turns out that with the rules we've already established, we can break up a k-surface into multiple sections, such that applying a functional over the entire surface is equivalent to applying it to each of the sections individually, and then summing their contributions. What if we could make these sections infinitesimally small? How would our manifolds behave, and more importantly, what happens to the functionals?
 
-Consider now a k-surface $\sigma^k \in S^k$, with a k-functional $f_k$. We can break this surface up into infinitesimal parts, denoting each individual section as $d\sigma^k$. Summing the contributions is equivalent to an integral of the function over the whole surface. So, for k-surface $\sigma^k \in S^k$ and k-functional $f_k: S^k \to \mathbb{R}$, $f_k(\sigma^k) = \int_{\sigma^k}f_k(d\sigma^k)$.
+Consider now a k-surface $\sigma^k \in S^k$, with a k-functional $f_k$. We can break this surface up into "n" number of parts, called $\sigma^k_1, \sigma^k_2, ..., \sigma^k_n$. We know that $f_k(\sigma^k) = f_k(\sigma^k_1) + f_k(\sigma^k_2) + ... + f_k(\sigma^k_n) = \Sigma^n_if_k(\sigma^k_i)$. If we let n tend to infinity, the parts become infinitesimal. Summing the contributions of the infinitesimals is equivalent to an integral of the function over the whole surface. So, for k-surface $\sigma^k \in S^k$ and k-functional $f_k: S^k \to \mathbb{R}$, $f_k(\sigma^k) = \int_{\sigma^k}f_k(d\sigma^k)$. The existence of infinitesimals allows us to perform calculus on our manifolds. Such manifolds are \textbf{differentiable manifolds}. 
 
-(\textbf{Do the finite sum case first, then take the limit to get to the integral})
-
-This property of breaking up manifolds into infinitesimal parts is not common to every manifold. So that we can do calculus on our manifolds, and thus in physics in general, we require that the manifolds we work with be \textbf{differentiable}. Essentially, what we're doing here is looking at an entire manifold, with all of its constituent subsections and coordinate systems, and disregarding the coordinate systems that are not differentiable. Differentiability, then, is a property of the coordinate system that we're dealing with, not of the points on the manifold. (\textbf{First sentence makes it seem like it's a property of the manifold})
+Technically speaking, differentiability is a property not of the manifold, but of the coordinate systems that are defined on it. And furthermore, not every coordinate system is differentiable. In order to maintain differentiability on our manifolds, we will be constraining ourselves to coordinate systems which are differentiable. Essentially, what we're doing here is looking at an entire manifold, with all of its constituent subsections and thereon defined coordinate systems, and disregarding the coordinate systems that are not differentiable. This property manifests itself in the coordinate transformation between subsets of the manifold being smooth. 
 
 
 \begin{defn}
@@ -274,7 +274,7 @@ This property of breaking up manifolds into infinitesimal parts is not common to
 
 (\textbf{Say that we're starting in the k=1 case and will be generalizing})
 
-Say we are given a line (that is, a 1-surface), and we want to apply a 1-functional over it to get some appropriate real number quantity. Just as in the case of general k-surfaces, we are able to say that applying a 1-functional over a line is equivalent to breaking up that line into smaller length segments, applying the functional over the segments separately, and summing the individual contributions. Because we are now dealing with differentiable manifolds, we are able to shrink those segments down to infinitesimal sizes. 
+Say we are given a line (that is, a 1-surface), and we want to apply a 1-functional over it to get some appropriate real number quantity. We are able to say that applying a 1-functional over a line is equivalent to breaking up that line into smaller length segments, applying the functional over the segments separately, and summing the individual contributions. Because we are now dealing with differentiable manifolds, we are able to shrink those segments down to infinitesimal sizes. 
 
 
 
