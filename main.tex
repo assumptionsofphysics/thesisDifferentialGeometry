@@ -20,10 +20,14 @@ In transitioning to more advanced classes, a physics student will find their fam
 
 What follows is a purely physical treatment of differential geometry used in physics. While it is less mathematically rigorous than a typical textbook, the hope is that the reader will be able to gain a geometric intuition for the math they use, so that the math isn't simply a black box beyond understanding, and that further study in the subject will be aided by a solid grounding here. The focus is always on readability, applicability, and physicality, so pictures are prevalent (\textbf{\textit{Will} be prevalent}). 
 
+We assume on the part of the reader a class in introductory classical mechanics and electromagnetism, as well as vector calculus. More advanced topics in physics and mathematics may be briefly touched on, but only for the use of giving an example, or demonstrating the usefulness of these mathematical tools. 
+
 
 
 
 \tableofcontents
+
+\emph{I'd like to include a table here with mathematical notation, giving brief explanations for what symbols such as $\in$, $\subset$, $\mathbb{R}$, etc. mean, just in case the reader isn't familiar with them.}
 
 
 
@@ -257,9 +261,9 @@ NOTE: Distinguish somewhere between exterior product/space and exterior/boundary
 
 In the previous section, we began to discuss functionals applied over successive k-surfaces. It turns out that with the rules we've already established, we can break up a k-surface into multiple sections, such that applying a functional over the entire surface is equivalent to applying it to each of the sections individually, and then summing their contributions. What if we could make these sections infinitesimally small? How would our manifolds behave, and more importantly, what happens to the functionals?
 
-Consider now a k-surface $\sigma^k \in S^k$, with a k-functional $f_k$. We can break this surface up into "n" number of parts, called $\sigma^k_1, \sigma^k_2, ..., \sigma^k_n$. We know that $f_k(\sigma^k) = f_k(\sigma^k_1) + f_k(\sigma^k_2) + ... + f_k(\sigma^k_n) = \Sigma^n_if_k(\sigma^k_i)$. If we let n tend to infinity, the parts become infinitesimal. Summing the contributions of the infinitesimals is equivalent to an integral of the function over the whole surface. So, for k-surface $\sigma^k \in S^k$ and k-functional $f_k: S^k \to \mathbb{R}$, $f_k(\sigma^k) = \int_{\sigma^k}f_k(d\sigma^k)$. The existence of infinitesimals allows us to perform calculus on our manifolds. Such manifolds are \textbf{differentiable manifolds}. 
+Consider now a k-surface $\sigma^k \in S^k$, with a k-functional $f_k$. We can break this surface up into "n" number of parts, called $\sigma^k_1, \sigma^k_2, ..., \sigma^k_n$. We know that $f_k(\sigma^k) = f_k(\sigma^k_1) + f_k(\sigma^k_2) + ... + f_k(\sigma^k_n) = \Sigma^n_if_k(\sigma^k_i)$. If we let n tend to infinity, the parts become infinitesimal. Summing the contributions of the infinitesimals is equivalent to an integral of the function over the whole surface. So, for k-surface $\sigma^k \in S^k$ and k-functional $f_k: S^k \to \mathbb{R}$, $f_k(\sigma^k) = \int_{\sigma^k}\omega_k(d\sigma^k)$. The existence of infinitesimals allows us to perform calculus on our manifolds. Such manifolds are \textbf{differentiable manifolds}. 
 
-Technically speaking, differentiability is a property not of the manifold, but of the coordinate systems that are defined on it. And furthermore, not every coordinate system is differentiable. In order to maintain differentiability on our manifolds, we will be constraining ourselves to coordinate systems which are differentiable. Essentially, what we're doing here is looking at an entire manifold, with all of its constituent subsections and thereon defined coordinate systems, and disregarding the coordinate systems that are not differentiable. This property manifests itself in the coordinate transformation between subsets of the manifold being smooth. 
+Technically speaking, differentiability is a property not of the manifold, but of the coordinate systems that are defined on it. And furthermore, not every coordinate system is differentiable. In order to maintain differentiability on our manifolds, we will be constraining ourselves to coordinate systems which are differentiable. Essentially, what we're doing here is looking at an entire manifold, with all of its constituent subsections and thereon defined coordinate systems, and disregarding the coordinate systems that are not differentiable. This property manifests itself as the coordinate transformation between subsets of the manifold being smooth. 
 
 
 \begin{defn}
@@ -272,9 +276,10 @@ Technically speaking, differentiability is a property not of the manifold, but o
 
 \section{Vectors and Covectors}
 
-(\textbf{Say that we're starting in the k=1 case and will be generalizing})
 
-Say we are given a line (that is, a 1-surface), and we want to apply a 1-functional over it to get some appropriate real number quantity. We are able to say that applying a 1-functional over a line is equivalent to breaking up that line into smaller length segments, applying the functional over the segments separately, and summing the individual contributions. Because we are now dealing with differentiable manifolds, we are able to shrink those segments down to infinitesimal sizes. 
+This section and the next will be focusing on the formalism of functions over infinitesimals. In this section, we will be starting with the k = 1 case, and seeing what mathematical tools naturally arise. In the next section, we will be moving to the general k case, and seeing how the math here in turn generalizes. 
+
+Say we are given a line (that is, a 1-surface), and we want to apply a 1-functional over it to get some appropriate real number quantity. We are able to say that applying a 1-functional over a line is equivalent to breaking up that line into smaller line segments, applying the functional over the segments separately, and summing the individual contributions. Because we are now dealing with differentiable manifolds, we are able to shrink those segments down to infinitesimal sizes. 
 
 
 
@@ -292,7 +297,6 @@ Just as our segments have become infinitesimal, the functionals acting on them b
 	A \textbf{covector} $\omega_1 : V^1 \to \mathbb{R}$ is a linear function of vectors. 
 \end{defn}
 
-From this, we can also define a special class of infinitesimal segments: a \textbf{differential element}. 
 
 
 
@@ -301,7 +305,9 @@ What's really nice about this is a consistent conceptual relationship between fu
 
 
 
-These sorts of functions are very familiar to us already. A force applied over a displacement, for instance, returns work. Working infinitesimally, the force would be the covector, with the infinitesimal segments of the displacement being the vector, with work being the real number scalar that is returned. (\textbf{Make work the running example, introduce earlier in 1.3. Also, in the integrated form, the k-functional would be work given a full line, with the covector being the force. Draw up the relationship between the integrated part and the differentiated part})
+These sorts of functions are very familiar to us already. Recalling the example of work given in section 1.3, let $W \in F_1$ be a work function. You give the function a line, and it returns the work necessary to move an object along that line. So, following the formalism described earlier, given $\lambda \in S^1$, we can say that $W(\lambda) = \int f(d\lambda)$, for some covector $f$. This covector is simply a force. 
+
+Concretely, consider a spring with spring constant $k$ and a mass $m$ attached to the end, oscillating without drag. The work necessary to pull the mass from $x = a$ to $x = b$ (being the starting and ending points of a line $\lambda$) is $W(\lambda) = \int_a^b -kx dx$. The force (the covector) is $-kx$, and the infinitesimal segment (the vector) is $dx$. (\textbf{Make work the running example, introduce earlier in 1.3. Also, in the integrated form, the k-functional would be work given a full line, with the covector being the force. Draw up the relationship between the integrated part and the differentiated part})
 
 (\textbf{Make a commuting diagram here with integrals on one side and differential on the other})
 
