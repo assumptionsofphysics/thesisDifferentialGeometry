@@ -15,12 +15,7 @@
 
 \begin{document}
 
-\section{Foreword}
-In transitioning to more advanced classes, a physics student will find their familiar mathematical tools are inadequate to describe certain physical phenomena. The methods of traditional vector calculus in three dimensions, though very useful in electromagnetism and classical mechanics, are not always usable in higher dimensions, such as those used in general relativity and Hamiltonian mechanics. For that, we need differential geometry. When trying to learn a subject in mathematics, however, you tend to find books written for mathematicians, in a language that mathematicians are familiar with. As such, they are filled with long, obtuse definitions and prose that, while mathematically very precise, isn't exactly light reading, and can even be overkill for a proper physical understanding. 
 
-What follows is a purely physical treatment of differential geometry used in physics. While it is less mathematically rigorous than a typical textbook, the hope is that the reader will be able to gain a geometric intuition for the math they use, so that the math isn't simply a black box beyond understanding, and that further study in the subject will be aided by a solid grounding here. The focus is always on readability, applicability, and physicality, so pictures are prevalent throughout. 
-
-We assume on the part of the reader a class in introductory classical mechanics and electromagnetism, as well as vector calculus. More advanced topics in physics and mathematics may be briefly touched on, but only for the use of giving an example, or demonstrating the usefulness of these mathematical tools. 
 
 
 
@@ -32,6 +27,15 @@ We assume on the part of the reader a class in introductory classical mechanics 
 
 
 
+
+\section{Foreword}
+In transitioning to more advanced classes, a physics student will find their familiar mathematical tools are inadequate to describe certain physical phenomena. The methods of traditional vector calculus in three dimensions, though very useful in electromagnetism and classical mechanics, are not always usable in higher dimensions, such as those used in general relativity and Hamiltonian mechanics. For that, we need differential geometry. When trying to learn a subject in mathematics, however, you tend to find books written for mathematicians, in a language that mathematicians are familiar with. As such, they are filled with long, obtuse definitions and prose that, while mathematically very precise, isn't exactly light reading, and can even be overkill for a proper physical understanding. 
+
+What follows is a purely physical treatment of differential geometry used in physics. While it is less mathematically rigorous than a typical textbook, the hope is that the reader will be able to gain a geometric intuition for the math they use, so that the math isn't simply a black box beyond understanding, and that further study in the subject will be aided by a solid grounding here. The focus is always on readability, applicability, and physicality, so pictures are prevalent throughout. 
+
+We assume on the part of the reader a class in introductory classical mechanics and electromagnetism, as well as vector calculus. More advanced topics in physics and mathematics may be briefly touched on, but only for the use of giving an example, or demonstrating the usefulness of these mathematical tools. 
+
+
 \chapter{Mathematical representations of physical objects}
 
 
@@ -41,14 +45,14 @@ We assume on the part of the reader a class in introductory classical mechanics 
 At the heart of scientific investigation is the identifying and organizing of objects based on their properties, through measurement and experiment. This could be anything from setting a block on a scale to determine its weight to determining the species that a particular animal belongs to. For our purposes here, we will be dealing only with properties that can be described using real numbers, such as mass, temperature, velocity, etc. The identification of a particular physical property with a real number is a \textbf{quantity}.
 
 \begin{defn}
-	A \textbf{quantity} is a function $q : U \to \mathbb{R}$ that assigns a measurable value to a physical object.
+	A \textbf{quantity} is a function $q : U \to \mathbb{R}$ that assigns a measurable value to a physical case.
 \end{defn}
 
 
 
 It's quite possible, however, that we won't be able to distinguish between two objects with only one quantity. Say, for instance, that we're talking about weather. Knowing what the temperature will be tomorrow is certainly useful, but as anyone from Florida can tell you, 80$^o$F with 95$\%$ humidity is very different than 80$^o$F with 30$\%$ humidity. In distinguishing objects, then, we will often want to define more than one quantity, to give an even more descriptive way of categorizing objects. By defining enough quantities to distinguish one case from another, but not so many such that we have redundancies, we can define a \textbf{coordinate system}.
 
-
+\emph{It is confusing as it is an abuse of terminology. The position coordinate system is the real idea, it's not that coordinate systems are more general, it's that we're using the same word for more things that are sort of similar}
 Normally, we think of coordinate systems in the context of quantifying an object's position, in terms of its x-, y-, and z-coordinates, but this is just a specific case. Coordinate systems as discussed here are far more general, and find immediate application throughout physics. Consider, for instance, phase space. Configurations in phase space can be distinguished by position as well as by momentum, which would be our two quantities, thus giving us a coordinate system. 
 
 \begin{defn}
@@ -57,7 +61,7 @@ Normally, we think of coordinate systems in the context of quantifying an object
 
 
 
-
+\emph{flows well with "object." Saying "object" is probably fine}
 
 
 With coordinate systems now defined, we recognize that in many instances, two different coordinate systems function just as well to describe a certain object. Mathematically, this occurs when two sets, each with defined coordinate systems, overlap. The points that lie within this overlapping section may be described in either coordinate system. To give an example from geography, consider an atlas of the world: a collection of maps. Depending on the atlas you're looking at, certain places may show up in multiple maps. Consider Moscow, for instance. It could very well show up on a map of Asia, perhaps in a square labeled B2, while also showing up on a map of Europe, perhaps in a square labeled C8. Either way of describing Moscow's position is equally valid, and you can freely "transform" between the coordinate systems as far as Moscow is concerned. Alternatively, consider the "point" Lisbon. Lisbon will show up on a map of Europe, perhaps in square F1, but you would never find Lisbon on a map of Asia. Therefore, its position may only be described in terms of the coordinates on the map of Europe.
@@ -86,15 +90,19 @@ squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size
 \draw[<->] (realU) -- (realV);
 \end{tikzpicture}
 
+\emph{Let the geography example flow into this paragraph. Otherwise this paragraph seems to be out of nowhere}
+
 Consider now a set of configurations of a system. Every one of these configurations is somehow mappable to the real numbers, with an appropriate coordinate system. However, a specified coordinate system may not be applicable to every point in the set. What we have, therefore, is a stitched-together collection of sets of configurations, each of which contains a map to the real numbers. This is a \textbf{manifold}. 
 
 \begin{defn}
-	A \textbf{manifold} is a set of physical objects $X$ such that for any $x \in X$ there exists a $U \subset X$ that contains $x$ and upon which a coordinate system $Q$ is defined.
+	A \textbf{manifold} is a set of physical objects $X$ such that for any $x \in X$ there exists a $U \subset X$ that contains $x$ and upon which a coordinate system $Q$ is defined. \textbf{Include in here dimension of a manifold. Use "dimension," not "degrees of freedom"}
 \end{defn}
 
 
-Earlier, weather was given as an example of a set possible cases of a system, with readings such as temperature and humidity allowing us to define a coordinate system. In this context, the "manifold" would be the set of possible weather configurations, with each point being a single weather report. 
+Earlier, weather was given as an example of a set of possible cases of a system, with readings such as temperature and humidity allowing us to define a coordinate system. In this context, the "manifold" would be the set of possible weather configurations, with each point being a single weather report. 
 
+
+\emph{This paragraph can go before with the definition of manifold as the motivating example}
 The Earth is a classic example of a manifold, which allows for further discussion of the geography example. Because of the poles, every location on earth cannot be quantified with only one set of coordinates. This can be plainly seen on a typical flat map, such as a Mercator Projection. Land proportions grow the closer to a pole they are, making Greenland appear massive, and the Sahara proportionally far smaller. Furthermore, because the poles have been unraveled, in a sense, the South Pole, which ought to be a single point, is an entire line along the southern edge of the map. A proportionally accurate projection of the Earth onto a flat surface requires at least two separate maps. For instance, you could then have a map of the top hemisphere, centered at the north pole, and then of the bottom hemisphere, centered at the south pole. 
 
 
@@ -116,6 +124,8 @@ Another example of a manifold would be the possible results of a blood drawing. 
 - Any sort of information that can be condensed down to a series of real numbers
 
 The plethora of examples is to show the ubiquitousness of manifolds, and that they are very familiar, everyday objects. This versatility proves their usefulness in physics, and in scientific investigation in general. 
+
+\emph{Say that some of these manifolds are not geometrical, in the sense that there are no distances. What does it mean to have the distance between weather reports?}
 
 \section{Sub-manifolds and k-surfaces}
 
@@ -161,7 +171,7 @@ Though we can identify multiple quantities, it is still sometimes necessary to i
 \end{defn}
 
 
-Now that we have k-surfaces, we have a notion of where points lie relative to some k-surface. When varying coordinates to creates coordinate lines, surfaces, volumes, etc., the varying can be brought to a halt by the geometry of the object that we're working on. Where the varying ends lies the \textbf{boundary} of our set. 
+Now that we have k-surfaces, we have a notion of where points lie relative to some k-surface. When varying coordinates to creates coordinate lines, surfaces, volumes, etc., the varying can be brought to a halt by the geometry of the object that we're working on. Where the varying ends lies the \textbf{boundary} of our surface. 
 
 \begin{defn}
 	Given k-surface $\sigma^k \in S^k$, the \textbf{boundary} of $\sigma^k$, denoted by $\partial\sigma^k \in S^{k-1}$ is the limit of varied coordinates. Points lying on the boundary are called \textbf{boundary points.}
@@ -186,6 +196,8 @@ The dimension of the boundary is one less than the dimension of the k-surface it
 
 Furthermore, $\partial\partial \sigma^k$ is empty. Consider once again a sphere in $\mathbb{R}^3$. A particle confined to its surface can move in a straight line along the edge of the sphere forever, so there is no boundary. 
 
+\emph{Being redundant in these past couple paragraphs. Get concise}
+
 \begin{coro}
 	Given $\sigma^k \in S^k$, $\partial \sigma^k \in S^{k-1}$, and $\partial\partial \sigma^k = \emptyset$. 
 \end{coro}
@@ -193,7 +205,7 @@ Furthermore, $\partial\partial \sigma^k$ is empty. Consider once again a sphere 
 
 \section{Linear Functionals of K-surfaces}
 
-
+\textbf{\emph{Give a motivating example here}}
 
 Now that we have discussed k-surfaces, we want to be able to have functions applied over them. We require that these functions be linear; that is, if two k-surfaces overlap only on their boundary, then applying a function over the two surfaces at once is equivalent to applying the function to each of them separately, and summing their contributions. We call linear functions of k-surfaces \textbf{k-functionals}. 
 
@@ -205,7 +217,8 @@ Now that we have discussed k-surfaces, we want to be able to have functions appl
 	II. $f_k$ commutes with the limit. That is, the limit of the function is the function of the limit. 
 \end{defn}
 
-From this definition is something that perhaps isn't immediately intuitive: a length function is not a k-functional. Consider the one-dimensional case, where length L $= \int ds = \int \sqrt{dx^2 + dy^2}$. This is clearly not a linear function, due to the square root. This comes from the infinitesimal segment of a curve $ds$ being made up of alternating horizontal and vertical infinitesimals $dx$ and $dy$. This is distinct from the limit of length L $= \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$. Simply put, the length of the limit is not the same thing as the limit of the length. 
+\textbf{\emph{CAN'T HAVE AN INTEGRAL IN HERE. HAVE THE NONINFINITESIMAL EXAMPLE, OR JUST TAKE OUT}}
+From this definition is something that perhaps isn't immediately intuitive: length is not a k-functional. Length L $= \int ds = \int \sqrt{dx^2 + dy^2}$. This is clearly not a linear function, due to the square root. This comes from the infinitesimal segment of a curve $ds$ being made up of alternating horizontal and vertical infinitesimals $dx$ and $dy$. This is distinct from the limit of length L $= \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$. Simply put, the length of the limit is not the same thing as the limit of the length. 
 
 A good example of a k-functional, and indeed, the one that will be carried through to the next section, is a work function. Given a path, the work function will return the force applied on an object between a given starting point and ending point on that path.
 
@@ -224,7 +237,7 @@ Further properties of the boundary functional arise due to its relationship with
 
 
 \begin{prop}
-	A k-functional applied to the empty set gives zero. 
+	A k-functional applied to the empty set gives zero. \textbf{\textit{Don't give a proof, give a justification}}
 \end{prop}
 \begin{proof}
 	
@@ -236,7 +249,7 @@ So, $f_k(\emptyset) = f_k(\emptyset\cup\emptyset) = f_k(\emptyset) + f_k(\emptys
 
 
 \begin{prop}
-	Let $f_k \in F_k$ be a k-functional, then $\eth\eth f_k = 0 $.
+	Let $f_k \in F_k$ be a k-functional, then $\eth\eth f_k = 0 $. \textbf{\textit{Don't give a proof, give a justification}}
 	
 	
 \end{prop}
@@ -250,7 +263,7 @@ So, $f_k(\emptyset) = f_k(\emptyset\cup\emptyset) = f_k(\emptyset) + f_k(\emptys
 \section{Summary}
 
 
-In this first section, we've laid the groundwork for a physical treatment of differential geometry. By starting with the idea of distinguishing states of a system, we are quickly able to come to an intuitive understanding of manifolds. We see also that a purely physically motivated form of differential geometry is possible, which will be further confirmed in the coming chapters. 
+In this first section, we've laid the groundwork for a physical treatment of differential geometry. By starting with the idea of distinguishing objects through quantities, we are quickly able to come to an intuitive understanding of manifolds. We see also that a purely physically motivated form of differential geometry is possible, which will be further confirmed in the coming chapters. 
 
 
 \chapter{Mathematical representation of infinitesimal objects}
@@ -488,6 +501,8 @@ NOTES on tensors: Talking about tensors as multilinear maps makes it so that vec
 
 
 \chapter{Geometry and (States, Tensors, Forms)???}
+
+\emph{Two types of geometry: symplectic which only has 2D areas, and riemannian which has length and angles}
 
 
 \section{Symplectic geometry and state spaces}
