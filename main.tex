@@ -18,7 +18,7 @@
 \section{Foreword}
 In transitioning to more advanced classes, a physics student will find their familiar mathematical tools are inadequate to describe certain physical phenomena. The methods of traditional vector calculus in three dimensions, though very useful in electromagnetism and classical mechanics, are not always usable in higher dimensions, such as those used in general relativity and Hamiltonian mechanics. For that, we need differential geometry. When trying to learn a subject in mathematics, however, you tend to find books written for mathematicians, in a language that mathematicians are familiar with. As such, they are filled with long, obtuse definitions and prose that, while mathematically very precise, isn't exactly light reading, and can even be overkill for a proper physical understanding. 
 
-What follows is a purely physical treatment of differential geometry used in physics. While it is less mathematically rigorous than a typical textbook, the hope is that the reader will be able to gain a geometric intuition for the math they use, so that the math isn't simply a black box beyond understanding, and that further study in the subject will be aided by a solid grounding here. The focus is always on readability, applicability, and physicality, so pictures are prevalent (\textbf{\textit{Will} be prevalent}). 
+What follows is a purely physical treatment of differential geometry used in physics. While it is less mathematically rigorous than a typical textbook, the hope is that the reader will be able to gain a geometric intuition for the math they use, so that the math isn't simply a black box beyond understanding, and that further study in the subject will be aided by a solid grounding here. The focus is always on readability, applicability, and physicality, so pictures are prevalent throughout. 
 
 We assume on the part of the reader a class in introductory classical mechanics and electromagnetism, as well as vector calculus. More advanced topics in physics and mathematics may be briefly touched on, but only for the use of giving an example, or demonstrating the usefulness of these mathematical tools. 
 
@@ -69,7 +69,8 @@ With coordinate systems now defined, we recognize that in many instances, two di
 
 
 
-\textbf{May have to describe the meaning of the diagram, reader might not know. Or take it out}
+\textbf{May have to describe the meaning of the diagram, reader might not know. Could be talked about with the notation table in the beginning}
+
 \begin{tikzpicture}
 [roundnode/.style={circle, draw=green!60, fill=green!5, very thick, minimum size=7mm},
 squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size=5mm},
@@ -149,7 +150,7 @@ In general, we will be using the term "k-surface", instead of "submanifold." The
 \end{defn}
 
 
-Though we can identify multiple quantities, it is still sometimes necessary to isolate specific quantities to identify their particular influence on a system. In an n-dimensional space, holding (n-1) quantities fixed and then allowing the nth quantity to vary would allow us to know specifically the effect that the nth quantity will have on the system, \emph{with the assurance that comes from knowing that all other factors are kept the same} (\textbf{Don't really like the way this is worded}). On our space, this varying quantity manifests itself as a line. 
+Though we can identify multiple quantities, it is still sometimes necessary to isolate specific quantities to identify their particular influence on a system. In an n-dimensional space, holding (n-1) quantities fixed and then allowing the nth quantity to vary would allow us to know specifically the effect that the nth quantity will have on the system. On our space, this varying quantity manifests itself as a line. 
 
 \begin{defn}
 	A \textbf{coordinate line} is the set of points in $\mathbb{R}^n$ obtained by allowing one quantity to vary and holding the others fixed. 
@@ -178,8 +179,9 @@ Later on, it will become important to be able to concentrate entirely on the bou
 
 
 
-The dimension of the boundary is one less than the dimension of the k-surface itself. To get an intuitive feel for why this must be so, consider again a sphere embedded in $\mathbb{R}^3$. For a particle confined to the inside of the sphere, the boundary would, again, be the surface of the sphere, as it blocks the particle from leaving. So, consider the particle confined to the sphere's boundary: its surface. When the particle is moving along the surface, the radius must be held fixed \textbf{include a picture here}, so the dimension of the boundary of a set is one less than the dimension of the set. 
+The dimension of the boundary is one less than the dimension of the k-surface itself. To get an intuitive feel for why this must be so, consider again a sphere embedded in $\mathbb{R}^3$. For a particle confined to the inside of the sphere, the boundary would, again, be the surface of the sphere, as it blocks the particle from leaving. So, consider the particle confined to the sphere's boundary: its surface. When the particle is moving along the surface, the radius must be held fixed , so the dimension of the boundary of a set is one less than the dimension of the set. 
 
+\textbf{include a picture here}
 
 
 Furthermore, $\partial\partial \sigma^k$ is empty. Consider once again a sphere in $\mathbb{R}^3$. A particle confined to its surface can move in a straight line along the edge of the sphere forever, so there is no boundary. 
@@ -196,28 +198,30 @@ Furthermore, $\partial\partial \sigma^k$ is empty. Consider once again a sphere 
 Now that we have discussed k-surfaces, we want to be able to have functions applied over them. We require that these functions be linear; that is, if two k-surfaces overlap only on their boundary, then applying a function over the two surfaces at once is equivalent to applying the function to each of them separately, and summing their contributions. We call linear functions of k-surfaces \textbf{k-functionals}. 
 
 \begin{defn}
-	A \textbf{linear function of k-surfaces}, or \textbf{k-functional}, is a function $f_k : S^k \to \mathbb{R}$ such that for $\sigma^k_1$, $\sigma^k_2 \in S^k$, if $\sigma^k_1 \cap \sigma^k_2 \subseteq \partial \sigma^k_1 \cup \partial \sigma^k_2$, then $f_k(\sigma^k_1\cup \sigma^k_2) = f_k(\sigma^k_1) + f_k(\sigma^k_2)$. 
+	A \textbf{linear function of k-surfaces}, or \textbf{k-functional}, is a function $f_k : S^k \to \mathbb{R}$ such that:
+	
+	I. for $\sigma^k_1$, $\sigma^k_2 \in S^k$, if $\sigma^k_1 \cap \sigma^k_2 \subseteq \partial \sigma^k_1 \cup \partial \sigma^k_2$, then $f_k(\sigma^k_1\cup \sigma^k_2) = f_k(\sigma^k_1) + f_k(\sigma^k_2)$; 
+	
+	II. $f_k$ commutes with the limit. That is, the limit of the function is the function of the limit. 
 \end{defn}
 
-\textit{Put the limit in the definition. "We require the thing to be linear, and to commute with the limit, so that th elimit of the function is the function of the limit". Then specify why length function doesn't satisfy the commuting with the limit}
-One caveat to this definition that isn't immediately intuitive is that a length function is not a k-functional. Consider the one-dimensional case, where length L $= \int \sqrt{1+f'(x)^2} dx$. This is clearly not a linear function, due to the square root (\textbf{Write actually that ds = $\sqrt{dx^2 + dy^2}$}. The point that we want to make is thta the integral does not commute with the limit. Have a picture of this, approximating the diagonal as horizontal and verticals). This comes from the infinitesimal segment of a curve $ds$ being made up of alternating horizontal and vertical infinitesimals $dx$ and $dy$. This is distinct from the limit of length L $= \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$. Simply put, the length of the limit is not the same thing as the limit of the length. (\textbf{Explain better what the limit is. Just explain this paragraph better. "diagonal can be seen as the limit, but the length doesn't work". Don't talk about differentials at all yet})
+From this definition is something that perhaps isn't immediately intuitive: a length function is not a k-functional. Consider the one-dimensional case, where length L $= \int ds = \int \sqrt{dx^2 + dy^2}$. This is clearly not a linear function, due to the square root. This comes from the infinitesimal segment of a curve $ds$ being made up of alternating horizontal and vertical infinitesimals $dx$ and $dy$. This is distinct from the limit of length L $= \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$. Simply put, the length of the limit is not the same thing as the limit of the length. 
 
-A good example of a k-functional, and indeed, the one that will be carried through to the next section, is a work function. Given a path, the work function will return the force applied on a particle between the starting point and ending point. (\textbf{Word this better})
+A good example of a k-functional, and indeed, the one that will be carried through to the next section, is a work function. Given a path, the work function will return the force applied on an object between a given starting point and ending point on that path.
 
 \begin{defn}
 	$F_k$ is the set of all functionals of dimension k, and $F = \cup_{k=0}^nF_k$ is the set of all functionals. 
 \end{defn}
 
-\textbf{Boundary operator is used to apply a k-functional to a k+1-surface. Don't really say that they are equivalent. Also, not really that we need it, but that we can create it}
-In the previous section, we discussed the boundary operator as a map from a k-surface to its boundary. It's reasonable, then, that we ought to be able to use our k-functionals on the boundary. To do so, however, we need an operator on k-functionals that is equivalent to the boundary operator on k-surfaces. In complement to "boundary operator", we define the \textbf{boundary functional} as the operator on k-functionals that forces the k-functional to act only on the boundary of the k-surface. 
+
+In the previous section, we discussed the boundary operator as a map from a k-surface to its boundary. We can similarly create an operator that takes a k-functional and makes it apply to a (k+1)-surface. In complement to "boundary operator", we define the \textbf{boundary functional} as the operator on k-functionals that forces the k-functional to act only on the boundary of the k-surface. 
 
 \begin{defn}
 	$\eth : F_k \to F_{k+1}$ such that $\eth f_k(\sigma^{k+1}) = f_k(\partial \sigma^{k+1})$ is the \textbf{boundary functional} on k-functionals. 
 \end{defn}
 
-Because applying the interior operator to a k-functional is equivalent to applying the boundary operator to a k-surface, it must be that properties of the boundary operator hold true for the interior operator. 
+Further properties of the boundary functional arise due to its relationship with the boundary operator.
 
-NOTE: maybe we don't need $\eth$, we could just use $\partial$
 
 \begin{prop}
 	A k-functional applied to the empty set gives zero. 
@@ -248,9 +252,6 @@ So, $f_k(\emptyset) = f_k(\emptyset\cup\emptyset) = f_k(\emptyset) + f_k(\emptys
 
 In this first section, we've laid the groundwork for a physical treatment of differential geometry. By starting with the idea of distinguishing states of a system, we are quickly able to come to an intuitive understanding of manifolds. 
 
-
-
-NOTES on tensors: Talking about tensors as multilinear maps makes it so that vectors and momentum would be treated as functions, which doesn't really make sense. It may be interesting to explicitally mention this problem, while defining tensors in terms of how they transform. 
 
 NOTE: Distinguish somewhere between exterior product/space and exterior/boundary/interior points
 
@@ -320,25 +321,14 @@ squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size
 \end{prop}
 
 
-\underline{\textbf{PUT MATH STUFF DOWN HERE FOR NOW}}
 
-Consider a line P, with 1-functional $f$. $ df(P)$ = $ \frac{\partial f(P)}{{\partial x^i}} dx^i$ = $ \frac{\partial f}{\partial x^i}\frac{\partial x^i}{\partial P}dP$ = $\frac{{\partial f}}{{\partial x^i}} e^i (dx^j e_j)$. 
-
-A single point along the line P is P($x^a$). Infinitesimally, we may write that  
-$dP(x^a) = \frac{\partial P}{\partial x^a} dx^a = \frac{\partial P}{\partial x^b} dx^b = \frac{\partial P}{\partial x^a}\frac{\partial x^a}{\partial x^b} dx^b$
-
-$\implies dx^a = \frac{\partial x^a}{\partial x^b}dx^b $
-
-For some line P, $\int df(P)$ = $\int \frac{\partial f(P)}{{\partial x^i}} dx^i$ = $\int \frac{\partial f}{\partial x^i}\frac{\partial x^i}{\partial P}dP$ = $\int \frac{{\partial f}}{{\partial x^i}} e^i (dx^j e_j)$
 
 \section{K-vectors and K-forms}
 
 
 Conceptually, this section will be an expansion and generalization of the previous section. Whereas before we were only worrying about 1-surfaces and 1-functionals, now we will be going up to the general k-surfaces and k-functionals. The "k" refers to the number of degrees of freedom of the surface or functional. 
 
-(\textbf{Not saying here how they're being split up})
-
-Just as before in the k = 1 case, we will be splitting the k-surfaces up into smaller degree-appropriate parts. Applying a k-functional over the entire k-surface is equivalent to applying the k-functional to each individual part separately, and summing the contributions. And, since we are only working on differentiable manifolds, we may make our individual parts infinitesimal. These infinitesimal pieces form a vector space of degree k, the elements of which are called \textbf{k-vectors}. 
+Using line segments as our infinitesimal elements now is no longer sufficient on a k-surface. At this point, we must make use of infinitesimal \emph{parallelepipeds}: a 3D shape whose sides are paralellograms. Whereas before when the line segments would be stuck end-to-end, the parallelepipeds will be stuck side-to-side, such that one side of one parallelepiped makes up one side of the other. These infinitesimal parallelepipeds form a vector space of degree k, the elements of which are called \textbf{k-vectors}. 
 
 
 \begin{defn}
@@ -350,18 +340,25 @@ Just as before in the k = 1 case, we will be splitting the k-surfaces up into sm
 	$V^k$ is the set of all vectors of rank k and $V = \cup_{k=0}^n V^k$ is the set of all vectors. 
 	\end{defn}
 
-Parallelepipeds are 3D objects, more flexible than a cube, whose sides are parallelograms, which are in turn more flexible than squares. In general, an infinitesimal bit along a k-surface will take the form of a paralellepiped. In the case of k = 1, an infinitesimal segment of a line may be thought of as a parallelepiped without width or heighth. By that same thinking, when k = 2, an infinitesimal area on a 2-surface may be thought of as a parallelepiped without height. 
-
-The sides of a k-vector are themselves k-vectors of lower degree. They are adjoined end-to-end or side-to-side to create k-vectors of higher degree. Each one of these sides will have an orientation. The tool used to combine k-vectors is the \textbf{wedge product}. 
+Parallelepipeds are 3D objects, more flexible than a cube, whose sides are parallelograms, which are in turn more flexible than squares. In general, an infinitesimal piece on a k-surface will take the form of a paralellepiped. In the case of k = 1, an infinitesimal segment of a line may be thought of as a parallelepiped without width or heighth. By that same thinking, when k = 2, an infinitesimal area on a 2-surface may be thought of as a parallelepiped without height. 
 
 
-(\textbf{Rework this paragraph. Never mentioned before that the infinitesimal segments has a tip})
-The orientation of a 1-vector is obvious: just follow where the tip is pointing. The orientation of a general k-surface is less immediately obvious. It comes, however, from the wedge product. Each side of the infinitesimal parallelepiped has its own orientation determined by the wedge product of the infinitesimal edges with one another. It is important to note, however, that unlike the scalar product, the wedge product is not commutative. When the order of the factors is swapped, the resultant product is the negative of the original product. 
 
 
-(\textbf{What's here is the math, then the intuition. Go the other way: intuition, then math})
-To gain an intuition for why this must be so, consider an x-y coordinate plane, with x in the horizontal direction and y in the vertical direction. The coordinate system may be rotated freely (creating an equivalence class of directions), but try swapping x and y, so that x is now vertical and y is now horizontal. The original coordinate system can no longer be reached simply through rotation; it would require a flipping of one of the axes. 
+\begin{defn}
+	A \textbf{k-form} $\omega_k : V^k \to \mathbb{R}$ is a linear functional that converts an infinitesimal parallelepiped into a scalar value. A covector as discussed previously is a 1-form. 
+\end{defn}
+
+
+\begin{defn}
+	$\Omega_k$ is the set of all forms of dimension k and $\Omega = \cup_{k=0}^n\Omega_k$ is the set of all forms. 
+\end{defn}
+
+
+Consider an x-y coordinate plane, with x in the horizontal direction and y in the vertical direction. The coordinate system may be rotated freely (creating an equivalence class of directions), but try swapping x and y, so that x is now vertical and y is now horizontal. The original coordinate system can no longer be reached simply through rotation; it would require a flipping of one of the axes. 
 \textbf{Probably put a picture of that here}
+
+
 
 \begin{defn}
 	
@@ -374,19 +371,10 @@ It may seem that the cross product in multivariable calculus and the wedge produ
 	The orientation of each side of the parallelepiped is different, as determined by the factors in the wedge product. 
 \end{coro}
 
-Now that we have a generalization of vectors, we need a generalization of covectors to use on them. These are \textbf{k-forms}, and are, as always, categorized by the number of degrees of freedom. 
 
 (\textbf{Introduce a wedge product for k-forms. don't talk about it until after propositoin 2.12. Keep it the same structure as the previous section})
 
-\begin{defn}
-	A \textbf{k-form} $\omega_k : V^k \to \mathbb{R}$ is a linear functional that converts an infinitesimal parallelepiped into a scalar value. A covector as discussed previously is a 1-form. 
-\end{defn}
 
-The wedge product can also be used with k-forms to generate forms of higher degree.
-
-\begin{defn}
-	$\Omega_k$ is the set of all forms of dimension k and $\Omega = \cup_{k=0}^n\Omega_k$ is the set of all forms. 
-\end{defn}
 
 To finish up the generalization of the previous section, we establish the relationship between k-functionals and k-forms, between k-surfaces and k-vectors. The latter two are infinitesimal variants of the former two, and are related to one another by an integral. 
 
@@ -396,11 +384,13 @@ To finish up the generalization of the previous section, we establish the relati
 
 \textbf{(Make a note that the vector has an orientation, and it's associated with the order of integration. Flipping the integral is the same as getting a minus sign on the vector.)}
 
-\section{Coordinates and components?} 
+\section{Coordinates and Components} 
 
 (\textbf{Talk about differential elements here, not up above})
 
 NOTE: Will have to talk about what the basis is. We start by saying that in a neighborhood we have a coordinate system, and that coordinate system can be used to identify the components of the vectors and components of the covectors. Also probably talk about how to make the wedge product with the components, and how to talk about the exterior derivative
+
+A conceptual understanding of vectors and covectors, and of k-forms and k-vectors is found well enough in general coordinate-free form. By not specifying exactly what coordinate system or frame of reference we are in, we are able to find universal relationships between our mathematical tools. The caveat to this is that coordinate-free form often isn't terribly useful for solving actual problems in physics. In this section, then, we will be concerned with 
 
 Let $d\lambda$ be an infinitesimal segment that starts at a point $P$. Then the coordinate differences $dx^i$ uniquely identifies $d\lambda$. Therefore we can write $d\lambda = dx^i \frac{\partial \lambda}{\partial x^i} = dx^i e_i$ where $e_i$ gives us the infinitesimal segment along the coordinate lines of $x^i$.
 
@@ -409,6 +399,17 @@ Let $\omega$ be a covector and $d\lambda$ be an infinitesimal segment. Then $\om
 
 Therefore, for infinitesimal segment d$\lambda$ and k-form $\omega$, $\omega(d\lambda) = \omega_ie^i(dx^je_j) = \omega_idx^je^ie_j = \omega_idx^j\delta^i_j = \omega_i dx^i$ 
 
+
+\underline{\textbf{PUT MATH STUFF DOWN HERE FOR NOW}}
+
+Consider a line P, with 1-functional $f$. $ df(P)$ = $ \frac{\partial f(P)}{{\partial x^i}} dx^i$ = $ \frac{\partial f}{\partial x^i}\frac{\partial x^i}{\partial P}dP$ = $\frac{{\partial f}}{{\partial x^i}} e^i (dx^j e_j)$. 
+
+A single point along the line P is P($x^a$). Infinitesimally, we may write that  
+$dP(x^a) = \frac{\partial P}{\partial x^a} dx^a = \frac{\partial P}{\partial x^b} dx^b = \frac{\partial P}{\partial x^a}\frac{\partial x^a}{\partial x^b} dx^b$
+
+$\implies dx^a = \frac{\partial x^a}{\partial x^b}dx^b $
+
+For some line P, $\int df(P)$ = $\int \frac{\partial f(P)}{{\partial x^i}} dx^i$ = $\int \frac{\partial f}{\partial x^i}\frac{\partial x^i}{\partial P}dP$ = $\int \frac{{\partial f}}{{\partial x^i}} e^i (dx^j e_j)$
 \section{Stoke's Theorem}
 
 
@@ -451,6 +452,8 @@ NOTE: It seems that we don't even needs to worry about orientation as long as we
 NOTE: If we can stay coordinate free up until this point, maybe we can start talking about coordinates here in the coordinate transformation section
 \section{Tensors and coordinate transformations}
 Some quantities can undergo one-to-one transformations between coordinate systems. In general, such quantities are tensors. 
+
+NOTES on tensors: Talking about tensors as multilinear maps makes it so that vectors and momentum would be treated as functions, which doesn't really make sense. It may be interesting to explicitally mention this problem, while defining tensors in terms of how they transform. 
 
 
 \begin{defn}
