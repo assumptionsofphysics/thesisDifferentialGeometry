@@ -50,18 +50,15 @@ At the heart of scientific investigation is the identifying and organizing of ob
 
 
 
-It's quite possible, however, that we won't be able to distinguish between two objects with only one quantity. Say, for instance, that we're talking about weather. Knowing what the temperature will be tomorrow is certainly useful, but as anyone from Florida can tell you, 80$^o$F with 95$\%$ humidity is very different than 80$^o$F with 30$\%$ humidity. In distinguishing objects, then, we will often want to define more than one quantity, to give an even more descriptive way of categorizing objects. By defining enough quantities to distinguish one case from another, but not so many such that we have redundancies, we can define a \textbf{coordinate system}.
+It's quite possible, however, that we won't be able to distinguish between two objects with only one quantity. Say, for instance, that we're talking about weather. Knowing what the temperature will be tomorrow is certainly useful, but as anyone from Florida can tell you, 80$^o$F with 95$\%$ humidity is very different from 80$^o$F with 30$\%$ humidity. In distinguishing objects, then, we will often want to define more than one quantity, to give an even more descriptive way of categorizing objects. By defining enough quantities to distinguish one object from another, but not so many such that we have redundancies, we can define a \textbf{coordinate system}.
 
-\emph{It is confusing as it is an abuse of terminology. The position coordinate system is the real idea, it's not that coordinate systems are more general, it's that we're using the same word for more things that are sort of similar}
-Normally, we think of coordinate systems in the context of quantifying an object's position, in terms of its x-, y-, and z-coordinates, but this is just a specific case. Coordinate systems as discussed here are far more general, and find immediate application throughout physics. Consider, for instance, phase space. Configurations in phase space can be distinguished by position as well as by momentum, which would be our two quantities, thus giving us a coordinate system. 
+
+Normally, we think of coordinate systems in the context of quantifying an object's position, in terms of its x-, y-, and z-coordinates. Though it may be an abuse of terminology, we may use the same phrase to describe coordinates in other contexts. Consider, for instance, phase space. Configurations in phase space are fully characterized by position and momentum, which would be our two quantities, thus giving us a coordinate system. To give another example, we can look at a system described by the ideal gas law. With this, we would create a coordinate system with pressure, volume, and temperature. 
 
 \begin{defn}
 	A \textbf{coordinate system} $Q$ is a collection of $n$ quantities $q^i : U \to \mathbb{R}^n$ such that there is a one-to-one relationship between the physical objects in $U$ and elements of $\mathbb{R}^n$.
 \end{defn}
 
-
-
-\emph{flows well with "object." Saying "object" is probably fine}
 
 
 With coordinate systems now defined, we recognize that in many instances, two different coordinate systems function just as well to describe a certain object. Mathematically, this occurs when two sets, each with defined coordinate systems, overlap. The points that lie within this overlapping section may be described in either coordinate system. To give an example from geography, consider an atlas of the world: a collection of maps. Depending on the atlas you're looking at, certain places may show up in multiple maps. Consider Moscow, for instance. It could very well show up on a map of Asia, perhaps in a square labeled B2, while also showing up on a map of Europe, perhaps in a square labeled C8. Either way of describing Moscow's position is equally valid, and you can freely "transform" between the coordinate systems as far as Moscow is concerned. Alternatively, consider the "point" Lisbon. Lisbon will show up on a map of Europe, perhaps in square F1, but you would never find Lisbon on a map of Asia. Therefore, its position may only be described in terms of the coordinates on the map of Europe.
@@ -90,51 +87,40 @@ squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size
 \draw[<->] (realU) -- (realV);
 \end{tikzpicture}
 
-\emph{Let the geography example flow into this paragraph. Otherwise this paragraph seems to be out of nowhere}
 
-Consider now a set of configurations of a system. Every one of these configurations is somehow mappable to the real numbers, with an appropriate coordinate system. However, a specified coordinate system may not be applicable to every point in the set. What we have, therefore, is a stitched-together collection of sets of configurations, each of which contains a map to the real numbers. This is a \textbf{manifold}. 
-
-\begin{defn}
-	A \textbf{manifold} is a set of physical objects $X$ such that for any $x \in X$ there exists a $U \subset X$ that contains $x$ and upon which a coordinate system $Q$ is defined. \textbf{Include in here dimension of a manifold. Use "dimension," not "degrees of freedom"}
-\end{defn}
-
-
-Earlier, weather was given as an example of a set of possible cases of a system, with readings such as temperature and humidity allowing us to define a coordinate system. In this context, the "manifold" would be the set of possible weather configurations, with each point being a single weather report. 
-
-
-\emph{This paragraph can go before with the definition of manifold as the motivating example}
-The Earth is a classic example of a manifold, which allows for further discussion of the geography example. Because of the poles, every location on earth cannot be quantified with only one set of coordinates. This can be plainly seen on a typical flat map, such as a Mercator Projection. Land proportions grow the closer to a pole they are, making Greenland appear massive, and the Sahara proportionally far smaller. Furthermore, because the poles have been unraveled, in a sense, the South Pole, which ought to be a single point, is an entire line along the southern edge of the map. A proportionally accurate projection of the Earth onto a flat surface requires at least two separate maps. For instance, you could then have a map of the top hemisphere, centered at the north pole, and then of the bottom hemisphere, centered at the south pole. 
-
-
-
+Because of the poles, every location on Earth cannot be equally quantified with only one set of coordinates. This can be plainly seen on a typical flat map, such as a Mercator Projection. Land proportions grow the closer to a pole they are, making Greenland appear massive, and the Sahara proportionally far smaller. Furthermore, because the poles have been unraveled, in a sense, the South Pole, which ought to be a single point, is an entire line along the southern edge of the map. A proportionally accurate projection of the Earth onto a flat surface requires at least two separate maps. For instance, you could then have a map of the top hemisphere, centered at the north pole, and then of the bottom hemisphere, centered at the south pole. The Earth then motivates the introduction of the \textbf{manifold}. 
 
 
 \textbf{Insert a picture of the Mercator Projection}
 
 \textbf{Insert pictures of "polar" projections}
 
+\begin{defn}
+	A \textbf{manifold} is a set of physical objects $X$ such that for any $x \in X$ there exists a $U \subset X$ that contains $x$ and upon which a coordinate system $Q$ is defined. Manifolds have dimensionality, as determined by the dimension of their coordinate systems.
+\end{defn}
 
 
-Another example of a manifold would be the possible results of a blood drawing. The doctor takes your blood for analysis, the results of which are collected on a report, detailing things such as blood pressure, cholesterol levels, white blood cell count, etc. Further examples include: 
+Earlier, weather was given as an example of a set of possible cases of a system, with readings such as temperature and humidity allowing us to define a coordinate system. In this context, the "manifold" would be the set of possible weather configurations, with each point being a single weather report. Another example of a manifold would be the possible results of a blood drawing. The doctor takes your blood for analysis, the results of which are collected on a report, detailing things such as blood pressure, cholesterol levels, white blood cell count, etc. Further examples include: 
 
-- The conditions of your car, with the dials on the dashboard being your method of reading them 
+\begin{itemize}
+\item The conditions of your car, with the dials on the dashboard being your method of reading them 
 
-- The freight on a ship, with the bill of lading detailing amounts
+\item The freight on a ship, with the bill of lading detailing amounts
 
-- Any sort of information that can be condensed down to a series of real numbers
+\item Any sort of information that can be condensed down to a series of real numbers
 
-The plethora of examples is to show the ubiquitousness of manifolds, and that they are very familiar, everyday objects. This versatility proves their usefulness in physics, and in scientific investigation in general. 
+\end{itemize}
 
-\emph{Say that some of these manifolds are not geometrical, in the sense that there are no distances. What does it mean to have the distance between weather reports?}
+The variety of examples is to show the ubiquitousness of manifolds, and that they are very familiar, everyday objects. This versatility proves their usefulness in physics, and in scientific investigation in general. But unlike in the case of the Earth, manifolds do not in general come prepackaged with a notion of distance. What does it mean, for instance, for there to be distance between weather reports? Perhaps you can argue that distance comes into play by specifying where exactly the weather report was taken, but this is simply the geography example again under a different name. No, in order to define distance on our manifolds, we will need to wait until Chapter 3. 
+
 
 \section{Sub-manifolds and k-surfaces}
 
-Consider an n-dimensional manifold; that is, a manifold with n degrees of freedom. We can construct another manifold with k degrees of freedom within the original, as long as k is not greater than n. Back to the weather example, if in the original weather report we were worrying about temperature, humidity, and wind speed, we could instead hold one of the three values fixed (say, humidity), and vary the other two. The latter manifold, with humidity held constant, would be a \textbf{submanifold} of the former, where all three variables are allowed to change. The boundary of this smaller manifold occurs where the varying is stopped by one means or another. 
-\textit{Define boundary up here instead of further down}
+Consider again the weather report example, where we are taking into account where exactly the report was taken. Perhaps we decide that we no longer care about what the actual weather reading is, instead worrying only about where we are. This takes us immediately from one example of a manifold to another, where the latter has fewer dimensions than the former, and where any point on the latter is also a point on the former. Thus, geography is a \textbf{submanifold} of the weather report.
 
 
 \begin{defn}
-	Consider a manifold X of dimension n, and a manifold Y of dimension k, such that $k \leq n$. Y is a \textbf{submanifold} or a \textbf{k-surface} of X if any point on Y is also a point on X. 
+	Consider a manifold X of dimension n, and a manifold Y of dimension k, such that $k \leq n$. Y is a \textbf{submanifold} or a \textbf{k-surface}\footnote{In general, we will be using the term "k-surface", instead of "submanifold." There will be many terms throughout this thesis prefaced by "k-". In general, this means that the object in question has k dimensions, and can be organized by the number of dimensions that they have.} of X if any point on Y is also a point on X. 
 \end{defn}
 
 \begin{tikzpicture}
@@ -152,14 +138,19 @@ squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size
 \draw[->] (realU) -- (realV);
 \end{tikzpicture}
 
-In general, we will be using the term "k-surface", instead of "submanifold." There will be many terms throughout this thesis prefaced by "k-". In general, this means that the object in question has k degrees of freedom. Such objects will be sorted based on the number of degrees of freedom that they have.  
 
 
 \begin{defn}
-	For some manifold X of dimension n, $S^k$ is the set of all possible \textbf{k-surfaces}, or sub-manifolds of dimension $k \leq n$, and S $=$ $\cup^n_{k=0}S^k$ is the set of all surfaces. 
+	For some manifold X of dimension n, $S^k$ is the set of all possible \textbf{k-surfaces} of dimension $k \leq n$, and S $=$ $\cup^n_{k=0}S^k$ is the set of all surfaces. 
 \end{defn}
 
+We can go even further in our description of k-surfaces. If we assume that we can freely move through the entirety of the Earth's crust, but may not leave the surface of the Earth, we may say that the Earth manifold has a \textbf{boundary}, that being the surface of the Earth. Because radius is held fixed on the surface, the boundary of the Earth has a dimensionality of 2, instead of 3. 
 
+\begin{defn}
+	Given k-surface $\sigma^k \in S^k$, the \textbf{boundary} of $\sigma^k$, denoted by $\partial\sigma^k \in S^{k-1}$ is the limit of varied coordinates. Points lying on the boundary are called \textbf{boundary points.}
+\end{defn}
+
+\textbf{Make this paragraph in terms of weather report first, and then do the math}
 Though we can identify multiple quantities, it is still sometimes necessary to isolate specific quantities to identify their particular influence on a system. In an n-dimensional space, holding (n-1) quantities fixed and then allowing the nth quantity to vary would allow us to know specifically the effect that the nth quantity will have on the system. On our space, this varying quantity manifests itself as a line. 
 
 \begin{defn}
@@ -173,9 +164,7 @@ Though we can identify multiple quantities, it is still sometimes necessary to i
 
 Now that we have k-surfaces, we have a notion of where points lie relative to some k-surface. When varying coordinates to creates coordinate lines, surfaces, volumes, etc., the varying can be brought to a halt by the geometry of the object that we're working on. Where the varying ends lies the \textbf{boundary} of our surface. 
 
-\begin{defn}
-	Given k-surface $\sigma^k \in S^k$, the \textbf{boundary} of $\sigma^k$, denoted by $\partial\sigma^k \in S^{k-1}$ is the limit of varied coordinates. Points lying on the boundary are called \textbf{boundary points.}
-\end{defn}
+
 
 
 
@@ -205,9 +194,8 @@ Furthermore, $\partial\partial \sigma^k$ is empty. Consider once again a sphere 
 
 \section{Linear Functionals of K-surfaces}
 
-\textbf{\emph{Give a motivating example here}}
+Say we have a path on our manifold (that is, a 1-surface), along which we want a particle to travel, and suppose we have a force in play with some sort of effect on the particle. We can define a work function which, with the aforementioned defined force, takes a path and returns the work (a scalar) necessary to move the particle along that path. Recalling any introductory course on classical mechanics, if the force is conservative (such as from gravity, or as from a spring), the work due to the force is path independent. That is, only the starting and ending points matter, and the specific path chosen is irrelevant. More concretely, say we have a line $\lambda$ with starting point $a$, ending point $c$, and some middle point $b$. Because our function is path independent, we can say that $W(\lambda_{a \to c}) = W(\lambda_{a \to b}) + W(\lambda_{b \to c})$. The work function is thus a linear function along a 1-surface: a \textbf{1-functional}. Furthermore, just as 1-surfaces are a specific subset of k-surfaces, we can say that 1-functionals are a specific subset of \textbf{k-functionals}. 
 
-Now that we have discussed k-surfaces, we want to be able to have functions applied over them. We require that these functions be linear; that is, if two k-surfaces overlap only on their boundary, then applying a function over the two surfaces at once is equivalent to applying the function to each of them separately, and summing their contributions. We call linear functions of k-surfaces \textbf{k-functionals}. 
 
 \begin{defn}
 	A \textbf{linear function of k-surfaces}, or \textbf{k-functional}, is a function $f_k : S^k \to \mathbb{R}$ such that:
@@ -220,7 +208,6 @@ Now that we have discussed k-surfaces, we want to be able to have functions appl
 \textbf{\emph{CAN'T HAVE AN INTEGRAL IN HERE. HAVE THE NONINFINITESIMAL EXAMPLE, OR JUST TAKE OUT}}
 From this definition is something that perhaps isn't immediately intuitive: length is not a k-functional. Length L $= \int ds = \int \sqrt{dx^2 + dy^2}$. This is clearly not a linear function, due to the square root. This comes from the infinitesimal segment of a curve $ds$ being made up of alternating horizontal and vertical infinitesimals $dx$ and $dy$. This is distinct from the limit of length L $= \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$. Simply put, the length of the limit is not the same thing as the limit of the length. 
 
-A good example of a k-functional, and indeed, the one that will be carried through to the next section, is a work function. Given a path, the work function will return the force applied on an object between a given starting point and ending point on that path.
 
 \begin{defn}
 	$F_k$ is the set of all functionals of dimension k, and $F = \cup_{k=0}^nF_k$ is the set of all functionals. 
@@ -271,7 +258,7 @@ In this first section, we've laid the groundwork for a physical treatment of dif
 
 \section{Differentiable manifolds}
 
-In the previous section, we began to discuss functionals applied over successive k-surfaces. With the rules we've already established, we can break up a k-surface into multiple sections, such that applying a functional over the entire surface is equivalent to applying it to each of the sections individually, and then summing their contributions. What if we could make these sections infinitesimally small? How would our manifolds behave, and furthermore, what happens to the functionals?
+In the previous section, we began to discuss functionals applied over k-surfaces one after the other. With the rules we've already established, we can break up a k-surface into multiple sections, such that applying a functional over the entire surface is equivalent to applying it to each of the sections individually, and then summing their contributions. What if we could make these sections infinitesimally small? How would our manifolds behave, and furthermore, what happens to the functionals?
 
 Consider now a k-surface $\sigma^k \in S^k$, with a k-functional $f_k$. We can break this surface up into "n" number of parts, called $\sigma^k_1, \sigma^k_2, ..., \sigma^k_n$. We know that $f_k(\sigma^k) = f_k(\sigma^k_1) + f_k(\sigma^k_2) + ... + f_k(\sigma^k_n) = \Sigma^n_if_k(\sigma^k_i)$. If we let n tend to infinity, the parts become infinitesimal. Summing the contributions of the infinitesimals is equivalent to an integral of the function over the whole surface. So, for k-surface $\sigma^k \in S^k$ and k-functional $f_k: S^k \to \mathbb{R}$, $f_k(\sigma^k) = \int_{\sigma^k}\omega_k(d\sigma^k)$ for some yet undefined function $\omega_k$. The existence of infinitesimals on our manifolds allows us to perform. Such manifolds are \textbf{differentiable manifolds}. 
 
