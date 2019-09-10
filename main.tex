@@ -258,7 +258,7 @@ In this first section, we've laid the groundwork for a physical treatment of dif
 
 \section{Differentiable manifolds}
 
-In the previous section, we began to discuss functionals applied over k-surfaces one after the other. With the rules we've already established, we can break up a k-surface into multiple sections, such that applying a functional over the entire surface is equivalent to applying it to each of the sections individually, and then summing their contributions. What if we could make these sections infinitesimally small? How would our manifolds behave, and furthermore, what happens to the functionals?
+In the previous section, we began to discuss functionals applied over k-surfaces. With the rules we've established, we can break up a k-surface into multiple sections, such that applying a functional over the entire surface is equivalent to applying it to each of the sections individually, and then summing their contributions. What if we could make these sections infinitesimally small? How would our manifolds behave, and furthermore, what happens to the functionals?
 
 Consider now a k-surface $\sigma^k \in S^k$, with a k-functional $f_k$. We can break this surface up into "n" number of parts, called $\sigma^k_1, \sigma^k_2, ..., \sigma^k_n$. We know that $f_k(\sigma^k) = f_k(\sigma^k_1) + f_k(\sigma^k_2) + ... + f_k(\sigma^k_n) = \Sigma^n_if_k(\sigma^k_i)$. If we let n tend to infinity, the parts become infinitesimal. Summing the contributions of the infinitesimals is equivalent to an integral of the function over the whole surface. So, for k-surface $\sigma^k \in S^k$ and k-functional $f_k: S^k \to \mathbb{R}$, $f_k(\sigma^k) = \int_{\sigma^k}\omega_k(d\sigma^k)$ for some yet undefined function $\omega_k$. The existence of infinitesimals on our manifolds allows us to perform. Such manifolds are \textbf{differentiable manifolds}. 
 
@@ -278,28 +278,23 @@ Technically speaking, differentiability is a property not of the manifold, but o
 
 This section and the next will be focusing on the formalism of functions over infinitesimals. Here we will be starting with the k = 1 case, and seeing what mathematical tools naturally arise. In the next section, we will be moving to the general k case, and seeing how the math here in turn generalizes. 
 
-Say we are given a line (that is, a 1-surface), and we want to apply a 1-functional over it to get some appropriate real number quantity. We are able to say that applying a 1-functional over a line is equivalent to breaking up that line into smaller line segments, applying the functional over the segments separately, and summing the individual contributions. Because we are now dealing with differentiable manifolds, we are able to shrink those segments down to infinitesimal sizes. 
 
+Let $W \in F_1$ be the work function with a conservative force as described in section 1.3, and let $\lambda \in S^1$ be the line that we are passing it. So, we can say that $W(\lambda) = \Sigma^n_iW(\lambda_i)$, where the ending point of each $\lambda_i$ is the starting point of each $\lambda_{i+1}$. Letting n tend to infinity, this expression becomes $W(\lambda) = \int_{\lambda} f(d\lambda)$ for a conservative force $f$. Each $d\lambda$ represents an infinitesimal segment along the line $\lambda$ which, if summed together, will return $\lambda$. We call the infinitesimal segments of our line \textbf{vectors}. 
 
+As we are breaking up the line into infinitesimal segments, we see that the functional applied over the line takes an infinitesimal form as well. The work function has become a force that takes a vector and returns that vector's contribution to the overall work. Such functions applied over infinitesimals are called \textbf{covectors}. 
 
-
-An infinitesimal plus an infinitesimal is still an infinitesimal. While the length of a diagonal line segment is different from the length of a horizontal segment plus a vertical segment, in the limit as the segments become infinitesimal, the diagonal will converge with the horizontal and vertical. We say, then, that the infinitesimals form a vector space, the elements of which are called \textbf{vectors}. 
+Concretely, consider a spring with spring constant $k$ and with a mass $m$ attached to the end, oscillating without drag. The work necessary to pull the mass from the point $x = a$ to $x = b$ (being the starting and ending points of the line $\lambda$) is $W(\lambda) = \int_a^b -kx dx$. The force (the covector) is $-kx$, and the infinitesimal segment (the vector) is $dx$. In general, a 1-functional over a 1-surface is the integrated form of a covector over vectors.
 
 
 \begin{defn}
 	A \textbf{vector} $v^1 \in V^1$ is an infinitesimal segment along a line. A \textbf{tangent plane}, then, is a collection of vectors that share a fixed point. 
 \end{defn}
 
-Just as our segments have become infinitesimal, the functionals acting on them become in a sense infinitesimal as well. A linear function on vectors that returns a real number is a \textbf{covector}.
 
 \begin{defn}
 	A \textbf{covector} $\omega_1 : V^1 \to \mathbb{R}$ is a linear function of vectors. 
 \end{defn}
 
-
-
-
-We have now a conceptual relationship between functionals over surfaces, and infinitesimal functions over infinitesimal segments. The infinitesimal objects may be related to their massive counterparts using integration, providing physical relationships that are already familiar to us. Recall the example of work given in section 1.3, and let $W \in F_1$ be a work function. You give the function a line, and it returns the work necessary to move an object along that line. So, following the formalism described earlier, given $\lambda \in S^1$, we can say that $W(\lambda) = \int \omega(d\lambda)$ for some covector $\omega$. This covector is simply a force. Concretely, consider a spring with spring constant $k$ and a mass $m$ attached to the end, oscillating without drag. The work necessary to pull the mass from the point $x = a$ to $x = b$ (being the starting and ending points of the line $\lambda$) is $W(\lambda) = W(b) - W(a) = \int_a^b -kx dx$. The force (the covector) is $-kx$, and the infinitesimal segment (the vector) is $dx$.
 
 \begin{tikzpicture}
 [roundnode/.style={circle, draw=green!60, fill=green!5, very thick, minimum size=7mm},
