@@ -193,8 +193,11 @@ Furthermore, $\partial\partial \sigma^k$ is empty. Consider once again a sphere 
 
 
 \section{Linear Functionals of K-surfaces}
+\textbf{Conservative force is exterior derivative of some potential, and is therefore closed (ext derivative is 0) and exact. A nonconservative force will not be closed, but can be discussed using one-forms}
 
-Say we have a path on our manifold (that is, a 1-surface), along which we want a particle to travel, and suppose we have a force in play with some sort of effect on the particle. We can define a work function which, with the aforementioned defined force, takes a path and returns the work (a scalar) necessary to move the particle along that path. Recalling any introductory course on classical mechanics, if the force is conservative (such as from gravity, or as from a spring), the work due to the force is path independent. That is, only the starting and ending points matter, and the specific path chosen is irrelevant. More concretely, say we have a line $\lambda$ with starting point $a$, ending point $c$, and some middle point $b$. Because our function is path independent, we can say that $W(\lambda_{a \to c}) = W(\lambda_{a \to b}) + W(\lambda_{b \to c})$. The work function is thus a linear function along a 1-surface: a \textbf{1-functional}. Furthermore, just as 1-surfaces are a specific subset of k-surfaces, we can say that 1-functionals are a specific subset of \textbf{k-functionals}. 
+\textbf{Path independence is not necessary to talk about. The functional depends on the path. If it only depends on the beginning and end points, it's a boundary functional. Say "Force dpeends on the path and that's good. Later the force only depends on the starting and end, then it's a boundary functional / gradiant of some scalar field"}
+
+Say we have a path on our manifold (that is, a 1-surface), along which we want a particle to travel, and suppose we have a force in play with some sort of effect on the particle. We can define a work function which, with the aforementioned defined force, takes a path and returns the work (a scalar) necessary to move the particle along that path. Recalling any introductory course on classical mechanics, if the force is conservative (such as from gravity, or as from a spring), the work due to the force is path independent. That is, only the starting and ending points matter, and the specific path chosen is irrelevant. More concretely, say we have a line $\lambda$ with starting point $a$, ending point $c$, and some middle point $b$. Because our function is path independent (\textbf{not because it's path idependent, it's that the work is the same. true for all force}), we can say that $W(\lambda_{a \to c}) = W(\lambda_{a \to b}) + W(\lambda_{b \to c})$. The work function is thus a linear function along a 1-surface: a \textbf{1-functional}. Furthermore, just as 1-surfaces are a specific subset of k-surfaces, we can say that 1-functionals are a specific subset of \textbf{k-functionals}. 
 
 
 \begin{defn}
@@ -279,15 +282,16 @@ Technically speaking, differentiability is a property not of the manifold, but o
 This section and the next will be focusing on the formalism of functions over infinitesimals. Here we will be starting with the k = 1 case, and seeing what mathematical tools naturally arise. In the next section, we will be moving to the general k case, and seeing how the math here in turn generalizes. 
 
 
-Let $W \in F_1$ be the work function with a conservative force as described in section 1.3, and let $\lambda \in S^1$ be the line that we are passing it. So, we can say that $W(\lambda) = \Sigma^n_iW(\lambda_i)$, where the ending point of each $\lambda_i$ is the starting point of each $\lambda_{i+1}$. Letting n tend to infinity, this expression becomes $W(\lambda) = \int_{\lambda} f(d\lambda)$ for a conservative force $f$. Each $d\lambda$ represents an infinitesimal segment along the line $\lambda$ which, if summed together, will return $\lambda$. We call the infinitesimal segments of our line \textbf{vectors}. 
+Let $W \in F_1$ be the work function with a force as described in section 1.3, and let $\lambda \in S^1$ be the line that we are passing it. So, we can say that $W(\lambda) = \Sigma^n_iW(\lambda_i)$, where the ending point of each $\lambda_i$ is the starting point of each $\lambda_{i+1}$. Letting n tend to infinity, this expression becomes $W(\lambda) = \int_{\lambda} f(d\lambda)$ for a force $f$. Each $d\lambda$ represents an infinitesimal segment along the line $\lambda$ which, if summed together, will return $\lambda$. We call the infinitesimal segments of our line \textbf{vectors}. 
 
 As we are breaking up the line into infinitesimal segments, we see that the functional applied over the line takes an infinitesimal form as well. The work function has become a force that takes a vector and returns that vector's contribution to the overall work. Such functions applied over infinitesimals are called \textbf{covectors}. 
 
+\textbf{Already giving components here. It may be fine. Otherwise, could have the spring oscillating in only one dimension, but give the components in three.}
 Concretely, consider a spring with spring constant $k$ and with a mass $m$ attached to the end, oscillating without drag. The work necessary to pull the mass from the point $x = a$ to $x = b$ (being the starting and ending points of the line $\lambda$) is $W(\lambda) = \int_a^b -kx dx$. The force (the covector) is $-kx$, and the infinitesimal segment (the vector) is $dx$. In general, a 1-functional over a 1-surface is the integrated form of a covector over vectors.
 
 
 \begin{defn}
-	A \textbf{vector} $v^1 \in V^1$ is an infinitesimal segment along a line. A \textbf{tangent plane}, then, is a collection of vectors that share a fixed point. 
+	A \textbf{vector} $v^1 \in V^1$ is an infinitesimal segment along a line. A \textbf{tangent space}, then, is a collection of vectors that share a fixed point. 
 \end{defn}
 
 
@@ -309,6 +313,8 @@ squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size
 \draw[->] (s) -- (r) node[midway, left] {$f_1$};
 \end{tikzpicture}
 
+
+\textbf{Be careful, each functional may only work on a region/patch, while we may not have a form that works on the whole space}
 \begin{prop}
 	All linear 1-functionals have a corresponding covector, such that for $f : S \to \mathbb{R}$, $f = \int_{\lambda} \omega_1(d\lambda)$. In words, a linear functional applied over a line is the same as an integral of a covector over the infinitesimal segments of that line. 
 \end{prop}
@@ -318,14 +324,15 @@ squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size
 
 \section{K-vectors and K-forms}
 
+\textbf{Don't need this intro paragraph. Also, maybe use magnetic flux as the example in this section}
 
-Conceptually, this section will be an expansion and generalization of the previous section. Whereas before we were only worrying about 1-surfaces and 1-functionals, now we will be going up to the general k-surfaces and k-functionals. The "k" refers to the number of degrees of freedom of the surface or functional. 
+Conceptually, this section will be an expansion and generalization of the previous section. Whereas before we were only worrying about 1-surfaces and 1-functionals, now we will be going up to the general k-surfaces and k-functionals. The "k" refers to the number of dimensions of the surface or functional. 
 
-Using line segments as our infinitesimal elements now is no longer sufficient on a k-surface. At this point, we must make use of infinitesimal \emph{parallelepipeds}: a 3D shape whose sides are paralellograms. Whereas before when the line segments would be stuck end-to-end, the parallelepipeds will be stuck side-to-side, such that one side of one parallelepiped makes up one side of the other. These infinitesimal parallelepipeds form a vector space of degree k, the elements of which are called \textbf{k-vectors}. 
+Using line segments as our infinitesimal elements now is no longer sufficient on a k-surface. At this point, we must make use of infinitesimal \emph{parallelepipeds}: a k-dimensional shape whose sides are (k-1)-paralellepipeds. Whereas before when the line segments would be stuck end-to-end, the parallelepipeds will be stuck side-to-side, such that one side of one parallelepiped makes up one side of the other. These infinitesimal parallelepipeds form a vector space of degree k, the elements of which are called \textbf{k-vectors}. 
 
 
 \begin{defn}
-	A \textbf{k-vector} $v^k \in V^k$ is an infinitesimal parallelepiped on a k-surface. A vector as discussed previously is a 1-vector. A \textbf{tangent space} is then a collection of k-vectors that share a fixed corner. 
+	A \textbf{k-vector} $v^k \in V^k$ is an infinitesimal parallelepiped on a k-surface. A vector as discussed previously is a 1-vector. 
 \end{defn}
 
 
@@ -384,8 +391,11 @@ To finish up the generalization of the previous section, we establish the relati
 NOTE: Will have to talk about what the basis is. We start by saying that in a neighborhood we have a coordinate system, and that coordinate system can be used to identify the components of the vectors and components of the covectors. Also probably talk about how to make the wedge product with the components, and how to talk about the exterior derivative
 
 Up until this point in our discussion of k-forms and k-vectors, we've remained in a general coordinate-free form. For a conceptual understanding of the tools in use, this is just fine, and is in fact preferable. It shows that the math up until this point is "universal," and can be applied to any frame of reference without sacrificing scientific validity. Furthermore, it should be noted that nature itself is coordinate-free. The universe doesn't come prepackaged with coordinates, rather they are something that humans have created to streamline scientific investigation. This brings up the reason to move now into a coordinate-specific system. While coordinate-free works well for conceptual understanding, it isn't all that useful for solving actual problems in physics, which is the entire point. Therefore, in this section, we will begin imposing coordinates on the systems we're working with. 
+\textbf{At least for vectors and covectors, tensor transformation stuff can go in here}
 
-Recall now definitions 1.1 and 1.2, and say we have a point $P$ on a manifold $X$. At this moment, the point is coordinate-free; a thing "in itself", if you will. In some neighborhood of $P$ there will be a coordinate system defined that we can use to describe $P$. $P$ is now no longer coordinate-free. Mathematically, this relates to defining the coordinate system in terms of \textbf{basis vectors}, and assigning $P$ directional components along each basis vector, the sum of which gives us $P$. So, $P = P^ie_i$\footnote{There is an implied sum over $i$ here. That is, $\sum_i^n P^ie_i = P^ie_i$. Such notation can be used any time there is a matching upper and lower index. This is Einstein Summation Convention, and is heavily used throughout physics. It is therefore helpful to get used to it.}, where $e_i$ is the ith basis vector, and $P^i$ is the vector component along that basis. Basis vectors as used here are therefore covectors, and the vector compoments are vectors. 
+\textbf{We have an infinitesimal segment}
+
+Recall now definitions 1.1 and 1.2, and say we have a point $P$ on a manifold $X$. At this moment, the point is coordinate-free; a thing "in itself", if you will. In some neighborhood of $P$ there will be a coordinate system defined that we can use to describe $P$. Mathematically, this relates to defining the coordinate system in terms of \textbf{basis vectors}, and assigning $P$ directional components along each basis vector, the sum of which gives us $P$. So, $P = P^ie_i$\footnote{There is an implied sum over $i$ here. That is, $\sum_i^n P^ie_i = P^ie_i$. Such notation can be used any time there is a matching upper and lower index. This is Einstein Summation Convention, and is heavily used throughout physics. It is therefore helpful to get used to it.}, where $e_i$ is the ith basis vector, and $P^i$ is the vector component along that basis. Basis vectors as used here are therefore covectors, and the vector compoments are vectors. 
 
 Let $d\lambda$ be an infinitesimal segment that starts at a point $P$. Then the coordinate differences $dx^i$ uniquely identifies $d\lambda$. Therefore we can write $d\lambda = dx^i \frac{\partial \lambda}{\partial x^i} = dx^i e_i$ where $e_i$ gives us the infinitesimal segment along the coordinate lines of $x^i$.
 
