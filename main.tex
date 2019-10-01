@@ -198,8 +198,9 @@ Furthermore, $\partial\partial \sigma^k$ is empty. Consider once again a sphere 
 \textbf{Path independence is not necessary to talk about. The functional depends on the path. If it only depends on the beginning and end points, it's a boundary functional. Say "Force dpeends on the path and that's good. Later the force only depends on the starting and end, then it's a boundary functional / gradiant of some scalar field"}
 
 Say we have a path on our manifold (that is, a 1-surface), along which we want a particle to travel, and suppose we have a force in play with some sort of effect on the particle. We can define a work function which, with the aforementioned defined force, takes a path and returns the work (a scalar) necessary to move the particle along that path. More concretely, say we have a line $\lambda$ with starting point $a$, ending point $c$, and some middle point $b$. We can say that $W(\lambda_{a \to c}) = W(\lambda_{a \to b}) + W(\lambda_{b \to c})$. The work function is thus a linear function along a 1-surface: a \textbf{1-functional}. Furthermore, just as 1-surfaces are a specific subset of k-surfaces, we can say that 1-functionals are a specific subset of \textbf{k-functionals}. 
+\textbf{Make specifically clear that we are calling the 1-functional a linear function along a 1-surface. Then we cay say that a k-functional is something that takes a k-surface}
 
-In any introductory class on classical mechanics, you will run into the words "conservative" and "nonconservative" forces. If a force is conservative, the work along a path under the influence of that force depends only on the starting and ending points of that path. In a class on classical mechanics, you would then be told that such a force $f$ is simply a gradient of a potential $V$; i.e. $f = -\nabla V$. Instead of that, we will be saying that in such a case, only the \textbf{boundary} of the path matters; or in terms of the force, that such a force is a \textbf{boundary functional}. 
+
 
 
 \begin{defn}
@@ -210,16 +211,17 @@ In any introductory class on classical mechanics, you will run into the words "c
 	II. $f_k$ commutes with the limit. That is, the limit of the function is the function of the limit. 
 \end{defn}
 
-
-The second point in this definition must be remarked on, and it will be clarified with an example. Length is not a k-functional. Length L $= \int ds = \int \sqrt{dx^2 + dy^2}$. This is clearly not a linear function, due to the square root. This comes from the infinitesimal segment of a curve $ds$ being made up of alternating horizontal and vertical infinitesimals $dx$ and $dy$. This is distinct from the limit of length L $= \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$. Simply put, the length of the limit is not the same thing as the limit of the length. 
+\textbf{We're defining the length with differnetial elements. don't do that!!! Have to make the example with a diagonal}
+The second point in this definition must be remarked on, and it will be clarified with an example. The length of a line is not a k-functional. Length L $= \int ds = \int \sqrt{dx^2 + dy^2}$. This is clearly not a linear function, due to the square root. This comes from the infinitesimal segment of a curve $ds$ being made up of alternating horizontal and vertical infinitesimals $dx$ and $dy$. This is distinct from the limit of length L $= \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$. Simply put, the length of the limit is not the same thing as the limit of the length. 
 
 
 \begin{defn}
 	$F_k$ is the set of all functionals of dimension k, and $F = \cup_{k=0}^nF_k$ is the set of all functionals. 
 \end{defn}
 
-
+\textbf{This won't be enough to make them understand. Conservative and nonconservative should help}
 In the previous section, we discussed the boundary operator as a map from a k-surface to its boundary. We can similarly create an operator that takes a k-functional and makes it apply to a (k+1)-surface. In complement to "boundary operator", we define the \textbf{boundary functional} as the operator on k-functionals that forces the k-functional to act only on the boundary of the k-surface. 
+\textbf{Here we can talk about the conservative forces. Talk about it not as somehting that depends only the starting and end points, but as something such that the closed path gives zero}
 
 \begin{defn}
 	$\eth : F_k \to F_{k+1}$ such that $\eth f_k(\sigma^{k+1}) = f_k(\partial \sigma^{k+1})$ is the \textbf{boundary functional} on k-functionals. 
@@ -353,9 +355,12 @@ Using line segments or parallelograms as our infinitesimal elements is not suffi
 	$\Omega_k$ is the set of all forms of dimension k and $\Omega = \cup_{k=0}^n\Omega_k$ is the set of all forms. 
 \end{defn}
 
+\textbf{(Look up geometric measure theory. Highlight in the introduction that the definitions as we put them don't give diff forms, but that this gives the right intuition. For a density, add a constant at a particular point. It doesn't change the over all mass. Take a force and increase it by a constant at a particular point, doesn't change the overall work)}
+
 A clarification must be made now. In most treatments of electromagnetism, the magnetic field $B$ is a pseudeovector. What this means is that while $B$ behaves nicely and as a vector under rotation, but when reflected gains an additional sign flip. This particular characterization of $B$ does not generalize to higher dimensions. Instead, we will be treating $B$ as a matrix, as part of the electromagnetic field tensor (a type of object that also is yet undefined). This characterization \emph{does} generalize well.
 
-It is nevertheless interesting to talk about objects that undergo such sign flips under reflection. Consider an x-y coordinate plane, with x in the horizontal direction and y in the vertical direction. The coordinate system may be rotated freely (creating an equivalence class of directions), but try swapping x and y, so that x is now vertical and y is now horizontal. The original coordinate system can no longer be reached simply through rotation; it would require a flipping of one of the axes. This allows us to define the \textbf{wedge product}: a tool that joins k-vectors in such an antisymmetric way.
+\textbf{Say that the components are being kept track of by the two direction tangent, rather than normal. I.e. $B_z$ is actually $B_{xy}$. Say that this doesn't generalize because there isn't simply one perpendicular, rather n-2 perpendiculars. So, we will be identifying the components with the two directions}
+It is nevertheless interesting to talk about objects that undergo such sign flips under reflection. Consider an x-y coordinate plane, with x in the horizontal direction and y in the vertical direction. The coordinate system may be rotated freely (creating an equivalence class of directions), but try swapping x and y, so that x is now vertical and y is now horizontal. The original coordinate system can no longer be reached simply through rotation; it would require a flipping of one of the axes. (\textbf{Doesn't allow us to define, just talks about how permutations give the minus sign. So if we want something that gives the paralellepiped with sign flips under reflections, we want the wedge product})This allows us to define the \textbf{wedge product}: a tool that joins k-vectors in such an antisymmetric way.
 \textbf{Probably put a picture of that here}
 
 
@@ -368,6 +373,7 @@ It is nevertheless interesting to talk about objects that undergo such sign flip
 It may seem that the cross product in multivariable calculus and the wedge product are the same thing, but this is not the case. The difference comes in by the lack of generalization of the cross product. In 3D, the cross product gives a vector perpendicular to some surface. In 4D, however, there isn't simply one perpendicular. Furthermore, the cross product requires that angles be defined, and the clever reader will notice that we still have not yet given any notion of angles (that comes in chapter 3). The wedge product has no such restrictions, so it is the one that we will be using. 
 
 \begin{coro}
+	\textbf{Maybe we don't need this corollary here}
 	The orientation of each side of the parallelepiped is different, as determined by the factors in the wedge product. 
 \end{coro}
 
