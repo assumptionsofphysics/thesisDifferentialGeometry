@@ -22,7 +22,8 @@
 
 \tableofcontents
 
-\emph{I'd like to include a table here with mathematical notation, giving brief explanations for what symbols such as $\in$, $\subset$, $\mathbb{R}$, etc. mean, just in case the reader isn't familiar with them.}
+\emph{I'd like to include a table here with mathematical notation, giving brief explanations for what symbols such as $\in$, $\subset$, $\mathbb{R}$, etc. mean, just in case the reader isn't familiar with them.}\\\\\\\\
+
 
 
 
@@ -150,8 +151,8 @@ We can go even further in our description of k-surfaces. If we assume that we ca
 	Given k-surface $\sigma^k \in S^k$, the \textbf{boundary} of $\sigma^k$, denoted by $\partial\sigma^k \in S^{k-1}$ is the limit of varied coordinates. Points lying on the boundary are called \textbf{boundary points.}
 \end{defn}
 
-\textbf{Make this paragraph in terms of weather report first, and then do the math}
-Though we can identify multiple quantities, it is still sometimes necessary to isolate specific quantities to identify their particular influence on a system. In an n-dimensional space, holding (n-1) quantities fixed and then allowing the nth quantity to vary would allow us to know specifically the effect that the nth quantity will have on the system. On our space, this varying quantity manifests itself as a line. 
+
+If instead of holding one value fixed and allowing the others to vary, and thereby forming a boundary, we could choose instead to allow one quantity to vary and hold the others fixed. For instance, say in the example of the weather report, we wish to vary only temperature. On the manifold containing all weather reports, this varying of only temperature would manifest itself as a line on the manifold, the points on which being weather reports whose values for all quantities besides temperature are identical. 
 
 \begin{defn}
 	A \textbf{coordinate line} is the set of points in $\mathbb{R}^n$ obtained by allowing one quantity to vary and holding the others fixed. 
@@ -162,7 +163,7 @@ Though we can identify multiple quantities, it is still sometimes necessary to i
 \end{defn}
 
 
-Now that we have k-surfaces, we have a notion of where points lie relative to some k-surface. When varying coordinates to creates coordinate lines, surfaces, volumes, etc., the varying can be brought to a halt by the geometry of the object that we're working on. Where the varying ends lies the \textbf{boundary} of our surface. 
+Now that we have k-surfaces, we have a notion of where points lie relative to some k-surface. When varying coordinates to creates coordinate lines, surfaces, volumes, etc., the varying can be brought to a halt by the geometry of the object that we're working on. Where the varying ends lies the boundary of our surface. 
 
 
 
@@ -170,22 +171,11 @@ Now that we have k-surfaces, we have a notion of where points lie relative to so
 
 Intuitively, we can talk about the boundary of a k-surface being a wall, beyond which a point confined to the k-surface cannot go. Consider, for instance, a particle confined to the inside of a sphere. The particle is free to move anywhere within the sphere, but is stopped from leaving by the surface of the sphere itself. Thus, the surface is the boundary. On the other hand, consider a particle confined to the surface of a sphere. The particle can travel along the surface as long as it wants without being stopped by any kind of wall. Thus, the surface of a sphere does not have a boundary. \textbf{Probably have a picture}
 
-Later on, it will become important to be able to concentrate entirely on the boundary of a k-surface. Therefore, we must make use of the \textbf{boundary operator} in order to go from a k-surface to it's boundary. 
+We can map between a k-surface and its boundary, if it exists, with the \textbf{boundary operator}. I.e., if $\sigma^2$ is a sphere, $\partial \sigma^2$ is its boundary: its surface. It follows also from the argument in the proceeding paragraph that $\partial\partial\sigma^2$ is empty. This is offered without formal proof, but is true for general k-surfaces. 
 
 \begin{defn}
 	For k-surface $\sigma^k \in S^k$, the \textbf{boundary operator} $\partial : S^k \to S^{k-1}$ gives the set of boundary points of $\sigma^k$. 
 \end{defn}
-
-
-
-The dimension of the boundary is one less than the dimension of the k-surface itself. To get an intuitive feel for why this must be so, consider again a sphere embedded in $\mathbb{R}^3$. For a particle confined to the inside of the sphere, the boundary would, again, be the surface of the sphere, as it blocks the particle from leaving. So, consider the particle confined to the sphere's boundary: its surface. When the particle is moving along the surface, the radius must be held fixed , so the dimension of the boundary of a set is one less than the dimension of the set. 
-
-\textbf{include a picture here}
-
-
-Furthermore, $\partial\partial \sigma^k$ is empty. Consider once again a sphere in $\mathbb{R}^3$. A particle confined to its surface can move in a straight line along the edge of the sphere forever, so there is no boundary. 
-
-\emph{Being redundant in these past couple paragraphs. Get concise}
 
 \begin{coro}
 	Given $\sigma^k \in S^k$, $\partial \sigma^k \in S^{k-1}$, and $\partial\partial \sigma^k = \emptyset$. 
@@ -205,7 +195,7 @@ Say we have a path on our manifold (that is, a 1-surface), along which we want a
 \begin{defn}
 	A \textbf{linear function of k-surfaces}, or \textbf{k-functional}, is a function $f_k : S^k \to \mathbb{R}$ such that:
 	
-	I. for $\sigma^k_1$, $\sigma^k_2 \in S^k$, if $\sigma^k_1 \cap \sigma^k_2 \subseteq \partial \sigma^k_1 \cup \partial \sigma^k_2$, then $f_k(\sigma^k_1\cup \sigma^k_2) = f_k(\sigma^k_1) + f_k(\sigma^k_2)$; 
+	I. $f_k$ is linear: for $\sigma^k_1$, $\sigma^k_2 \in S^k$, if $\sigma^k_1 \cap \sigma^k_2 \subseteq \partial \sigma^k_1 \cup \partial \sigma^k_2$, then $f_k(\sigma^k_1\cup \sigma^k_2) = f_k(\sigma^k_1) + f_k(\sigma^k_2)$;
 	
 	II. $f_k$ commutes with the limit. That is, the limit of the function is the function of the limit. 
 \end{defn}
@@ -229,31 +219,26 @@ The boundary of a k-surface is a (k-1)-surface, which can be passed to a (k-1)-f
 	$\eth : F_k \to F_{k+1}$ such that $\eth f_k(\sigma^{k+1}) = f_k(\partial \sigma^{k+1})$ is the \textbf{boundary functional} on k-functionals. 
 \end{defn}
 
-
-
 \begin{prop}
-	A k-functional applied to the empty set gives zero. \textbf{\textit{Don't give a proof, give a justification}}
-\end{prop}
-\begin{proof}
-	
-	Let $f_k : S^k \to \mathbb{R}$ be a linear function. Consider the empty set $\emptyset$. 
-We have $\emptyset \cap \emptyset \subseteq \partial\emptyset \cup \partial\emptyset$, and $\emptyset = \emptyset\cup\emptyset$. 
-So, $f_k(\emptyset) = f_k(\emptyset\cup\emptyset) = f_k(\emptyset) + f_k(\emptyset) \implies f_k(\emptyset) = 2f_k(\emptyset) \implies f_k(\emptyset) = 0$
-\end{proof}
-
-
-
-\begin{prop}
-	Let $f_k \in F_k$ be a k-functional, then $\eth\eth f_k = 0 $. \textbf{\textit{Don't give a proof, give a justification}}
-	
+	Let $f_k \in F_k$ be a k-functional, then $\eth\eth f_k = 0 $.
 	
 \end{prop}
-\begin{proof}
-
+\begin{proof}\\
+	This property follows easily from the relation in Definition 1.14.\\ 
 	Let $f_k : S^k \to \mathbb{R}$, $g_{k+1} : S^{k+1} \to \mathbb{R},$ and $h_{k+2}: S^{k+2} \to \mathbb{R}$ be linear functions, and let $\sigma^k$ be an element of $S^k$. $f_k(\sigma^k) = g_{k+1}(\partial \sigma^k) = h_{k+2}(\partial\partial \sigma^k) = f_k(\emptyset) = 0$. 
 	
 	So, $h^{k+2}(s) = 0$ $\forall$ $\sigma^k$, and $h^{k+2}$ is the zero function. 
-\end{proof}
+\end{proof}\\
+
+If we have a work function and pass it a path with length zero, the function will return, of course, zero. It is true in general, and offered without formal proof, that a k-functional given an empty set will return zero. 
+
+\begin{prop}
+	A k-functional applied to the empty set gives zero. 
+\end{prop}
+
+
+
+
 
 \section{Summary}
 
@@ -380,21 +365,14 @@ It is nevertheless interesting to talk about objects that undergo such sign flip
 
 It may seem that the cross product in multivariable calculus and the wedge product are the same thing, but this is not the case. The difference comes in by the lack of generalization of the cross product. In 3D, the cross product gives a vector perpendicular to some surface. In 4D, however, there isn't simply one perpendicular, but two. In a general n-D space, there will be (n-2) perpendiculars. What we do instead is keep track of components using the two directions tangent to the point, rather than by the direction normal to the point (i.e., $B_z$ is actually $B_{xy}$).  . Furthermore, the cross product requires that angles be defined, and the reader may have noticed that we still have not yet given any notion of angles (that comes in chapter 3). The wedge product has no such restrictions, so it is the one that we will be using. 
 
-\begin{coro}
-	\textbf{Maybe we don't need this corollary here}
-	The orientation of each side of the parallelepiped is different, as determined by the factors in the wedge product. 
-\end{coro}
-
-
-(\textbf{Introduce a wedge product for k-forms. don't talk about it until after propositoin 2.12. Keep it the same structure as the previous section})
 
 
 
 
+We defined k-forms to be skew-symmetric, meaning that switching the order of the components of the k-form introduces a minus sign. This is the same property that k-vectors have, and this necessitated the use of the wedge product to combine them. Similarly, we may join k-forms using the wedge product, or decompose them into forms of lesser degree combined joined the wedge product. So, $\omega_2 \in \Omega_2$, we can say that $\omega_2 = \omega_1^a \wedge \omega_1^b$ for some 1-forms $\omega_1^a$ and $\omega_1^b$, and that $-\omega_2 = \omega_2^b \wedge \omega_2^a$. 
 
 
 
-\textbf{(Make a note that the vector has an orientation, and it's associated with the order of integration. Flipping the integral is the same as getting a minus sign on the vector.)}
 
 \section{Coordinates and Components} 
 
@@ -413,19 +391,54 @@ Functionals will be dealt with in a similar way. Let $\omega$ be a covector and 
 
 Putting everything together now, for infinitesimal segment d$\lambda$ and k-form $\omega$, $\omega(d\lambda) = \omega_ie^i(dx^je_j) = \omega_idx^je^ie_j = \omega_idx^j\delta^i_j = \omega_i dx^i$. This is an interesting result: when properly defined and carefully applied to each other, a vector and covector together naturally simplify down to a summation of functions applied over infinitesimal segments. 
 
+Working in a space with specified coordinates allows us to solve real problems. For instance, in section 2.2 we got slightly ahead of ourselves by describing the oscillation of a mass on a spring with specific coordinates without yet having them defined. Now, with the tools in this section, such a problem is possible to solve.  
 
 
 
-\underline{\textbf{PUT MATH STUFF DOWN HERE FOR NOW}}
+\section{Tensors and coordinate transformations}
 
-Consider a line P, with 1-functional $f$. $ df(P)$ = $ \frac{\partial f(P)}{{\partial x^i}} dx^i$ = $ \frac{\partial f}{\partial x^i}\frac{\partial x^i}{\partial P}dP$ = $\frac{{\partial f}}{{\partial x^i}} e^i (dx^j e_j)$. 
 
-A single point along the line P is P($x^a$). Infinitesimally, we may write that  
-$dP(x^a) = \frac{\partial P}{\partial x^a} dx^a = \frac{\partial P}{\partial x^b} dx^b = \frac{\partial P}{\partial x^a}\frac{\partial x^a}{\partial x^b} dx^b$
+Nature does not come prepackaged with a specific, preferred coordinate system. It follows then that any coordinate system that we choose to impose on our system is ultimately changeable, and that our system can just as well be described with any number of coordinate systems. For instance, if we say that some object lies at point $P$ with respect to coordinate system $Q$, we can just as well say that it lies at point $P'$ with respect to coordintate system $Q$. In general, an object that has such a relationship with objects in other coordinate systems are called \textbf{tensors}. 
 
-$\implies dx^a = \frac{\partial x^a}{\partial x^b}dx^b $
+NOTES on tensors: Talking about tensors as multilinear maps makes it so that vectors and momentum would be treated as functions, which doesn't really make sense. It may be interesting to explicitally mention this problem, while defining tensors in terms of how they transform. 
 
-For some line P, $\int df(P)$ = $\int \frac{\partial f(P)}{{\partial x^i}} dx^i$ = $\int \frac{\partial f}{\partial x^i}\frac{\partial x^i}{\partial P}dP$ = $\int \frac{{\partial f}}{{\partial x^i}} e^i (dx^j e_j)$
+
+\begin{defn}
+	A \textbf{tensor} is an object with a one-to-one relationship with objects between coordinate systems. 
+\end{defn}
+
+\begin{coro}
+	A contravariant tensor of \textbf{rank 1} is a vector (as described in section 2.2), which transforms as  $X'^a = \frac{\partial x'^a}{\partial x^b} X^b$.  
+\end{coro}
+
+\begin{coro}
+	A covariant tensor of \textbf{rank 1} is a covector (as described in section 2.2), which transforms as $X'_a = \frac{\partial x^b}{\partial x'^a} X_b$. 
+\end{coro}
+
+\begin{coro}
+	A contravariant tensor of \textbf{rank 2} is a matrix $X^{ab}$ that transforms as $X'^{ab} = \frac{\partial x'^a}{\partial x^c} \frac{\partial x'^b}{\partial x^d} X^{cd}$. 
+\end{coro}
+
+\begin{coro}
+	A contravariant tensor of \textbf{rank 0} is a quantity $X$ that transforms $X' = X$. Hence, a scalar. 
+\end{coro}
+
+\begin{coro}
+	A covariant tensor of \textbf{rank k} is a matrix $X_{a...k}$ that transforms as $X'_{c...d} = \frac{\partial x^a}{\partial x'^c} \frac{\partial x^b}{\partial x'^d} ... \frac{\partial x^k}{\partial x'^e} X_{a...k}$. A covariant tensor of rank k is a k-form. 
+\end{coro}
+
+\begin{coro}
+	A contravariant tensor of \textbf{rank k} is a matrix $X^{a...k}$ that transforms as $X'^{c...d} = \frac{\partial x'^c}{\partial x^a} \frac{\partial x'^b}{\partial x^e} ... \frac{\partial x'^d}{\partial x^k} X^{a...k}$. A contravariant tensor of rank k is a k-vector. 
+\end{coro}
+
+\begin{coro}
+	If a tensor $X = 0$ in coordinate system Q, then $X' = 0$ in any other coordinate system $Q'$. This follows immediately from the transformation rules. 
+\end{coro}
+
+- In general, objects associated with covariant tensors will have a lower index, and those associated with contravariant tensors will have an upper index. 
+
+
+
 \section{Stoke's Theorem}
 
 
@@ -465,34 +478,6 @@ squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size
 
 NOTE: It seems that we don't even needs to worry about orientation as long as we're in coordinate free space. If possible, it would be cool to be able to not talk about orientation at all. It's just a choice of sign on both the direction of integration and the k-form. We can show that changing the sign of the integration necessitates also changing the sign of the k-form, thus making the orientation itself unnecessary (may not be needed). "suppose that you have a k-form, and you have chosen your coordinates, you can switch the order of integration and put a minus on the form, but then components of hte form change, so the form has different components dependign on orientation." "Or, we can say that there is some coordinate for which we go from a to be and others from b to a, components are thus the same, coordinates are different, but make up a class. It's just a different way to keep track of the sign." Components flip sign under a mirror, or flip, or whatever. 
 
-NOTE: If we can stay coordinate free up until this point, maybe we can start talking about coordinates here in the coordinate transformation section
-\section{Tensors and coordinate transformations}
-Some quantities can undergo one-to-one transformations between coordinate systems. In general, such quantities are tensors. 
-
-NOTES on tensors: Talking about tensors as multilinear maps makes it so that vectors and momentum would be treated as functions, which doesn't really make sense. It may be interesting to explicitally mention this problem, while defining tensors in terms of how they transform. 
-
-
-\begin{defn}
-	A \textbf{tensor} is an object with a one-to-one relationship with objects between coordinate systems. 
-\end{defn}
-
-\begin{coro}
-	A contravariant tensor of \textbf{rank 1} is a vector, which transforms as  $X'^a = \frac{\partial x'^a}{\partial x^b} X^b$.  
-\end{coro}
-
-\begin{coro}
-	A covariant tensor of \textbf{rank 1} is a vector, which transforms as $X'_a = \frac{\partial x^b}{\partial x'^a} X_b$. 
-\end{coro}
-
-\begin{coro}
-	A contravariant tensor of \textbf{rank 2} is a matrix $X^{ab}$ that transforms as $X'^{ab} = \frac{\partial x'^a}{\partial x^c} \frac{\partial x'^b}{\partial x^d} X^{cd}$. 
-\end{coro}
-
-\begin{coro}
-	A contravariant tensor of \textbf{rank 0} is a quantity $X$ that transforms $X' = X$. Hence, a scalar. 
-\end{coro}
-
-- In general, objects associated with covariant tensors will have a lower index, and those associated with contravariant tensors will have an upper index. 
 
 
 
