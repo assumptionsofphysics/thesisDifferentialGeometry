@@ -406,8 +406,7 @@ Working in a space with specified coordinates allows us to solve real problems. 
 
 
 Nature does not come prepackaged with a specific, preferred coordinate system. It follows then that any coordinate system that we choose to impose on our system is ultimately changeable, and that our system can just as well be described with any number of coordinate systems. For instance, if we say that some object lies at point $P$ with respect to coordinate system $Q$, we can just as well say that it lies at point $P'$ with respect to coordinate system $Q$. In general, an object that has such a relationship with objects in other coordinate systems are called \textbf{tensors}. 
-
-NOTES on tensors: Talking about tensors as multilinear maps makes it so that vectors and momentum would be treated as functions, which doesn't really make sense. It may be interesting to explicitally mention this problem, while defining tensors in terms of how they transform. 
+ 
 
 
 \begin{defn}
@@ -447,7 +446,11 @@ Other treatments of differential geometry in physics (such as Wald's "General Re
 
 
 
-\section{Stoke's Theorem}
+\section{Stokes' Theorem}
+
+Suppose we have a volume $\sigma^3 \in S^3$ (such as a sphere) with some source of flow $\omega_2 \in \Omega_2$ within (\textbf{under? in?}) the surface, and functional $f_2 \in F^2$ such that for $\sigma^2 \in S^2$, $f_2(\sigma^2) = \int_{\sigma^2} \omega_2(d\sigma^2)$. $\omega_2$ cannot operate on $\sigma^3$, as $\sigma^3$ is in $S^3$, and $\omega_2$ is in $\Omega_2$. That is, it cannot return the flux through infinitesimal bits of the sphere. What is \emph{can} do, however, is return the flux through infinitesimal bits of the \emph{surface} of the sphere: $\partial \sigma^3 \in S^2$. We can write then $f_2(\partial\sigma^3) = \int_{\partial\sigma^3} \omega_2 (d\partial\sigma^3)$. Recalling Definition 1.14, we know that $f_2(\partial\sigma^3) = \eth f_2(\sigma^3)$. And furthermore, $\eth f_2(\sigma^3) = \int_{\sigma^3} \eth\omega_2(d\sigma^3)$. Therefore, we have $\int_{\partial \sigma^3} \omega_2(d\partial\sigma^3) = \int_{\sigma^3} \eth \omega_2(d\sigma^3)$. 
+
+There are two very important results drawn from this derivation. First, we now have an operator $\eth : \Omega_k \to \Omega_{k+1}$, just as we had $\eth : F_k \to F_{k+1}$. We define the former, then, as the \textbf{exterior derivative} on k-forms\footnote{In most texts on the subject (cf. Curtis and Miller, "Differential Manifolds and Theoretical Physics"), the exterior derivative is denoted simply with a $d$}. The second result is a generalization of something that may be familiar to the reader who's taken vector calculus: Stokes' Theorem. 
 
 
 
@@ -482,9 +485,15 @@ squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size
 \textbf{Examples: Definitily show how the exterior derivative is the gradient for a 0-form, a divergence for the 1-form, etc.}
 
 
+
 \begin{defn}
-	\textbf{Stoke's Theorem}: For (k-1)-form $\omega$ and k-surface $\sigma$, $\int_{\partial \sigma}\omega = \int_{\sigma}\eth\omega$. 
+	\textbf{Stokes' Theorem}: For (k-1)-form $\omega$ and k-surface $\sigma$, $\int_{\partial \sigma}\omega = \int_{\sigma}\eth\omega$. 
 \end{defn}
+
+In many treatments of Electromagnetism (for example, "Classical Electromagnetic Radiation" by Heald and Marion), Stokes' Theorem is given in terms of the curl as $\int_S \nabla \times \vec{A} \cdot d\vec{S} = \oint_{\Gamma} \vec{A} \cdot d\vec{l}$ (\textbf{Figure out how to categorize these terms}). This allows us to take a brief digression to see how the tools we have defined look in specific cases. 
+
+(\textbf{NOTE: In order to talk about the exterior derivative acting as a generalization of the curl, it seems I'll have to talk about the hodge dual, and things called the musical isomorphisms (???)})
+
 
 NOTE: It seems that we don't even needs to worry about orientation as long as we're in coordinate free space. If possible, it would be cool to be able to not talk about orientation at all. It's just a choice of sign on both the direction of integration and the k-form. We can show that changing the sign of the integration necessitates also changing the sign of the k-form, thus making the orientation itself unnecessary (may not be needed). "suppose that you have a k-form, and you have chosen your coordinates, you can switch the order of integration and put a minus on the form, but then components of hte form change, so the form has different components dependign on orientation." "Or, we can say that there is some coordinate for which we go from a to be and others from b to a, components are thus the same, coordinates are different, but make up a class. It's just a different way to keep track of the sign." Components flip sign under a mirror, or flip, or whatever. 
 
