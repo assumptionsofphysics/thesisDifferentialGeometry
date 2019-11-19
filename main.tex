@@ -371,10 +371,12 @@ Consider the problem now of constructing surfaces, volumes, and their higher dim
 
 
 
-Consider $\omega_k \in \Omega^k$, $v^i \in V^i$, and $v^j \in V^j$ such that $i + j = k$. $\omega_k$ can act on the wedge of $v^i$ and $v^j$ such that $\omega_k(v^i\wedge v^j) = -\omega_k(v^j \wedge v^i)$. We can say also that $\omega_k(v^i \wedge v^j) = \omega_i(v^i)\wedge \omega_j(v^j) = -\omega_j(v^j) \wedge \omega_i(v^i)$. We see therefore that the skew-symmetric nature of k-vectors carries over to the k-forms. 
-\textbf{Write this out using the component form, talk about how it's the normal way to write it. Then define the wedge product on the forms such that the property given above holds true. Also, not necessarily true that a form can be decomposed, but it is true that they can be arbitrarily combined. We will say that we can decompose them, since any form can be create from 1-forms. }
+Consider $\omega_k \in \Omega^k$, $v^i \in V^i$, and $v^j \in V^j$ such that $i + j = k$. We may equivalently express $\omega_k(v^i, v^j)$ as an operation on the wedge of $v^i$ and $v^j$ such that $\omega_k(v^i, v^j) = \omega_k(v^i \wedge v^j) = -\omega_k(v^j \wedge v^i)$. We can say also that $\omega_k(v^i \wedge v^j) = \omega_i(v^i)\wedge \omega_j(v^j) = -\omega_j(v^j) \wedge \omega_i(v^i)$. We see therefore that the skew-symmetric nature of k-vectors carries over to the k-forms. 
 
-\textbf{Define the k-form on a list of vectors. Say that it's possible to construct a wedge product on the forms such that the above is always true. Maybe start givng some examples. Like, give two vectors, show how the wedge product works instead of cross product, and how they generalize in higher dimensions. }
+Generally speaking, expressing the operation of a k-form on an i-vector and j-vector is done using the component notation ($\omega_k(v^i, v^j)$), rather than the wedge notation. Also, it must be noted that k-vectors and k-forms cannot be arbitrarily decomposed into constituent vectors and forms of lower rank. They \emph{can}, however, be arbitrarily combined to create vectors and forms of higher rank. 
+
+
+
 
 
 
@@ -383,14 +385,22 @@ Consider $\omega_k \in \Omega^k$, $v^i \in V^i$, and $v^j \in V^j$ such that $i 
 
 \section{Coordinates and Components} 
 
-(\textbf{Talk about differential elements here, not up above})
 
-NOTE: Will have to talk about what the basis is. We start by saying that in a neighborhood we have a coordinate system, and that coordinate system can be used to identify the components of the vectors and components of the covectors. Also probably talk about how to make the wedge product with the components, and how to talk about the exterior derivative
+
+
 
 Up until this point in our discussion of k-forms and k-vectors, we've remained in a general coordinate-free form. For a conceptual understanding of the tools in use, this is just fine, and is in fact preferable. It shows that the math up until this point is "universal," and can be applied to any frame of reference without sacrificing scientific validity. Furthermore, it should be noted that nature itself is coordinate-free. The universe doesn't come prepackaged with coordinates, rather they are something that humans have created to streamline scientific investigation. The caveat to this is that while coordinate-free works well for conceptual understanding, it isn't all that useful for solving actual problems in physics, which is the entire point. Therefore, in this section, we will begin imposing coordinates on the systems we're working with. 
 
 
-Recall now definitions 1.1 and 1.2, and say we have a point $P$ on a manifold $X$, and let $d\lambda$ be a vector starting at point $P$. At this moment, the vector is coordinate-free; a thing "in itself", if you will. In some neighborhood of $P$ there will be a coordinate system defined that we can use to describe $d\lambda$. Mathematically, this relates to defining the coordinate system in terms of \textbf{basis vectors}, and assigning $d\lambda$ directional components along each basis vector, the sum of which gives us $d\lambda$. So, $d\lambda = dx^i \frac{\partial \lambda}{\partial x^i} = dx^i e_i$,\footnote{There is an implied sum over $i$ here. That is, $\sum_i^n dx^i e_i = dx^i e_i$. Such notation can be used any time there is a matching upper and lower index. This is Einstein Summation Convention, and is heavily used throughout physics. It is therefore necessary to become comfortable with it.} where $e_i$ is the ith basis vector, and $dx^i$ is the vector component along that basis. In other words, we can say that $dx^1e_1$ gives us an infinitesimal segment along $x^1$, $dx^2e_2$ along $x^2$, and so on. 
+Recall now definitions 1.1 and 1.2, and say we have a point $P$ on a manifold $X$, and let $d\lambda$ be a vector starting at point $P$. At this moment, the vector is coordinate-free; a thing "in itself", if you will. In some neighborhood of $P$ there will be a coordinate system defined that we can use to describe $d\lambda$. Mathematically, this relates to defining the coordinate system in terms of \textbf{basis vectors}, and assigning $d\lambda$ directional components as \textbf{differential elements} along each basis vector, the sum of which gives us $d\lambda$. So, $d\lambda = dx^i \frac{\partial \lambda}{\partial x^i} = dx^i e_i$,\footnote{There is an implied sum over $i$ here. That is, $\sum_i^n dx^i e_i = dx^i e_i$. Such notation can be used any time there is a matching upper and lower index. This is Einstein Summation Convention, and is heavily used throughout physics. It is therefore necessary to become comfortable with it.} where $e_i$ is the ith basis vector, and $dx^i$ is the vector component along that basis. In other words, we can say that $dx^1e_1$ gives us an infinitesimal segment along $x^1$, $dx^2e_2$ along $x^2$, and so on. 
+
+\begin{defn}
+	The \textbf{basis vectors} of a space are a set of linearly independent vectors such that any element of that space may be constructed using the basis vectors. In $\mathbb{R}^3$, the basis vectors are equivalently $(e^1, e^2, e^3), (\hat{x}, \hat{y}, \hat{z}), (\hat{i}, \hat{j}, \hat{k})$, among others. 
+\end{defn}
+
+\begin{defn}
+	\textbf{Differential elements} $dx^i$ are the infinitesimal bits of a line, surface, volume, etc. such that the sum of all of them return the line, surface, volume, etc. itself. 
+\end{defn}
 
 
 Functionals will be dealt with in a similar way. Let $\omega$ be a covector and $d\lambda$ be an infinitesimal segment. Then $\omega(d\lambda)$ is a linear function of the coordinate differences along $d\lambda$. Therefore we can write $\omega = \omega_i \frac{\partial x^i}{\partial \lambda} = \omega_i e^i$ where each $e^i$ is a basis vector. In fact, $e^i(d\lambda) = e^i(dx^j e_j) = dx^j e^i(e_j) = dx^j \delta^i_j = dx^i$.\footnote{$\delta^i_j$ is the Kronecker delta, defined to equal 1 when i = j, and 0 otherwise}
@@ -442,13 +452,13 @@ Nature does not come prepackaged with a specific, preferred coordinate system. I
 	If a tensor $X = 0$ in coordinate system Q, then $X' = 0$ in any other coordinate system $Q'$. This follows immediately from the transformation rules. 
 \end{coro}
 
-Other treatments of differential geometry in physics (such as Wald's "General Relativity") define tensors foremost as multilinear mappings onto $\mathbb{R}$. That is, our defining feature of k-forms and covectors is used as the definition of tensors in general. What this means is that just as we can define $\omega_k \in \Omega_k : V^k \to \mathbb{R}$ as a function on k-vectors, we can define $v^k \in V^k : \Omega_k \to \mathbb{R}$ as a function on k-forms. In other words, k-forms are functions that take k-vectors to $\mathbb{R}$, and k-vectors are functions that take k-forms to $\mathbb{R}$. From a mathematical perspective, this is entirely valid, and does not detract from solving problems in physics. Furthermore, it has the added bonus of emphasizing that k-forms and k-vectors are in a sense two sides of the same coin\footnote{Properly speaking, k-forms and k-vectors are \emph{dual} to each other}, neither occupies a preferred position as the operator or as the object being operated on. From a physical perspective, however, this has somewhat unfortunate implications. Recall that in Section 2.2 we motivated the discussion of covectors using force, and of vectors using infinitesimal displacement. Mathematically, we would be entirely within our rights to say that an infinitesimal displacement is a function on a force that produces work, rather than saying that the force is a function on an infinitesimal displacement that produces work. This is not a physically sensible approach, so we will be continuing to be emphasizing covectors and k-forms as being functions of vectors and k-vectors, while also using the transformation law as the defining characteristic of tensors. 
+Other treatments of differential geometry in physics (such as Wald's "General Relativity") define tensors foremost as multilinear mappings onto $\mathbb{R}$. That is, our defining feature of k-forms and covectors is used as the definition of tensors in general. What this means is that just as we can define $\omega_k \in \Omega_k : V^k \to \mathbb{R}$ as a function on k-vectors, we can define $v^k \in V^k : \Omega_k \to \mathbb{R}$ as a function on k-forms. In other words, k-forms are functions that take k-vectors to $\mathbb{R}$, and k-vectors are functions that take k-forms to $\mathbb{R}$. From a mathematical perspective, this is entirely valid, and does not detract from solving problems in physics. Furthermore, it has the added bonus of emphasizing that k-forms and k-vectors are in a sense two sides of the same coin\footnote{Properly speaking, k-forms and k-vectors are \emph{dual} to each other}, neither occupies a preferred position as the operator or as the object being operated on. From a physical perspective, however, this has somewhat unfortunate implications. Recall that in Section 2.2 we motivated the discussion of covectors using force, and of vectors using infinitesimal displacement. Mathematically, we would be entirely within our rights to say that an infinitesimal displacement is a function on a force that produces work, rather than saying that the force is a function on an infinitesimal displacement that produces work. This is not a physically sensible approach, as it would imply treating momentum as a function, and force as a displacement, so we will be continuing to be emphasizing covectors and k-forms as being functions of vectors and k-vectors, while also using the transformation law as the defining characteristic of tensors. 
 
 
 
 \section{Stokes' Theorem}
 
-Suppose we have a volume $\sigma^3 \in S^3$ (such as a sphere) with some source of flow $\omega_2 \in \Omega_2$ within (\textbf{under? in?}) the surface, and functional $f_2 \in F^2$ such that for $\sigma^2 \in S^2$, $f_2(\sigma^2) = \int_{\sigma^2} \omega_2(d\sigma^2)$. $\omega_2$ cannot operate on $\sigma^3$, as $\sigma^3$ is in $S^3$, and $\omega_2$ is in $\Omega_2$. That is, it cannot return the flux through infinitesimal bits of the sphere. What is \emph{can} do, however, is return the flux through infinitesimal bits of the \emph{surface} of the sphere: $\partial \sigma^3 \in S^2$. We can write then $f_2(\partial\sigma^3) = \int_{\partial\sigma^3} \omega_2 (d\partial\sigma^3)$. Recalling Definition 1.14, we know that $f_2(\partial\sigma^3) = \eth f_2(\sigma^3)$. And furthermore, $\eth f_2(\sigma^3) = \int_{\sigma^3} \eth\omega_2(d\sigma^3)$. Therefore, we have $\int_{\partial \sigma^3} \omega_2(d\partial\sigma^3) = \int_{\sigma^3} \eth \omega_2(d\sigma^3)$. 
+Suppose we have a volume $\sigma^3 \in S^3$ (such as a sphere) with some source of flow $\omega_2 \in \Omega_2$ enclosed by the sphere, and 2-functional $f_2 \in F^2$ such that for $\sigma^2 \in S^2$, $f_2(\sigma^2) = \int_{\sigma^2} \omega_2(d\sigma^2)$. $\omega_2$ cannot operate on $\sigma^3$, as $\sigma^3$ is in $S^3$, and $\omega_2$ is in $\Omega_2$. That is, it cannot return the flux through infinitesimal bits of the sphere. What is \emph{can} do, however, is return the flux through infinitesimal bits of the \emph{surface} of the sphere: $\partial \sigma^3 \in S^2$. We can write then $f_2(\partial\sigma^3) = \int_{\partial\sigma^3} \omega_2 (d\partial\sigma^3)$. Recalling Definition 1.14, we know that $f_2(\partial\sigma^3) = \eth f_2(\sigma^3)$. And furthermore, $\eth f_2(\sigma^3) = \int_{\sigma^3} \eth\omega_2(d\sigma^3)$. Therefore, we have $\int_{\partial \sigma^3} \omega_2(d\partial\sigma^3) = \int_{\sigma^3} \eth \omega_2(d\sigma^3)$. 
 
 There are two very important results drawn from this derivation. First, we now have an operator $\eth : \Omega_k \to \Omega_{k+1}$, just as we had $\eth : F_k \to F_{k+1}$. We define the former, then, as the \textbf{exterior derivative} on k-forms\footnote{In most texts on the subject (cf. Curtis and Miller, "Differential Manifolds and Theoretical Physics"), the exterior derivative is denoted simply with a $d$}. The second result is a generalization of something that may be familiar to the reader who's taken vector calculus: Stokes' Theorem. 
 
@@ -482,7 +492,7 @@ squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size
 \draw[<-] (w2) -- (w1) node[midway, right] {$\eth$};
 \end{tikzpicture}
 
-\textbf{Examples: Definitily show how the exterior derivative is the gradient for a 0-form, a divergence for the 1-form, etc.}
+
 
 
 
@@ -490,17 +500,16 @@ squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size
 	\textbf{Stokes' Theorem}: For (k-1)-form $\omega$ and k-surface $\sigma$, $\int_{\partial \sigma}\omega = \int_{\sigma}\eth\omega$. 
 \end{defn}
 
-In many treatments of Electromagnetism (for example, "Classical Electromagnetic Radiation" by Heald and Marion), Stokes' Theorem is given in terms of the curl as $\int_S \nabla \times \vec{A} \cdot d\vec{S} = \oint_{\Gamma} \vec{A} \cdot d\vec{l}$ (\textbf{Figure out how to categorize these terms}). This allows us to take a brief digression to see how the tools we have defined look in specific cases. 
+In many treatments of Electromagnetism (for example, "Classical Electromagnetic Radiation" by Heald and Marion), Stokes' Theorem is given in terms of the curl as $\int_S \nabla \times \vec{A} \cdot d\vec{S} = \oint_{\Gamma} \vec{A} \cdot d\vec{l}$ (\textbf{Figure out how to categorize these terms}). This allows us to take a brief digression to see how the tools we have defined look in the more familiar 3D cases. 
 
-(\textbf{NOTE: In order to talk about the exterior derivative acting as a generalization of the curl, it seems I'll have to talk about the hodge dual, and things called the musical isomorphisms (???)})
+Suppose we have $f \in \Omega_0$, $v \in \Omega_1$, and $B \in \Omega_2$, and we apply the exterior derivative to each of them. We have that $\eth f = \partial_a f e^a$, $\eth v = \partial_a v_b e^a \wedge e^b$, and $\eth B = \partial_a B_{bc} e^a\wedge e^b \wedge e^c$. 
+
+By looking closer at these expressions, we see familiar tools from vector calculus arise. $\partial_a f e^a$ is a 1-form consisting of the sum of derivatives in each of the basis directions. In the 3D case, we have that $\partial_a f e^a = \frac{\partial f}{\partial x^1} e^1 + \frac{\partial f}{\partial x^2} e^2 + \frac{\partial f}{\partial x^3} e^3$. This is simply the gradient of a scalar functional. So, we have that in $\mathbb{R}^3$, $\partial_a f e^a = \nabla f$. Similarly, we see that in 3D, $\eth v$ will give us a 2-form from a 1-form, composed of the sum of derivatives in the directions perpendicular to the original 1-form. That is, in $\mathbb{R}^3$, $\eth v = (\frac{\partial v_2}{\partial x^3} - \frac{\partial v_3}{\partial x^2})e^2\wedge e^3 - (\frac{\partial v_1}{\partial x^3} - \frac{\partial v_3}{\partial x^1})e^1 \wedge e^3 + (\frac{\partial v_1}{\partial x^2} - \frac{\partial v_2}{\partial x^1})e^1 \wedge e^2 = \nabla \times v$. Finally, $\eth B = (\frac{\partial B_1}{\partial x^1} + \frac{\partial B_2}{\partial x^2} + \frac{\partial B_3}{\partial x^3})e^1\wedge e^2 \wedge e^3 = \nabla \cdot B$. 
+
+With these new, more general geometric expressions for gradient, curl, and divergence, their physical interpretations become immediately clear, simply from the notation. If we extend the flux example, we see that the gradient of a 0-form is simply the lengthwise flow in possible dimension (three, in 3D), the curl of a 1-form is the planewise flow in each plane (still 3, in 3D), and the divergence of a 2-form is the flow outwards from a point per unit volume. 
 
 
-NOTE: It seems that we don't even needs to worry about orientation as long as we're in coordinate free space. If possible, it would be cool to be able to not talk about orientation at all. It's just a choice of sign on both the direction of integration and the k-form. We can show that changing the sign of the integration necessitates also changing the sign of the k-form, thus making the orientation itself unnecessary (may not be needed). "suppose that you have a k-form, and you have chosen your coordinates, you can switch the order of integration and put a minus on the form, but then components of hte form change, so the form has different components dependign on orientation." "Or, we can say that there is some coordinate for which we go from a to be and others from b to a, components are thus the same, coordinates are different, but make up a class. It's just a different way to keep track of the sign." Components flip sign under a mirror, or flip, or whatever. 
-
-
-
-
-\textbf{Make a section on EnM here (both relativistic and nonrelativistic), just to be able to demonstrate how all the math works}
+\textbf{NOTE: I'd like to express Maxwell's equations as best as possible using differential forms. Probably not possible without a metric, and just plugging the exterior derivative expressions into the regular equations in 3D clearly won't cut it}
 
 \section{Electricity and Magnetism}
 
