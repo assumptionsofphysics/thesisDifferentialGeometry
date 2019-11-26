@@ -421,49 +421,39 @@ Working in a space with specified coordinates allows us to solve real problems. 
 \section{Tensors and coordinate transformations}
 
 
-Nature does not come prepackaged with a specific, preferred coordinate system. It follows then that any coordinate system that we choose to impose on our system is ultimately changeable, and that our system can just as well be described with any number of coordinate systems. For instance, if we say that some object lies at point $P$ with respect to coordinate system $Q$, we can just as well say that it lies at point $P$ with respect to coordinate system $Q'$. In general, an object that has such a relationship with objects in other coordinate systems are called \textbf{tensors}. 
-\textbf{note: The point remains the same, the coordinates change. Otherwise we're doing an active transformation}
- 
+Nature does not come prepackaged with a specific, preferred coordinate system. It follows then that any coordinate system that we choose to impose on our system is ultimately changeable, and that our system can just as well be described with any number of coordinate systems. For instance, if we say that some object lies at point $P$ with respect to coordinate system $Q$, we can just as well say where it lies with respect to coordinate system $Q'$. 
+
+So, suppose we have a covector $\omega = \omega_i \frac{\partial x^i}{\partial \lambda}$, as in section 2.4. $x^i$ is the thing that describes this covector relative to a specific coordinate system, which we will call $Q$. Suppose now we have coordinate system $Q'$. We can transform $\omega$ to $\omega'$ by writing $\omega' = \omega_j \frac{\partial x^i}{\partial \lambda} \frac{\partial x'^j}{\partial x^i} = \omega \frac{\partial x'^j}{\partial x^i}$. Similarly, a vector $v$ will transform to $v'$ as $v' = v \frac{\partial x^i}{\partial x'^j}$. 
+
+\textbf{Clean up this derivation, it's not quite right}
+
+In general, an object that has such a relationship with objects in other coordinate systems are called \textbf{tensors}. 
+
 
 
 \begin{defn}
-	A \textbf{tensor} is an object with a one-to-one relationship with objects between coordinate systems. 
+	A \textbf{tensor} $X$ of rank [n k] is an object that transforms as $X'^{a...k}_{b...n} = \frac{\partial x'^a}{\partial x^d} ... \frac{\partial x'^k}{\partial x^j} \frac{\partial x^c}{\partial x'^b} ... \frac{\partial x^e}{\partial x'^n} X^{d...j}_{c...e}$. 
 \end{defn}
 
-\textbf{Acceleration is not a tensor. This is not a good definition, even though we do want to use the transformation law. Get rid of these corollaries, and just give the general rule. We could also derive the transformation law of the vector, and of the covector. Then generalize those transformations}
-
 \begin{coro}
-	A contravariant tensor of \textbf{rank 1} is a vector (as described in section 2.2), which transforms as  $X'^a = \frac{\partial x'^a}{\partial x^b} X^b$.  
-\end{coro}
-
-\begin{coro}
-	A covariant tensor \footnote{In general, an object will be denoted as contravariant by a lower index, and covariant by an upper index.}  of \textbf{rank 1} is a covector (as described in section 2.2), which transforms as $X'_a = \frac{\partial x^b}{\partial x'^a} X_b$. 
+	A tensor of rank [0 k] is a k-vector, and a tensor of rank [k 0] is a k-form. 
 \end{coro}
 
 
-\begin{coro}
-	A contravariant tensor of \textbf{rank 2} is a matrix $X^{ab}$ that transforms as $X'^{ab} = \frac{\partial x'^a}{\partial x^c} \frac{\partial x'^b}{\partial x^d} X^{cd}$. 
-\end{coro}
-
-\begin{coro}
-	A contravariant tensor of \textbf{rank 0} is a quantity $X$ that transforms $X' = X$. Hence, a scalar. 
-\end{coro}
-
-\begin{coro}
-	A covariant tensor of \textbf{rank k} is a matrix $X_{a...k}$ that transforms as $X'_{c...d} = \frac{\partial x^a}{\partial x'^c} \frac{\partial x^b}{\partial x'^d} ... \frac{\partial x^k}{\partial x'^e} X_{a...k}$. A covariant tensor of rank k is a k-form. 
-\end{coro}
-
-\begin{coro}
-	A contravariant tensor of \textbf{rank k} is a matrix $X^{a...k}$ that transforms as $X'^{c...d} = \frac{\partial x'^c}{\partial x^a} \frac{\partial x'^b}{\partial x^e} ... \frac{\partial x'^d}{\partial x^k} X^{a...k}$. A contravariant tensor of rank k is a k-vector. 
-\end{coro}
 
 \begin{coro}
 	If a tensor $X = 0$ in coordinate system Q, then $X' = 0$ in any other coordinate system $Q'$. This follows immediately from the transformation rules. 
 \end{coro}
 
-Other treatments of differential geometry in physics (such as Wald's "General Relativity") define tensors foremost as multilinear mappings onto $\mathbb{R}$. That is, our defining feature of k-forms and covectors is used as the definition of tensors in general. What this means is that just as we can define $\omega_k \in \Omega_k : V^k \to \mathbb{R}$ as a function on k-vectors, we can define $v^k \in V^k : \Omega_k \to \mathbb{R}$ as a function on k-forms. In other words, k-forms are functions that take k-vectors to $\mathbb{R}$, and k-vectors are functions that take k-forms to $\mathbb{R}$. From a mathematical perspective, this is entirely valid, and does not detract from solving problems in physics. Furthermore, it has the added bonus of emphasizing that k-forms and k-vectors are in a sense two sides of the same coin\footnote{Properly speaking, k-forms and k-vectors are \emph{dual} to each other}, neither occupies a preferred position as the operator or as the object being operated on. From a physical perspective, however, this has somewhat unfortunate implications. Recall that in Section 2.2 we motivated the discussion of covectors using force, and of vectors using infinitesimal displacement. Mathematically, we would be entirely within our rights to say that an infinitesimal displacement is a function on a force that produces work, rather than saying that the force is a function on an infinitesimal displacement that produces work. This is not a physically sensible approach, as it would imply treating momentum as a function, and force as a displacement, so we will be continuing to be emphasizing covectors and k-forms as being functions of vectors and k-vectors, while also using the transformation law as the defining characteristic of tensors.
+Other treatments of differential geometry in physics (such as Wald's "General Relativity") define tensors foremost as multilinear mappings onto $\mathbb{R}$. That is, our defining feature of k-forms and covectors is used as the definition of tensors in general. What this means is that just as we can define $\omega_k \in \Omega_k : V^k \to \mathbb{R}$ as a function on k-vectors, we can define $v^k \in V^k : \Omega_k \to \mathbb{R}$ as a function on k-forms. In other words, k-forms are functions that take k-vectors to $\mathbb{R}$, and k-vectors are functions that take k-forms to $\mathbb{R}$. 
 
-\textbf{Put the multilinear mapping definition in here as well} 
+\begin{defn}
+	A tensor $T$ of rank [k n] $T: \Omega_k \times V^n \to \mathbb{R}$ is a multilinear map that k 1-forms and n 1-vectors to $\mathbb{R}$. 
+\end{defn}
+
+From a mathematical perspective, this is entirely valid, and does not detract from solving problems in physics. Furthermore, it has the added bonus of emphasizing that k-forms and k-vectors are in a sense two sides of the same coin\footnote{Properly speaking, k-forms and k-vectors are \emph{dual} to each other}, neither occupies a preferred position as the operator or as the object being operated on. From a physical perspective, however, this has somewhat unfortunate implications. Recall that in Section 2.2 we motivated the discussion of covectors using force, and of vectors using infinitesimal displacement. Mathematically, we would be entirely within our rights to say that an infinitesimal displacement is a function on a force that produces work, rather than saying that the force is a function on an infinitesimal displacement that produces work. This is not a physically sensible approach, as it would imply treating momentum as a function, and force as a displacement, so we will be continuing to be emphasizing covectors and k-forms as being functions of vectors and k-vectors, while also using the transformation law as the defining characteristic of tensors.
+
+ 
 
 
 
@@ -519,13 +509,13 @@ squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size
 
 In many treatments of Electromagnetism (for example, "Classical Electromagnetic Radiation" by Heald and Marion), Stokes' Theorem is given in terms of the curl as $\int_S \nabla \times \vec{A} \cdot d\vec{S} = \oint_{\Gamma} \vec{A} \cdot d\vec{l}$ (\textbf{Figure out how to categorize these terms}). This allows us to take a brief digression to see how the tools we have defined look in the more familiar 3D cases. 
 
-\textbf{Give the definition of the exterior derivative in component form as in overleaf}
+\textbf{Introduce this wedge-product formulation of the k-form before this}
 
-Suppose we have $f \in \Omega_0$, $v \in \Omega_1$, and $B \in \Omega_2$, and we apply the exterior derivative to each of them. We have that $\eth f = \partial_a f e^a$, $\eth v = \partial_a v_b e^a \wedge e^b$, and $\eth B = \partial_a B_{bc} e^a\wedge e^b \wedge e^c$. 
+In general, we have that a k-form $\omega \in \Omega_k = \omega_{ab...c}e^a\wedge e^b \wedge ... \wedge e^c$ \footnote{This is still Einstein summation convention. We are free to change paired indices, as long as they are changed together. Thus, $a_i b^i = a_j b^j$}. So, $\eth \omega = \partial_a \omega_{bc...d}e^a \wedge e^b \wedge ... \wedge e^d$. Suppose we have $f \in \Omega_0$, $v \in \Omega_1$, and $B \in \Omega_2$, and we apply the exterior derivative to each of them. We have that $\eth f = \partial_a f e^a$, $\eth v = \partial_a v_b e^a \wedge e^b$, and $\eth B = \partial_a B_{bc} e^a\wedge e^b \wedge e^c$. 
 
-By looking closer at these expressions, we see familiar tools from vector calculus arise. $\partial_a f e^a$ is a 1-form consisting of the sum of derivatives in each of the basis directions. In the 3D case, we have that $\partial_a f e^a = \frac{\partial f}{\partial x^1} e^1 + \frac{\partial f}{\partial x^2} e^2 + \frac{\partial f}{\partial x^3} e^3$. This is simply the gradient of a scalar functional. So, we have that in $\mathbb{R}^3$, $\partial_a f e^a = \nabla f$. Similarly, we see that in 3D, $\eth v$ will give us a 2-form from a 1-form, composed of the sum of derivatives in the directions perpendicular to the original 1-form. That is, in $\mathbb{R}^3$, $\eth v = (\frac{\partial v_2}{\partial x^3} - \frac{\partial v_3}{\partial x^2})e^2\wedge e^3 - (\frac{\partial v_1}{\partial x^3} - \frac{\partial v_3}{\partial x^1})e^1 \wedge e^3 + (\frac{\partial v_1}{\partial x^2} - \frac{\partial v_2}{\partial x^1})e^1 \wedge e^2 = \nabla \times v$ (NOTE: \textbf{Not quite true, the cross gives the line, not the wedge of the two others}). Finally, $\eth B = (\frac{\partial B_1}{\partial x^1} + \frac{\partial B_2}{\partial x^2} + \frac{\partial B_3}{\partial x^3})e^1\wedge e^2 \wedge e^3 = \nabla \cdot B$ (NOTE: same deal here, the divergence gives a scalar: ie the hodge dual of the wedged things). 
+By looking closer at these expressions, we see familiar tools from vector calculus arise. $\partial_a f e^a$ is a 1-form consisting of the sum of derivatives in each of the basis directions. In the 3D case, we have that $\partial_a f e^a = \frac{\partial f}{\partial x^1} e^1 + \frac{\partial f}{\partial x^2} e^2 + \frac{\partial f}{\partial x^3} e^3$. This is simply the gradient of a scalar functional. So, we have that in $\mathbb{R}^3$, $\partial_a f e^a = \nabla f$. Similarly, we see that in 3D, $\eth v$ will give us a 2-form from a 1-form, composed of the sum of derivatives in the directions perpendicular to the original 1-form. That is, in $\mathbb{R}^3$, $\eth v = (\frac{\partial v_2}{\partial x^3} - \frac{\partial v_3}{\partial x^2})e^2\wedge e^3 - (\frac{\partial v_1}{\partial x^3} - \frac{\partial v_3}{\partial x^1})e^1 \wedge e^3 + (\frac{\partial v_1}{\partial x^2} - \frac{\partial v_2}{\partial x^1})e^1 \wedge e^2$ (NOTE: \textbf{Not quite true, the cross gives the line, not the wedge of the two others}). Finally, $\eth B = (\frac{\partial B_1}{\partial x^1} + \frac{\partial B_2}{\partial x^2} + \frac{\partial B_3}{\partial x^3})e^1\wedge e^2 \wedge e^3$ (NOTE: same deal here, the divergence gives a scalar: ie the hodge dual of the wedged things). We see here that $\eth v$ doesn't \emph{quite} give us $\nabla \times v$, and $\eth B$ doesn't \emph{quite} give us $\nabla \cdot B$. This discrepancy demonstrates the difference between the wedge product and the cross product. Had we done $\nabla \times v$, the first term would have been $(\frac{\partial v_2}{\partial x^3} - \frac{\partial v_3}{\partial x^2})e^1$. That is, in the direction perpendicular to $e^2\wedge e^3$. This is similarly true for the components in $e^1\wedge e^3$ and $e^1 \wedge e^2$. Furthermore, $\nabla \cdot B$ returns a scalar (i.e., no direction), while $\eth B$ returns a single value in the $e^1 \wedge e^2 \wedge e^3$ "direction." This discrepancy is resolved by the introduction of the Hodge Dual Operator $*$, such that $*\eth v = \nabla \times v$ and $*\eth B = \nabla \cdot B$, but this is beyond us at the moment. 
 
-With these new, more general geometric expressions for gradient, curl, and divergence, their physical interpretations become immediately clear, simply from the notation. If we extend the flux example, we see that the gradient of a 0-form is simply the lengthwise flow in possible dimension (three, in 3D), the curl of a 1-form is the planewise flow in each plane (still 3, in 3D), and the divergence of a 2-form is the flow outwards from a point per unit volume. 
+With these new, more general geometric expressions for gradient, curl, and divergence, their physical interpretations become immediately clear, simply from the notation. If we extend the flux example, we see that the gradient of a 0-form is simply the lengthwise flow in each possible dimension (three, in 3D), the curl of a 1-form is the planewise flow in each plane (still 3, in 3D), and the divergence of a 2-form is the flow outwards from a point per unit volume. 
 
 
 \textbf{NOTE: I'd like to express Maxwell's equations as best as possible using differential forms. Probably not possible without a metric, and just plugging the exterior derivative expressions into the regular equations in 3D clearly won't cut it. What we can do is talk about a lot of other things besides such as talk about closed and exact forms. It's easier to understand in integral form. maybe talk about the aharonov bohm effect}
