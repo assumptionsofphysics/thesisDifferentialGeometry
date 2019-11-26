@@ -187,7 +187,10 @@ We can map between a k-surface and its boundary, if it exists, with the \textbf{
 
 \textbf{Path independence is not necessary to talk about. The functional depends on the path. If it only depends on the beginning and end points, it's a boundary functional. Say "Force dpeends on the path and that's good. Later the force only depends on the starting and end, then it's a boundary functional / gradiant of some scalar field"}
 
-Say we have a path on our manifold (that is, a 1-surface), along which we want a particle to travel, and suppose we have a force in play with some sort of effect on the particle. We can define a work function $W$ which, with the aforementioned defined force, takes a path $\lambda$ and returns the work (a scalar) necessary to move the particle along that path. More concretely, say we have a line $\lambda$ with starting point $a$, ending point $c$, and some middle point $b$. We can say that $W(\lambda_{a \to c}) = W(\lambda_{a \to b}) + W(\lambda_{b \to c})$. The work function is thus a linear function along a 1-surface: a \textbf{1-functional}. Furthermore, just as 1-surfaces are a specific subset of k-surfaces, we can say that 1-functionals are a specific subset of \textbf{k-functionals}, which in general will be functions along k-surfaces. 
+Say we have a path on our manifold (that is, a 1-surface), along which we want a particle to travel, and suppose we have a force in play with some sort of effect on the particle. We can define a work function $W$ which, with the aforementioned defined force, takes a path $\lambda$ and returns the work (a scalar) necessary to move the particle along that path. More concretely, say we have a line $\lambda$ with starting point $a$, ending point $c$, and some middle point $b$. We can say that 
+\begin{gather} W(\lambda_{a \to c}) = W(\lambda_{a \to b}) + W(\lambda_{b \to c}).
+\end{gather}
+ The work function is thus a linear function along a 1-surface: a \textbf{1-functional}. Furthermore, just as 1-surfaces are a specific subset of k-surfaces, we can say that 1-functionals are a specific subset of \textbf{k-functionals}, which in general will be functions along k-surfaces. 
 
 
 
@@ -195,7 +198,7 @@ Say we have a path on our manifold (that is, a 1-surface), along which we want a
 \begin{defn}
 	A \textbf{linear function of k-surfaces}, or \textbf{k-functional}, is a function $f_k : S^k \to \mathbb{R}$ such that:
 	
-	I. $f_k$ is linear: for $\sigma^k_1$, $\sigma^k_2 \in S^k$, if $\sigma^k_1 \cap \sigma^k_2 \subseteq \partial \sigma^k_1 \cup \partial \sigma^k_2$, then $f_k(\sigma^k_1\cup \sigma^k_2) = f_k(\sigma^k_1) + f_k(\sigma^k_2)$;
+	I. $f_k$ is linear: for $\sigma^k_1$, $\sigma^k_2 \in S^k$, if \begin{gather}\sigma^k_1 \cap \sigma^k_2 \subseteq \partial \sigma^k_1 \cup \partial \sigma^k_2\end{gather}, then \begin{gather}f_k(\sigma^k_1\cup \sigma^k_2) = f_k(\sigma^k_1) + f_k(\sigma^k_2) \end{gather};
 	
 	II. $f_k$ commutes with the limit. That is, the limit of the function is the function of the limit. 
 \end{defn}
@@ -314,10 +317,10 @@ squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size
 
 \section{K-vectors and K-forms}
 
-Let $\Phi \in F_2$ be a functional for magnetic flux; that is, the function that gives the "flow" of magnetic field through some surface, and let $\sigma \in S^2$ be such a surface. Mathematically, this is another example of a k-functional being passed a k-surface, and returning a real number. So, we may write that $\Phi(\sigma) = \Phi(\sigma^1) + \Phi(\sigma^2) + \Phi(\sigma^3) + ... = \sum_{i=1}^n \Phi(\sigma^i)$, which becomes $\int_\sigma B(d\sigma)$ as n tends to infinity. This appears to be identical to the case where k=1. The difference comes in by realizing that the surface $\sigma$ may not be broken up into infinitesimal line elements. Rather, we have to use infinitesimal paralellograms. Just as $\Phi$ is a 2-functional and $\sigma$ a 2-surface, we call the infinitesimal parallelograms d$\sigma$ 2-vectors, and B a 2-form. Incidentally, just as the work 1-functional became force as a covector (in other words, a 1-form), the flux as a 2-functional became the magnetic field as a 2-form. We see that the general relationship between forms and functionals, and vectors and surfaces carries over into the two dimensional case.  
+Let $\Phi \in F_2$ be a functional for magnetic flux; that is, the function that gives the "flow" of magnetic field through some surface, and let $\sigma \in S^2$ be such a surface. Mathematically, this is another example of a k-functional being passed a k-surface, and returning a real number. So, we may write that \begin{gather}\Phi(\sigma) = \Phi(\sigma^1) + \Phi(\sigma^2) + \Phi(\sigma^3) + ... = \sum_{i=1}^n \Phi(\sigma^i),\end{gather} which becomes $\int_\sigma B(d\sigma)$ as n tends to infinity. This appears to be identical to the case where k=1. The difference comes in by realizing that the surface $\sigma$ may not be broken up into infinitesimal line elements. Rather, we have to use infinitesimal paralellograms. Just as $\Phi$ is a 2-functional and $\sigma$ a 2-surface, we call the infinitesimal parallelograms d$\sigma$ 2-vectors, and B a 2-form. Incidentally, just as the work 1-functional became force as a covector (in other words, a 1-form), the flux as a 2-functional became the magnetic field as a 2-form. We see that the general relationship between forms and functionals, and vectors and surfaces carries over into the two dimensional case.  
 
 
-We propose that in the general kth case, we can through integration connect our forms with functionals, and vectors with surfaces. Let $f_k \in F_k$ be a k-functional and $\sigma^k \in S^k$ a k-surface. We can say that $f_k(\sigma^k) = \sum_{i=1}^n f_k(\sigma^k_n) = \int_{\sigma^k} \omega_k(d\sigma^k)$ as n tends to infinity for some function $\omega_k$. We call $\omega_k$ a \textbf{k-form}, and d$\sigma^k$ a \textbf{k-vector}. 
+We propose that in the general kth case, we can through integration connect our forms with functionals, and vectors with surfaces. Let $f_k \in F_k$ be a k-functional and $\sigma^k \in S^k$ a k-surface. We can say that \begin{gather}f_k(\sigma^k) = \sum_{i=1}^n f_k(\sigma^k_n) = \int_{\sigma^k} \omega_k(d\sigma^k)\end{gather} as n tends to infinity for some function $\omega_k$. We call $\omega_k$ a \textbf{k-form}, and d$\sigma^k$ a \textbf{k-vector}. 
 
 Using line segments or parallelograms as our infinitesimal elements is not sufficient on a k-surface. At this point, we must make use of infinitesimal \emph{parallelepipeds}: a k-dimensional shape whose sides are (k-1)-parallelepipeds. Whereas before when the line segments would be stuck end-to-end, the parallelepipeds will be stuck side-to-side, such that one side of one parallelepiped makes up one side of the other. We can say that the infinitesimal elements in the cases of k=1 and k=2 are still parallelepipeds. In the case of k = 1, an infinitesimal segment may be thought of as a parallelepiped without width or height. By that same thinking, when k = 2, an infinitesimal area on a 2-surface may be thought of as a parallelepiped without height. 
 
@@ -371,7 +374,7 @@ Consider the problem now of constructing surfaces, volumes, and their higher dim
 
 
 
-Consider $\omega_k \in \Omega^k$, $v^i \in V^i$, and $v^j \in V^j$ such that $i + j = k$. We may equivalently express $\omega_k(v^i, v^j)$ as an operation on the wedge of $v^i$ and $v^j$ such that $\omega_k(v^i, v^j) = \omega_k(v^i \wedge v^j) = -\omega_k(v^j \wedge v^i)$. We can say also that $\omega_k(v^i \wedge v^j) = \omega_i(v^i)\wedge \omega_j(v^j) = -\omega_j(v^j) \wedge \omega_i(v^i)$. We see therefore that the skew-symmetric nature of k-vectors carries over to the k-forms. 
+Consider $\omega_k \in \Omega^k$, $v^i \in V^i$, and $v^j \in V^j$ such that $i + j = k$. We may equivalently express $\omega_k(v^i, v^j)$ as an operation on the wedge of $v^i$ and $v^j$ such that \begin{gather}\omega_k(v^i, v^j) = \omega_k(v^i \wedge v^j) = -\omega_k(v^j \wedge v^i).\end{gather} We can say also that \begin{gather}\omega_k(v^i \wedge v^j) = \omega_i(v^i)\wedge \omega_j(v^j) = -\omega_j(v^j) \wedge \omega_i(v^i).\end{gather} We see therefore that the skew-symmetric nature of k-vectors carries over to the k-forms. 
 
 Generally speaking, expressing the operation of a k-form on an i-vector and j-vector is done using the component notation ($\omega_k(v^i, v^j)$), rather than the wedge notation. Also, it must be noted that k-vectors and k-forms cannot be arbitrarily decomposed into constituent vectors and forms of lower rank. They \emph{can}, however, be arbitrarily combined to create vectors and forms of higher rank. 
 
@@ -432,7 +435,7 @@ In general, an object that has such a relationship with objects in other coordin
 
 
 \begin{defn}
-	A \textbf{tensor} $X$ of rank [n k] is an object that transforms as $X'^{a...k}_{b...n} = \frac{\partial x'^a}{\partial x^d} ... \frac{\partial x'^k}{\partial x^j} \frac{\partial x^c}{\partial x'^b} ... \frac{\partial x^e}{\partial x'^n} X^{d...j}_{c...e}$. 
+	A \textbf{tensor} $X$ of rank [n k] is an object that transforms as \begin{gather}X'^{a...k}_{b...n} = \frac{\partial x'^a}{\partial x^d} ... \frac{\partial x'^k}{\partial x^j} \frac{\partial x^c}{\partial x'^b} ... \frac{\partial x^e}{\partial x'^n} X^{d...j}_{c...e}.\end{gather} 
 \end{defn}
 
 \begin{coro}
@@ -448,7 +451,7 @@ In general, an object that has such a relationship with objects in other coordin
 Other treatments of differential geometry in physics (such as Wald's "General Relativity") define tensors foremost as multilinear mappings onto $\mathbb{R}$. That is, our defining feature of k-forms and covectors is used as the definition of tensors in general. What this means is that just as we can define $\omega_k \in \Omega_k : V^k \to \mathbb{R}$ as a function on k-vectors, we can define $v^k \in V^k : \Omega_k \to \mathbb{R}$ as a function on k-forms. In other words, k-forms are functions that take k-vectors to $\mathbb{R}$, and k-vectors are functions that take k-forms to $\mathbb{R}$. 
 
 \begin{defn}
-	A tensor $T$ of rank [k n] $T: \Omega_k \times V^n \to \mathbb{R}$ is a multilinear map that k 1-forms and n 1-vectors to $\mathbb{R}$. 
+	A tensor $T$ of rank [k n] $T: \Omega_k \times V^n \to \mathbb{R}$ is a multilinear map that takes a k-form (or k 1-forms) and an n-vector (or n 1-vectors) to $\mathbb{R}$. 
 \end{defn}
 
 From a mathematical perspective, this is entirely valid, and does not detract from solving problems in physics. Furthermore, it has the added bonus of emphasizing that k-forms and k-vectors are in a sense two sides of the same coin\footnote{Properly speaking, k-forms and k-vectors are \emph{dual} to each other}, neither occupies a preferred position as the operator or as the object being operated on. From a physical perspective, however, this has somewhat unfortunate implications. Recall that in Section 2.2 we motivated the discussion of covectors using force, and of vectors using infinitesimal displacement. Mathematically, we would be entirely within our rights to say that an infinitesimal displacement is a function on a force that produces work, rather than saying that the force is a function on an infinitesimal displacement that produces work. This is not a physically sensible approach, as it would imply treating momentum as a function, and force as a displacement, so we will be continuing to be emphasizing covectors and k-forms as being functions of vectors and k-vectors, while also using the transformation law as the defining characteristic of tensors.
@@ -459,13 +462,13 @@ From a mathematical perspective, this is entirely valid, and does not detract fr
 
 \section{Stokes' Theorem}
 
-Suppose we have a volume $\sigma^3 \in S^3$ (such as a sphere) with some source of flow $\omega_2 \in \Omega_2$ enclosed by the sphere, and 2-functional $f_2 \in F^2$ such that for $\sigma^2 \in S^2$, $f_2(\sigma^2) = \int_{\sigma^2} \omega_2(d\sigma^2)$. $\omega_2$ cannot operate on $\sigma^3$, as $\sigma^3$ is in $S^3$, and $\omega_2$ is in $\Omega_2$. That is, it cannot return the flux through infinitesimal bits of the sphere. What it \emph{can} do, however, is return the flux through infinitesimal bits of the \emph{surface} of the sphere: $\partial \sigma^3 \in S^2$. We can write then $f_2(\partial\sigma^3) = \int_{\partial\sigma^3} \omega_2 (d\partial\sigma^3)$. Recalling Definition 1.14, we know that $f_2(\partial\sigma^3) = \eth f_2(\sigma^3)$. And furthermore, $\eth f_2(\sigma^3) = \int_{\sigma^3} \eth\omega_2(d\sigma^3)$. Therefore, we have $\int_{\partial \sigma^3} \omega_2(d\partial\sigma^3) = \int_{\sigma^3} \eth \omega_2(d\sigma^3)$. 
+Suppose we have a volume $\sigma^3 \in S^3$ (such as a sphere) with some source of flow $\omega_2 \in \Omega_2$ enclosed by the sphere, and 2-functional $f_2 \in F^2$ such that for $\sigma^2 \in S^2$, \begin{gather}f_2(\sigma^2) = \int_{\sigma^2} \omega_2(d\sigma^2).\end{gather} $\omega_2$ cannot operate on $\sigma^3$, as $\sigma^3$ is in $S^3$, and $\omega_2$ is in $\Omega_2$. That is, it cannot return the flux through infinitesimal bits of the sphere. What it \emph{can} do, however, is return the flux through infinitesimal bits of the \emph{surface} of the sphere: $\partial \sigma^3 \in S^2$. We can write then \begin{gather}f_2(\partial\sigma^3) = \int_{\partial\sigma^3} \omega_2 (d\partial\sigma^3).\end{gather} Recalling Definition 1.14, we know that \begin{gather}f_2(\partial\sigma^3) = \eth f_2(\sigma^3).\end{gather} And furthermore, \begin{gather}\eth f_2(\sigma^3) = \int_{\sigma^3} \eth\omega_2(d\sigma^3).\end{gather} Therefore, we have \begin{gather}\int_{\partial \sigma^3} \omega_2(d\partial\sigma^3) = \int_{\sigma^3} \eth \omega_2(d\sigma^3).\end{gather}
 
 \textbf{NOTE: Given a functional of nD, we can create a functional of (n+1)D that can operate on the boundary. Given $f_2$, we can always create a functional that applies in 3D by taking the boundary and giving it to $f_2$. Then we say for $df_2$ there is an operator associated with it called $\eth$ and then we'll say that it's the exterior derivative. }
 
-Just say we know how to calculate the flux through a surface, we can create an operator that takes the flux through the volume, then we get Stokes theorem. Don't mix up that Stokes theorem (there are things we can up and down in dimensions) and that we have closed forms from which we can create a potential. These should be two seperate things. 
+\textbf{Just say we know how to calculate the flux through a surface, we can create an operator that takes the flux through the volume, then we get Stokes theorem. Don't mix up that Stokes theorem (there are things we can up and down in dimensions) and that we have closed forms from which we can create a potential. These should be two seperate things.} 
 
-As examples: we start with a force (a function of a line), and we can get work. From that we can create a functional that take a surface, take the boundary and it gives you the work to go around the boundary. And if the force is conservative, then you get zero. So the functional applied to the surface always will be zero. Saying that the force is conservative is equivalent to saying that this higher dimensional functional is the zero functional. So now we want a relationship that's local. Instead of having a condition on the integral, we want a condition on the differential at the point (local). The idea is that since we know for any functional there is a form, we want to understand what's the k-functional with the k-form
+\textbf{As examples: we start with a force (a function of a line), and we can get work. From that we can create a functional that given a surface, takes the boundary and returns the work to go around the boundary. And if the force is conservative, then you get zero. So the functional applied to the surface always will be zero. Saying that the force is conservative is equivalent to saying that this higher dimensional functional is the zero functional. So now we want a relationship that's local. Instead of having a condition on the integral, we want a condition on the differential at the point (local). The idea is that since we know for any functional there is a form, we want to understand what's the k-functional with the k-form}
 
 There are two very important results drawn from this derivation. First, we now have an operator $\eth : \Omega_k \to \Omega_{k+1}$, just as we had $\eth : F_k \to F_{k+1}$. We define the former, then, as the \textbf{exterior derivative} on k-forms\footnote{In most texts on the subject (cf. Curtis and Miller, "Differential Manifolds and Theoretical Physics"), the exterior derivative is denoted simply with a $d$}. The second result is a generalization of something that may be familiar to the reader who's taken vector calculus: Stokes' Theorem. 
 
@@ -474,14 +477,19 @@ There are two very important results drawn from this derivation. First, we now h
 \begin{defn}
 	$\eth : \Omega_k \to \Omega_{k+1}$ is the \textbf{exterior derivative} on k-forms, such that for k-surface $\sigma$ and (k-1)-functional $f$ with associated (k-1)-form $\omega$, 
 	
-	$f$($\sigma$) = $\int_{\sigma}\omega(d\sigma)$ and $\eth f(\sigma) = f(\partial\sigma)$
+	\begin{gather}f(\sigma) = \int_{\sigma}\omega(d\sigma)\end{gather} and \begin{gather} \eth f(\sigma) = f(\partial\sigma) \end{gather}
 	
-	$\implies \eth f(\sigma) = \int_{\partial\sigma} \omega(d\partial\sigma) = \int_{\sigma} \eth\omega(d\sigma)$. 
+	\begin{gather}\implies \eth f(\sigma) = \int_{\partial\sigma} \omega(d\partial\sigma) = \int_{\sigma} \eth\omega(d\sigma).\end{gather} 
 \end{defn}
 
 
 
 
+ 
+ 
+ 
+ 
+ 
  
 
 \begin{tikzpicture}
@@ -507,7 +515,7 @@ squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size
 	\textbf{Stokes' Theorem}: For (k-1)-form $\omega$ and k-surface $\sigma$, $\int_{\partial \sigma}\omega = \int_{\sigma}\eth\omega$. \textbf{NOTE: We kinda already gave this definition in the exterior derivative deifnition. It's kinda funny. We can handle this two ways: define the exterior derivative as being an operation that does the thing, and have stoke's theorem be waht the exterior derivative does. }
 \end{defn}
 
-In many treatments of Electromagnetism (for example, "Classical Electromagnetic Radiation" by Heald and Marion), Stokes' Theorem is given in terms of the curl as $\int_S \nabla \times \vec{A} \cdot d\vec{S} = \oint_{\Gamma} \vec{A} \cdot d\vec{l}$ (\textbf{Figure out how to categorize these terms}). This allows us to take a brief digression to see how the tools we have defined look in the more familiar 3D cases. 
+In many treatments of Electromagnetism (for example, "Classical Electromagnetic Radiation" by Heald and Marion), Stokes' Theorem is given in terms of the curl as \begin{gather}\int_S \nabla \times \vec{A} \cdot d\vec{S} = \oint_{\Gamma} \vec{A} \cdot d\vec{l}\end{gather} (\textbf{Figure out how to categorize these terms}). This allows us to take a brief digression to see how the tools we have defined look in the more familiar 3D cases. 
 
 \textbf{Introduce this wedge-product formulation of the k-form before this}
 
