@@ -428,7 +428,7 @@ Nature does not come prepackaged with a specific, preferred coordinate system. I
 
 So, suppose we have a covector $\omega = \omega_i \frac{\partial x^i}{\partial \lambda}$, as in section 2.4. $x^i$ is the thing that describes this covector relative to a specific coordinate system, which we will call $Q$. Suppose now we have coordinate system $Q'$. We can transform $\omega$ to $\omega'$ by writing $\omega' = \omega_j \frac{\partial x^i}{\partial \lambda} \frac{\partial x'^j}{\partial x^i} = \omega \frac{\partial x'^j}{\partial x^i}$. Similarly, a vector $v$ will transform to $v'$ as $v' = v \frac{\partial x^i}{\partial x'^j}$. 
 
-\textbf{Clean up this derivation, it's not quite right}
+\textbf{Clean up this derivation, it's not quite right. Notes are in overleaf}
 
 In general, an object that has such a relationship with objects in other coordinate systems are called \textbf{tensors}. 
 
@@ -541,7 +541,11 @@ With these new, more general geometric expressions for gradient, curl, and diver
 
 \textbf{NOTE: In fluid dynamics for divergenceless fluid, there's something called stream functions}
 
+\textbf{Bohm: If the form is closed, then the exterior derivative is always zero, thus all the integrals on closed surface that can be shrunk to a point will be zero. So, taking a convex region, we can create a potential there. z.B. assume we have a line}
 
+\textbf{If it happens that the number for all closed surfaces (small enough up to a certain point) are always zero, then the form/functional is cosed. If it's zero on all the closed k-surfaces we give it, then its exact. The difference is that both admit potentials, but the closed form is only going to admit a potential in a convex region small enough where al the closed surfaces are zero. The exact will admit a potential globally (an n-1 form/functional that if given the exterior derivative gives the original thing)}
+
+\textbf{Closed if for some set, all closed surfaces give zero for the functional. Exact if that open region corresponds to the whole space. Closed implies exact, but not the other way around}
 
 
 
