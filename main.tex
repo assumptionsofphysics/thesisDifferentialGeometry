@@ -376,7 +376,7 @@ Consider the problem now of constructing surfaces, volumes, and their higher dim
 
 
 
-Consider $\omega_k \in \Omega^k$, $v^i \in V^i$, and $v^j \in V^j$ such that $i + j = k$. We may equivalently express $\omega_k(v^i, v^j)$ as an operation on the wedge of $v^i$ and $v^j$ such that \begin{gather}\omega_k(v^i, v^j) = \omega_k(v^i \wedge v^j) = -\omega_k(v^j \wedge v^i).\end{gather} We can say also that \begin{gather}\omega_k(v^i \wedge v^j) = \omega_i(v^i)\wedge \omega_j(v^j) = -\omega_j(v^j) \wedge \omega_i(v^i).\end{gather} We see therefore that the skew-symmetric nature of k-vectors carries over to the k-forms. 
+Consider $\omega_k \in \Omega^k$, $v^i \in V^i$, and $u^j \in V^j$ such that $i + j = k$. We may equivalently express $\omega_k(v^i, v^j)$ as an operation on the wedge of $v^i$ and $u^j$ such that \begin{gather}\omega_k(v^i, u^j) = \omega_k(v^i \wedge u^j) = -\omega_k(u^j \wedge v^i).\end{gather} We can say also that \begin{gather}\omega_k(v^i \wedge u^j) = \omega_i(v^i)\wedge \omega_j(u^j) = -\omega_j(u^j) \wedge \omega_i(v^i).\end{gather} We see therefore that the skew-symmetric nature of k-vectors carries over to the k-forms. 
 
 Generally speaking, expressing the operation of a k-form on an i-vector and j-vector is done using the component notation ($\omega_k(v^i, v^j)$), rather than the wedge notation. Also, it must be noted that k-vectors and k-forms cannot be arbitrarily decomposed into constituent vectors and forms of lower rank. They \emph{can}, however, be arbitrarily combined to create vectors and forms of higher rank. 
 
@@ -397,19 +397,15 @@ Generally speaking, expressing the operation of a k-form on an i-vector and j-ve
 Up until this point in our discussion of k-forms and k-vectors, we've remained in a general coordinate-free form. For a conceptual understanding of the tools in use, this is just fine, and is in fact preferable. It shows that the math up until this point is "universal," and can be applied to any frame of reference without sacrificing scientific validity. Furthermore, it should be noted that nature itself is coordinate-free. The universe doesn't come prepackaged with coordinates, rather they are something that humans have created to streamline scientific investigation. The caveat to this is that while coordinate-free works well for conceptual understanding, it isn't all that useful for solving actual problems in physics, which is the entire point. Therefore, in this section, we will begin imposing coordinates on the systems we're working with. 
 
 
-Recall now definitions 1.1 and 1.2, and say we have a point $P$ on a manifold $X$, and let $dP$ be a displacement starting at point $P$. At this moment, the vector is coordinate-free; a thing "in itself", if you will. In some neighborhood of $P$ there will be a coordinate system defined that we can use to describe $dP$. Mathematically, this relates to defining the coordinate system in terms of the \textbf{basis}, and assigning $dP$ directional components  along each basis vector, the sum of which gives us $dP$. So, $dP = dx^i \frac{\partial P}{\partial x^i} = dx^i e_i$,\footnote{There is an implied sum over $i$ here. That is, $\sum_i^n dx^i e_i = dx^i e_i$. Such notation can be used any time there is a matching upper and lower index. This is Einstein Summation Convention, and is heavily used throughout physics. It is therefore necessary to become comfortable with it.} where $e_i$ is the ith basis vector, and $dx^i$ is the vector component along that basis. In other words, we can say that $dx^1e_1$ gives us an infinitesimal segment along $x^1$, $dx^2e_2$ along $x^2$, and so on. 
+Recall now definitions 1.1 and 1.2, and say we have a point $P$ on a manifold $X$, and let $dP$ be a displacement starting at point $P$. At this moment, the vector is coordinate-free; a thing "in itself", if you will. In some neighborhood of $P$ there will be a coordinate system defined that we can use to describe $dP$. Mathematically, this relates to defining the coordinate system in terms of the \textbf{basis}, and assigning $dP$ directional components  along each basis vector, the sum of which gives us $dP$. So, \begin{gather}dP = dx^i \frac{\partial P}{\partial x^i} = dx^i e_i,\end{gather} where $e_i$ is the ith basis vector, and $dx^i$ is the vector component along that basis.\footnote{There is an implied sum over $i$ here. That is, $\sum_i^n dx^i e_i = dx^i e_i$} In other words, we can say that $dx^1e_1$ gives us an infinitesimal segment along $x^1$, $dx^2e_2$ along $x^2$, and so on. 
 
 
 \begin{defn}
-	The \textbf{basis} of a space are a set of linearly independent directions such that any element of that space may be constructed using the basis vectors. In $\mathbb{R}^3$, the basis vectors are equivalently $(e^1, e^2, e^3), (\hat{x}, \hat{y}, \hat{z}), (\hat{i}, \hat{j}, \hat{k})$, among others. 
+	The \textbf{basis} of a space are a set of linearly independent directions such that any element of that space may be constructed using the basis vectors. In $\mathbb{R}^3$, the basis vectors are equivalently $(e^1, e^2, e^3), (\hat{x}, \hat{y}, \hat{z}), (\hat{i}, \hat{j}, \hat{k})$, among others. We can see from (2.16) that the basis can be thought of as a ratio between differentials and infinitesimal segments. 
 \end{defn}
 
 
-\textbf{NOTE: Fix this deifnition without using vectors, use directions. Basis can be seen as ratio between the differentials and the segment}
 
-\begin{defn}
-	\textbf{Differential elements} $dx^i$ are the infinitesimal components which we will be integrationg along.  
-\end{defn}
 
 \textbf{NOTE: Tread carefully with the language. }
 
@@ -512,7 +508,7 @@ squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size
 	\textbf{Stokes' Theorem}: For (k-1)-form $\omega$ and k-surface $\sigma$, $\int_{\partial \sigma}\omega = \int_{\sigma}\eth\omega$. \textbf{NOTE: We kinda already gave this definition in the exterior derivative deifnition. It's kinda funny. We can handle this two ways: define the exterior derivative as being an operation that does the thing, and have stoke's theorem be waht the exterior derivative does. }
 \end{defn}
 
-In many treatments of Electromagnetism (for example, "Classical Electromagnetic Radiation" by Heald and Marion), Stokes' Theorem is given in terms of the curl as \begin{gather}\int_S \nabla \times \vec{A} \cdot d\vec{S} = \oint_{\Gamma} \vec{A} \cdot d\vec{l}\end{gather} (\textbf{Figure out how to categorize these terms}). This allows us to take a brief digression to see how the tools we have defined look in the more familiar 3D cases. 
+In many treatments of Electromagnetism (for example, "Classical Electromagnetic Radiation" by Heald and Marion), Stokes' Theorem is given in terms of the curl as \begin{gather}\int_S \nabla \times \vec{A} \cdot d\vec{S} = \oint_{\Gamma} \vec{A} \cdot d\vec{l}.\end{gather} This allows us to take a brief digression to see how the tools we have defined look in the more familiar 3D cases. 
 
 \textbf{Introduce this wedge-product formulation of the k-form before this}
 
@@ -528,7 +524,19 @@ With these new, more general geometric expressions for gradient, curl, and diver
 
 \textbf{NOTE: Closed form relates to potentials with a point taken out, or a divergenceless field. So, the magnetic field. Motivate it based on that. If we have a conservative force (electric z.b.), the fact that it's conservative }
 
+Within differential forms lies the generalization of the mathematical structure underlying potentials, forces, and fields. Consider a 
 
+There are two classes of k-forms here we want to focus on: \textbf{closed} forms and \textbf{exact} forms.
+ 
+\begin{defn} 
+	A k-form \textbf{$\omega$} is closed if $\eth\omega = 0$. 
+\end{defn}
+
+\begin{defn} 
+	A k-form \textbf{$\omega$} is exact if there exists a (k-1)-form $\alpha$ such that $\omega = \eth\alpha$.
+\end{defn}
+
+It follows from this that all exact forms are closed (since $\eth\eth\omega = 0$ for all forms), but not all closed forms are exact. Consider for instance the field $F = y e_x + x e_y$. $F$ is closed, since $\frac{\partial F_x}{\partial y} - \frac{\partial F_y}{\partial x} = 0$, but it is not the exterior derivative of any other form, so it is not exact. A form being exact relates to a force being conservative. The field $F$, therefore, does not represent a conservative force field (it is not path independent). However, a region may be constructed such that the field is \emph{locally} conservative. The only requirement to this region is that it does not include the origin. Thus, a field may be locally conservative, even if it is not globally conservative. Therefore, a potential exists in that local region. 
 
 \section{Electricity and Magnetism}
 
