@@ -187,7 +187,11 @@ We can map between a k-surface and its boundary, if it exists, with the \textbf{
 \section{Linear Functionals of K-surfaces}
 \textbf{Conservative force is exterior derivative of some potential, and is therefore closed (ext derivative is 0) and exact. A nonconservative force will not be closed, but can be discussed using one-forms}
 
-\textbf{Path independence is not necessary to talk about. The functional depends on the path. If it only depends on the beginning and end points, it's a boundary functional. Say "Force dpeends on the path and that's good. Later the force only depends on the starting and end, then it's a boundary functional / gradiant of some scalar field"}
+\textbf{Path independence is not necessary to talk about. The functional depends on the path. If it only depends on the beginning and end points, it's a boundary functional. Say "Force dpeends on the path and that's good. Later the force only depends on the starting and end, then it's a boundary functional / gradiant of some scalar field".}
+
+\textbf{Important idea i sthat we're giving a shape a number. The fact that we can do all these things without defining tangent space and such is the important stuff.}
+
+\textbf{Here, we can get to the exterior derivative, and the finite form of stokes' theorem}
 
 Say we have a path on our manifold (that is, a 1-surface), along which we want a particle to travel, and suppose we have a force in play with some sort of effect on the particle. We can define a work function $W$ which, with the aforementioned defined force, takes a path $\lambda$ and returns the work (a scalar) necessary to move the particle along that path. More concretely, say we have a line $\lambda$ with starting point $a$, ending point $c$, and some middle point $b$. We can say that 
 \begin{gather} W(\lambda_{a \to c}) = W(\lambda_{a \to b}) + W(\lambda_{b \to c}).
@@ -329,6 +333,8 @@ We propose that in the general kth case, we can through integration connect our 
 Using line segments or parallelograms as our infinitesimal elements is not sufficient on a k-surface. At this point, we must make use of infinitesimal \emph{parallelepipeds}: a k-dimensional shape whose sides are (k-1)-parallelepipeds. Whereas before when the line segments would be stuck end-to-end, the parallelepipeds will be stuck side-to-side, such that one side of one parallelepiped makes up one side of the other. We can say that the infinitesimal elements in the cases of k=1 and k=2 are still parallelepipeds. In the case of k = 1, an infinitesimal segment may be thought of as a parallelepiped without width or height. By that same thinking, when k = 2, an infinitesimal area on a 2-surface may be thought of as a parallelepiped without height. 
 
 
+\textbf{Make it clear when I'm being precise and when I'm not. There's a combination of being geometrically nice, but not mathematically precise}
+
 \begin{defn}
 	A \textbf{k-vector} $v^k \in V^k$ is an infinitesimal parallelepiped on a k-surface. A vector as discussed previously is a 1-vector. 
 \end{defn}
@@ -357,7 +363,7 @@ To finish up the generalization of the previous section, we establish the relati
 	Every linear k-functional has a corresponding k-form, such that for $f_k : S^k \to \mathbb{R}$, $f_k = \int_{\sigma^k} \omega_k(d\sigma^k)$. In words, a linear functional applied over a k-surface is the same as an integral of a k-form over the infinitesimal parallelepipedes of that k-surface. 
 \end{prop}
 
-\textbf{(Look up geometric measure theory. Highlight in the introduction that the definitions as we put them don't give diff forms (because the space isn't specifically differentiable, since we can add discontinuities and still end up with the same integral), but that this gives the right intuition. For a density, add a constant at a particular point. It doesn't change the over all mass. Take a force and increase it by a constant at a particular point, doesn't change the overall work)}
+\textbf{(Look up geometric measure theory. Highlight in the introduction that the definitions as we put them don't give diff forms (because the space isn't specifically differentiable, since we can add discontinuities and still end up with the same integral), but that this gives the right intuition. For a density, add a constant at a particular point. It doesn't change the over all mass. Take a force and increase it by a constant at a particular point, doesn't change the overall work. Better justification: for any functional, you can find a functional that is arbitrarily close to it, like how any function has a differentiable function that arbitrarily close to it)}
 
 A clarification must be made now. In most treatments of electromagnetism, the magnetic field $B$ is what a pseudeovector. What this means is that $B$ behaves as a vector when undergoing rotation, but when undergoing reflection gains an additional sign flip. This particular characterization of $B$ depends on a notion of perpendicularity that is true for $\mathbb{R}^3$, but isn't for $\mathbb{R}^4$ and above, and is also the reason why we will not be using the cross product in our discussion here. The cross product depends on there being only one linearly independent direction normal to a surface, which is the case in $\mathbb{R}^3$. In $\mathbb{R}^4$ on the other hand, there are \emph{two} directions normal to each surface, and in general n-dimensional space, there will be (n-2) linearly independent perpendiculars. What we do instead is keep track of components using the two directions tangent to the surface, rather than by the direction normal to the surface (i.e., $B_z$ is actually $B_{xy}$). Furthermore, the cross product requires that angles be defined, from which comes perpendicularity and the normal vector, and the reader may have noticed that we have not yet given any notion of angles (that comes in chapter 3). 
 
@@ -469,6 +475,8 @@ There are two very important results drawn from this derivation. First, we now h
 
 
 
+
+\textbf{Not meaningful. Talk about it with boundaries and such.}
 \begin{defn}
 	$\eth : \Omega_k \to \Omega_{k+1}$ is the \textbf{exterior derivative} on k-forms, such that for k-surface $\sigma$ and (k-1)-functional $f$ with associated (k-1)-form $\omega$, 
 	
@@ -530,11 +538,17 @@ With these new, more general geometric expressions for gradient, curl, and diver
 
 \textbf{Distinction between closed and exact disappears in integral (finite) form}
 
+\textbf{We want to be able to build things from the finite concepts first. So in chapter 1, build as much as possible in the finite case. The infinitesimal forms are the limit cases. That makes the finite case geometrical. You don't have to imagine tangent spaces, etc. You are closed if you are closed on surfaces down to a point.}
+
 In our discussions of Work functionals in Chapter 1, there naturally arose a relationship between functionals on boundaries and conservative/non-conservative forces. We can expand on this relationship now by making use of forms and the exterior derivative. 
 
 Suppose we have a 1-functional $W$, a 1-form $f$, and a 0-form $v$, such that $f = \eth v$, and suppose we have some line $\lambda$, such that $W(\lambda) = \int_\lambda f(d\lambda)$. We have that \begin{gather}\int_\lambda f(d\lambda) = \int_\lambda \eth v(d\lambda),\end{gather} which, by Stokes' Theorem, equals \begin{gather} \int_{\partial\lambda} v(d\partial\lambda).\end{gather}
 
-Suppose now that $\lambda$ is a closed loop; that is, its starting and ending points are the same. So, if we want to integrate our form over the entirety of $\lambda$, we have that \begin{gather} \int_{\partial\lambda} v(d\partial\lambda) = 0,\end{gather} so we have finally that \begin{gather} W(\lambda) = 0.\end{gather} Therefore, if we have the starting and ending points of $\lambda$ be the same, it doesn't matter what path we take otherwise, we will always get zero if we give $W$ $\lambda$. If we let $W$ be a work functional, just as in Chapter 1, we see that we have just come across path-independent work and, more importantly, conservative forces. In this case, $f$ is a conservative force, related to a scalar form $v$ by $f = \eth v$. Recalling that the exterior derivative of a 0-form is the same thing as a gradient of a scalar vector field, we see that saying that $f = \eth v$ is equivalent to saying that $F = -\nabla V$, for some conservative force $F$ and scalar potential $V$. The fact that $f = \eth v$ is the very thing that makes $f$ conservative.  
+\textbf{Integrating on the closed loop is directly integrating over the exterior derivative of a thing. Imposing lambda being closed becomes unnecessary with the right application of $\eth$}
+
+Suppose now that $\lambda$ is a closed loop; that is, its starting and ending points are the same. So, if we want to integrate our form over the entirety of $\lambda$, we have that \begin{gather} \int_{\partial\lambda} v(d\partial\lambda) = 0,\end{gather} so we have finally that \begin{gather} W(\lambda) = 0.\end{gather} Therefore, if we have the starting and ending points of $\lambda$ be the same, it doesn't matter what path we take otherwise, we will always get zero if we give $W$ $\lambda$. If we let $W$ be a work functional, just as in Chapter 1, we see that we have just come across path-independent work and, more importantly, conservative forces. In this case, $f$ is a conservative force, related to a scalar potential $v$ by $f = \eth v$. Recalling that the exterior derivative of a 0-form is the same thing as a gradient of a scalar vector field, we see that saying that $f = \eth v$ is equivalent to saying that $F = -\nabla V$, for some conservative force $F$ and scalar potential $V$. The fact that $f = \eth v$ is the very thing that makes $f$ conservative.  
+
+\textbf{This would make more sense in the finite form.}
 
 Now say we have a 1-form $A$ such that $\eth A = 0.$ While it is true in general that $\eth\eth\omega = 0$ for all forms $\omega$, it doesn't necessarily have to be the case that $A = \eth v$ for some 0-form $v.$ Consider, for instance, the field $A = A_x e_x + A_y e_y = \frac{-y}{x^2 + y^2} e_x + \frac{x}{x^2 + y^2} e_y$. $\frac{\partial A_x}{\partial y} - \frac{\partial A_y}{\partial x} = 0$ (making the exterior derivative zero; see (2.41)), but it is not the exterior derivative of any other form. There is also a discontinuity at the point $(x,y) = (0,0)$. In the language of vector calculus, this is a divergenceless field (meaning that there is no "sink"), like the magnetic field, or the vector potential in the Coulomb gauge.  
 
