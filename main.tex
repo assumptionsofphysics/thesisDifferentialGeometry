@@ -114,7 +114,7 @@ Earlier, weather was given as an example of a set of possible cases of a system,
 
 \end{itemize}
 
-The variety of examples is to show the ubiquitousness of manifolds, and that they are very familiar, everyday objects. This versatility proves their usefulness in physics, and in scientific investigation in general. But unlike in the case of the Earth, manifolds do not in general come prepackaged with a notion of distance. What does it mean, for instance, for there to be distance between weather reports? Perhaps you can argue that distance comes into play by specifying where exactly the weather report was taken, but this is simply the geography example again under a different name. No, in order to define distance on our manifolds, we will need to wait until Chapter 3. 
+The variety of examples is to show the ubiquitousness of manifolds, and that they are very familiar, everyday objects. This versatility proves their usefulness in physics, and in scientific investigation in general. But unlike in the case of the Earth, manifolds do not in general come prepackaged with a notion of distance. What does it mean, for instance, for there to be distance between weather reports? Perhaps you can argue that distance comes into play by specifying where exactly the weather report was taken, but this is simply the geography example again under a different name. No, defining distance on manifolds requires first the definition of a particular mathematical structure, which will be touched on in Chapter 3. 
 
 
 \section{Sub-manifolds and k-surfaces}
@@ -193,10 +193,12 @@ We can map between a k-surface and its boundary, if it exists, with the \textbf{
 
 \textbf{Here, we can get to the exterior derivative, and the finite form of stokes' theorem}
 
-Say we have a path on our manifold (that is, a 1-surface), along which we want a particle to travel, and suppose we have a force in play with some sort of effect on the particle. We can define a work function $W$ which, with the aforementioned defined force, takes a path $\lambda$ and returns the work (a scalar) necessary to move the particle along that path. More concretely, say we have a line $\lambda$ with starting point $a$, ending point $c$, and some middle point $b$. We can say that 
-\begin{gather} W(\lambda_{a \to c}) = W(\lambda_{a \to b}) + W(\lambda_{b \to c}).
-\end{gather}
- The work function is thus a linear function along a 1-surface: a \textbf{1-functional}. Furthermore, just as 1-surfaces are a specific subset of k-surfaces, we can say that 1-functionals are a specific subset of \textbf{k-functionals}, which in general will be functions along k-surfaces. 
+
+We began our discussion of manifolds by assigning real number values to individual points on a more abstract space. This related to the determination of physical cases, given some set of possibilities, and we were able to define coordinate systems. We will now be extending that process to arbitrary submanifolds, such that we will be able to assign real numbers to lines, areas, bodies, etc., corresponding to some physical property of that object. This may sound much more abstract than it actually is. In reality, all that we are doing here is quantifying and mathematically formalizing scientific investigation with as few tools as possible. 
+
+For example, consider a topographic map of the Earth (a map distinguishing elevations), which we will denote by $M$. A coordinate system $Q: U \subset M \to \mathbb{R}$ will therefore take into account not only lateral and longitudinal positions, as in the geography example before, but also elevation. Now, let's place a baseball on this topographic map, and allow it to roll freely under the force of gravity and (in general) resisted by friction. Call the baseball's path $\lambda$. $\lambda$ is simply a 1-surface on $M$. As the baseball travels along $\lambda$, we can determine the work done on the baseball by gravity and friction. Denote the work done on the baseball as $W$, such that $W(\lambda)$ is the work done on the baseball along $\lambda$. Specify now three points along $\lambda$: $a, b,$ and $c$, such that $a \in \lambda$ is the starting point of the path, $c \in \lambda$ is the ending point of the path, and $b$ is some point between them. We can say, therefore, that \begin{gather} W(\lambda_{a\to c}) = W(\lambda_{a \to b}) + W(\lambda_{b \to c}).\end{gather} That is, we can say that the work done over the entire path is equal to the work done over one portion of the path plus the work done over the rest of the path. It follows, therefore, that we can break up the path into as many finite paths as we want, determine the work on each of them, and sum them to get the overall work. In other words, \begin{gather} W(\lambda) = \sum_{i=1}^{n} W(\lambda_i) \end{gather} for a line split into $n$ pieces (not necessarily equally large). The function $W$ is therefore linear. We call such a function a 1-functional, or a linear functional over 1-surfaces. 
+
+
 
 
 
@@ -204,7 +206,7 @@ Say we have a path on our manifold (that is, a 1-surface), along which we want a
 \begin{defn}
 	A \textbf{linear function of k-surfaces}, or \textbf{k-functional}, is a function $f_k : S^k \to \mathbb{R}$ such that:
 	
-	I. $f_k$ is linear: for $\sigma^k_1$, $\sigma^k_2 \in S^k$, if \begin{gather}\sigma^k_1 \cap \sigma^k_2 \subseteq \partial \sigma^k_1 \cup \partial \sigma^k_2\end{gather}, then \begin{gather}f_k(\sigma^k_1\cup \sigma^k_2) = f_k(\sigma^k_1) + f_k(\sigma^k_2) \end{gather};
+	I. $f_k$ is linear: for $\sigma^k_1$, $\sigma^k_2 \in S^k$, if \begin{gather}\sigma^k_1 \cap \sigma^k_2 \subseteq \partial \sigma^k_1 \cup \partial \sigma^k_2,\end{gather} then \begin{gather}f_k(\sigma^k_1\cup \sigma^k_2) = f_k(\sigma^k_1) + f_k(\sigma^k_2); \end{gather}
 	
 	II. $f_k$ commutes with the limit. That is, the limit of the function is the function of the limit. 
 \end{defn}
