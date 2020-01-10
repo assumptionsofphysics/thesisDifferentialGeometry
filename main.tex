@@ -202,7 +202,7 @@ As another example, consider a surface $\sigma$, and a function $\Phi: S^2 \to \
 
 This sort of linear functions over objects extends to the general kth case. We define therefore \textbf{k-functionals} $f_k : S^k \to \mathbb{R}$ as linear functionals over k-surfaces, meaning that such a functional applied over the entire k-surface is equivalent to applying the functional to component pieces of the k-surface and summing the contributions, as long as the components overlap only on their boundaries. 
 
-One more specification is necessary: the fact that $f_k$ must commute with the limit. Consider a straight line $\lambda$ with components in $x$ and $y$. The length $L$ of $\lambda$ is thus $L = \sqrt(x^2 + y^2)$. This is emphatically \emph{not} the same as the sum of the lengths of each of the components, which would be $|x| + |y|$. In other words, the length of the limit is not the limit of the length. 
+One more specification is necessary: the fact that $f_k$ must commute with the limit. Consider a straight line $\lambda$ with components in $x$ and $y$. The length $L$ of $\lambda$ is thus $L = \sqrt(x^2 + y^2)$. This is emphatically \emph{not} the same as the sum of the lengths of each of the components, which would be $|x| + |y|$. In other words, the length of the limit is not the limit of the length. This is in some sense a continuation of the argument made at the very end of section 1.1, where we stated that we are not, in general, working on manifolds that contain an inborn notion of length. The greater importance of this lies in the fact that we can continue to develop our mathematical structure for physical investigation without imposing any further assumptions. These tools continue to work in general, being just as valid for working in phase space, on a topographic map, or on a map of the earth, etc. 
 
 
 
@@ -221,6 +221,8 @@ One more specification is necessary: the fact that $f_k$ must commute with the l
 \begin{defn}
 	$F_k$ is the set of all functionals of dimension k, and $F = \cup_{k=0}^nF_k$ is the set of all functionals. 
 \end{defn}
+
+Let's return now to the work example. Suppose we have a closed line $\lambda$; that is, it's starting point and ending point are the same. $W(\lambda)$ will in general have some nonzero value. In other words, a particle confined to $\lambda$ will have work done on it by (for instance) gravity, drag, etc. 
 
 
 In the most general case, the work done along a path will depend on the path itself. For certain forces, however, the work done will depend only on the starting and ending points of the path. That is, it depends only on the \emph{boundary} of the path. This implies that for such a force, if the path is closed (i.e., the starting and ending points are the same), the total work done will be zero. Forces that do path-independent work are called conservative, while those that do not are called nonconservative. 
