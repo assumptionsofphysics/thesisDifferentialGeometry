@@ -1,6 +1,7 @@
 \documentclass{book}
 \usepackage{mathtools}
 \usepackage{tikz}
+\usepackage{tikz-cd}
 \usetikzlibrary{positioning}
 
 \usepackage{amsthm}
@@ -75,20 +76,14 @@ With coordinate systems now defined, we recognize that in many instances, two di
 
 \textbf{May have to describe the meaning of the diagram, reader might not know. Could be talked about with the notation table in the beginning}
 
-\begin{tikzpicture}
-[roundnode/.style={circle, draw=green!60, fill=green!5, very thick, minimum size=7mm},
-squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size=5mm},
-]
-\node[roundnode]	(U) {U};
-\node[roundnode]	(V) [below=of U]{V};
-\node[squarednode]	(realU) [right=of U] {$\mathbb{R}^n$};
-\node[squarednode]	(realV) [right=of V] {$\mathbb{R}^n$};
 
-\draw[<->] (U) -- (realU) node[midway, above] {$Q$};
-\draw[<->] (U) -- (V) node[midway, left] {$U\cap V$};
-\draw[<->] (V) -- (realV) node[midway, below] {$Q'$};
-\draw[<->] (realU) -- (realV);
-\end{tikzpicture}
+
+\begin{center}
+\begin{tikzcd}
+	U \arrow[r, "Q", leftrightarrow] \arrow[d, "U \cap V" left, leftrightarrow] & \mathbb{R}^n \\
+	V \arrow[r, "Q'", leftrightarrow] & \mathbb{R}^n \arrow[u, leftrightarrow]
+\end{tikzcd}
+\end{center}
 
 
 Because of the poles, every location on Earth cannot be equally quantified with only one set of coordinates. This can be plainly seen on a typical flat map, such as a Mercator Projection. Land proportions grow the closer to a pole they are, making Greenland appear massive, and the Sahara proportionally far smaller. Furthermore, and more importantly, because the poles have in a sense been unraveled, the South Pole, which ought to be a single point, is an entire line along the southern edge of the map. A projection of the Earth onto a flat surface, such that one point on the Earth maps to one point on the surface, requires at least two separate maps. For instance, you could have a map of the top hemisphere, centered at the north pole, and then of the bottom hemisphere, centered at the south pole. The Earth, then, is an example of a \textbf{manifold}. 
@@ -126,20 +121,14 @@ Consider again the weather report example, where we are taking into account wher
 	Consider a manifold X of dimension n, and a manifold Y of dimension k, such that $k \leq n$. Y is a \textbf{submanifold} or a \textbf{k-surface}\footnote{In general, we will be using the term "k-surface", instead of "submanifold." There will be many terms throughout this thesis prefaced by "k-". In general, this means that the object in question has k dimensions, and can be organized by their dimensionality.} of X if any point on Y is also a point on X. 
 \end{defn}
 
-\begin{tikzpicture}
-[roundnode/.style={circle, draw=green!60, fill=green!5, very thick, minimum size=7mm},
-squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size=5mm},
-]
-\node[roundnode]	(X) {X};
-\node[roundnode]	(Y) [below=of X]{Y};
-\node[squarednode]	(realX) [right=of X] {$\mathbb{R}^n$};
-\node[squarednode]	(realY) [right=of Y] {$\mathbb{R}^k$};
 
-\draw[<->] (X) -- (realX) node[midway, above] {$Q$};
-\draw[->] (X) -- (Y) node[midway, left] {$U\cap V$};
-\draw[<->] (Y) -- (realY) node[midway, below] {$P$};
-\draw[->] (realU) -- (realV);
-\end{tikzpicture}
+
+\begin{center}
+\begin{tikzcd}
+X \arrow[r, "Q", leftrightarrow] \arrow[d, "X \cap Y" left, hook] & \mathbb{R}^n \arrow[d, hook]\\
+Y \arrow[r, "P", leftrightarrow] & \mathbb{R}^k
+\end{tikzcd}
+\end{center}
 
 
 
