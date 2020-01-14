@@ -23,7 +23,6 @@
 
 \tableofcontents
 
-\emph{I'd like to include a table here with mathematical notation, giving brief explanations for what symbols such as $\in$, $\subset$, $\mathbb{R}$, etc. mean, just in case the reader isn't familiar with them.}
 
 \clearpage
 
@@ -35,7 +34,7 @@
 \section{Foreword}
 In transitioning to advanced classes, a physics student will find their familiar mathematical tools are inadequate to describe certain physical phenomena. The methods of traditional vector calculus in three dimensions, though very useful in electromagnetism and classical mechanics, are not always usable in higher dimensions, such as those used in general relativity and Hamiltonian mechanics. For that, we need differential geometry. When trying to learn a subject in mathematics, however, you tend to find books written for mathematicians, in a language that mathematicians are familiar with. As such, they are filled with long, obtuse definitions and prose that, while mathematically very precise, isn't exactly light reading, and can even be overkill for a proper physical understanding. 
 
-What follows is a purely physical treatment of differential geometry used in physics. While it is less mathematically rigorous than a typical textbook, the hope is that the reader will be able to gain a geometric intuition for the math they use, so that the math isn't simply a black box beyond understanding, and that further study in the subject will be aided by a solid grounding here. The focus is always on readability, applicability, and physicality, so pictures are prevalent throughout. 
+What follows is a purely physical treatment of differential geometry used in physics. While it is less mathematically rigorous than a typical textbook, the hope is that the reader will be able to gain a geometric intuition for the math they use, so that the math isn't simply a black box beyond understanding, and that further study in the subject will be aided by a solid grounding here. The focus is always on readability, applicability, and physicality. 
 
 We assume on the part of the reader a class in introductory classical mechanics and electromagnetism, as well as vector calculus. More advanced topics in physics and mathematics may be touched on, but only for the use of giving an example, or demonstrating the usefulness of these mathematical tools. 
 
@@ -73,8 +72,6 @@ With coordinate systems now defined, we recognize that in many instances, two di
 \end{defn}
 
 
-
-\textbf{May have to describe the meaning of the diagram, reader might not know. Could be talked about with the notation table in the beginning}
 
 
 
@@ -174,18 +171,17 @@ We can map between a k-surface and its boundary, if it exists, with the \textbf{
 
 
 \section{Linear Functionals of K-surfaces}
-\textbf{Conservative force is exterior derivative of some potential, and is therefore closed (ext derivative is 0) and exact. A nonconservative force will not be closed, but can be discussed using one-forms}
 
-\textbf{Path independence is not necessary to talk about. The functional depends on the path. If it only depends on the beginning and end points, it's a boundary functional. Say "Force dpeends on the path and that's good. Later the force only depends on the starting and end, then it's a boundary functional / gradiant of some scalar field".}
 
 \textbf{Important idea i sthat we're giving a shape a number. The fact that we can do all these things without defining tangent space and such is the important stuff.}
 
-\textbf{Here, we can get to the exterior derivative, and the finite form of stokes' theorem}
+
 
 
 We began our discussion of manifolds by assigning real number values to individual points on a more abstract space. This related to the determination of physical cases, given some set of possibilities, and we were able to define coordinate systems. We will now be extending that process to arbitrary submanifolds, such that we will be able to assign real numbers to lines, areas, bodies, etc., corresponding to some physical property of that object. This may sound much more abstract than it actually is. In reality, all that we are doing here is quantifying and mathematically formalizing scientific investigation with as few tools as possible. 
 
-For example, consider a topographic map of the Earth (a map distinguishing elevations), which we will denote by $M$. A coordinate system $Q: U \subset M \to \mathbb{R}$ will therefore take into account not only lateral and longitudinal positions, as in the geography example before, but also elevation. Now, let's place a baseball on this topographic map, and allow it to roll freely under the force of gravity and (in general) resisted by friction. Call the baseball's path $\lambda$. $\lambda$ is simply a 1-surface on $M$. As the baseball travels along $\lambda$, we can determine the work done on the baseball by gravity and friction. Denote the work done on the baseball as $W: S^1 \to \mathbb{R}$, such that $W(\lambda)$ is the work done on the baseball along $\lambda$. Specify now three points along $\lambda$: $a, b,$ and $c$, such that $a \in \lambda$ is the starting point of the path, $c \in \lambda$ is the ending point of the path, and $b$ is some point between them. We can say, therefore, that \begin{gather} W(\lambda_{a\to c}) = W(\lambda_{a \to b}) + W(\lambda_{b \to c}).\end{gather} That is, we can say that the work done over the entire path is equal to the work done over one portion of the path plus the work done over the rest of the path. It follows, therefore, that we can break up the path into as many finite paths as we want, determine the work on each of them, and sum them to get the overall work. In other words, \begin{gather} W(\lambda) = \sum_{i=1}^{n} W(\lambda_i) \end{gather} for a line split into $n$ pieces (not necessarily equally large). We require, however, that the ends are stuck exactly end-to-end (that is, the components overlap on their boundaries). The function $W$ is therefore linear. We call such a function a 1-functional, or a linear functional over 1-surfaces. 
+For example, consider a topographic map of the Earth (a map distinguishing elevations), which we will denote by $M$. A coordinate system $Q: U \subset M \to \mathbb{R}$ will therefore take into account not only lateral and longitudinal positions, as in the geography example before, but also elevation. Now, let's place a baseball on this topographic map, and allow it to roll freely under the force of gravity and (in general) resisted by friction. Call the baseball's path $\lambda$. $\lambda$ is simply a 1-surface on $M$. As the baseball travels along $\lambda$, we can determine the work done on the baseball by gravity and friction. Denote the work done on the baseball as $W: S^1 \to \mathbb{R}$, such that $W(\lambda)$ is the work done on the baseball along $\lambda$. Specify now three points along $\lambda$: $a, b,$ and $c$, such that $a \in \lambda$ is the starting point of the path, $c \in \lambda$ is the ending point of the path, and $b$ is some point between them. We can say, therefore, that \begin{gather} W(\lambda_{a\to c}) = W(\lambda_{a \to b}) + W(\lambda_{b \to c}).\end{gather} [\textbf{Insert a tikz picture here}]
+That is, we can say that the work done over the entire path is equal to the work done over one portion of the path plus the work done over the rest of the path. It follows, therefore, that we can break up the path into as many finite paths as we want, determine the work on each of them, and sum them to get the overall work. In other words, \begin{gather} W(\lambda) = \sum_{i=1}^{n} W(\lambda_i) \end{gather} for a line split into $n$ pieces (not necessarily equally large). We require, however, that the ends are stuck exactly end-to-end (that is, the components overlap on their boundaries). The function $W$ is therefore linear. We call such a function a 1-functional, or a linear functional over 1-surfaces. 
 
 As another example, consider a surface $\sigma$, and a function $\Phi: S^2 \to \mathbb{R}$ that determines magnetic flux, such that $\Phi(\sigma)$ is the magnetic flux through $\sigma$. Similarly to in the case with $\lambda$, we may break up $\sigma$ into finite constituent pieces, attached side-to-side. We therefore have that \begin{gather} \Phi(\sigma) = \sum_{i=1}^n \Phi(\sigma_i) \end{gather} for $\sigma$ broken up into $n$ different pieces, requiring once again that the pieces are stuck exactly side-to-side. We call $\Phi$ a 2-functional, or a linear function over 2-surfaces. 
 
@@ -211,11 +207,11 @@ One more specification is necessary: the fact that $f_k$ must commute with the l
 	$F_k$ is the set of all functionals of dimension k, and $F = \cup_{k=0}^nF_k$ is the set of all functionals. 
 \end{defn}
 
-Let's return now to the work example. Suppose we have a closed line $\lambda$; that is, it's starting point and ending point are the same, or equivalently, it has no boundary ($\partial\lambda = \emptyset$). $W(\lambda)$ will in general have some nonzero value. In other words, a particle confined to $\lambda$ will have work done on it by (for instance) gravity, drag, or other such forces. However, if the particle remains motionless, the work done on the particle will be zero. 
+Let's return now to the work example. Suppose we have a closed line $\lambda$; that is, its starting point and ending point are the same, or equivalently, it has no boundary ($\partial\lambda = \emptyset$). $W(\lambda)$ will in general have some nonzero value. In other words, a particle confined to $\lambda$ will have work done on it by (for instance) gravity, drag, or other such forces. However, if the particle remains motionless, the work done on the particle will be zero. 
 
-Let us impose now one further condition: we will only allow conservative forces such as gravitational force to act on the particle. Therefore, there's no drag, friction, etc. Physically, this means that the work done by the force on the particle will be path independent. In other words, if we have a closed path $\lambda$ and a work function $W$ defined with a conservative force, we have that \begin{gather} W(\lambda) = 0. \end{gather} Notice that this condition is in effect equivalent to the condition that the particle remains motionless, or that the particle remains confined to the boundary of the line. We noted, however, that because $\lambda$ is closed, the boundary $\partial\lambda$ is empty. We have, therefore, that \begin{gather} W(\lambda) = V(\partial\lambda) = V(\emptyset) = 0, \end{gather} defining $V : S^0 \to \mathbb{R}$ such that \begin{gather}W(\lambda) = V(\partial\lambda),\end{gather} recalling that the boundary operator reduces the rank of a surface by one. 
+Let us impose now one further condition: we will only allow conservative forces such as gravitational force to act on the particle. Therefore, there's no drag, friction, etc. Physically, this means that the work done by the force on the particle will be path independent. In other words, if we have a closed path $\lambda$ and a work function $W$ defined with a conservative force, we have that \begin{gather} W(\lambda) = 0. \end{gather} Notice that this condition is in effect equivalent to the condition that the particle remains motionless, or that the particle remains confined to the boundary of the line. We noted, however, that because $\lambda$ is closed, the boundary $\partial\lambda$ is empty. We have, therefore, that \begin{gather} W(\lambda) = U(\partial\lambda) = U(\emptyset) = 0, \end{gather} defining $U : S^0 \to \mathbb{R}$ such that \begin{gather}W(\lambda) = U(\partial\lambda),\end{gather} recalling that the boundary operator reduces the rank of a surface by one. 
 
-This relation between $W$ and $V$ is not at all trivial. 
+This relation between $W$ and $U$ is not at all trivial, and is of fundamental importance to our mathematical description of path independent work. We have that $U$ is a 0-functional (or scalar functional), and note that in the case of path independence, we have that a one-functional over a one-surface is equivalent to a zero-functional over the boundary of that same one-surface. To make clear the importance of this, we can neglect even to talk about $W$ itself, instead speaking only in terms of $U$. To that end, we propose the boundary functional $\eth : F_k \to F_{k+1}$ as the tool that links together $W$ and $U$. 
 
 
 
@@ -224,6 +220,8 @@ This relation between $W$ and $V$ is not at all trivial.
 \begin{defn}
 	$\eth : F_k \to F_{k+1}$ such that $\eth f_k(\sigma^{k+1}) = f_k(\partial \sigma^{k+1})$ is the \textbf{boundary functional} on k-functionals. 
 \end{defn}
+
+This process cannot be done arbitrarily [\textbf{Digress a bit on this, leading into the prop}]
 
 \begin{prop}
 	Let $f_k \in F_k$ be a k-functional, then $\eth\eth f_k = 0 $.
@@ -242,6 +240,8 @@ If we have a work function and pass it a path with length zero, the function wil
 	A k-functional applied to the empty set gives zero. 
 \end{prop}
 
+
+We ask ourselves now what the point of all of this is. Every physics student learns in their first weeks of introductory physics about conservative and nonconservative forces, path independence, etc. 
 
 
 
