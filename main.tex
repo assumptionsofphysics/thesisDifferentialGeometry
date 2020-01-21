@@ -216,6 +216,11 @@ One more specification is necessary: the fact that $f_k$ must commute with the l
 
 Let's return now to the work example. Suppose we have a closed line $\lambda$; that is, its starting point and ending point are the same, or equivalently, it has no boundary ($\partial\lambda = \emptyset$). $W(\lambda)$ will in general have some nonzero value. In other words, a particle confined to $\lambda$ will have work done on it by (for instance) gravity, drag, or other such forces. However, if the particle remains motionless, the work done on the particle will be zero. [\textbf{If it remains motionless, the path is a point, no longer a path. What's important here is that the work done on an empty path or single point is going to be zero. Say prop 1.25 probably around here.}]
 
+\begin{prop}
+	A k-functional applied to the empty set gives zero. 
+\end{prop}
+
+
 Let us impose now one further condition: we will only allow conservative forces such as gravitational force to act on the particle. Therefore, there's no drag, friction, etc. Physically, this means that the work done by the force on the particle will be path independent. In other words, if we have a closed path $\lambda$ and a work function $W$ defined with a conservative force, we have that \begin{gather} W(\lambda) = 0. \end{gather} Notice that this condition is in effect equivalent to the condition that the particle remains motionless, or that the particle remains confined to the boundary of the line ([\textbf{This isn't good, it's giving a new path. Don't say it's equivalent. All we have is that is that the work is zero, which is the same as the work of the empty set}]). We noted, however, that because $\lambda$ is closed, the boundary $\partial\lambda$ is empty. We have, therefore, that \begin{gather} W(\lambda) = U(\partial\lambda) = U(\emptyset) = 0, \end{gather} defining $U : S^0 \to \mathbb{R}$ such that \begin{gather}W(\lambda) = U(\partial\lambda),\end{gather} recalling that the boundary operator reduces the rank of a surface by one. 
 
 This relation between $W$ and $U$ is not at all trivial, and is of fundamental importance to our mathematical description of path independent work. We have that $U$ is a 0-functional (or scalar functional), and note that in the case of path independence, we have that a one-functional over a one-surface is equivalent to a zero-functional over the boundary of that same one-surface. To make clear the importance of this, we can neglect even to talk about $W$ itself, instead speaking only in terms of $U$. To that end, we propose the boundary functional $\eth : F_k \to F_{k+1}$ as the tool that links together $W$ and $U$. 
@@ -241,11 +246,8 @@ This process cannot be done arbitrarily [\textbf{Digress a bit on this, leading 
 	So, $h^{k+2}(s) = 0$ $\forall$ $\sigma^k$, and $h^{k+2}$ is the zero function. 
 \end{proof}\\
 
-If we have a work function and pass it a path with length zero, the function will return, of course, zero. It is true in general, and offered without formal proof, that a k-functional given an empty set will return zero. 
 
-\begin{prop}
-	A k-functional applied to the empty set gives zero. 
-\end{prop}
+
 
 
 We ask ourselves now what the point of all of this is. Every physics student learns in their first weeks of introductory physics about conservative and nonconservative forces, path independence, etc. 
