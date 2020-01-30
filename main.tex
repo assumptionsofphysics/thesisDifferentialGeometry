@@ -191,10 +191,9 @@ As another example, consider a surface $\sigma$, and a function $\Phi: S^2 \to \
 This sort of linear functions over objects extends to the general kth case. We define therefore \textbf{k-functionals} $f_k : S^k \to \mathbb{R}$ as linear functionals over k-surfaces, meaning that such a functional applied over the entire k-surface is equivalent to applying the functional to component pieces of the k-surface and summing the contributions, as long as the components overlap only on their boundaries. 
 
 
+One more specification is necessary: the fact that $f_k$ must commute with the limit. Suppose we have a sequence of lines \textbf{$\{\lambda\}_{i=1}^\infty$}, such that they approach a single line $\lambda$. That is, \begin{gather} \lim_{i = 1 \to \infty} \lambda_i = \lambda. \end{gather} 
 
-One more specification is necessary: the fact that $f_k$ must commute with the limit. Suppose we have a sequence of k-surfaces stuck end-to-end. We can apply a k-functional to that sequence as a whole, or sum the contributions of the k-functional on each surface of that sequence, and we will get the same result. Consider now the limit of that sequence as the components get smaller and smaller. The sequence in this limit will approach another k-surface. The key word here is "approach." We require that the k-functional applied to the limit of the sequence of k-surfaces is the same as the k-functional applied to the k-surface that they are approaching. To give an example where this condition is not fulfilled, suppose we have a sequence of horizontal and vertical lines (1-surfaces). In the limit of this sequence, these horizontal and vertical lines will approach a single line, which we will call $\lambda$, which will have both horizontal and vertical components. We ask ourselves now whether a length functional $L$, such that $L(\lambda)$ is the length of $\lambda$, is a 1-functional. It is certainly true that we can break $\lambda$ up into smaller lines stuck end-to-end, thus preserving linearity. However, this length functional does not satisfy the requirement that the length of the limit of the sequence of horizontal lines approaching $\lambda$ is the same as the length of $\lambda$. In other words, the length of the limit is not the limit of the length, and a length function is not a linear functional. The implications of this can actually be seen in the coastline paradox [\textbf{get citation for this}]. Furthermore, this example is in effect a continuation of the argument made at the very end of section 1.1, where we stated that we are not, in general, working on manifolds that contain an inborn notion of length.
-
-\textbf{Not coastline paradox, the limit is just the line. The coastline paradox is because of fractals}
+If we have a 1-functional $f$, each individual $f(\lambda_i)$, as well as $f(\lambda)$ itself, will separately take on a value. We require that the limit holds, meaning that \begin{gather} \lim_{i = 1 \to \infty} f(\lambda_i) = f(\lambda). \end{gather}
 
 
 
@@ -212,7 +211,6 @@ One more specification is necessary: the fact that $f_k$ must commute with the l
 	$F_k$ is the set of all functionals of dimension k, and $F = \cup_{k=0}^nF_k$ is the set of all functionals. 
 \end{defn}
 
-\textbf{We have functionals, the functional on the empty set is always zero. Oh look, how we have the boundary functional. We have exact functionals. It's exact if zero for all closed surfaces.}
 
 
 
@@ -222,43 +220,35 @@ Consider now a flux functional $\Phi \in f_2$, and a 3-surface $\epsilon \in S^3
 	$\eth : F_k \to F_{k+1}$ such that $\eth f_k(\sigma^{k+1}) = f_k(\partial \sigma^{k+1})$ is the \textbf{boundary functional} on k-functionals. 
 \end{defn}
 
+While the boundary functional can in a sense be arbitrarily applied to functionals, care must be taken. For instance, suppose we have $f \in F_k$ and $g \in F_{k+1}$, such that $g = \eth f$. For (k+1)-surface $\sigma \in S^{k+1}$, we have that \begin{gather} g(\sigma) = \eth f(\sigma) = f(\partial\sigma). \end{gather} So far so good. But now introduce $h \in F_{k+1}$, such that $h = \eth g$, and let $\sigma$ now be a (k+2)-surface. We have then that \begin{gather} h(\sigma) = g(\partial\sigma) = \eth g(\sigma) = \eth\eth f(\sigma) = f(\partial\partial\sigma). \end{gather} Recall that $\partial\partial\sigma = \emptyset$ for any $\sigma$, so we have that \begin{gather}f(\partial\partial\sigma) = f(\emptyset). \end{gather}
 
-
- [\textbf{If it remains motionless, the path is a point, no longer a path. What's important here is that the work done on an empty path or single point is going to be zero. Say prop 1.25 probably around here.}]
+$f(\emptyset)$ must be zero, as \begin{gather} f(\emptyset) = f(\emptyset\cup\emptyset) = f(\emptyset) + f(\emptyset) = 2f(\emptyset),\end{gather} so \begin{gather} f(\emptyset) = 2f(\emptyset), \end{gather} so $f(\emptyset) = 0$ for any $f$. 
 
 \begin{prop}
 	A k-functional applied to the empty set gives zero. 
 \end{prop}
 
-
-Let us impose now one further condition: we will only allow conservative forces such as gravitational force to act on the particle. Therefore, there's no drag, friction, etc. Physically, this means that the work done by the force on the particle will be path independent. In other words, if we have a closed path $\lambda$ and a work function $W$ defined with a conservative force, we have that \begin{gather} W(\lambda) = 0. \end{gather} Notice that this condition is in effect equivalent to the condition that the particle remains motionless, or that the particle remains confined to the boundary of the line ([\textbf{This isn't good, it's giving a new path. Don't say it's equivalent. All we have is that is that the work is zero, which is the same as the work of the empty set}]). We noted, however, that because $\lambda$ is closed, the boundary $\partial\lambda$ is empty. We have, therefore, that \begin{gather} W(\lambda) = U(\partial\lambda) = U(\emptyset) = 0, \end{gather} defining $U : S^0 \to \mathbb{R}$ such that \begin{gather}W(\lambda) = U(\partial\lambda),\end{gather} recalling that the boundary operator reduces the rank of a surface by one. 
-
-This relation between $W$ and $U$ is not at all trivial, and is of fundamental importance to our mathematical description of path independent work. We have that $U$ is a 0-functional (or scalar functional), and note that in the case of path independence, we have that a one-functional over a one-surface is equivalent to a zero-functional over the boundary of that same one-surface. To make clear the importance of this, we can neglect even to talk about $W$ itself, instead speaking only in terms of $U$. To that end, we propose the boundary functional $\eth : F_k \to F_{k+1}$ as the tool that links together $W$ and $U$. 
-
-
-
-[\textbf{Define the boundary functional earlier. Given a function, we can use the boundary functional to apply that function to the boundary of a higher dimensional surface. We can always do this. THEN show that applying $\eth$ twice gives the zero functional.}]
-
-
-
-This process cannot be done arbitrarily [\textbf{Digress a bit on this, leading into the prop}]
+Because $f(\emptyset) = 0$, we have that $h(\sigma) = 0$ for any $\sigma$. This results  directly from the fact that $h = \eth\eth f$. 
 
 \begin{prop}
-	Let $f_k \in F_k$ be a k-functional, then $\eth\eth f_k = 0 $.
-	
+	For any k-functional $f$, $\eth\eth f$ will be a zero functional. 
 \end{prop}
-\begin{proof}\\
-	This property follows easily from the relation in Definition 1.14.\\ 
-	Let $f_k : S^k \to \mathbb{R}$, $g_{k+1} : S^{k+1} \to \mathbb{R},$ and $h_{k+2}: S^{k+2} \to \mathbb{R}$ be linear functions, and let $\sigma^k$ be an element of $S^k$. \begin{gather}f_k(\sigma^k) = g_{k+1}(\partial \sigma^k) = h_{k+2}(\partial\partial \sigma^k) = f_k(\emptyset) = 0.\end{gather} 
-	
-	So, $h^{k+2}(s) = 0$ $\forall$ $\sigma^k$, and $h^{k+2}$ is the zero function. 
-\end{proof}\\
+
+[\textbf{Explain and lead into this}] Suppose now we have a closed surface $\sigma \in S^k$, meaning that $\partial\sigma = \emptyset$. If we have that, for $f\in F_k$, $f(\sigma) = 0$ for \emph{any} closed surface $\sigma$, then we call $f$ an \textbf{exact functional}. 
+
+\begin{defn}
+	An \textbf{exact functional} is a k-functional $f_k \in F_k$ such that, if $\partial\sigma^k = \emptyset$ for $\sigma^k \in S^k$, then $f_k(\sigma^k) = 0$. 
+\end{defn}
+
+Let's examine now how all this works in practice by returning to the work functional. We will be once again considering $W \in F_1$ and $\lambda \in S^1$, and assuming that there is some force defined, from which we may determine $W(\lambda)$, without any further assumptions as to the nature of the work or the surface. In general, we will have that $W(\lambda)$ will take on some real number value. If we change $\lambda$ in any way, such as where it begins or ends, or the path it takes between its beginning and end, it will change the number we get when we pass it to $W$. 
+
+Let us now impose the condition that $\lambda$ is closed, meaning that $\partial\lambda = 0$. Effectively, this means that its beginning and ending points are the same. In general (emphasizing once again that we have made no further assumptions as to the nature of the forces at play), we will have that $W(\lambda)$ takes on some value which depends on the path taken between the beginning and ending points of $\lambda$. In general, however, $W(\partial\lambda) = W(\emptyset) = 0$, meaning that if we are measuring work only on the boundary of the line, in this case, we would find that no work had been done.
+
+Let us impose now one further condition: we will only allow conservative forces such as gravitational force to act on the particle. Therefore, there's no drag, friction, etc. Physically, this means that the work done by the force on the particle will be path independent. In other words, if we have a closed path $\lambda$ and a work function $W$ defined with a conservative force, we have that \begin{gather} W(\lambda) = 0, \end{gather} for any closed line $\lambda$. $W$, therefore, is an exact functional. Because $\lambda$ is closed, the boundary $\partial\lambda$ is empty. We have, therefore, that \begin{gather} W(\lambda) = U(\partial\lambda) = U(\emptyset) = 0, \end{gather} defining $U : S^0 \to \mathbb{R}$ such that \begin{gather}W(\lambda) = U(\partial\lambda).\end{gather} 
 
 
 
-
-
-We ask ourselves now what the point of all of this is. Every physics student learns in their first weeks of introductory physics about conservative and nonconservative forces, path independence, etc. 
+[\textbf{Need to have some sort of conclusion here. Maybe we could talk about the emphasis of the finite structures, since they are physically real. }] 
 
 
 
@@ -377,7 +367,7 @@ To finish up the generalization of the previous section, we establish the relati
 	Every linear k-functional has a corresponding k-form, such that for $f_k : S^k \to \mathbb{R}$, $f_k = \int_{\sigma^k} \omega_k(d\sigma^k)$. In words, a linear functional applied over a k-surface is the same as an integral of a k-form over the infinitesimal parallelepipedes of that k-surface. 
 \end{prop}
 
-\textbf{(Look up geometric measure theory. Highlight in the introduction that the definitions as we put them don't give diff forms (because the space isn't specifically differentiable, since we can add discontinuities and still end up with the same integral), but that this gives the right intuition. For a density, add a constant at a particular point. It doesn't change the over all mass. Take a force and increase it by a constant at a particular point, doesn't change the overall work. Better justification: for any functional, you can find a functional that is arbitrarily close to it, like how any function has a differentiable function that arbitrarily close to it)}
+
 
 A clarification must be made now. In most treatments of electromagnetism, the magnetic field $B$ is what a pseudeovector. What this means is that $B$ behaves as a vector when undergoing rotation, but when undergoing reflection gains an additional sign flip. This particular characterization of $B$ depends on a notion of perpendicularity that is true for $\mathbb{R}^3$, but isn't for $\mathbb{R}^4$ and above, and is also the reason why we will not be using the cross product in our discussion here. The cross product depends on there being only one linearly independent direction normal to a surface, which is the case in $\mathbb{R}^3$. In $\mathbb{R}^4$ on the other hand, there are \emph{two} directions normal to each surface, and in general n-dimensional space, there will be (n-2) linearly independent perpendiculars. What we do instead is keep track of components using the two directions tangent to the surface, rather than by the direction normal to the surface (i.e., $B_z$ is actually $B_{xy}$). Furthermore, the cross product requires that angles be defined, from which comes perpendicularity and the normal vector, and the reader may have noticed that we have not yet given any notion of angles (that comes in chapter 3). 
 
