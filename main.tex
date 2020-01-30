@@ -194,6 +194,8 @@ This sort of linear functions over objects extends to the general kth case. We d
 
 One more specification is necessary: the fact that $f_k$ must commute with the limit. Suppose we have a sequence of k-surfaces stuck end-to-end. We can apply a k-functional to that sequence as a whole, or sum the contributions of the k-functional on each surface of that sequence, and we will get the same result. Consider now the limit of that sequence as the components get smaller and smaller. The sequence in this limit will approach another k-surface. The key word here is "approach." We require that the k-functional applied to the limit of the sequence of k-surfaces is the same as the k-functional applied to the k-surface that they are approaching. To give an example where this condition is not fulfilled, suppose we have a sequence of horizontal and vertical lines (1-surfaces). In the limit of this sequence, these horizontal and vertical lines will approach a single line, which we will call $\lambda$, which will have both horizontal and vertical components. We ask ourselves now whether a length functional $L$, such that $L(\lambda)$ is the length of $\lambda$, is a 1-functional. It is certainly true that we can break $\lambda$ up into smaller lines stuck end-to-end, thus preserving linearity. However, this length functional does not satisfy the requirement that the length of the limit of the sequence of horizontal lines approaching $\lambda$ is the same as the length of $\lambda$. In other words, the length of the limit is not the limit of the length, and a length function is not a linear functional. The implications of this can actually be seen in the coastline paradox [\textbf{get citation for this}]. Furthermore, this example is in effect a continuation of the argument made at the very end of section 1.1, where we stated that we are not, in general, working on manifolds that contain an inborn notion of length.
 
+\textbf{Not coastline paradox, the limit is just the line. The coastline paradox is because of fractals}
+
 
 
 \begin{defn}
@@ -212,9 +214,17 @@ One more specification is necessary: the fact that $f_k$ must commute with the l
 
 \textbf{We have functionals, the functional on the empty set is always zero. Oh look, how we have the boundary functional. We have exact functionals. It's exact if zero for all closed surfaces.}
 
-\textbf{What's 1/2 of the boundary? The boundary of a line is two points, not one. Of a surface, two lines, not one.}
 
-Let's return now to the work example. Suppose we have a closed line $\lambda$; that is, its starting point and ending point are the same, or equivalently, it has no boundary ($\partial\lambda = \emptyset$). $W(\lambda)$ will in general have some nonzero value. In other words, a particle confined to $\lambda$ will have work done on it by (for instance) gravity, drag, or other such forces. However, if the particle remains motionless, the work done on the particle will be zero. [\textbf{If it remains motionless, the path is a point, no longer a path. What's important here is that the work done on an empty path or single point is going to be zero. Say prop 1.25 probably around here.}]
+
+Consider now a flux functional $\Phi \in f_2$, and a 3-surface $\epsilon \in S^3$ representing the Earth. Strictly speaking, we cannot measure the flux through the Earth as it stands right now, as the Earth is a 3-surface, and the flux a 2-functional. However, if we're only concerning ourselves with the flow out of the Earth, the behavior of the functional within the Earth doesn't make one bit of difference. All that matters is the surface of the Earth: $\partial\epsilon$. Similarly, suppose we have a work functional $W \in f_1$ and a 2-surface. As it stands, we cannot determine the work \emph{through} this surface, but we can determine work on a path \emph{on} this surface, which, if closed, would be the boundary of some 2-surface $\sigma$ on the original 2-surface. By systematically ignoring parts of a surface that are in effect irrelevant (that is, ignoring everything besides the boundary), we may apply a lower rank functional to that surface. In complement to the boundary operator $\partial$, we call the \textbf{boundary functional}, denoted by $\eth$, the tool by which we apply k-functionals to surfaces of higher rank.
+
+\begin{defn}
+	$\eth : F_k \to F_{k+1}$ such that $\eth f_k(\sigma^{k+1}) = f_k(\partial \sigma^{k+1})$ is the \textbf{boundary functional} on k-functionals. 
+\end{defn}
+
+
+
+ [\textbf{If it remains motionless, the path is a point, no longer a path. What's important here is that the work done on an empty path or single point is going to be zero. Say prop 1.25 probably around here.}]
 
 \begin{prop}
 	A k-functional applied to the empty set gives zero. 
@@ -229,9 +239,7 @@ This relation between $W$ and $U$ is not at all trivial, and is of fundamental i
 
 [\textbf{Define the boundary functional earlier. Given a function, we can use the boundary functional to apply that function to the boundary of a higher dimensional surface. We can always do this. THEN show that applying $\eth$ twice gives the zero functional.}]
 
-\begin{defn}
-	$\eth : F_k \to F_{k+1}$ such that $\eth f_k(\sigma^{k+1}) = f_k(\partial \sigma^{k+1})$ is the \textbf{boundary functional} on k-functionals. 
-\end{defn}
+
 
 This process cannot be done arbitrarily [\textbf{Digress a bit on this, leading into the prop}]
 
