@@ -213,14 +213,18 @@ If we have a 1-functional $f$, each individual $f(\lambda_i)$, as well as $f(\la
 
 
 
+\textbf{Flux gives it a specific flavor to begin with. The language is demonstrative, saying things matter and don't matter, but it isn't clear what the argument is. It isn't clear whether it's a demonstration or a construction. In general there's a mix of physical things and math things in the same argument. }
+\textbf{Talking about flux is confusing. Specify that all that matters if the flow leaving the object [if we want to maintain the example], rather than the flow "through" the object}
+Consider now a flux functional $\Phi \in f_2$, and a 3-surface $v \in S^3$ representing the Earth. Strictly speaking, we cannot measure the flux through the Earth as it stands right now, as the Earth is a 3-surface, and the flux a 2-functional. However, if we're only concerning ourselves with the flow out of the Earth, the behavior of the functional within the Earth doesn't make one bit of difference. All that matters is the surface of the Earth: $\partial\epsilon$. Similarly, suppose we have a work functional $W \in f_1$ and a 2-surface. As it stands, we cannot determine the work \emph{through} this surface, but we can determine work on a path \emph{on} this surface, which, if closed, would be the boundary of some 2-surface $\sigma$ on the original 2-surface. By systematically ignoring parts of a surface that are in effect irrelevant (that is, ignoring everything besides the boundary), we may apply a lower rank functional to that surface. In complement to the boundary operator $\partial$, we call the \textbf{boundary functional}, denoted by $\eth$, the tool by which we apply k-functionals to surfaces of higher rank.
 
-Consider now a flux functional $\Phi \in f_2$, and a 3-surface $\epsilon \in S^3$ representing the Earth. Strictly speaking, we cannot measure the flux through the Earth as it stands right now, as the Earth is a 3-surface, and the flux a 2-functional. However, if we're only concerning ourselves with the flow out of the Earth, the behavior of the functional within the Earth doesn't make one bit of difference. All that matters is the surface of the Earth: $\partial\epsilon$. Similarly, suppose we have a work functional $W \in f_1$ and a 2-surface. As it stands, we cannot determine the work \emph{through} this surface, but we can determine work on a path \emph{on} this surface, which, if closed, would be the boundary of some 2-surface $\sigma$ on the original 2-surface. By systematically ignoring parts of a surface that are in effect irrelevant (that is, ignoring everything besides the boundary), we may apply a lower rank functional to that surface. In complement to the boundary operator $\partial$, we call the \textbf{boundary functional}, denoted by $\eth$, the tool by which we apply k-functionals to surfaces of higher rank.
+
 
 \begin{defn}
 	$\eth : F_k \to F_{k+1}$ such that $\eth f_k(\sigma^{k+1}) = f_k(\partial \sigma^{k+1})$ is the \textbf{boundary functional} on k-functionals. 
 \end{defn}
 
-While the boundary functional can in a sense be arbitrarily applied to functionals, care must be taken. For instance, suppose we have $f \in F_k$ and $g \in F_{k+1}$, such that $g = \eth f$. For (k+1)-surface $\sigma \in S^{k+1}$, we have that \begin{gather} g(\sigma) = \eth f(\sigma) = f(\partial\sigma). \end{gather} So far so good. But now introduce $h \in F_{k+1}$, such that $h = \eth g$, and let $\sigma$ now be a (k+2)-surface. We have then that \begin{gather} h(\sigma) = g(\partial\sigma) = \eth g(\sigma) = \eth\eth f(\sigma) = f(\partial\partial\sigma). \end{gather} Recall that $\partial\partial\sigma = \emptyset$ for any $\sigma$, so we have that \begin{gather}f(\partial\partial\sigma) = f(\emptyset). \end{gather}
+\textbf{Don't say "care must be taken". Since it's just a property, it's not something to be worried about, I guess}
+While the boundary functional can in a sense be arbitrarily applied to functionals, care must be taken. For instance, suppose we have $f \in F_k$ and $g \in F_{k+1}$, such that $g = \eth f$. For (k+1)-surface $\sigma \in S^{k+1}$, we have that \begin{gather} g(\sigma) = \eth f(\sigma) = f(\partial\sigma). \end{gather} So far so good. But now introduce $h \in F_{k+2}$, such that $h = \eth g$, and let $\sigma$ now be a (k+2)-surface. We have then that \begin{gather} h(\sigma) = g(\partial\sigma) = \eth g(\sigma) = \eth\eth f(\sigma) = f(\partial\partial\sigma). \end{gather} Recall that $\partial\partial\sigma = \emptyset$ for any $\sigma$, so we have that \begin{gather}f(\partial\partial\sigma) = f(\emptyset). \end{gather}
 
 $f(\emptyset)$ must be zero, as \begin{gather} f(\emptyset) = f(\emptyset\cup\emptyset) = f(\emptyset) + f(\emptyset) = 2f(\emptyset),\end{gather} so \begin{gather} f(\emptyset) = 2f(\emptyset), \end{gather} so $f(\emptyset) = 0$ for any $f$. 
 
@@ -231,7 +235,7 @@ $f(\emptyset)$ must be zero, as \begin{gather} f(\emptyset) = f(\emptyset\cup\em
 Because $f(\emptyset) = 0$, we have that $h(\sigma) = 0$ for any $\sigma$. This results  directly from the fact that $h = \eth\eth f$. 
 
 \begin{prop}
-	For any k-functional $f$, $\eth\eth f$ will be a zero functional. 
+	For any k-functional $f$, $\eth\eth f$ will be the zero functional. 
 \end{prop}
 
 [\textbf{Explain and lead into this}] Suppose now we have a closed surface $\sigma \in S^k$, meaning that $\partial\sigma = \emptyset$. If we have that, for $f\in F_k$, $f(\sigma) = 0$ for \emph{any} closed surface $\sigma$, then we call $f$ an \textbf{exact functional}. 
@@ -242,12 +246,14 @@ Because $f(\emptyset) = 0$, we have that $h(\sigma) = 0$ for any $\sigma$. This 
 
 Let's examine now how all this works in practice by returning to the work functional. We will be once again considering $W \in F_1$ and $\lambda \in S^1$, and assuming that there is some force defined, from which we may determine $W(\lambda)$, without any further assumptions as to the nature of the work or the surface. In general, we will have that $W(\lambda)$ will take on some real number value. If we change $\lambda$ in any way, such as where it begins or ends, or the path it takes between its beginning and end, it will change the number we get when we pass it to $W$. 
 
-Let us now impose the condition that $\lambda$ is closed, meaning that $\partial\lambda = 0$. Effectively, this means that its beginning and ending points are the same. In general (emphasizing once again that we have made no further assumptions as to the nature of the forces at play), we will have that $W(\lambda)$ takes on some value which depends on the path taken between the beginning and ending points of $\lambda$. In general, however, $W(\partial\lambda) = W(\emptyset) = 0$, meaning that if we are measuring work only on the boundary of the line, in this case, we would find that no work had been done.
+\textbf{If I want to have this argument in here, need to specify that we have drag in here}
+Let us now impose the condition that $\lambda$ is closed, meaning that $\partial\lambda = 0$. Effectively, this means that its beginning and ending points are the same. In general (emphasizing once again that we have made no further assumptions as to the nature of the forces at play), we will have that $W(\lambda)$ takes on some value which depends on the path taken between the beginning and ending points of $\lambda$. [\textbf{$W(\partial\lambda)$ doesn't work}] In general, however, $W(\partial\lambda) = W(\emptyset) = 0$, meaning that if we are measuring work only on the boundary of the line, in this case, we would find that no work had been done.
 
+\textbf{Don't need to necessary impose that there is no drag, only that we are neglecting its work. Also, could have this up above the definition of boundary functional}
 Let us impose now one further condition: we will only allow conservative forces such as gravitational force to act on the particle. Therefore, there's no drag, friction, etc. Physically, this means that the work done by the force on the particle will be path independent. In other words, if we have a closed path $\lambda$ and a work function $W$ defined with a conservative force, we have that \begin{gather} W(\lambda) = 0, \end{gather} for any closed line $\lambda$. $W$, therefore, is an exact functional. Because $\lambda$ is closed, the boundary $\partial\lambda$ is empty. We have, therefore, that \begin{gather} W(\lambda) = U(\partial\lambda) = U(\emptyset) = 0, \end{gather} defining $U : S^0 \to \mathbb{R}$ such that \begin{gather}W(\lambda) = U(\partial\lambda).\end{gather} 
 
 
-
+\textbf{Conclusion should be to note that the closed functionals are the boundary functionals of some other functional. And that the boundary functional of an exact functional is zero.}
 [\textbf{Need to have some sort of conclusion here. Maybe we could talk about the emphasis of the finite structures, since they are physically real. }] 
 
 
