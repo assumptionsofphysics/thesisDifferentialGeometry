@@ -236,22 +236,20 @@ $f(\emptyset)$ must be zero, as \begin{gather} f(\emptyset) = f(\emptyset\cup\em
 	A k-functional applied to the empty set gives zero. 
 \end{prop}
 
-Because $f(\emptyset) = 0$, we have that, since $h(\sigma) = \eth\eth f(\sigma)$, that $h(\sigma) = 0$ for any $\sigma$, making it the \textbf{zero functional}.
+Because $f(\emptyset) = 0$ and $h(\sigma) = \eth\eth f(\sigma)$, we have that $h(\sigma) = 0$ for any $\sigma$, closed or not, making it the \textbf{zero functional}.
 
 \begin{prop}
 	For any k-functional $f$, $\eth\eth f$ will be the zero functional. 
 \end{prop}
 
-The takeaway from this is the following: if we have a k-functional $f \in F_k$, then $\eth f \in F_k$ will necessarily be exact. And furthermore, if we have an exact functional $f \in F_k$, then $\eth f = 0$. 
+The takeaway from this is that if we have a k-functional $f \in F_k$, then $\eth f \in F_{k+1}$ will necessarily be exact. We can see this by saying that if $g = \eth f$ and $\partial\sigma^{k+1} = \emptyset$, then \begin{gather} g(\sigma^{k+1}) = \eth f(\sigma^{k+1}) = f(\partial\sigma^{k+1}) = 0\end{gather}. And furthermore, if we have an exact functional $f \in F_k$, then $\eth f = 0$, and $f$ is the boundary functional of some other function in $F_{k-1}$. This allows us an alternate way of determining, for instance, work from a conservative force. If we have a work functional that is the boundary functional of another functional, then the force associated with it will necessarily be conservative.
 
 
 
 
 
-\section{Summary}
 
 
-In this first section, we've laid the groundwork for a physical treatment of differential geometry. By starting with the idea of distinguishing objects through quantities, we are quickly able to come to an intuitive understanding of manifolds. We see also that a purely physically motivated form of differential geometry is possible, which will be further confirmed in the coming chapters. 
 
 
 \chapter{Mathematical representation of infinitesimal objects}
