@@ -159,7 +159,7 @@ Now that we have k-surfaces, we have a notion of where points lie relative to so
 
 Intuitively, we can talk about the boundary of a k-surface being a wall, beyond which a point confined to the k-surface cannot go. Consider, for instance, a particle confined to the inside of a sphere. The particle is free to move anywhere within the sphere, but is stopped from leaving by the surface of the sphere itself. Thus, the surface is the boundary. On the other hand, consider a particle confined to the surface of a sphere. The particle can travel along the surface as long as it wants without being stopped by any kind of wall. Thus, the surface of a sphere does not have a boundary. \textbf{Probably have a picture}
 
-We can map between a k-surface and its boundary, if it exists, with the \textbf{boundary operator}. I.e., if $\sigma^2$ is a sphere, $\partial \sigma^2$ is its boundary: its surface. It follows also from the argument in the proceeding paragraph that $\partial\partial\sigma^2$ is empty. This is offered without formal proof, but is true for general k-surfaces. 
+We can map between a k-surface and its boundary, if it exists, with the \textbf{boundary operator}. I.e., if $\sigma^2$ is a sphere, $\partial \sigma^2$ is its boundary: its surface. It follows also from the argument in the proceeding paragraph that $\partial\partial\sigma^2$ is empty. This is offered without a formal proof, but is true for general k-surfaces. 
 
 \begin{defn}
 	For k-surface $\sigma^k \in S^k$, the \textbf{boundary operator} $\partial : S^k \to S^{k-1}$ gives the set of boundary points of $\sigma^k$. 
@@ -214,30 +214,21 @@ If we have a 1-functional $f$, each individual $f(\lambda_i)$, as well as $f(\la
 
 
 
-Suppose we have a volume $\tau$ within a greater volume of arbitrary fluid. Say that the fluid is free to flow through the surface of $\tau$, and that we are able to contract and expand $\tau$ as we wish.\footnote{In fluid dynamics, this means that the fluid is compressible} The fluid flux through the surface of $\tau$ can be determined without worrying about the behavior of the fluid within and outside of $\tau$. The fluid can be swishing about in any sort of way, but as long as it doesn't cross the surface of $\tau$, it doesn't make one bit of difference as to the flux through $\tau$. The flux, therefore, depends only on the boundary of $\tau$: $\partial\tau$. Therefore, if we have a method of determining the overall flux through $\tau$, it would be effectively identical to a method that determines the flux through $\partial\tau$. Speaking mathematically, this means that in this case, a particular 3-functional over $\tau$ would be equivalent to a 2-functional over $\partial\tau$. This suggests a special relationship between the proposed 2-functional and 3-functional. If we call the 2-functional $\Phi$ and the 3-functional $\Theta$, we denote the relationship between them using the \textbf{boundary functional} $\eth$ as: \begin{gather} \eth\Phi(\tau) = \Theta(\partial\tau) \end{gather}
+Suppose we have a volume $\tau$ within a greater volume of arbitrary fluid. Say that the fluid is free to flow through the surface of $\tau$, and that we are able to contract and expand $\tau$ as we wish.\footnote{The flow is compressible} The fluid flux through the surface of $\tau$ can be determined without worrying about the behavior of the fluid within and outside of $\tau$. The fluid can be swishing about in any sort of way, but as long as it doesn't cross the surface of $\tau$, it doesn't make one bit of difference as to the flux through $\tau$. The flux, therefore, depends only on the boundary of $\tau$: $\partial\tau$. Therefore, if we have a method of determining the overall flux through $\tau$, it would be effectively identical to a method that determines the flux through $\partial\tau$. Speaking mathematically, this means that in this case, a particular 3-functional over $\tau$ would be equivalent to a 2-functional over $\partial\tau$. This suggests a special relationship between the proposed 2-functional and 3-functional. If we call the flux 2-functional $\Phi$ and the flux 3-functional $\Theta$, we denote the relationship between them using the \textbf{boundary functional} $\eth$ as: \begin{gather} \eth\Phi(\tau) = \Theta(\partial\tau) \end{gather}
 
 \begin{defn}
 	$\eth : F_k \to F_{k+1}$ such that $\eth f_k(\sigma^{k+1}) = f_k(\partial \sigma^{k+1})$ is the \textbf{boundary functional} on k-functionals. 
 \end{defn}
 
-Let's examine now how the boundary functional works in practice by returning to the work functional. We will be once again considering $W \in F_1$ and $\lambda \in S^1$, and assuming that there is some force defined, from which we may determine $W(\lambda)$, without any further assumptions as to the nature of the work or the surface. So, we will have work done by both conservative forces like gravity, and nonconservative forces like drag. In general, we will have that $W(\lambda)$ will take on some real number value. If we change $\lambda$ in any way, such as where it begins or ends, or the path it takes between its beginning and end, it will change the number we get when we pass it to $W$. 
-\textbf{Sort of convoluted. Just say that we have the work on a line. Note that a force is conservative if it's zero on a closed path. Introduce exactness and the boundary functional separately, otherwise the use of the boundary functional is spread too far apart from the beginning of the argument}
+Let's examine now how the boundary functional works in practice by returning to the work functional. We will be once again considering $W \in F_1$ and $\lambda \in S^1$, and assuming that there is some force defined, from which we may determine $W(\lambda)$. We will now neglect the work done by drag, considering instead only the work done by conservative forces. The implication of this is that the work done by the force on the particle will be path independent. In other words, if we have any closed path $\lambda$ and a work function $W$ defined with a conservative force, we have that \begin{gather} W(\lambda) = 0. \end{gather} We call functions such as $W$ \textbf{exact functionals}.   
 
-As is tradition in classical physics, we will now neglect drag, and only consider the work done on the particle by conservative forces. The implication of this is that the work done by the force on the particle will be path independent. In other words, if we have any closed path $\lambda$ and a work function $W$ defined with a conservative force, we have that \begin{gather} W(\lambda) = 0. \end{gather} We call functions such as $W$ \textbf{exact functionals}. 
 
 \begin{defn}
 	An \textbf{exact functional} is a k-functional $f_k \in F_k$ such that, if $\partial\sigma^k = \emptyset$ for $\sigma^k \in S^k$, then $f_k(\sigma^k) = 0$. 
 \end{defn}
 
-\textbf{What am I saying here? Write bullet points for each paragraph.}
-Because $\lambda$ is closed, the boundary $\partial\lambda$ is empty. Therefore, we have that, for some function $U : S^0 \to \mathbb{R}$, such that \begin{gather}W(\lambda) = U(\partial\lambda),\end{gather} that \begin{gather} W(\lambda) = U(\partial\lambda) = U(\emptyset) = 0. \end{gather}
 
-This relationship between $W$ and $U$ may be stated in another way using the boundary functional. If (1.23) holds, we can say alternatively that \begin{gather}W(\lambda) = \eth U(\lambda). \end{gather}
-
-
-
-
-Equation (1.24) suggests an interesting property of k-functionals that must be explored and formalized. Suppose we have $f \in F_k$ and $g \in F_{k+1}$, such that $g = \eth f$. For (k+1)-surface $\sigma \in S^{k+1}$, we have that \begin{gather} g(\sigma) = \eth f(\sigma) = f(\partial\sigma). \end{gather} So far so good. But now introduce $h \in F_{k+2}$, such that $h = \eth g$, and let $\sigma$ now be a (k+2)-surface. We have then that \begin{gather} h(\sigma) = g(\partial\sigma) = \eth g(\sigma) = \eth\eth f(\sigma) = f(\partial\partial\sigma). \end{gather} Recall that $\partial\partial\sigma = \emptyset$ for any $\sigma$, so we have that \begin{gather}f(\partial\partial\sigma) = f(\emptyset). \end{gather}
+Recall that for any k-surface $\sigma^k$, $\partial\partial\sigma^k = \emptyset$. This, together with the definition of the boundary functional, suggests an interesting property of k-functionals that must be explored and formalized. Suppose we have $f \in F_k$ and $g \in F_{k+1}$, such that $g = \eth f$. For (k+1)-surface $\sigma^{k+1} \in S^{k+1}$, we have that \begin{gather} g(\sigma^{k+1}) = \eth f(\sigma^{k+1}) = f(\partial\sigma^{k+1}). \end{gather} So far so good. But now introduce $h \in F_{k+2}$, such that $h = \eth g$, as well as $\sigma^{k+2} \in S^{k+2}$. We have then that \begin{gather} h(\sigma^{k+2}) = g(\partial\sigma^{k+2}) = \eth g(\sigma^{k+2}) = \eth\eth f(\sigma^{k+2}) = f(\partial\partial\sigma^{k+2}). \end{gather} Keeping in mind that $\partial\partial\sigma^{k+2} = \emptyset$, we have that \begin{gather}f(\partial\partial\sigma^{k+2}) = f(\emptyset). \end{gather}
 
 $f(\emptyset)$ must be zero, as \begin{gather} f(\emptyset) = f(\emptyset\cup\emptyset) = f(\emptyset) + f(\emptyset) = 2f(\emptyset),\end{gather} so \begin{gather} f(\emptyset) = 2f(\emptyset), \end{gather} so $f(\emptyset) = 0$ for any $f$. 
 
@@ -251,11 +242,8 @@ Because $f(\emptyset) = 0$, we have that, since $h(\sigma) = \eth\eth f(\sigma)$
 	For any k-functional $f$, $\eth\eth f$ will be the zero functional. 
 \end{prop}
 
+The takeaway from this is the following: if we have a k-functional $f \in F_k$, then $\eth f \in F_k$ will necessarily be exact. And furthermore, if we have an exact functional $f \in F_k$, then $\eth f = 0$. 
 
-
-
-\textbf{Conclusion should be to note that the closed functionals are the boundary functionals of some other functional. And that the boundary functional of an exact functional is zero.}
-[\textbf{Need to have some sort of conclusion here. Maybe we could talk about the emphasis of the finite structures, since they are physically real. }] 
 
 
 
