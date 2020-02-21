@@ -217,11 +217,11 @@ If we have a 1-functional $f$, each individual $f(\lambda_i)$, as well as $f(\la
 Suppose we have a volume $\tau$ within a greater volume of arbitrary fluid. Say that the fluid is free to flow through the surface of $\tau$, and that we are able to contract and expand $\tau$ as we wish.\footnote{The flow is compressible} The fluid flux through the surface of $\tau$ can be determined without worrying about the behavior of the fluid within and outside of $\tau$. The fluid can be swishing about in any sort of way, but as long as it doesn't cross the surface of $\tau$, it doesn't make one bit of difference as to the flux through $\tau$. The flux, therefore, depends only on the boundary of $\tau$: $\partial\tau$. Therefore, if we have a method of determining the overall flux through $\tau$, it would be effectively identical to a method that determines the flux through $\partial\tau$. Speaking mathematically, this means that in this case, a particular 3-functional over $\tau$ would be equivalent to a 2-functional over $\partial\tau$. This suggests a special relationship between the proposed 2-functional and 3-functional. If we call the flux 2-functional $\Phi$ and the flux 3-functional $\Theta$, we denote the relationship between them using the \textbf{boundary functional} $\eth$ as: \begin{gather} \eth\Phi(\tau) = \Theta(\partial\tau) \end{gather}
 
 \begin{defn}
-	Given $\eth : F_k \to F_{k+1}$ and $f_k \in F_k$, \textbf{boundary functional} $\eth f_k \in F_{k+1}$ is the functional with the property that $\eth f_k(\sigma^{k+1}) = f_k(\partial \sigma^{k+1})$. 
+	Given $\eth : F_k \to F_{k+1}$ and $f_k \in F_k$, the \textbf{boundary functional} $\eth f_k \in F_{k+1}$ is the functional with the property that $\eth f_k(\sigma^{k+1}) = f_k(\partial \sigma^{k+1})$. 
 \end{defn}
 
 
-Let's examine now how the boundary functional works in practice by returning to the work functional. We will be once again considering $W \in F_1$ and $\lambda \in S^1$, and assuming that there is some force defined, from which we may determine $W(\lambda)$. [\textbf{Don't say we're neglecting it, say that we're only using conservative forces}] We will now neglect the work done by drag, considering instead only the work done by conservative forces. The implication of this is that the work done by the force on the particle will be path independent. In other words, if we have any closed path $\lambda$ and a work function $W$ defined with a conservative force, we have that \begin{gather} W(\lambda) = 0. \end{gather} We call functions such as $W$ \textbf{exact functionals}.   
+Let's examine now how the boundary functional works in practice by returning to the work functional. We will be once again considering $W \in F_1$ and $\lambda \in S^1$, and assuming that there is some force defined, from which we may determine $W(\lambda)$. We will now be considering only the work done by conservative forces. The implication of this is that the work done by the force on the particle will be path independent. In other words, if we have any closed path $\lambda$ and a work function $W$ defined with a conservative force, we have that \begin{gather} W(\lambda) = 0. \end{gather} We call functions such as $W$ \textbf{exact functionals}.   
 
 
 \begin{defn}
@@ -243,9 +243,9 @@ Because $f(\emptyset) = 0$ and $h(\sigma) = \eth\eth f(\sigma)$, we have that $h
 	For any k-functional $f$, $\eth\eth f$ will be the zero functional. 
 \end{prop}
 
-The takeaway from this is that if we have a k-functional $f \in F_k$, then $\eth f \in F_{k+1}$ will necessarily be exact. We can see this by saying that if $g = \eth f$ and $\partial\sigma^{k+1} = \emptyset$, then \begin{gather} g(\sigma^{k+1}) = \eth f(\sigma^{k+1}) = f(\partial\sigma^{k+1}) = 0.\end{gather} And furthermore, if we have an exact functional $f \in F_k$, then $\eth f = 0$, and $f$ is the boundary functional of some other function in $F_{k-1}$. [\textbf{Say that this means that the importance of this is having the tools work in the finite case}]This allows us an alternate way of determining, for instance, work from a conservative force. If we have a work functional that is the boundary functional of another functional, then the force associated with it will necessarily be conservative.
+The takeaway from this is that if we have a k-functional $f \in F_k$, then $\eth f \in F_{k+1}$ will necessarily be exact. We can see this by saying that if $g = \eth f$ and $\partial\sigma^{k+1} = \emptyset$, then \begin{gather} g(\sigma^{k+1}) = \eth f(\sigma^{k+1}) = f(\partial\sigma^{k+1}) = 0.\end{gather} And furthermore, if we have an exact functional $f \in F_k$, then $\eth f = 0$, and $f$ is the boundary functional of some other function in $F_{k-1}$. This allows us an alternate way of determining, for instance, work from a conservative force. If we have a work functional that is the boundary functional of another functional, then the force associated with it will necessarily be conservative.
 
-
+The importance of what we've done here is that we've been able to establish tools for the investigation of finite objects. Naturally, these tools are at this stage too general to solve actual real-world problems, but the foundational language is there. 
 
 
 
@@ -256,9 +256,12 @@ The takeaway from this is that if we have a k-functional $f \in F_k$, then $\eth
 \chapter{Mathematical representation of infinitesimal objects}
 
 
+
 \section{Differentiable manifolds}
 
-In the previous section, we began to discuss functionals applied over k-surfaces. With the rules we've established, we can break up a k-surface into multiple sections, such that applying a functional over the entire surface is equivalent to applying it to each of the sections individually, and then summing their contributions. What if we could make these sections infinitesimally small? How would our manifolds behave, and furthermore, what happens to the functionals?
+
+
+In the previous section, we discussed functionals applied over k-surfaces. With the rules we've established, we can break up a k-surface into multiple sections, such that applying a functional over the entire surface is equivalent to applying it to each of the sections individually, and then summing their contributions. Importantly though, we remained entirely finite. This is important, as in the real world, we deal only with the finite. We measure mass, not density, for instance. Nevertheless, we were able to finally define boundary functionals, and their relationship with the boundary of surfaces. Now, we will be examining surfaces under the condition that we can break them up into infinitesimally small pieces? How would our manifolds behave, and furthermore, what happens to the functionals? We shall see that the tools we've already defined have a close correspondence to infinitesimal varieties, which may be more familiar to the reader. 
 
 Consider now a k-surface $\sigma^k \in S^k$, with a k-functional $f_k$. We can break this surface up into "n" number of parts, called $\sigma^k_1, \sigma^k_2, ..., \sigma^k_n$. We know that \begin{gather} f_k(\sigma^k) = f_k(\sigma^k_1) + f_k(\sigma^k_2) + ... + f_k(\sigma^k_n) = \Sigma^n_if_k(\sigma^k_i).\end{gather} If we let n tend to infinity, the parts become infinitesimal. Summing the contributions of the infinitesimals is equivalent to an integral of the function over the whole surface. So, for k-surface $\sigma^k \in S^k$ and k-functional $f_k: S^k \to \mathbb{R}$, $f_k(\sigma^k) = \int_{\sigma^k}\omega_k(d\sigma^k)$ for some yet undefined function $\omega_k$. The existence of infinitesimals on our manifolds allows us to perform calculus. Such manifolds are \textbf{differentiable manifolds}. 
 
