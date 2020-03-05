@@ -87,7 +87,7 @@ With coordinate systems now defined, we recognize that in many instances, two di
 \end{center}
 
 
-Because of the poles, every location on Earth cannot be equally quantified with only one set of coordinates. This can be plainly seen on a typical flat map, such as a Mercator Projection. The most immediately obvious result of this flattening is that land proportions grow the closer to a pole they are, making Greenland appear massive, and the Sahara proportionally far smaller. The more important, but somewhat more subtle, outcome is that because the poles have in a sense been unraveled, the South Pole, which ought to be a single point, is an entire line along the southern edge of the map. A projection of the Earth onto a flat surface, such that one point on the Earth maps to one point on the surface, requires at least two separate maps. For instance, you could have a map of the top hemisphere, centered at the north pole, and then of the bottom hemisphere, centered at the south pole. From the Earth, then, we define \textbf{manifolds} as the general object being projected onto flat space. 
+Because of the poles, every location on Earth cannot be equally quantified with only one set of coordinates. This can be plainly seen on a typical flat map, such as a Mercator Projection. The most immediately obvious result of this flattening is that land proportions grow the closer to a pole they are, making Greenland appear massive, and the Sahara proportionally far smaller. The more important, but perhaps more subtle, outcome is that because the poles have in a sense been unraveled, the South Pole, which ought to be a single point, is an entire line along the southern edge of the map. A projection of the Earth onto a flat surface, such that one point on the Earth maps to one point on the surface, requires at least two separate maps. For instance, you could have a map of the top hemisphere, centered at the north pole, and then of the bottom hemisphere, centered at the south pole. From the Earth, then, we define \textbf{manifolds} as the general object that we project onto flat space. 
 
 
 \textbf{Insert a picture of the Mercator Projection}
@@ -99,7 +99,7 @@ Because of the poles, every location on Earth cannot be equally quantified with 
 \end{defn}
 
 
-Earlier, weather was given as an example of a set of possible cases of a system, with readings such as temperature and humidity allowing us to define a coordinate system. In this context, the "manifold" would be the set of possible weather configurations, with each point being a single weather report. Another example of a manifold would be the possible results of a blood drawing. The doctor takes your blood for analysis, the results of which are collected on a report, detailing things such as blood pressure, cholesterol levels, white blood cell count, etc. Further examples include: 
+Earlier, weather was given as an example of a set of possible cases of a system, with readings such as temperature and humidity allowing us to define a coordinate system. In this context, the "manifold" would be the set of possible weather configurations, with each point being a single weather report. Another example of a manifold would be the possible results of a blood drawing. The doctor takes your blood for analysis, the results of which are collected on a report, detailing things such as blood pressure, cholesterol levels, white blood cell count, etc. Each point on that manifold, therefore, would be a specific combination of blood pressure, cholesterol, and so forth. Further examples include: 
 
 \begin{itemize}
 \item The conditions of your car, with the dials on the dashboard being your method of reading them 
@@ -110,12 +110,12 @@ Earlier, weather was given as an example of a set of possible cases of a system,
 
 \end{itemize}
 
-The variety of examples is to show the ubiquitousness of manifolds, and that they are very familiar, everyday objects. This versatility proves their usefulness in physics, and in scientific investigation in general. But unlike in the case of the Earth, manifolds do not in general come prepackaged with a notion of distance. What does it mean, for instance, for there to be distance between weather reports? Perhaps you can argue that distance comes into play by specifying where exactly the weather report was taken, but this is simply the geography example again under a different name. No, defining distance on manifolds requires first the definition of a particular mathematical structure, which will be touched on in Chapter 3. 
+The variety of examples is to show the ubiquitousness of manifolds, and that they are very familiar, everyday objects. This versatility proves their usefulness in physics, and in scientific investigation in general. But unlike in the case of the Earth, manifolds do not in general come prepackaged with a notion of distance. What does it mean, for instance, for there to be distance between weather reports? Perhaps you can argue that distance comes into play by specifying where exactly the weather report was taken, but this is simply the geography example again under a different name. No, defining distance on manifolds requires first the definition of a particular mathematical structure, which we will not be addressing here. 
 
 
 \section{Sub-manifolds and k-surfaces}
 
-Consider again the weather report example, where we are taking into account where exactly the report was taken. Perhaps we decide that we no longer care about what the actual weather reading is, instead worrying only about where we are. This takes us immediately from one manifold to another, where the latter has fewer dimensions than the former, and where any point on the latter is also a point on the former. Thus, geography is a \textbf{submanifold} of the weather report.
+Consider again the weather report example, where we are taking into account where exactly the report was taken. Perhaps we decide to hold fixed where the weather report is taken (thereby making specification of the location redundant when comparing different readings). This takes us immediately from one manifold to another, where the latter has fewer dimensions than the former, and where any point on the latter is also a point on the former. Thus, geography is a \textbf{submanifold} of the weather report.
 
 
 \begin{defn}
@@ -251,6 +251,8 @@ The takeaway from this is that if we have a k-functional $f \in F_k$, then $\eth
 
 The importance of what we've done here is that we've been able to establish tools for the investigation of finite objects. Naturally, these tools are at this stage too general to solve actual real-world problems, but the foundational language is there. 
 
+An as of yet unresolved problem presents itself here. 
+
 
 
 
@@ -267,7 +269,7 @@ The importance of what we've done here is that we've been able to establish tool
 
 In the previous section, we discussed functionals applied over k-surfaces. With the rules we've established, we can break up a k-surface into multiple sections, such that applying a functional over the entire surface is equivalent to applying it to each of the sections individually, and then summing their contributions. Importantly though, we remained entirely finite. This is important, as in the real world, we deal only with the finite. We measure mass, not density, for instance. Nevertheless, we were able to finally define boundary functionals, and their relationship with the boundary of surfaces. Now, we will be examining surfaces under the condition that we can break them up into infinitesimally small pieces. How would our manifolds behave, and furthermore, what happens to the functionals? We shall see that the tools we've already defined have a close correspondence to infinitesimal varieties, which may be more familiar to the reader. 
 
-Consider now a k-surface $\sigma^k \in S^k$, with a k-functional $f_k$. We can break this surface up into "n" number of parts, called $\sigma^k_1, \sigma^k_2, ..., \sigma^k_n$. We know that \begin{gather} f_k(\sigma^k) = f_k(\sigma^k_1) + f_k(\sigma^k_2) + ... + f_k(\sigma^k_n) = \sum^n_if_k(\sigma^k_i).\end{gather} If we let n tend to infinity, the parts become infinitesimal. Summing the contributions of the infinitesimals is equivalent to an integral of the function over the whole surface. So, for k-surface $\sigma^k \in S^k$ and k-functional $f_k: S^k \to \mathbb{R}$, \begin{gather} f_k(\sigma^k) = \int_{\sigma^k}\omega_k(d\sigma^k) \end{gather} for some yet undefined function $\omega_k$. The existence of infinitesimals on our manifolds allows us to perform calculus. Such manifolds are \textbf{differentiable manifolds}. 
+Consider now a k-surface $\sigma^k \in S^k$, with a k-functional $f_k$. We can break this surface up into "n" number of parts, called $\sigma^k_1, \sigma^k_2, ..., \sigma^k_n$. We know that \begin{gather} f_k(\sigma^k) = f_k(\sigma^k_1) + f_k(\sigma^k_2) + ... + f_k(\sigma^k_n) = \sum^n_if_k(\sigma^k_i).\end{gather} In the limit as n tends to infinity, the parts become infinitesimal. Summing the contributions of the infinitesimals is equivalent to an integral of the function over the whole surface. So, for k-surface $\sigma^k \in S^k$ and k-functional $f_k: S^k \to \mathbb{R}$, \begin{gather} f_k(\sigma^k) = \int_{\sigma^k}\omega_k(d\sigma^k) \end{gather} for some yet undefined function $\omega_k$. The existence of infinitesimals on our manifolds allows us to perform calculus. Such manifolds are \textbf{differentiable manifolds}. 
 
 Technically speaking, differentiability is a property not of the manifold, but of the coordinate systems that are defined on it. And furthermore, not every coordinate system is differentiable. In order to maintain differentiability on our manifolds, we will be constraining ourselves to coordinate systems which are differentiable. Essentially, what we're doing here is looking at an entire manifold, with all of its constituent subsections and thereon defined coordinate systems, and disregarding the coordinate systems that are not differentiable. This property manifests itself as the coordinate transformation between subsets of the manifold being smooth. 
 
@@ -276,7 +278,9 @@ Technically speaking, differentiability is a property not of the manifold, but o
 	A \textbf{differentiable manifold} is a manifold $X$ of dimension $n$ such that if there are overlapping subsets $U$ and $V$ with defined coordinate systems $Q: U \to \mathbb{R}^n$ and $Q': V \to \mathbb{R}^n$, then the coordinate transformation $f = Q \circ Q'^{-1}$ is smooth. 
 \end{defn}
 
+Now is a good time to emphasize once again that we consider "physical" that which can be directly measured in a laboratory. Infinitesimals, therefore, are not truly physical. They are a limit of the finite case. We do not measure $\omega_k(d\sigma^k)$. Rather, we measure $\int_{\sigma^k}\omega_k(d\sigma^k)$. 
 
+Suppose we have a mass functional $M \in F_3$ and some object $\tau \in S^3$, such that $M(\tau)$ is the mass of $\tau$.  As long as we remain finite, we can break up $\tau$ as we wish, determine the mass of each of the pieces, sum them, and we would get the same result as determining the mass of the entire ensemble, all while remaining entirely physical. The mass functional $M$ remains unchanged. As soon as we decide that we are going to be considering the infinitesimal limit, however, our tools change shape. We enter the realm of the nonphysical, so to speak. We have that $M(\tau) = \int_\tau \rho(d\tau)$, where $\rho$ is an infinitesimal functional that determines density. Such an infinitesimal functional is, at the moment, not precisely defined. It is fascinating to see, however, that as we change the assumptions that we are working with, the math will, when properly physically motivated, change form as well to reflect these new assumptions. It is with this spirit that we press forward to see what happens to our finite tools in the infinitesimal limit. 
 
 
 
@@ -284,7 +288,7 @@ Technically speaking, differentiability is a property not of the manifold, but o
 
 
 
-Let $W \in F_1$ be the work function with a force as described in section 1.3, and let $\lambda \in S^1$ be the line that we are passing it. So, we can say that $W(\lambda) = \sum^n_iW(\lambda_i)$, where the ending point of each $\lambda_i$ is the starting point of each $\lambda_{i+1}$. Letting n tend to infinity, this expression becomes \begin{gather}W(\lambda) = \int_{\lambda} f(d\lambda) \end{gather}for a function $f$. Naturally, this function will be a force function, returning the force applied over the line at each infinitesimal segment. Each $d\lambda$ represents an infinitesimal segment along the line $\lambda$ which, if summed together, will return $\lambda$. We call the infinitesimal segments of our line \textbf{vectors}. 
+Let $W \in F_1$ be the work function with a force as described in section 1.3, and let $\lambda \in S^1$ be the line that we are passing it. So, we can say that $W(\lambda) = \sum^n_iW(\lambda_i)$, where the ending point of each $\lambda_i$ is the starting point of each $\lambda_{i+1}$. In the limit as n tends to infinity, this expression becomes \begin{gather}W(\lambda) = \int_{\lambda} f(d\lambda) \end{gather}for a function $f$. Naturally, this function will be a force function, returning the force applied over the line at each infinitesimal segment. Each $d\lambda$ represents an infinitesimal segment along the line $\lambda$ which, if summed together, will return $\lambda$. We call the infinitesimal segments of our line \textbf{vectors}. 
 
 \begin{defn}
 	A \textbf{vector} $v^1 \in V^1$ is an infinitesimal segment along a line. A \textbf{tangent space}, then, is a collection of vectors that share a fixed point. 
