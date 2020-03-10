@@ -49,7 +49,7 @@ We assume on the part of the reader a class in introductory classical mechanics 
 
 \section{Physical objects and quantities}
 
-At the heart of scientific investigation is the identifying and organizing of objects based on their properties, through measurement and experiment. This could be anything from setting a block on a scale to determine its weight to determining the species that a particular animal belongs to. For our purposes here, we will be dealing only with properties that can be described using real numbers, such as mass, temperature, velocity, etc. The identification of a particular physical property with a real number is a \textbf{quantity}.
+At the heart of scientific investigation is the identifying and organizing of objects based on their properties, through measurement and experiment. This could be anything from setting a block on a scale to determine its weight to determining the species that a particular animal belongs to. For our purposes here, we will be dealing only with properties that can be described using real numbers, such as mass, temperature, velocity, etc. Identifying an object with a property involves first deciding which cases are possible and which are not. For example, when placing an object on a scale, you will not get a negative number (assuming, of course, that the scale has been properly zeroed). So, we have a set $U$, which the possible values the physical property can take on are contained in. The identification of a particular physical property with a real number is a \textbf{quantity}.
 
 \begin{defn}
 	A \textbf{quantity} is a function $q : U \to \mathbb{R}$ that assigns a measurable value to a physical case.
@@ -57,7 +57,8 @@ At the heart of scientific investigation is the identifying and organizing of ob
 
 
 
-It's possible, however, that we won't be able to distinguish between two objects with only one quantity. Say, for instance, that we're talking about weather. Knowing what the temperature will be tomorrow is certainly useful, but as anyone from Florida can tell you, 80$^o$F with 95$\%$ humidity is very different from 80$^o$F with 30$\%$ humidity. In distinguishing objects, then, we will often want to define more than one quantity. By defining enough quantities to distinguish one object from another, but not so many such that we have redundancies, we can define a \textbf{coordinate system}.
+It's possible, however, that one single quantity won't be enough to fully characterize an object. This presents an issue when trying to distinguish two objects. Say, for instance, that we're talking about weather. Knowing what the temperature will be tomorrow is certainly useful, but as anyone from Florida can tell you, 80$^o$F with 95$\%$ humidity is very different from 80$^o$F with 30$\%$ humidity. In characterizing objects, then, we will often want to define more than one quantity. By defining enough quantities to fully characterize one object, but not so many such that we have redundancies, we can define a \textbf{coordinate system}.
+
 
 
 Normally, we think of coordinate systems in the context of quantifying an object's position, in terms of its x-, y-, and z-coordinates. Though it may be an abuse of terminology, we will use the same phrase to describe coordinates in other contexts. Consider, for instance, phase space. Configurations in phase space are fully characterized by position and momentum, which would be our two quantities, thus giving us a coordinate system. As another example, we can look at a system described by the ideal gas law. In this case, we would create a coordinate system with pressure, volume, and temperature. 
@@ -72,19 +73,21 @@ With coordinate systems now defined, we recognize that in many instances, two di
 
 
 \begin{defn}
-	Given two coordinate systems  $Q : U \to \mathbb{R}^n$ and $Q' : V \to \mathbb{R}^n$ such that $U \cap V \neq \emptyset$, we call a \textbf{coordinate transformation} the function $f = Q' \circ (Q)^{-1} : \mathbb{R}^n \to \mathbb{R}^n$.
+	Given two coordinate systems  $Q : U \to \mathbb{R}^n$ and $Q' : V \to \mathbb{R}^n$ such that $U \cap V \neq \emptyset$, we call a \textbf{coordinate transformation} the function $f = Q' \circ (Q)^{-1} : \mathbb{R}^n \to \mathbb{R}^n$ (Figure 1.1).
 \end{defn}
 
 
 
 
-
+\begin{figure}
 \begin{center}
 \begin{tikzcd}
 	U \arrow[r, "Q", leftrightarrow] \arrow[d, "U \cap V" left, leftrightarrow] & \mathbb{R}^n \\
 	V \arrow[r, "Q'", leftrightarrow] & \mathbb{R}^n \arrow[u, leftrightarrow]
 \end{tikzcd}
 \end{center}
+\caption{This is commutative diagram shows how sets relate to each other, and what functions are used to relate them. The double sided arrows denote a one-to-one relationship between the elements of the two sets related using the operation above the arrow}
+\end{figure}
 
 
 Because of the poles, every location on Earth cannot be equally quantified with only one set of coordinates. This can be plainly seen on a typical flat map, such as a Mercator Projection. The most immediately obvious result of this flattening is that land proportions grow the closer to a pole they are, making Greenland appear massive, and the Sahara proportionally far smaller. The more important, but perhaps more subtle, outcome is that because the poles have in a sense been unraveled, the South Pole, which ought to be a single point, is an entire line along the southern edge of the map. A projection of the Earth onto a flat surface, such that one point on the Earth maps to one point on the surface, requires at least two separate maps. For instance, you could have a map of the top hemisphere, centered at the north pole, and then of the bottom hemisphere, centered at the south pole. From the Earth, then, we define \textbf{manifolds} as the general object that we project onto flat space. 
@@ -111,6 +114,11 @@ Earlier, weather was given as an example of a set of possible cases of a system,
 \end{itemize}
 
 The variety of examples is to show the ubiquitousness of manifolds, and that they are very familiar, everyday objects. This versatility proves their usefulness in physics, and in scientific investigation in general. But unlike in the case of the Earth, manifolds do not in general come prepackaged with a notion of distance. What does it mean, for instance, for there to be distance between weather reports? Perhaps you can argue that distance comes into play by specifying where exactly the weather report was taken, but this is simply the geography example again under a different name. No, defining distance on manifolds requires first the definition of a particular mathematical structure, which we will not be addressing here. 
+
+This lack of distance is a result of the fact that we are not speaking geometrically. That is, we do not have geometry defined (neither Riemannian, nor symplectic). Therefore, not only do we not have a notion of distance, we also do not have a notion of angles. To demonstrate the implications of this lack of distance and angles, consider the rotation of a coordinate system. First of all, say we have an x-y coordinate system, describing position. We can rotate this system freely. If we rotate it by 90$^o$, we would be holding invariant the angles and the distances between the points under rotation. 
+
+\textbf{Somewhat abstract right now, and I don't have a solid intuitive understanding yet. Play with this later and write a better explanation}
+\textbf{Talk about rotation of the coordinate system. It works in x-y, but not in p-V. Allows us to talk about that not all spaces are geometrical. So, we don't have a notion of geometry here.}
 
 
 \section{Sub-manifolds and k-surfaces}
