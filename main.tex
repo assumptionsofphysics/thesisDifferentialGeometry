@@ -52,7 +52,7 @@ We assume on the part of the reader a class in introductory classical mechanics 
 At the heart of scientific investigation is the identifying and organizing of objects based on their properties, through measurement and experiment. This could be anything from setting a block on a scale to determine its weight to determining the species that a particular animal belongs to. For our purposes here, we will be dealing only with properties that can be described using real numbers, such as mass, temperature, velocity, etc. Identifying an object with a property involves first deciding which cases are possible and which are not. For example, when placing an object on a scale, you will not get a negative number (assuming, of course, that the scale has been properly zeroed). So, we have a set $U$, which the possible values the physical property can take on are contained in. The identification of a particular physical property with a real number is a \textbf{quantity}.
 
 \begin{defn}
-	A \textbf{quantity} is a function $q : U \to \mathbb{R}$ that assigns a measurable value to a physical case.
+	A \textbf{quantity} is a function $q : U \to \mathbb{R}$ that assigns a measurable value to a physically possible case.
 \end{defn}
 
 
@@ -86,7 +86,7 @@ With coordinate systems now defined, we recognize that in many instances, two di
 	V \arrow[r, "Q'", leftrightarrow] & \mathbb{R}^n \arrow[u, leftrightarrow]
 \end{tikzcd}
 \end{center}
-\caption{This is commutative diagram shows how sets relate to each other, and what functions are used to relate them. The double sided arrows denote a one-to-one relationship between the elements of the two sets related using the operation above the arrow}
+\caption{This is a commutative diagram that shows how sets relate to each other, and what functions are used to relate them. The double sided arrows denote a one-to-one relationship between the elements of the two sets related using the operation above the arrow}
 \end{figure}
 
 
@@ -115,10 +115,7 @@ Earlier, weather was given as an example of a set of possible cases of a system,
 
 The variety of examples is to show the ubiquitousness of manifolds, and that they are very familiar, everyday objects. This versatility proves their usefulness in physics, and in scientific investigation in general. But unlike in the case of the Earth, manifolds do not in general come prepackaged with a notion of distance. What does it mean, for instance, for there to be distance between weather reports? Perhaps you can argue that distance comes into play by specifying where exactly the weather report was taken, but this is simply the geography example again under a different name. No, defining distance on manifolds requires first the definition of a particular mathematical structure, which we will not be addressing here. 
 
-This lack of distance is a result of the fact that we are not speaking geometrically. That is, we do not have geometry defined (neither Riemannian, nor symplectic). Therefore, not only do we not have a notion of distance, we also do not have a notion of angles. To demonstrate the implications of this lack of distance and angles, consider the rotation of a coordinate system. First of all, say we have an x-y coordinate system, describing position. We can rotate this system freely. If we rotate it by 90$^o$, we would be holding invariant the angles and the distances between the points under rotation. 
 
-\textbf{Somewhat abstract right now, and I don't have a solid intuitive understanding yet. Play with this later and write a better explanation}
-\textbf{Talk about rotation of the coordinate system. It works in x-y, but not in p-V. Allows us to talk about that not all spaces are geometrical. So, we don't have a notion of geometry here.}
 
 
 \section{Sub-manifolds and k-surfaces}
@@ -127,55 +124,53 @@ Consider again the weather report example, where we are taking into account wher
 
 
 \begin{defn}
-	Consider a manifold X of dimension n, and a manifold Y of dimension k, such that $k \leq n$. Y is a \textbf{submanifold} or a \textbf{k-surface}\footnote{In general, we will be using the term "k-surface", instead of "submanifold." There will be many terms throughout this thesis prefaced by "k-". In general, this means that the object in question has k dimensions, and can be organized by their dimensionality.} of X if any point on Y is also a point on X. 
+	Consider a manifold X of dimension n, and a manifold Y of dimension k, such that $k \leq n$. Y is a \textbf{submanifold} or a \textbf{k-surface}\footnote{In general, we will be using the term "k-surface", instead of "submanifold." There will be many terms throughout this thesis prefaced by "k-". In general, this means that the object in question has k dimensions, and can be organized by their dimensionality.} of X if any point on Y is also a point on X (Figure 1.2). 
 \end{defn}
 
 
-
+\begin{figure}
 \begin{center}
 \begin{tikzcd}
-X \arrow[r, "Q", leftrightarrow] \arrow[d, "X \cap Y" left, hook] & \mathbb{R}^n \arrow[d, hook]\\
-Y \arrow[r, "P", leftrightarrow] & \mathbb{R}^k
+X \arrow[r, "Q", leftrightarrow] & \mathbb{R}^n \\
+Y \arrow[r, "Q|_Y", leftrightarrow] \arrow[u, hook] & \mathbb{R}^k \arrow[u, hook]
 \end{tikzcd}
 \end{center}
-
+\caption{$Q|_Y$ is restriction notation. It means that it is the function $Q$ mapping between $X$ and $\mathbb{R}^n$, but restricted to map only from $Y$ to $\mathbb{R}^k$. We can use this notation as $Y$ and $\mathbb{R}^k$ are subsets of $X$ and $\mathbb{R}^n$, respectively.}
+\end{figure}
 
 
 \begin{defn}
 	For some manifold X of dimension n, $S^k$ is the set of all possible \textbf{k-surfaces} of dimension $k \leq n$, and S $=$ $\cup^n_{k=0}S^k$ is the set of all surfaces. 
 \end{defn}
 
-We can go even further in our description of k-surfaces. If we assume that we can freely move through the entirety of the Earth's crust, but may not leave the surface of the Earth, we may say that the Earth manifold has a \textbf{boundary}, that being the surface of the Earth. Because radius is held fixed on the surface, the boundary of the Earth has a dimensionality of 2, instead of 3. 
 
-\begin{defn}
-	Given k-surface $\sigma^k \in S^k$, the \textbf{boundary} of $\sigma^k$, denoted by $\partial\sigma^k \in S^{k-1}$ is the limit of varied coordinates. Points lying on the boundary are called \textbf{boundary points.}
-\end{defn}
-
-
-If instead of holding one value fixed and allowing the others to vary, and thereby forming a boundary, we could choose instead to allow one quantity to vary and hold the others fixed. For instance, say in the example of the weather report, we wish to vary only temperature. On the manifold containing all weather reports, this varying of only temperature would manifest itself as a line on the manifold, the points on which being weather reports whose values for all quantities besides temperature are identical. 
-
+We can go even further in our description of k-surfaces. First, we can hold certain quantities fixed, and vary the others. For instance, say we allow only one quantity to vary, while holding the others fixed. In the weather example, we could vary only temperature, holding all other properties fixed. On the manifold containing all weather reports, this varying of temperature would manifest itself as a line on the manifold, the points on which being weather reports whose values for all quantities besides temperature are identical. 
 \begin{defn}
 	A \textbf{coordinate line} is the set of points in $\mathbb{R}^n$ obtained by allowing one quantity to vary and holding the others fixed. 
 \end{defn}
+
+This same process can be done with any arbitrary number of fixed and varying coordinates. In general, a surface formed through the varying of coordinates is a \textbf{coordinate k-surface}. 
 
 \begin{defn}
 	A \textbf{coordinate k-surface} is the set of points in $\mathbb{R}^n$ obtained by allowing k quantities to vary and holding (n-k) quantities fixed.  
 \end{defn}
 
+When varying coordinates to creates coordinate lines, surfaces, volumes, etc., the varying can be brought to a halt by the geometry of the object that we're working on. Where the varying ends lies the \textbf{boundary} of our surface. Suppose our manifold is the Earth (the entire Earth, not just the surface). If we assume that we can freely move through the entirety of the Earth's crust, but may not leave the surface of the Earth, we may say that the Earth manifold has a boundary, that being the surface of the Earth. Because radius is held fixed on the surface, the boundary of the Earth has a dimensionality of 2, instead of 3. 
 
-Now that we have k-surfaces, we have a notion of where points lie relative to some k-surface. When varying coordinates to creates coordinate lines, surfaces, volumes, etc., the varying can be brought to a halt by the geometry of the object that we're working on. Where the varying ends lies the boundary of our surface. 
+\begin{defn}
+	Given k-surface $\sigma^k \in S^k$, the \textbf{boundary} of $\sigma^k$, denoted by $\partial\sigma^k \in S^{k-1}$ is the limit of varied coordinates. Points lying on the boundary are called \textbf{boundary points.}
+\end{defn}
 
-
-
-
-
-Intuitively, we can talk about the boundary of a k-surface being a wall, beyond which a point confined to the k-surface cannot go. Consider, for instance, a particle confined to the inside of a sphere. The particle is free to move anywhere within the sphere, but is stopped from leaving by the surface of the sphere itself. Thus, the surface is the boundary. On the other hand, consider a particle confined to the surface of a sphere. The particle can travel along the surface as long as it wants without being stopped by any kind of wall. Thus, the surface of a sphere does not have a boundary. \textbf{Probably have a picture}
-
-We can map between a k-surface and its boundary, if it exists, with the \textbf{boundary operator}. I.e., if $\sigma^2$ is a sphere, $\partial \sigma^2$ is its boundary: its surface. It follows also from the argument in the proceeding paragraph that $\partial\partial\sigma^2$ is empty. This is offered without a formal proof, but is true for general k-surfaces. 
+We can map between a k-surface and its boundary, if it exists, with the \textbf{boundary operator}. I.e., if $\sigma^2$ is a sphere, $\partial \sigma^2$ is its boundary: its surface. 
 
 \begin{defn}
 	For k-surface $\sigma^k \in S^k$, the \textbf{boundary operator} $\partial : S^k \to S^{k-1}$ gives the set of boundary points of $\sigma^k$. 
 \end{defn}
+
+Intuitively, we can in general talk about the boundary of a k-surface being a wall, beyond which a point confined to the k-surface cannot go. In this way, the surface of the Earth acts as a boundary of the Earth. On the other hand, suppose we are restricting ourselves now just to the boundary of the Earth. We can travel along the surface as long as we wish in any direction without being stopped by any kind of wall. Thus, the surface of the Earth does not have a boundary. This is true for general k-surfaces, but proving it is beyond the scope of this project. \textbf{Probably have a picture}
+
+
+
 
 \begin{coro}
 	Given $\sigma^k \in S^k$, $\partial \sigma^k \in S^{k-1}$, and $\partial\partial \sigma^k = \emptyset$. 
