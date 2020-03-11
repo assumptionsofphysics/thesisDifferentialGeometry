@@ -256,19 +256,27 @@ The takeaway from this is that if we have a k-functional $f \in F_k$, then $\eth
 \begin{prop}
 	If k-functional $f \in F_k$ is exact, then there exists some functional $g \in F_{k-1}$ such that $f = \eth g$. 
 \end{prop}
+
+\textbf{We can still call $g$ here the potential for $f$, even though we're not in the infinitesimal case}
+
 This allows us an alternate way of determining, for instance, work from a conservative force. If we have a work functional that is the boundary functional of another functional, then the force associated with it will necessarily be conservative.
 
 [\textbf{Part now on gauge, should probably go somewhere around here}]
 
 
 \textbf{Gauge Transformation}
+
+\textbf{Introduction here should be that the potential is not unique, as long as you're on a closed surface}
+
 With the propositions above, we are able to say that if $f = \eth g$, then the value of $g$ is specified up to the introduction of some other exact functional. 
 
 \begin{gather} 
 g_{k-1}(\sigma^{k-1}) \to g_{k-1}(\sigma^{k-1}) + \eth h_{k-2}(\sigma^{k-1}) = g_{k-1}(\sigma^{k-1}) + h_{k-2}(\partial\sigma^{k-1})
 \end{gather}
 
-This introduction of the exact functional $\eth h$ keeps the value of $g(\sigma)$ invariant IF $\sigma$ is closed: $\partial\sigma = \empty$. However, it is not invariant if $\sigma$ is not closed: $\partial\sigma \neq \empty$. A change in $g$ that keeps $g$ invariant on closed surfaces, but not on open surfaces is a gauge transformation. 
+
+
+This introduction of the exact functional $\eth h$ keeps the value of $g(\sigma)$ invariant IF $\sigma$ is closed: $\partial\sigma = \emptyset$. However, it is not invariant if $\sigma$ is not closed: $\partial\sigma \neq \emptyset$. A change in $g$ that keeps $g$ invariant on closed surfaces, but not on open surfaces is a gauge transformation. 
 
 
 
