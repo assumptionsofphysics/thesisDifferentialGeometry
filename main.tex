@@ -201,7 +201,7 @@ One more specification is necessary: the fact that $f_k$ must commute with the l
 
 If we have a 1-functional $f$, each individual $f(\lambda_i)$, as well as $f(\lambda)$ itself, will separately take on a value. We require that the limit holds, meaning that \begin{gather}  f\left(\lim_{i = 1 \to \infty} \lambda_i\right) = f(\lambda). \end{gather}
 
-To give an example where this condition is not fulfilled, suppose we have a sequence of horizontal and vertical lines (1-surfaces). In the limit of this sequence, these horizontal and vertical lines will approach a single line, which we will call $\lambda$, which will have both horizontal and vertical components. We ask ourselves now whether a length functional $L$, such that $L(\lambda)$ is the length of $\lambda$, is a 1-functional. It is certainly true that we can break $\lambda$ up into smaller lines stuck end-to-end, thus preserving linearity. However, this length functional does not satisfy the requirement that the length of the limit of the sequence of horizontal lines approaching $\lambda$ is the same as the length of $\lambda$. In other words, the length of the limit is not the limit of the length, and a length function is not a linear functional.
+To give an example where this condition is not fulfilled, suppose we have a line $\lambda$, and we want to determine its length. A sequence of lines $\{\lambda_i\}^{\infty}_{i=1}$ converges to $\lambda$, but the length of the converging sequence does not. This is because length varies nonlinearly with horizontal and vertical components. In other words, the length of a straight line $\lambda^*$ is $\sqrt{x^2 + y^2}$, where $x$ and $y$ are its horizontal and vertical components. So, the length of the limit is not the limit of the length, and a length function is not a linear functional. 
 
 
 \begin{defn}
@@ -254,10 +254,9 @@ Because $f(\emptyset) = 0$ and $h(\sigma) = \eth\eth f(\sigma)$, we have that $h
 
 The takeaway from this is that if we have a k-functional $f \in F_k$, then $\eth f \in F_{k+1}$ will necessarily be exact. We can see this by saying that if $g = \eth f$ and $\partial\sigma^{k+1} = \emptyset$, then \begin{gather} g(\sigma^{k+1}) = \eth f(\sigma^{k+1}) = f(\partial\sigma^{k+1}) = 0.\end{gather} And furthermore, if we have an exact functional $f \in F_k$, then $\eth f = 0$, and $f$ is the boundary functional of some other function in $F_{k-1}$. 
 \begin{prop}
-	If k-functional $f \in F_k$ is exact, then there exists some functional $g \in F_{k-1}$ such that $f = \eth g$. 
+	If k-functional $f \in F_k$ is exact, then there exists some functional $g \in F_{k-1}$ such that $f = \eth g$. $g$ is the \textbf{potential} of $f$.  
 \end{prop}
 
-\textbf{We can still call $g$ here the potential for $f$, even though we're not in the infinitesimal case}
 
 This allows us an alternate way of determining, for instance, work from a conservative force. If we have a work functional that is the boundary functional of another functional, then the force associated with it will necessarily be conservative.
 
