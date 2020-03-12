@@ -201,7 +201,7 @@ One more specification is necessary: the fact that $f_k$ must commute with the l
 
 If we have a 1-functional $f$, each individual $f(\lambda_i)$, as well as $f(\lambda)$ itself, will separately take on a value. We require that the limit holds, meaning that \begin{gather}  f\left(\lim_{i = 1 \to \infty} \lambda_i\right) = f(\lambda). \end{gather}
 
-To give an example where this condition is not fulfilled, suppose we have a line $\lambda$, and we want to determine its length. A sequence of lines $\{\lambda_i\}^{\infty}_{i=1}$ converges to $\lambda$, but the length of the converging sequence does not. This is because length varies nonlinearly with horizontal and vertical components. In other words, the length of a straight line $\lambda^*$ is $\sqrt{x^2 + y^2}$, where $x$ and $y$ are its horizontal and vertical components. So, the length of the limit is not the limit of the length, and a length function is not a linear functional. 
+To give an example where this condition is not fulfilled, suppose we have a straight line $\lambda$, and we want to determine its length. Say the length and height both equal $a$. Therefore, it's length is $\sqrt{2}a$. However, the length of the horizontal and vertical components together is $2a$. Further subdividing each horizontal and vertical component will create a sequence that does, in the limit, converge to $\lambda$. However, the length of this sequence will always, even in the limit, remain $2a$. Therefore, the length functional does not commute with the limit. [\textbf{A picture here is necessary}]
 
 
 \begin{defn}
