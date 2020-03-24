@@ -23,8 +23,8 @@
 
 \tableofcontents
 
-
 \clearpage
+
 
 
 
@@ -476,9 +476,9 @@ Nature does not come prepackaged with a specific, preferred coordinate system. I
 
 
 
-So, suppose we have a covector $\omega = \omega_i e^i$, where the covector components $\omega_i$ and basis $e^i$ are defined relative to coordinate system $Q$. Suppose now we have coordinate system $Q'$, relative to which the components and basis are $\omega_je^j$. $\omega$ is invariant, but the components and the basis are not, and their exact form depends on the coordinate system we're using. To transform between $Q$ and $Q'$, we write [\textbf{check over this derivation}]\begin{gather}\omega = \omega_i e^i = \omega_i e^i \delta_j^i e^j = \omega_j \delta^j_i e^j= \omega_j e^j \end{gather} Similarly, a vector $v$ will transform to $v'$ as $v' = v \frac{\partial x^i}{\partial x'^j}$. 
+So, suppose we have a covector $\omega = \omega_i e^i$, where the covector components $\omega_i$ and basis $e^i$ are defined relative to coordinate system $Q$. Suppose now we have coordinate system $Q'$, relative to which the components and basis are $\omega_je^j$. $\omega$ is invariant, but the components and the basis are not, and their exact form depends on the coordinate system we're using. To transform between $Q$ and $Q'$, we write [\textbf{check over this derivation}]\begin{gather}\omega = \omega_i e^i = \omega_i \frac{\partial x^i}{\partial P} = \omega_i \frac{\partial x^i}{\partial x'^j} \frac{\partial x'^j}{\partial P}  = \omega_j \frac{\partial x'^j}{\partial x^i}\frac{\partial x^i}{\partial P} = \omega_j \frac{\partial x'^j}{\partial P} = \omega_j e^j \end{gather} 
 
-
+\textbf{Explicitly give the transformation law here for the forms, then for the vectors}
 
 In general, an object that has such a relationship with objects in other coordinate systems are called \textbf{tensors}. 
 
@@ -509,26 +509,23 @@ From a mathematical perspective, this is entirely valid, and does not detract fr
 
 
 
-\section{Stokes' Theorem}
+\section{Exterior Derivative and Stokes' Theorem}
 
 \textbf{Make sure that this a parallel to the section on the finite case}
 
-\textbf{STart here with a "recall that we discussed this before", since at this point we're not doing anything new}
 
-Suppose we have a volume $\sigma^3 \in S^3$ (such as a sphere) with some source of flow $\omega_2 \in \Omega_2$ enclosed by the sphere, and 2-functional $f_2 \in F^2$ such that for $\sigma^2 \in S^2$, \begin{gather}f_2(\sigma^2) = \int_{\sigma^2} \omega_2(d\sigma^2).\end{gather} $\omega_2$ cannot operate on $\sigma^3$, as $\sigma^3$ is in $S^3$, and $\omega_2$ is in $\Omega_2$. That is, it cannot return the flux through infinitesimal bits of the sphere. What it \emph{can} do, however, is return the flux through infinitesimal bits of the \emph{surface} of the sphere: $\partial \sigma^3 \in S^2$. We can write then \begin{gather}f_2(\partial\sigma^3) = \int_{\partial\sigma^3} \omega_2 (d\partial\sigma^3).\end{gather} Recalling Definition 1.14, we know that \begin{gather}f_2(\partial\sigma^3) = \eth f_2(\sigma^3).\end{gather} And furthermore, \begin{gather}\eth f_2(\sigma^3) = \int_{\sigma^3} \eth\omega_2(d\sigma^3).\end{gather} Therefore, we have \begin{gather}\int_{\partial \sigma^3} \omega_2(d\partial\sigma^3) = \int_{\sigma^3} \eth \omega_2(d\sigma^3).\end{gather} So, if we are able to calculate the flux through a surface, we define $\eth$ to be the operator that allows us to calculate the flux through a volume. 
+
+Recall the fluid flux example in section 1.3. We had a 3-surface $\tau$ placed in a fluid, and the net flow of fluid through tau was given by $\Phi(\partial\tau) = \eth\Phi(\tau)$ for flux 2-functional $\Phi$. Suppose now that $\Phi$ has an associated 2-form $B$. We can therefore define a similar construction on forms. That is, we have that \begin{gather} \eth\Phi(\tau) = \int_\tau \eth B(d\tau) \end{gather}
+
+In this way, we define the \textbf{exterior derivative $\eth$ on forms} as the tool which which we apply a k-form to the infinitesimal parts of the boundary of a (k+1)-surface. 
 
 \textbf{As examples: we start with a force (a function of a line), and we can get work. From that we can create a functional that given a surface, takes the boundary and returns the work to go around the boundary. And if the force is conservative, then you get zero. So the functional applied to the surface always will be zero. Saying that the force is conservative is equivalent to saying that this higher dimensional functional is the zero functional. So now we want a relationship that's local. Instead of having a condition on the integral, we want a condition on the differential at the point (local). The idea is that since we know for any functional there is a form, we want to understand what's the k-functional with the k-form}
 
-There are two very important results drawn from this derivation. First, we now have an operator $\eth : \Omega_k \to \Omega_{k+1}$, just as we had $\eth : F_k \to F_{k+1}$. We define the former, then, as the \textbf{exterior derivative} on k-forms\footnote{In most texts on the subject (cf. Curtis and Miller, "Differential Manifolds and Theoretical Physics"), the exterior derivative is denoted simply with a $d$}. The second result is a generalization of something that may be familiar to the reader who's taken vector calculus: Stokes' Theorem. 
-
-
-
-
-\textbf{Not meaningful. Talk about it with boundaries and such.}
 
 \textbf{Make clear: we have k-functional, and boundary on k-functional. We have the form associated with the k-functional. }
+
 \begin{defn}
-	$\eth : \Omega_k \to \Omega_{k+1}$ is the \textbf{exterior derivative} on k-forms, such that for k-surface $\sigma$ and (k-1)-functional $f$ with associated (k-1)-form $\omega$, 
+	$\eth : \Omega_k \to \Omega_{k+1}$ is the \textbf{exterior derivative}\footnote{In most texts on the subject (cf. Curtis and Miller, "Differential Manifolds and Theoretical Physics"), the exterior derivative is denoted simply with a $d$} on k-forms, such that for k-surface $\sigma$ and (k-1)-functional $f$ with associated (k-1)-form $\omega$, 
 	
 	\begin{gather}f(\sigma) = \int_{\sigma}\omega(d\sigma)\end{gather} and \begin{gather} \eth f(\sigma) = f(\partial\sigma) \end{gather}
 	
@@ -563,13 +560,11 @@ squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size
 
 - Remake this diagram using tikz
 
-\textbf{Remake stokes' theorem to be a corollary of the definition. Need: defn for exterior derivative as the form associated with the boundary functional. Stokes' theorem is now just an equivalence between the boundary functional on a surface and the functional on the interior. Then, we need a proposition which basically gives (2.34)}
 
-\textbf{Maybe don't even talk about stokes' theorem. Just say we have the exterior derivative, and we have this relationship. Then give it in terms of components, then say when integrating (2.34), we're essentially integrating one side away. Then show how this stuff works in 1,2,3D}
 
-\begin{defn}
-	\textbf{Stokes' Theorem}: For (k-1)-form $\omega$ and k-surface $\sigma$, $\int_{\partial \sigma}\omega = \int_{\sigma}\eth\omega$. \textbf{NOTE: We kinda already gave this definition in the exterior derivative deifnition. It's kinda funny. We can handle this two ways: define the exterior derivative as being an operation that does the thing, and have stoke's theorem be waht the exterior derivative does. }
-\end{defn}
+\begin{coro}
+	\textbf{Stokes' Theorem}: For (k-1)-form $\omega$ and k-surface $\sigma$, $\int_{\partial \sigma}\omega = \int_{\sigma}\eth\omega$. 
+\end{coro}
 
 In many treatments of Electromagnetism (for example, "Classical Electromagnetic Radiation" by Heald and Marion), Stokes' Theorem is given in terms of the curl as \begin{gather}\int_S \nabla \times \vec{A} \cdot d\vec{S} = \oint_{\Gamma} \vec{A} \cdot d\vec{l}.\end{gather} This allows us to take a brief digression to see how the tools we have defined look in the more familiar 3D cases. 
 
