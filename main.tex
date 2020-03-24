@@ -476,11 +476,10 @@ Nature does not come prepackaged with a specific, preferred coordinate system. I
 
 
 
-So, suppose we have a covector $\omega = \omega_i e^i$, where the covector components $\omega_i$ and basis $e^i$ are defined relative to coordinate system $Q$. Suppose now we have coordinate system $Q'$, relative to which the components and basis are $\omega_je^j$. $\omega$ is invariant, but the components and the basis are not, and their exact form depends on the coordinate system we're using. To transform between $Q$ and $Q'$, we write [\textbf{check over this derivation}]\begin{gather}\omega = \omega_i e^i = \omega_i \frac{\partial x^i}{\partial P} = \omega_i \frac{\partial x^i}{\partial x'^j} \frac{\partial x'^j}{\partial P}  = \omega_j \frac{\partial x'^j}{\partial x^i}\frac{\partial x^i}{\partial P} = \omega_j \frac{\partial x'^j}{\partial P} = \omega_j e^j \end{gather} 
+So, suppose we have a covector $\omega = \omega_i e^i$, where the covector components $\omega_i$ and basis $e^i$ are defined relative to coordinate system $Q$. Suppose now we have coordinate system $Q'$, relative to which the components and basis are $\omega_je^j$. $\omega$ is invariant, but the components and the basis are not, and their exact form depends on the coordinate system we're using. To transform between $Q$ and $Q'$, we write \begin{gather}\omega = \omega_i e^i = \omega_i \frac{\partial x^i}{\partial P} = \omega_i \frac{\partial x^i}{\partial x'^j} \frac{\partial x'^j}{\partial P}  = \omega_j \frac{\partial x'^j}{\partial x^i}\frac{\partial x^i}{\partial P} = \omega_j \frac{\partial x'^j}{\partial P} = \omega_j e^j \end{gather} 
+More explicity and compactly, we have that the components of $\omega$ transform as \begin{gather}\omega_j = \frac{\partial x^i}{\partial x'^j} \omega_i. \end{gather}
 
-\textbf{Explicitly give the transformation law here for the forms, then for the vectors}
-
-In general, an object that has such a relationship with objects in other coordinate systems are called \textbf{tensors}. 
+Components of vectors transform in similar ways. If we have that $v = v^i e_i$, then $v^i$ will transform as \begin{gather}v^j = v^i \frac{\partial x'^j}{\partial x^i} \end{gather} In general, an object that has such a relationship with objects in other coordinate systems are called \textbf{tensors}. 
 
 
 
