@@ -447,18 +447,18 @@ Recall now definitions 1.1 and 1.2, and say we have a point $P$ on a manifold $X
 
 
 \begin{defn}
-	Given a coordinate system $Q$, the \textbf{basis vectors} of $V^1$ is the set of linearly independent directions along the coordinates such that any element in $V^1$ may be constructed using the basis vectors. In $\mathbb{R}^3$ using Cartesian coordinates, the basis vectors are equivalently $(e_1, e_2, e_3), (\hat{x}, \hat{y}, \hat{z}), (\hat{i}, \hat{j}, \hat{k})$, among others. A basis vector given a vector component will return the displacement along that basis vector. 
+	Given a coordinate system $Q$, the \textbf{basis vectors} of $V^1$ is the set of linearly independent directions along the coordinates such that any element in $V^1$ may be constructed using the basis vectors. In $\mathbb{R}^3$ using Cartesian coordinates, the basis vectors are equivalently $(e_1, e_2, e_3), (\hat{x}, \hat{y}, \hat{z}), (\hat{i}, \hat{j}, \hat{k})$, among others. A vector component is the displacement along a basis direction.
 \end{defn}
 
 
 Forms will be dealt with in a similar way. Let $\omega$ be a covector and $dP$ be a vector. Then $\omega(dP)$ is a linear function of the coordinate differences along $dP$. Therefore we can write $\omega = \omega_i \frac{\partial x^i}{\partial P} = \omega_i e^i$ where each $e^i$ is a basis covector, or \textbf{cobasis vector}. 
-
+\textbf{Have to say what the $e_i$ and $e^j$ actually are. $e_i$ isn't really a vector}
 \begin{defn}
-	The \textbf{cobasis} of $\Omega_1$ is a set of linearly independent directions such that any element in $\Omega_k$ may be constructed using the basis covectors. For a set of forms with underlying field $\mathbb{R}^3$, the cobasis may be written as $(e^1, e^2, e^3)$. When a covector is given to a basis covector, we get the component of the covector along that direction. A basis vector $e_i$ and basis covector $e^j$ relate to each other as $e_ie^j = \delta^j_i$\footnote{$\delta^i_j$ is the Kronecker delta, defined to equal 1 when i = j, and 0 otherwise}.
+	The \textbf{cobasis} of $\Omega_1$ is a set of linearly independent covectors such that any element in $\Omega_1$ may be constructed using the basis covectors. For a set of forms with underlying field $\mathbb{R}^3$, the cobasis may be written as $(e^1, e^2, e^3)$. When a vector is given to a basis covector, we get the component of the vector along that direction. A basis vector $e_i$ and basis covector $e^j$ relate to each other as $e_ie^j = \delta^j_i$\footnote{$\delta^i_j$ is the Kronecker delta, defined to equal 1 when i = j, and 0 otherwise}. \textbf{It has to be defined on the coordinate system. Only thing that really needs to be said is that a basis covector acts on a vector to return a component along that direction. $e^i dP = dx^i$}
 \end{defn}
  
 
-Putting everything together now, for vector dP and k-form $\omega$, $\omega(dP) = \omega_ie^i(dx^je_j) = \omega_idx^je^ie_j = \omega_idx^j\delta^i_j = \omega_i dx^i$. This is an interesting result: a vector and covector together naturally simplify down to a linear combination of infinitesimal segments. 
+Putting everything together now, for vector dP and k-form $\omega$, $\omega(dP) = \omega_ie^i(dx^je_j) = \omega_i(dx^j)(e^i)e_j = \omega_idx^j\delta^i_j = \omega_i dx^i$. This is an interesting result: a vector and covector together naturally simplify down to a linear combination of infinitesimal segments. 
 
 Working in a space with specified coordinates allows us to solve real problems. For instance, in section 2.2 we got slightly ahead of ourselves by describing the oscillation of a mass on a spring with specific coordinates without yet having them defined. Now, with the tools in this section, such a problem is possible to solve.  
 
@@ -471,6 +471,7 @@ Nature does not come prepackaged with a specific, preferred coordinate system. I
 
 
 So, suppose we have a covector $\omega = \omega_i e^i$, where the covector components $\omega_i$ and basis $e^i$ are defined relative to coordinate system $Q$. Suppose now we have coordinate system $\hat{Q}$, relative to which the components and basis are $\hat{\omega}_j\hat{e}^j$. $\omega$ is invariant, but the components and the basis are not, and their exact form depends on the coordinate system we're using. To transform between $Q$ and $\hat{Q}$, we write \begin{gather}\omega = \omega_i e^i = \omega_i \frac{\partial x^i}{\partial P} = \omega_i \frac{\partial x^i}{\partial x'^j} \frac{\partial x'^j}{\partial x^i} \frac{\partial x^i}{\partial P}=  \omega_i \frac{\partial x^i}{\partial x'^j} \frac{\partial x'^j}{\partial P}  = \omega'_j \frac{\partial x'^j}{\partial P} = \omega'_j e'^j \end{gather} 
+\textbf{Put the very last piece as the second term after the omega by itself, saying that omega is the same in both expressions. We don't konw yet what omega' is, but we can do these things with the chain rule. Then we put the dx'j / dp as e'j}
 More explicity and compactly, we have that the components of $\omega$ transform as \begin{gather}\omega'_j = \frac{\partial x^i}{\partial x'^j} \omega_i. \end{gather}
 
 Components of vectors transform in similar ways. If we have that $v = v^i e_i$, then $v^i$ will transform as \begin{gather}v'^j = v^i \frac{\partial x'^j}{\partial x^i} \end{gather} In general, an object that has such a relationship with objects in other coordinate systems are called \textbf{tensors}. 
