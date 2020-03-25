@@ -257,6 +257,8 @@ The takeaway from this is that if we have a k-functional $f \in F_k$, then $\eth
 	If k-functional $f \in F_k$ is exact, then there exists some functional $g \in F_{k-1}$ such that $f = \eth g$. $g$ is the \textbf{potential} of $f$.  
 \end{prop}
 
+\textbf{Closed functional is if the surface is contractable to a point, the closed functional is zero}
+
 
 This allows us an alternate way of determining, for instance, work from a conservative force. If we have a work functional that is the boundary functional of another functional, then the force associated with it will necessarily be conservative.
 
@@ -460,7 +462,7 @@ Forms will be dealt with in a similar way. Let $\omega$ be a covector and $dP$ b
 
 Putting everything together now, for vector dP and k-form $\omega$, $\omega(dP) = \omega_ie^i(dx^je_j) = \omega_i(dx^j)(e^i)e_j = \omega_idx^j\delta^i_j = \omega_i dx^i$. This is an interesting result: a vector and covector together naturally simplify down to a linear combination of infinitesimal segments. 
 
-We note now that we cannot always decompose k-forms into constituent 1-forms, but we can always attach a k-form to a wedge series of basis covectors. So, for any k-form $\omega_k$, we can write \begin{gather} \omega_k = \omega_{ab...c}e^a\wedge e^b \wedge ... \wedge e^c. \end{gather} And furthermore, we can always combine k-forms. So, if we have 1-forms $\alpha = \alpha_i e^i$ and $\beta = \beta_j e^j$, we can construct a 2-form as $\alpha_i\beta_j e^i\wedge e^j$. Simply put, k-forms are always combinable, but not always factoriazable.\footnote{This is similar to (and in fact, the math is exactly the same, involving the tensor product) the fact that in quantum mechanics, states may always be combined, but not all mixed states can be factored into constituent pure states}
+We note now that we cannot always decompose k-forms into constituent 1-forms, but we can always express a k-form in terms of the basis covectors. So, for any k-form $\omega_k$, we can write \textbf{stress that omega$_{ab...c}$ is a matrix of numbers, and takes points} \begin{gather} \omega_k = \omega_{ab...c}e^a\wedge e^b \wedge ... \wedge e^c. \end{gather} And furthermore, we can always combine k-forms. So, if we have 1-forms $\alpha = \alpha_i e^i$ and $\beta = \beta_j e^j$, we can construct a 2-form as $\alpha\wedge\beta = \alpha_i\beta_j e^i\wedge e^j$. Simply put, k-forms are always combinable, but not always factoriazable.\footnote{This is similar to (and in fact, the math is exactly the same, involving the tensor product) the fact that in quantum mechanics, states may always be combined, but not all mixed states can be factored into constituent pure states}
 
 Working in a space with specified coordinates allows us to solve real problems. For instance, in section 2.2 we got slightly ahead of ourselves by describing the oscillation of a mass on a spring with specific coordinates without yet having them defined. Now, with the tools in this section, such a problem is possible to solve.  
 
@@ -515,13 +517,13 @@ From a mathematical perspective, this is entirely valid, and does not detract fr
 
 Recall the fluid flux example in section 1.3. We had a 3-surface $\tau$ placed in a fluid, and the net flow of fluid through tau was given by $\Phi(\partial\tau) = \eth\Phi(\tau)$ for flux 2-functional $\Phi$. Suppose now that $\Phi$ has an associated 2-form $B$. We can define a similar construction on forms. So, we have that \begin{gather} \eth\Phi(\tau) = \Phi(\partial\tau) = \int_{\partial\tau} B(d\partial\tau) \end{gather}
 
-Explicitly, we have that the 2-form $B$ is acting on the infinitesimal components of the boundary of 3-surface $\tau$. We can equate this with a 3-form $C$ acting on the entirety of $\tau$: \begin{gather} \int_{\partial\tau} B(d\partial\tau) = \int_\tau C(d\tau) \end{gather}
+Explicitly, we have that the 2-form $B$ is acting on the infinitesimal components of the boundary of 3-surface $\tau$. We can equate this with a 3-form $C$ acting on the entirety of $\tau$: \begin{gather} \eth\Phi(\tau) = \int_\tau C(d\tau) \end{gather}
 
 We can relate $B$ and $C$ by defining the \textbf{exterior derivative $\eth$ on forms}, such that $C = \eth B$. Thus, \begin{gather} \int_{\partial\tau} B(d\partial\tau) = \int_\tau \eth B(d\tau). \end{gather}
 
 
 \begin{defn}
-	Let $\sigma$ be a k-surface, and let $f$ be a (k-1)-functional with associated (k-1)-form $\omega$. We define the \textbf{exterior derivative}\footnote{In most texts on the subject (cf. Curtis and Miller, "Differential Manifolds and Theoretical Physics") $\eth : \Omega_k \to \Omega_{k+1}$ , the exterior derivative is denoted simply with a $d$} as the tool that allows $\omega$ to act on the boundary of $\sigma$, such that if
+	Let $\sigma$ be a k-surface, and let $f$ be a (k-1)-functional with associated (k-1)-form $\omega$. We define the \textbf{exterior derivative}\footnote{In most texts on the subject (cf. Curtis and Miller, "Differential Manifolds and Theoretical Physics") $\eth : \Omega_k \to \Omega_{k+1}$ , the exterior derivative is denoted simply with a $d$} as the tool that allows $\omega$ to act on the boundary of $\sigma$, such that if \textbf{Basically give the commutative diagram in math form, "f has form omega, and g has form gamma, we can relate them this way". Also replace k with k+1, and k-1 with k}
 	
 	\begin{gather}f(\sigma) = \int_{\sigma}\omega(d\sigma)\end{gather} and \begin{gather} \eth f(\sigma) = f(\partial\sigma), \end{gather}
 	then
@@ -591,7 +593,8 @@ Suppose we have a 1-functional $W$, a 1-form $f$, and a 0-form $v$, such that $f
 
 \textbf{Integrating on the closed loop is directly integrating over the exterior derivative of a thing. Imposing lambda being closed becomes unnecessary with the right application of $\eth$}
 
-Suppose now that $\lambda$ is a closed loop; that is, its starting and ending points are the same. So, if we want to integrate our form over the entirety of $\lambda$, we have that \begin{gather} \int_{\partial\lambda} v(d\partial\lambda) = 0,\end{gather} so we have finally that \begin{gather} W(\lambda) = 0.\end{gather} Therefore, if we have the starting and ending points of $\lambda$ be the same, it doesn't matter what path we take otherwise, we will always get zero. If we let $W$ be a work functional, just as in Chapter 1, we see that we have just come across path-independent work and, more importantly, conservative forces. In this case, $f$ is a conservative force, related to a scalar potential $v$ by $f = \eth v$. Recalling that the exterior derivative of a 0-form is the same thing as a gradient of a scalar vector field, we see that saying that $f = \eth v$ is equivalent to saying that $F = -\nabla V$, for some conservative force $F$ and scalar potential $V$. The fact that $f = \eth v$ is the very thing that makes $f$ conservative.  
+\textbf{Start from the integral form. Organize this simiarly to 2.7: we have functionals and potentials, and they operate on surfaces differently. Exterior derivative is how we go from forms to potentials. All the explanation was done before, not too much needs to be done}
+Suppose now that $\lambda$ is a closed loop; that is, its starting and ending points are the same. So, if we want to integrate our form over the entirety of $\lambda$, we have that \textbf{Recall in ch.1 we did all this stuff written in terms of functionals, now we're going to do it in terms of forms}\begin{gather} \int_{\partial\lambda} v(d\partial\lambda) = 0,\end{gather} so we have finally that \begin{gather} W(\lambda) = 0.\end{gather} Therefore, if we have the starting and ending points of $\lambda$ be the same, it doesn't matter what path we take otherwise, we will always get zero. If we let $W$ be a work functional, just as in Chapter 1, we see that we have just come across path-independent work and, more importantly, conservative forces. In this case, $f$ is a conservative force, related to a scalar potential $v$ by $f = \eth v$. Recalling that the exterior derivative of a 0-form is the same thing as a gradient of a scalar vector field, we see that saying that $f = \eth v$ is equivalent to saying that $F = -\nabla V$, for some conservative force $F$ and scalar potential $V$. The fact that $f = \eth v$ is the very thing that makes $f$ conservative.  
 
 \textbf{This would make more sense in the finite form.}
 
@@ -600,6 +603,8 @@ Now say we have a 1-form $A$ such that $\eth A = 0.$ While it is true in general
 \textbf{PUT A PICTURE OF THE CLOSED FIELD HERE}
 
 These two examples introduce two important classes of differential forms and their physical implications. We are able to relate conservative forces to forms that are the exterior derivative of other forms, and divergenceless fields to forms with no exterior derivative. If a form is the exterior derivative of another form, it is \textbf{exact}, and if a form has no exterior derivative, it is \textbf{closed}.
+ 
+ \textbf{All the hard work was done in ch1. Show how these infinitesimal things come from the finite constructions}
  
 \begin{defn} 
 	A k-form \textbf{$\omega$} is \textbf{closed} if $\eth\omega = 0$. 
