@@ -237,6 +237,7 @@ Let's examine now how the boundary functional works in practice by returning to 
 	An \textbf{exact functional} is a k-functional $f_k \in F_k$ such that, if $\partial\sigma^k = \emptyset$ for $\sigma^k \in S^k$, then $f_k(\sigma^k) = 0$. 
 \end{defn}
 
+ 
 
 Recall that for any k-surface $\sigma^k$, $\partial\partial\sigma^k = \emptyset$. This, together with the definition of the boundary functional, suggests an interesting property of k-functionals that must be explored and formalized. Suppose we have $f \in F_k$ and $g \in F_{k+1}$, such that $g = \eth f$. For (k+1)-surface $\sigma^{k+1} \in S^{k+1}$, we have that \begin{gather} g(\sigma^{k+1}) = \eth f(\sigma^{k+1}) = f(\partial\sigma^{k+1}). \end{gather} So far so good. But now introduce $h \in F_{k+2}$, such that $h = \eth g$, as well as $\sigma^{k+2} \in S^{k+2}$. We have then that \begin{gather} h(\sigma^{k+2}) = \eth g(\sigma^{k+2}) = \eth\eth f(\sigma^{k+2}) = \eth f(\partial\sigma^{k+2}) = f(\partial\partial\sigma^{k+2}). \end{gather} Keeping in mind that $\partial\partial\sigma^{k+2} = \emptyset$, we have that \begin{gather}f(\partial\partial\sigma^{k+2}) = f(\emptyset). \end{gather}
 
@@ -262,14 +263,9 @@ The takeaway from this is that if we have a k-functional $f \in F_k$, then $\eth
 
 This allows us an alternate way of determining, for instance, work from a conservative force. If we have a work functional that is the boundary functional of another functional, then the force associated with it will necessarily be conservative.
 
-[\textbf{Part now on gauge, should probably go somewhere around here}]
 
 
-\textbf{Gauge Transformation}
-
-\textbf{Introduction here should be that the potential is not unique, as long as you're on a closed surface}
-
-With the propositions above, we are able to say that if $f = \eth g$, then the value of $g$ is specified up to the introduction of some other exact functional. 
+Potentials are not uniquely defined for each k-functional. With the propositions above, we are able to say that if $f = \eth g$, then the value of $g$ is specified up to the introduction of some other exact functional. 
 
 \begin{gather} 
 g_{k-1}(\sigma^{k-1}) \to g_{k-1}(\sigma^{k-1}) + \eth h_{k-2}(\sigma^{k-1}) = g_{k-1}(\sigma^{k-1}) + h_{k-2}(\partial\sigma^{k-1})
@@ -277,7 +273,11 @@ g_{k-1}(\sigma^{k-1}) \to g_{k-1}(\sigma^{k-1}) + \eth h_{k-2}(\sigma^{k-1}) = g
 
 
 
-This introduction of the exact functional $\eth h$ keeps the value of $g(\sigma)$ invariant IF $\sigma$ is closed: $\partial\sigma = \emptyset$. However, it is not invariant if $\sigma$ is not closed: $\partial\sigma \neq \emptyset$. A change in $g$ that keeps $g$ invariant on closed surfaces, but not on open surfaces is a gauge transformation. 
+This introduction of the exact functional $\eth h$ keeps the value of $g(\sigma)$ invariant IF $\sigma$ is closed: $\partial\sigma = \emptyset$. However, it is not invariant if $\sigma$ is not closed: $\partial\sigma \neq \emptyset$. A change in $g$ that keeps $g$ invariant on closed surfaces, but not on open surfaces is a \textbf{gauge transformation}. 
+
+\begin{defn}
+	Suppose we have a k-functional $f \in F_k$ and k-surface $\sigma \in S^k$. A \textbf{gauge transformation} $G: F_k \to F_k$ is a transformation on functionals such that if $\sigma$ is closed, then $G(f)(\sigma) = f(\sigma)$, while if $\sigma$ is not closed, then $G(f)(\sigma) \neq f(\sigma)$. 
+\end{defn}
 
 
 
@@ -449,11 +449,11 @@ Recall now definitions 1.1 and 1.2, and say we have a point $P$ on a manifold $X
 
 
 \begin{defn}
-	Given a coordinate system $Q$, the \textbf{basis vectors} of $V^1$ is the set of linearly independent directions along the coordinates such that any element in $V^1$ may be constructed using the basis vectors. In $\mathbb{R}^3$ using Cartesian coordinates, the basis vectors are equivalently $(e_1, e_2, e_3), (\hat{x}, \hat{y}, \hat{z}), (\hat{i}, \hat{j}, \hat{k})$, among others. A vector component is the displacement along a basis direction.
+	Given a coordinate system $Q$, the \textbf{basis} of $V^1$ is the set of linearly independent directions along the coordinates such that any element in $V^1$ may be constructed using the basis vectors. In $\mathbb{R}^3$ using Cartesian coordinates, the basis vectors are equivalently $(e_1, e_2, e_3), (\hat{x}, \hat{y}, \hat{z}), (\hat{i}, \hat{j}, \hat{k})$, among others. A vector component is the displacement along a basis direction.
 \end{defn}
-Basis vectors, because they are defined in terms of a coordinate system, are not truly vectors. Instead, they are...
+Basis vectors, because they are defined in terms of a coordinate system, are not truly vectors. Instead, they are something that when summed with the displacements in each direction, return the vector. 
 
-Forms will be dealt with in a similar way. Let $\omega$ be a covector and $dP$ be a vector. Then $\omega(dP)$ is a linear function of the coordinate differences along $dP$. Therefore we can write $\omega = \omega_i \frac{\partial x^i}{\partial P} = \omega_i e^i$ where each $e^i$ is a basis covector, or \textbf{cobasis vector}. Again, basis covectors aren't truly covectors or vectors. Instead, they are a direction that when given a vector return the component of the vector in that direction. 
+Forms will be dealt with in a similar way. Let $\omega$ be a covector and $dP$ be a vector. Then $\omega(dP)$ is a linear function of the coordinate differences along $dP$. Therefore we can write $\omega = \omega_i \frac{\partial x^i}{\partial P} = \omega_i e^i$ where each $e^i$ is a basis covector, or \textbf{cobasis vector}. Again, basis covectors aren't truly covectors. Instead, they are a direction that when given a vector return the component of the vector in that direction. 
 
 \begin{defn}
 	Given a coordinate system Q, the \textbf{cobasis} of $\Omega_1$ is a set of linearly independent covectors such that any element in $\Omega_1$ may be constructed using the basis covectors. For a set of forms with underlying field $\mathbb{R}^3$, the cobasis may be written as $(e^1, e^2, e^3)$. For vector $dP$ and basis covector $e^i$, $e^i dP = dx^i$: the vector component in the $e^i$ direction. A basis vector $e_i$ and basis covector $e^j$ relate to each other as $e_ie^j = \delta^j_i$\footnote{$\delta^i_j$ is the Kronecker delta, defined to equal 1 when i = j, and 0 otherwise}. 
@@ -462,7 +462,7 @@ Forms will be dealt with in a similar way. Let $\omega$ be a covector and $dP$ b
 
 Putting everything together now, for vector dP and k-form $\omega$, $\omega(dP) = \omega_ie^i(dx^je_j) = \omega_i(dx^j)(e^i)e_j = \omega_idx^j\delta^i_j = \omega_i dx^i$. This is an interesting result: a vector and covector together naturally simplify down to a linear combination of infinitesimal segments. 
 
-We note now that we cannot always decompose k-forms into constituent 1-forms, but we can always express a k-form in terms of the basis covectors. So, for any k-form $\omega_k$, we can write \textbf{stress that omega$_{ab...c}$ is a matrix of numbers, and takes points} \begin{gather} \omega_k = \omega_{ab...c}e^a\wedge e^b \wedge ... \wedge e^c. \end{gather} And furthermore, we can always combine k-forms. So, if we have 1-forms $\alpha = \alpha_i e^i$ and $\beta = \beta_j e^j$, we can construct a 2-form as $\alpha\wedge\beta = \alpha_i\beta_j e^i\wedge e^j$. Simply put, k-forms are always combinable, but not always factoriazable.\footnote{This is similar to (and in fact, the math is exactly the same, involving the tensor product) the fact that in quantum mechanics, states may always be combined, but not all mixed states can be factored into constituent pure states}
+We note now that we cannot always decompose k-forms into constituent 1-forms, but we can always express a k-form in terms of the basis covectors. So, for any k-form $\omega_k$, we can write\footnote{In practice, $\omega_{ab...c}$ is a matrix defined on points} \begin{gather} \omega_k = \omega_{ab...c}e^a\wedge e^b \wedge ... \wedge e^c. \end{gather} And furthermore, we can always combine k-forms. So, if we have 1-forms $\alpha = \alpha_i e^i$ and $\beta = \beta_j e^j$, we can construct a 2-form as $\alpha\wedge\beta = \alpha_i\beta_j e^i\wedge e^j$. Simply put, k-forms are always combinable, but not always factoriazable.\footnote{This is similar to (and in fact, the math is exactly the same, involving the tensor product) the fact that in quantum mechanics, states may always be combined, but not all mixed states can be factored into constituent pure states}
 
 Working in a space with specified coordinates allows us to solve real problems. For instance, in section 2.2 we got slightly ahead of ourselves by describing the oscillation of a mass on a spring with specific coordinates without yet having them defined. Now, with the tools in this section, such a problem is possible to solve.  
 
@@ -474,21 +474,21 @@ Working in a space with specified coordinates allows us to solve real problems. 
 Nature does not come prepackaged with a specific, preferred coordinate system. It follows then that any coordinate system that we choose to impose on our system is ultimately changeable, and that our system can just as well be described with any number of coordinate systems. For instance, if we say that some object lies at point $P$ with respect to coordinate system $Q$, we can just as well say where it lies with respect to coordinate system $Q'$. 
 
 
-So, suppose we have a covector $\omega = \omega_i e^i$, where the covector components $\omega_i$ and basis $e^i$ are defined relative to coordinate system $Q$. Suppose now we have coordinate system $\hat{Q}$, relative to which the components and basis are $\hat{\omega}_j\hat{e}^j$. $\omega$ is invariant, but the components and the basis are not, and their exact form depends on the coordinate system we're using. To transform between $Q$ and $\hat{Q}$, we write \begin{gather}\omega = \omega_i e^i = \omega'_j e'^j  \end{gather}
-\begin{gather}\omega_i e^i = \omega_i \frac{\partial x^i}{\partial P} = \omega_i \frac{\partial x^i}{\partial x'^j} \frac{\partial x'^j}{\partial x^i} \frac{\partial x^i}{\partial P}=  \omega_i \frac{\partial x^i}{\partial x'^j} \frac{\partial x'^j}{\partial P} = \omega_i \frac{\partial x^i}{\partial x'^j} e'^j\end{gather} 
+So, suppose we have a covector $\omega = \omega_i e^i$, where the covector components $\omega_i$ and basis $e^i$ are defined relative to coordinate system $Q$. Suppose now we have coordinate system $\hat{Q}$, relative to which the components and basis are $\hat{\omega}_j\hat{e}^j$. $\omega$ is invariant, but the components and the basis are not, and their exact form depends on the coordinate system we're using. To transform between $Q$ and $\hat{Q}$, we write \begin{gather}\omega = \omega_i e^i = \hat{\omega}_j \hat{e}^j  \end{gather}
+\begin{gather}\omega_i e^i = \omega_i \frac{\partial x^i}{\partial P} = \omega_i \frac{\partial x^i}{\partial \hat{x}^j} \frac{\partial \hat{x}^j}{\partial x^i} \frac{\partial x^i}{\partial P}=  \omega_i \frac{\partial x^i}{\partial \hat{x}^j} \frac{\partial \hat{x}^j}{\partial P} = \omega_i \frac{\partial x^i}{\partial \hat{x}^j} \hat{e}^j\end{gather} 
 
 So, \begin{gather}
-\omega_i \frac{\partial x^i}{\partial x'^j} e'^j = \omega'_j e'^j
+\omega_i \frac{\partial x^i}{\partial \hat{x}^j} \hat{e}^j = \hat{\omega}_j \hat{e}^j
 \end{gather}
-\begin{gather} \implies  \frac{\partial x^i}{\partial x'^j} \omega_i = \omega'_j.
+\begin{gather} \implies  \frac{\partial x^i}{\partial \hat{x}^j} \omega_i = \omega_j.
 \end{gather}
 
-Components of vectors transform in similar ways. If we have that $v = v^i e_i$, then $v^i$ will transform as \begin{gather}v'^j = v^i \frac{\partial x'^j}{\partial x^i} \end{gather} In general, an object that has such a relationship with objects in other coordinate systems are called \textbf{tensors}. 
+Components of vectors transform in similar ways. If we have that $v = v^i e_i$, then $v^i$ will transform as \begin{gather}\hat{v}^j = v^i \frac{\partial \hat{x}^j}{\partial x^i} \end{gather} In general, an object that has such a relationship with objects in other coordinate systems are called \textbf{tensors}. 
 
 
 
 \begin{defn}
-	A \textbf{tensor} $X$ of rank [n k] is an object that transforms as \begin{gather}X'^{a...k}_{b...n} = \frac{\partial x'^a}{\partial x^d} ... \frac{\partial x'^k}{\partial x^j} \frac{\partial x^c}{\partial x'^b} ... \frac{\partial x^e}{\partial x'^n} X^{d...j}_{c...e}.\end{gather} 
+	A \textbf{tensor} $X$ of rank [n k] is an object that transforms as \begin{gather}\hat{X}^{a...k}_{b...n} = \frac{\partial \hat{x}^a}{\partial x^d} ... \frac{\partial \hat{x}^k}{\partial x^j} \frac{\partial x^c}{\partial \hat{x}^b} ... \frac{\partial x^e}{\partial \hat{x}^n} X^{d...j}_{c...e}.\end{gather} 
 \end{defn}
 
 \begin{coro}
@@ -509,7 +509,7 @@ Another way of thinking of tensors that may mesh better with a mathematician's w
 \end{defn}
 
 From a mathematical perspective, this is entirely valid, and does not detract from solving problems in physics. Furthermore, it has the added bonus of emphasizing that k-forms and k-vectors are in a sense two sides of the same coin\footnote{Properly speaking, k-forms and k-vectors are \emph{dual} to each other}, neither occupying a preferred position as the operator or as the object being operated on. From a physical perspective, however, this has somewhat unfortunate implications. Recall that we motivated the discussion of covectors using force, and of vectors using infinitesimal displacement. Mathematically, we would be entirely within our rights to say that an infinitesimal displacement is a function on a force that produces work, rather than saying that the force is a function on an infinitesimal displacement that produces work. This is not as physically intuitive, so we will be continuing to be emphasizing covectors and k-forms as being functions of vectors and k-vectors, while also using the transformation law as the defining characteristic of tensors.
-\textbf{ We could also say that there are things like covectors that aren't functions of infinitesimal displacements (such as conjugate momentum)}
+
 
 
 \section{Exterior Derivative and Stokes' Theorem}
@@ -523,13 +523,13 @@ We can relate $B$ and $C$ by defining the \textbf{exterior derivative $\eth$ on 
 
 
 \begin{defn}
-	Let $\sigma$ be a k-surface, and let $f$ be a (k-1)-functional with associated (k-1)-form $\omega$. We define the \textbf{exterior derivative}\footnote{In most texts on the subject (cf. Curtis and Miller, "Differential Manifolds and Theoretical Physics") $\eth : \Omega_k \to \Omega_{k+1}$ , the exterior derivative is denoted simply with a $d$} as the tool that allows $\omega$ to act on the boundary of $\sigma$, such that if \textbf{Basically give the commutative diagram in math form, "f has form omega, and g has form gamma, we can relate them this way". Also replace k with k+1, and k-1 with k}
+	Let $\sigma$ be a (k+1)-surface, let $f$ be a k-functional with associated k-form $\omega$, and let $g$ be a (k+1)-functional with associated (k+1)-form $\gamma$. We define the \textbf{exterior derivative}\footnote{In most texts on the subject (cf. Curtis and Miller, "Differential Manifolds and Theoretical Physics") $\eth : \Omega_k \to \Omega_{k+1}$ , the exterior derivative is denoted simply with a $d$} as the tool that allows $\omega$ to act on the boundary of $\sigma$, such that if
 	
-	\begin{gather}f(\sigma) = \int_{\sigma}\omega(d\sigma)\end{gather} and \begin{gather} \eth f(\sigma) = f(\partial\sigma), \end{gather}
+	\begin{gather}f(\partial\sigma) = \int_{\partial\sigma}\omega(d\partial\sigma)\end{gather} and \begin{gather}  g(\sigma) = \int_\sigma \gamma(d\sigma), \end{gather}
+	then if
+	\begin{gather} g(\sigma) = f(\partial\sigma) = \eth f(\sigma),\end{gather} 
 	then
-	\begin{gather} \eth f(\sigma) = \int_{\sigma} \eth\omega(d\sigma),\end{gather} 
-	and
-	\begin{gather} \int_\sigma \eth\omega(d\sigma) = \int_{\partial\sigma} \omega(d\partial\sigma)\end{gather}
+	\begin{gather} \int_\sigma \gamma(d\sigma) = \int_{\sigma}\eth\omega(d\sigma) \end{gather}
 \end{defn}
 
 
@@ -542,22 +542,17 @@ We can relate $B$ and $C$ by defining the \textbf{exterior derivative $\eth$ on 
  
  
 
-\begin{tikzpicture}
-[roundnode/.style={circle, draw=green!60, fill=green!5, very thick, minimum size=7mm},
-squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size=5mm},
-]
-\node[roundnode]	(f2) {$F_{k+1}$};
-\node[roundnode]	(f1) [below=of f2]{$F_k$};
-\node[squarednode]	(w2) [right=of f2] {$\Omega_{k+1}$};
-\node[squarednode]	(w1) [right=of f1] {$\Omega_k$};
 
-\draw[<-] (f2) -- (w2) node[midway, above] {$\int$};
-\draw[<-] (f2) -- (f1) node[midway, left] {$\eth$};
-\draw[<-] (f1) -- (w1) node[midway, below] {$\int$};
-\draw[<-] (w2) -- (w1) node[midway, right] {$\eth$};
-\end{tikzpicture}
 
-- Remake this diagram using tikz (\textbf{Attempted, keeps being buggy. Deal with it later})
+
+\begin{center}
+	\begin{tikzcd}
+	F_{k+1} \arrow[d, "\eth" left, leftarrow] \arrow[r, "\int", leftarrow] & \Omega_{k+1} \arrow[d, "\eth" right, leftarrow] \\
+	F_k \arrow[r, "\int", leftarrow] & \Omega_k
+	\end{tikzcd}
+\end{center}
+
+
 
 
 
@@ -569,11 +564,11 @@ In many treatments of Electromagnetism (for example, "Classical Electromagnetic 
 
 We want to examine now how the exterior derivative explicity affects k-forms when written out in component form. In general, we have that for $\omega_k \in \Omega_k$, \begin{gather}\omega_k = \omega_{ab...c}e^a\wedge e^b \wedge ... \wedge e^c.\end{gather} It must be that an integral over the exterior derivative of a form results in one of the degrees of freedom being integrated away, putting the integral strictly on the boundary of the k-surface. [\textbf{Maybe show for 1D or 2D, since the general case is hard}]\begin{gather} \eth \omega_k = \partial_a\omega_{bc...d}e^a\wedge e^b\wedge e^c\wedge ... \wedge e^d.\end{gather} So, suppose we have $f \in \Omega_0$, $v \in \Omega_1$, and $B \in \Omega_2$, and we apply the exterior derivative to each of them. We have that \begin{gather}\eth f = \partial_a f e^a,\end{gather} \begin{gather}\eth v = \partial_a v_b e^a \wedge e^b,\end{gather} and \begin{gather}\eth B = \partial_a B_{bc} e^a\wedge e^b \wedge e^c.\end{gather} 
 
-By looking closer at these expressions, we see familiar tools from vector calculus arise. $\partial_a f e^a$ is a 1-form consisting of the sum of derivatives in each of the basis directions. In the 3D case, we have that \begin{gather}\partial_a f e^a = \frac{\partial f}{\partial x^1} e^1 + \frac{\partial f}{\partial x^2} e^2 + \frac{\partial f}{\partial x^3} e^3.\end{gather} This is simply the gradient of a scalar functional. So, we have that in $\mathbb{R}^3$, \begin{gather}\partial_a f e^a = \nabla f.\end{gather} Similarly, we see that in 3D, $\eth v$ will give us a 2-form from a 1-form, composed of the sum of derivatives in the directions perpendicular to the original 1-form. That is, in $\mathbb{R}^3$, \textbf{[Explicitly show the algebra here]}\begin{gather}\eth v = (\frac{\partial v_2}{\partial x^3} - \frac{\partial v_3}{\partial x^2})e^2\wedge e^3 - (\frac{\partial v_1}{\partial x^3} - \frac{\partial v_3}{\partial x^1})e^1 \wedge e^3 + (\frac{\partial v_1}{\partial x^2} - \frac{\partial v_2}{\partial x^1})e^1 \wedge e^2.\end{gather} Finally, [\textbf{Don't need to show the algebra, just say "similarly we can find that..."}]\begin{gather} \eth B = (\frac{\partial B_1}{\partial x^1} + \frac{\partial B_2}{\partial x^2} + \frac{\partial B_3}{\partial x^3})e^1\wedge e^2 \wedge e^3.\end{gather} We see here that $\eth v$ doesn't \emph{quite} give us $\nabla \times v$, and $\eth B$ doesn't \emph{quite} give us $\nabla \cdot B$. This discrepancy demonstrates the difference between the wedge product and the cross product. Had we done $\nabla \times v$, the first term would have been $(\frac{\partial v_2}{\partial x^3} - \frac{\partial v_3}{\partial x^2})e^1$. That is, in the direction perpendicular to $e^2\wedge e^3$. This is similarly true for the components in $e^1\wedge e^3$ and $e^1 \wedge e^2$. Furthermore, $\nabla \cdot B$ returns a scalar\footnote{Note however that $\nabla \cdot B$ doesn't even return a true scalar. Rather, it returns a pseudoscalar: $\frac{\rho}{\epsilon_0}$. The difference here is similar to the difference between vector and pseudovector: if you flip one of the coordinates, you get an extra minus sign in a pseudoscalar, but a scalar is left invariant. Pseudovectors are associated with surfaces, and pseudoscalars are associated with volumes (hence, charge \textit{density} $\rho$.)} (i.e., no direction), while $\eth B$ returns a volume in the $e^1 \wedge e^2 \wedge e^3$ "direction." This discrepancy is resolved by the introduction of the Hodge Dual Operator $*$, such that $*\eth v = \nabla \times v$ and $*\eth B = \nabla \cdot B$, but this is beyond us at the moment. What does hold immediately true is a generalization of the expression \begin{gather} \nabla \times \nabla V = 0\end{gather} for any scalar function $V$. For any form $\omega_k \in \Omega_k$, we have that \begin{gather} \eth\eth\omega_k = 0.\end{gather}
+By looking closer at these expressions, we see familiar tools from vector calculus arise. $\partial_a f e^a$ is a 1-form consisting of the sum of derivatives in each of the basis directions. In the 3D case, we have that \begin{gather}\partial_a f e^a = \frac{\partial f}{\partial x^1} e^1 + \frac{\partial f}{\partial x^2} e^2 + \frac{\partial f}{\partial x^3} e^3.\end{gather} This is simply the gradient of a scalar functional. So, we have that in $\mathbb{R}^3$, \begin{gather}\partial_a f e^a = \nabla f.\end{gather} Similarly, we see that in 3D, $\eth v$ will give us a 2-form from a 1-form, composed of the sum of derivatives in the directions perpendicular to the original 1-form. That is, in $\mathbb{R}^3$, \textbf{[Explicitly show the algebra here]}\begin{gather}\eth v = (\frac{\partial v_2}{\partial x^3} - \frac{\partial v_3}{\partial x^2})e^2\wedge e^3 - (\frac{\partial v_1}{\partial x^3} - \frac{\partial v_3}{\partial x^1})e^1 \wedge e^3 + (\frac{\partial v_1}{\partial x^2} - \frac{\partial v_2}{\partial x^1})e^1 \wedge e^2.\end{gather} Similarly, we find that \begin{gather} \eth B = (\frac{\partial B_1}{\partial x^1} + \frac{\partial B_2}{\partial x^2} + \frac{\partial B_3}{\partial x^3})e^1\wedge e^2 \wedge e^3.\end{gather} We see here that $\eth v$ doesn't \emph{quite} give us $\nabla \times v$, and $\eth B$ doesn't \emph{quite} give us $\nabla \cdot B$. This discrepancy demonstrates the difference between the wedge product and the cross product. Had we done $\nabla \times v$, the first term would have been $(\frac{\partial v_2}{\partial x^3} - \frac{\partial v_3}{\partial x^2})e^1$. That is, in the direction perpendicular to $e^2\wedge e^3$. This is similarly true for the components in $e^1\wedge e^3$ and $e^1 \wedge e^2$. Furthermore, $\nabla \cdot B$ returns a scalar\footnote{Note however that $\nabla \cdot B$ doesn't even return a true scalar. Rather, it returns a pseudoscalar: $\frac{\rho}{\epsilon_0}$. The difference here is similar to the difference between vector and pseudovector: if you flip one of the coordinates, you get an extra minus sign in a pseudoscalar, but a scalar is left invariant. Pseudovectors are associated with surfaces, and pseudoscalars are associated with volumes (hence, charge \textit{density} $\rho$.)} (i.e., no direction), while $\eth B$ returns a volume in the $e^1 \wedge e^2 \wedge e^3$ "direction." This discrepancy is resolved by the introduction of the Hodge Dual Operator $*$, such that $*\eth v = \nabla \times v$ and $*\eth B = \nabla \cdot B$, but this is beyond us at the moment. What does hold immediately true is a generalization of the expression \begin{gather} \nabla \times \nabla V = 0\end{gather} for any scalar function $V$. For any form $\omega_k \in \Omega_k$, we have that \begin{gather} \eth\eth\omega_k = 0.\end{gather}
 
 
 You may be asking now, "But what about $\nabla \times \nabla \times B$ for $B \in \Omega_1$? This gives us $\nabla (\nabla \cdot B) - \nabla^2 B$, which certainly isn't zero in general. Didn't we show just that curl is really just the exterior derivative of a one-form?" The issue is, once again, that the exterior derivative of a one form isn't \emph{quite} the same thing as a curl of a vector field. This discrepancy arises because of the difference between the wedge product $\wedge$ and the cross product $\times$. For two vectors $a$ and $b$, $a \times b$ gives a vector perpendicular to the two of them, while the wedge product deals only with the two original tangent vectors. 
-\textbf{We can sstart the discussion of potentials, closed, and exact here. Or move this to the next section}
+
 
 With these new, more general geometric expressions for gradient, curl, and divergence, their physical interpretations become immediately clear, simply from the notation. If we extend the flux example, we see that the gradient of a 0-form is simply the lengthwise flow in each possible dimension (three, in 3D), the curl of a 1-form is the planewise flow in each plane (still 3, in 3D), and the divergence of a 2-form is the flow outwards from a point per unit volume. 
 
@@ -581,22 +576,12 @@ With these new, more general geometric expressions for gradient, curl, and diver
 
 \section{Closed and Exact Forms, and Potentials}
 
-\textbf{NOTE: Closed form relates to potentials with a point taken out, or a divergenceless field. So, the magnetic field. Motivate it based on that. If the boundary functional of some function is zero always, then we can say that it is a closed functional. Correspondantly, we can say that if we have a functional that is the boundary functional of some other functional, we can say that it is an exact functional. Generalization of potentials is basically saying that any functional that is closed is also exact. Potentials lie in the fact that if a form is exact, it is also closed. If the boundary functional is zero. This would probably be better to talk about in integral form. Intuitively, things make more sense in the integral, rather than in the infinitesimal. Actually, the real definition of closed functional is that the functional is closed if its zero for all closed surfaces. If the boundary function is closed, then it is the boundary functional of some potential.}
 
-\textbf{Distinction between closed and exact disappears in integral (finite) form}
-
-\textbf{We want to be able to build things from the finite concepts first. So in chapter 1, build as much as possible in the finite case. The infinitesimal forms are the limit cases. That makes the finite case geometrical. You don't have to imagine tangent spaces, etc. You are closed if you are closed on surfaces down to a point.}
 
 In our discussions of Work functionals in Chapter 1, there naturally arose a relationship between functionals on boundaries and conservative/non-conservative forces. We can expand on this relationship now by making use of forms and the exterior derivative. 
 
-Suppose we have a 1-functional $W$, a 1-form $f$, and a 0-form $v$, such that $f = \eth v$, and suppose we have some line $\lambda$, such that $W(\lambda) = \int_\lambda f(d\lambda)$. We have that \begin{gather}\int_\lambda f(d\lambda) = \int_\lambda \eth v(d\lambda),\end{gather} which, by Stokes' Theorem, equals \begin{gather} \int_{\partial\lambda} v(d\partial\lambda).\end{gather}
+Recall that if we have a path-independent work functional $W \in F_1$, then for any closed line $\lambda \in S^1$, the work done will be zero. This defined $W$ as an exact functional. Suppose now that $W$ has an associated force 1-form $f$. We write then that \begin{gather} W(\lambda) = \int_\lambda f(d\lambda) = 0. \end{gather} 
 
-\textbf{Integrating on the closed loop is directly integrating over the exterior derivative of a thing. Imposing lambda being closed becomes unnecessary with the right application of $\eth$}
-
-\textbf{Start from the integral form. Organize this simiarly to 2.7: we have functionals and potentials, and they operate on surfaces differently. Exterior derivative is how we go from forms to potentials. All the explanation was done before, not too much needs to be done}
-Suppose now that $\lambda$ is a closed loop; that is, its starting and ending points are the same. So, if we want to integrate our form over the entirety of $\lambda$, we have that \textbf{Recall in ch.1 we did all this stuff written in terms of functionals, now we're going to do it in terms of forms}\begin{gather} \int_{\partial\lambda} v(d\partial\lambda) = 0,\end{gather} so we have finally that \begin{gather} W(\lambda) = 0.\end{gather} Therefore, if we have the starting and ending points of $\lambda$ be the same, it doesn't matter what path we take otherwise, we will always get zero. If we let $W$ be a work functional, just as in Chapter 1, we see that we have just come across path-independent work and, more importantly, conservative forces. In this case, $f$ is a conservative force, related to a scalar potential $v$ by $f = \eth v$. Recalling that the exterior derivative of a 0-form is the same thing as a gradient of a scalar vector field, we see that saying that $f = \eth v$ is equivalent to saying that $F = -\nabla V$, for some conservative force $F$ and scalar potential $V$. The fact that $f = \eth v$ is the very thing that makes $f$ conservative.  
-
-\textbf{This would make more sense in the finite form.}
 
 Now say we have a 1-form $A$ such that $\eth A = 0.$ While it is true in general that $\eth\eth\omega = 0$ for all forms $\omega$, it doesn't necessarily have to be the case that $A = \eth v$ for some 0-form $v.$ Consider, for instance, the field $A = A_x e_x + A_y e_y = \frac{-y}{x^2 + y^2} e_x + \frac{x}{x^2 + y^2} e_y$. $\frac{\partial A_x}{\partial y} - \frac{\partial A_y}{\partial x} = 0$ (making the exterior derivative zero), but it is not the exterior derivative of any other form. There is also a discontinuity at the point $(x,y) = (0,0)$. In the language of vector calculus, this is a divergenceless field (meaning that there is no "sink"), like the magnetic field, or the vector potential in the Coulomb gauge.  
 
