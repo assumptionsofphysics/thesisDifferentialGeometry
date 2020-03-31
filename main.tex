@@ -279,7 +279,7 @@ This introduction of the exact functional $\eth h$ keeps the value of $g(\sigma)
 	Suppose we have a k-functional $f \in F_k$ and k-surface $\sigma \in S^k$. A \textbf{gauge transformation} $G: F_k \to F_k$ is a transformation on functionals such that if $\sigma$ is closed, then $G(f)(\sigma) = f(\sigma)$.
 \end{defn}
 
-We motivated the gauge transformation through the addition of an exact functional. We will show now that this was not incidental, and that in fact, every gauge transformation is simply the addition of an exact functional. From the definition, we have that if $\sigma \in S^k$ is closed, $G(f)(\sigma) = f(\sigma)$. Introduce now $\delta \in F_k$, such that \begin{gather} \delta(\sigma) = G(f)(\sigma) - f(\sigma) \end{gather} for any $\sigma$. If $\sigma$ is closed, $G(f)(\sigma) - f(\sigma) = 0$, so $\delta(\sigma) = 0$, so $\delta$ is an exact functional. Therefore, after rearranging, we have in general that \begin{gather} G(f)(\sigma) = f(\sigma) + \delta(\sigma). \end{gather} And since $\delta$ is exact, we can express it as the boundary functional of a (k-1)-functional. So, we see in general that \begin{gather} G(f)(\sigma) = f(\sigma) + \eth h(\sigma). \end{gather} 
+We motivated the gauge transformation through the addition of an exact functional. We will show now that this was not incidental, and that in fact, every gauge transformation is simply the addition of an exact functional. From the definition, we have that if $\sigma \in S^k$ is closed, $G(f)(\sigma) = f(\sigma)$. Introduce now $\delta \in F_k$, such that \begin{gather} \delta(\sigma) = G(f)(\sigma) - f(\sigma) \end{gather} for any $\sigma$. If $\sigma$ is closed, $G(f)(\sigma) - f(\sigma) = 0$, so $\delta(\sigma) = 0$, so $\delta$ is an exact functional. Therefore, after rearranging, we have in general that \begin{gather} G(f)(\sigma) = f(\sigma) + \delta(\sigma). \end{gather} And since $\delta$ is exact, we can express it as the boundary functional of a (k-1)-functional. So, we see in general that \begin{gather} G(f)(\sigma) = f(\sigma) + \eth h(\sigma), \end{gather} for some (k-1)-functional $h$. 
 
 \chapter{Mathematical representation of infinitesimal objects}
 
@@ -572,41 +572,40 @@ With these new, more general geometric expressions for gradient, curl, and diver
 
 
 
-In our discussions of Work functionals in Chapter 1, there naturally arose a relationship between functionals on boundaries and conservative/non-conservative forces. We can expand on this relationship now by making use of forms and the exterior derivative. 
+In our discussions of Work functionals in Chapter 1, there naturally arose a relationship between functionals on boundaries and path independent work. We can expand on this relationship now by making use of forms and the exterior derivative. Recall that if we have a path-independent work functional $W \in F_1$, then for any closed line $\lambda \in S^1$, the work done will be zero. Furthermore, we said that if $W$ is a path-independent functional, than it admits a potential $V$ such that $W = \eth V$. So, we had that \begin{gather} W(\lambda) = \eth V(\lambda) = V(\partial\lambda) = 0.\end{gather}
 
-Recall that if we have a path-independent work functional $W \in F_1$, then for any closed line $\lambda \in S^1$, the work done will be zero. This defined $W$ as an exact functional. Suppose now that $W$ has an associated force 1-form $f$. We write then that \begin{gather} W(\lambda) = \int_\lambda f(d\lambda) = 0. \end{gather} 
+We can start working infinitesimally now. Suppose $W$ has an associated 1-form $f$, and $V$ a 0-form $\alpha$. We have therefore that $W = \int f$, and $V = \int \alpha$. So, because $W = \eth V$, we have that \begin{gather} \eth V(\lambda) = \int_\lambda f(d\lambda) = \int_{\partial\lambda} \eth \alpha(d\partial\lambda) \end{gather} \begin{gather}\implies f = \eth\alpha.\end{gather} 
 
+By relating $f$ to the exact functional $W$, there naturally arose the fact that $f$ is the exterior derivative of the form $\alpha$, associated with the potential of $W$. We call $f$ an exact functional, since it's the exterior derivative of another form. 
 
-Now say we have a 1-form $A$ such that $\eth A = 0.$ While it is true in general that $\eth\eth\omega = 0$ for all forms $\omega$, it doesn't necessarily have to be the case that $A = \eth v$ for some 0-form $v.$ Consider, for instance, the field $A = A_x e_x + A_y e_y = \frac{-y}{x^2 + y^2} e_x + \frac{x}{x^2 + y^2} e_y$. $\frac{\partial A_x}{\partial y} - \frac{\partial A_y}{\partial x} = 0$ (making the exterior derivative zero), but it is not the exterior derivative of any other form. There is also a discontinuity at the point $(x,y) = (0,0)$. In the language of vector calculus, this is a divergenceless field (meaning that there is no "sink"), like the magnetic field, or the vector potential in the Coulomb gauge.  
+\begin{defn} 
+	A k-form \textbf{$\omega$} is \textbf{exact} if there exists a (k-1)-form $\alpha$ such that $\omega = \eth\alpha$. We call $\alpha$ the potential of $\omega$. 
+\end{defn}
 
-\textbf{PUT A PICTURE OF THE CLOSED FIELD HERE}
+We also found before that any boundary functional's boundary functional is the zero functional. So, if $W = \eth V$, then $\eth W = \eth\eth V = \emptyset$, which will return zero when given any surface. Similarly, we showed in the previous section that applying the exterior derivative twice returns zero. Therefore, if $f = \eth \alpha$, then $\eth f = \eth \eth \alpha = 0$. So, $\eth f = 0$. We call a form whose exterior derivative is zero a \textbf{closed form.}
 
-These two examples introduce two important classes of differential forms and their physical implications. We are able to relate conservative forces to forms that are the exterior derivative of other forms, and divergenceless fields to forms with no exterior derivative. If a form is the exterior derivative of another form, it is \textbf{exact}, and if a form has no exterior derivative, it is \textbf{closed}.
- 
- \textbf{All the hard work was done in ch1. Show how these infinitesimal things come from the finite constructions}
- 
 \begin{defn} 
 	A k-form \textbf{$\omega$} is \textbf{closed} if $\eth\omega = 0$. 
 \end{defn}
 
-\begin{defn} 
-	A k-form \textbf{$\omega$} is \textbf{exact} if there exists a (k-1)-form $\alpha$ such that $\omega = \eth\alpha$.
-\end{defn}
+The fact that $f$ was exact necessarily lead to the fact that $f$ is also closed. 
+
+\begin{prop}
+	All exact forms are also closed forms.
+\end{prop}
+
+But the converse is not necessarily true. Say we have a 1-form $A$ such that $A = \frac{-y}{x^2 + y^2} e^x + \frac{x}{x^2 + y^2} e^y$. The exterior derivative of this form is zero, but it is not the exterior derivative of any other form. This can be plainly seen by calculating the integral of the form around a closed path, and not getting zero. There is also a discontinuity at the point $(x,y) = (0,0)$. In the language of vector calculus, this is a divergenceless field (meaning that there is no "sink"), like the magnetic field, or the vector potential in the Coulomb gauge.  
+
+
+\begin{prop}
+	Not all closed forms are exact. 	
+\end{prop}
+
+
+ Despite this, a region may be constructed such that the closed form is \emph{locally} exact. The only requirement to this region is that it does not include the discontinuity (the origin, in the case of $A$). Therefore, a potential exists in that local region. Thus, a force may be locally conservative, even if it is not globally conservative. 
 
 
 
-It follows from this that all exact forms are closed (since $\eth\eth\omega = 0$ for all forms). But once again, not all closed forms are exact, such as in the case of the $A$ field above. However, a region may be constructed such that the closed form is \emph{locally} exact. The only requirement to this region is that it does not include the discontinuity, the origin. Therefore, a potential exists in that local region. Thus, a field may be locally conservative, even if it is not globally conservative. 
-
-
-
-
-\textbf{NOTE: In fluid dynamics for divergenceless fluid, there's something called stream functions}
-
-\textbf{Bohm: If the form is closed, then the exterior derivative is always zero, thus all the integrals on closed surface that can be shrunk to a point will be zero. So, taking a convex region, we can create a potential there. z.B. assume we have a line}
-
-\textbf{If it happens that the number for all closed surfaces (small enough up to a certain point) are always zero, then the form/functional is cosed. If it's zero on all the closed k-surfaces we give it, then its exact. The difference is that both admit potentials, but the closed form is only going to admit a potential in a convex region small enough where al the closed surfaces are zero. The exact will admit a potential globally (an n-1 form/functional that if given the exterior derivative gives the original thing)}
-
-\textbf{Closed if for some set, all closed surfaces give zero for the functional. Exact if that open region corresponds to the whole space. Closed implies exact, but not the other way around}
 
 
 
