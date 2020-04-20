@@ -33,13 +33,13 @@
 		
 		\vfill
 		
-		An Honors thesis presented for the degree of \\
+		A Thesis presented for the degree of \\
 		Bachelors of Physics
 		
 		\vspace{1cm}
 		
 		\Large
-		Physics\\
+		Department of Physics\\
 		University of Michigan\\
 		Ann Arbor, United States\\
 		4/21/2020
@@ -60,13 +60,13 @@
 
 
 \section{Foreword}
-In transitioning to advanced classes, a physics student will find their familiar mathematical tools are inadequate to describe certain physical phenomena. The methods of traditional vector calculus in three dimensions, though very useful in electromagnetism and classical mechanics, are not always usable in higher dimensions, such as those used in general relativity and Hamiltonian mechanics. For that, we need differential geometry. When trying to learn a subject in mathematics, however, you tend to find books written for mathematicians, in a language that mathematicians are familiar with. As such, they are filled with long definitions, proofs, and prose that, while mathematically very precise, isn't exactly light reading, and can even be overkill for a proper physical understanding. 
+In transitioning to advanced classes, a physics student will find their familiar mathematical tools are inadequate to describe certain physical phenomena. The methods of traditional vector calculus in three dimensions, though very useful in electromagnetism and classical mechanics, are not always usable in higher dimensions or in spaces more abstract than Euclidean space, such as those used in general relativity and Hamiltonian mechanics. For that, we need differential geometry. When trying to learn a subject in mathematics, however, you tend to find books written for mathematicians, in a language that mathematicians are familiar with. As such, they are filled with long definitions, proofs, and prose that, while mathematically very precise, isn't exactly light reading, and can even be overkill for a proper physical understanding. 
 
-When mathematicians write for mathematicians, they develop and motivate their mathematical tools for the purposes of ease of calculation and proofs. There is, of course, nothing wrong with this. Mathematicians ought to be writing for mathematicians, and we shouldn't try to force the constraints of our field on theirs. For physicists, however, proofs and ease of calculation are not the fundamental problems. Rather, we are trying to mathematically codify, organize, and characterize physical phenomena. The math that we use, therefore, ought to be entirely physically motivated. When the math is developed properly for our purposes in physics, there shouldn't be any "purely mathematical" constructs without an actual physical meaning. We do not claim that we have fully achieved this goal here,\footnote{This is the greater goal of the Assumptions of Physics project as a whole} as there are open, unresolved problems in our work, which will be addressed when appropriate. 
+When mathematicians write for mathematicians, they develop and motivate their mathematical tools for the purposes of ease of calculation and proofs. There is, of course, nothing wrong with this. Mathematicians ought to be writing for mathematicians, and we shouldn't try to force the constraints of our field on theirs. For physicists, however, proofs and ease of calculation are not the fundamental problems. Rather, we are trying to mathematically codify, organize, and characterize physical phenomena. The math that we use, therefore, ought to be entirely physically motivated. When the math is developed properly for our purposes in physics, there shouldn't be any ``purely mathematical" constructs without an actual physical meaning. We do not claim that we have fully achieved this goal here,\footnote{This is the greater goal of the Assumptions of Physics project as a whole} as there are open, unresolved problems in our work, which will be addressed when appropriate. 
 What follows is a purely physical treatment of differential topology used in physics. While it is less mathematically rigorous than a typical math textbook, the hope is that the reader will be able to gain an intuition for the math they use, so that the math isn't simply a black box beyond understanding, and that further study in the subject will be aided by a solid grounding here. Furthermore, by clarifying the underlying physical assumptions that we are working with at each step of the way, we will be more certain of the meaning of each of our mathematical tools, as well as the results we are able to derive.  The focus is always on readability, applicability, and physicality.
 
 
-When we say "physical", we refer to properties and characteristics that we can directly measure in a laboratory. This definition is, at the moment, up for refinement. Every tool we have in physics will at some level be an abstraction. Even something as simple as measuring mass will be to a certain extent "nonphysical." We cannot say, for instance, that an object in our laboratory is \emph{precisely} 5 kg, as our precision depends on the tools that we are using. We can say that it is 5 $\pm 0.01$ kg, but this error isn't a quantity that we directly measure. It would also not be correct to say that it is purely a mathematical abstraction. It is properly motivated given physical considerations, due to the fact that our measurements are not infinitely precise. 
+When we say ``physical", we refer to properties and characteristics that we can directly measure in a laboratory. This definition is, at the moment, up for refinement. Every tool we have in physics will at some level be an abstraction. Even something as simple as measuring mass will be to a certain extent ``nonphysical." We cannot say, for instance, that an object in our laboratory is \emph{precisely} 5 kg, as our precision depends on the tools that we are using. We can say that it is 5 $\pm 0.01$ kg, but this error isn't a quantity that we directly measure. It would also not be correct to say that it is purely a mathematical abstraction. It is properly motivated given physical considerations, due to the fact that our measurements are not infinitely precise. 
 
 We assume on the part of the reader a class in introductory classical mechanics and electromagnetism, as well as vector calculus. More advanced topics in physics and mathematics may be touched on, but only for the use of giving an example, or demonstrating the usefulness of these mathematical tools. 
 
@@ -97,7 +97,7 @@ Normally, we think of coordinate systems in the context of quantifying an object
 
 
 
-With coordinate systems now defined, we recognize that in many instances, two different coordinate systems function just as well to describe a certain object. Mathematically, this occurs when two sets, each with defined coordinate systems, overlap. The points that lie within this overlapping section may be described in either coordinate system. To give an example from geography, consider an atlas of the world: a collection of maps. Depending on the atlas you're looking at, certain places may show up in multiple maps. Consider Moscow, for instance. It could very well show up on a map of Asia, perhaps in a square labeled B2, while also showing up on a map of Europe, perhaps in a square labeled C8. Either way of describing Moscow's position is equally valid, and you can freely "transform" between the coordinate systems as far as Moscow is concerned. Alternatively, consider the "point" Lisbon. Lisbon will show up on a map of Europe, perhaps in square F1, but you would never find Lisbon on a map of Asia. Therefore, its position may only be described in terms of the coordinates on the map of Europe.
+With coordinate systems now defined, we recognize that in many instances, two different coordinate systems function just as well to describe a certain object. Mathematically, this occurs when two sets, each with defined coordinate systems, overlap. The points that lie within this overlapping section may be described in either coordinate system. To give an example from geography, consider an atlas of the world: a collection of maps. Depending on the atlas you're looking at, certain places may show up in multiple maps. Consider Moscow, for instance. It could very well show up on a map of Asia, perhaps in a square labeled B2, while also showing up on a map of Europe, perhaps in a square labeled C8. Either way of describing Moscow's position is equally valid, and you can freely ``transform" between the coordinate systems as far as Moscow is concerned. Alternatively, consider the ``point" Lisbon. Lisbon will show up on a map of Europe, perhaps in square F1, but you would never find Lisbon on a map of Asia. Therefore, its position may only be described in terms of the coordinates on the map of Europe.
 
 
 \begin{defn}
@@ -127,7 +127,7 @@ Because of the poles, every location on Earth cannot be equally quantified with 
 \end{defn}
 
 
-Earlier, weather was given as an example of a set of possible cases of a system, with readings such as temperature and humidity allowing us to define a coordinate system. In this context, the "manifold" would be the set of possible weather configurations, with each point being a single weather report. Another example of a manifold would be the possible results of a blood drawing. The doctor takes your blood for analysis, the results of which are collected on a report, detailing things such as blood pressure, cholesterol levels, white blood cell count, etc. Each point on that manifold, therefore, would be a specific combination of blood pressure, cholesterol, and so forth. Further examples include: 
+Earlier, weather was given as an example of a set of possible cases of a system, with readings such as temperature and humidity allowing us to define a coordinate system. In this context, the ``manifold" would be the set of possible weather configurations, with each point being a single weather report. Another example of a manifold would be the possible results of a blood drawing. The doctor takes your blood for analysis, the results of which are collected on a report, detailing things such as blood pressure, cholesterol levels, white blood cell count, etc. Each point on that manifold, therefore, would be a specific combination of blood pressure, cholesterol, and so forth. Further examples include: 
 
 \begin{itemize}
 \item The conditions of your car, with the dials on the dashboard being your method of reading them 
@@ -149,7 +149,7 @@ Consider again the weather report example, where we are taking into account wher
 
 
 \begin{defn}
-	Consider a manifold X of dimension n, and a manifold Y of dimension k, such that $k \leq n$. Y is a \textbf{submanifold} or a \textbf{k-surface}\footnote{In general, we will be using the term "k-surface", instead of "submanifold." There will be many terms throughout this thesis prefaced by "k-". In general, this means that the object in question has k dimensions, and can be organized by their dimensionality.} of X if any point on Y is also a point on X (Figure 1.2). 
+	Consider a manifold X of dimension n, and a manifold Y of dimension k, such that $k \leq n$. Y is a \textbf{submanifold} or a \textbf{k-surface}\footnote{In general, we will be using the term ``k-surface", instead of ``submanifold." There will be many terms throughout this thesis prefaced by ``k-". In general, this means that the object in question has k dimensions, and can be organized by their dimensionality.} of X if any point on Y is also a point on X (Figure 1.2). 
 \end{defn}
 
 
@@ -302,7 +302,7 @@ g_{k-1}(\sigma^{k-1}) \to g_{k-1}(\sigma^{k-1}) + \eth h_{k-2}(\sigma^{k-1}) = g
 
 
 
-This introduction of the exact functional $\eth h$ keeps the value of $g(\sigma)$ invariant IF $\sigma$ is closed: $\partial\sigma = \emptyset$. However, it is not necessarily invariant if $\sigma$ is not closed: $\partial\sigma \neq \emptyset$. A change in $g$ that keeps $g$ invariant on closed surfaces, but not on open surfaces is a \textbf{gauge transformation}. 
+This introduction of the exact functional $\eth h$ keeps the value of $g(\sigma)$ invariant IF $\sigma$ is closed: $\partial\sigma = \emptyset$. However, it is not necessarily invariant if $\sigma$ is not closed: $\partial\sigma \neq \emptyset$. An transformation on a functional that keeps that functional invariant on closed surfaces, but not on open surfaces is a \textbf{gauge transformation}. 
 
 \begin{defn}
 	Suppose we have a k-functional $f \in F_k$ and k-surface $\sigma \in S^k$. A \textbf{gauge transformation} $G: F_k \to F_k$ is a transformation on functionals such that if $\sigma$ is closed, then $G(f)(\sigma) = f(\sigma)$.
@@ -320,9 +320,9 @@ We motivated the gauge transformation through the addition of an exact functiona
 
 In the previous section, we discussed functionals applied over k-surfaces. With the rules we've established, we can break up a k-surface into multiple sections, such that applying a functional over the entire surface is equivalent to applying it to each of the sections individually, and then summing their contributions. Importantly though, we remained entirely finite. This is important, as in the real world, we deal only with the finite. We measure mass, not density, for instance. Nevertheless, we were able to finally define boundary functionals, and their relationship with the boundary of surfaces. Now, we will be examining surfaces under the condition that we can break them up into infinitesimally small pieces. How would our k-surfaces behave, and furthermore, what happens to the functionals? We shall see that the tools we've already defined have a close correspondence to infinitesimal varieties, which may be more familiar to the reader. The existence of infinitesimals on our manifolds allows us to define tangents, and infinitesimal functionals along those tangents. Such manifolds are \textbf{differentiable manifolds}. 
 
-Technically speaking, differentiability is a property not of the manifold, but of the coordinate systems that are defined on it. And furthermore, not every coordinate system is differentiable. This is because "differentiability" itself is not defined in terms of one coordinate system. Rather, differentiability arises due to a property of coordinate transformations between coordinate systems. In order to maintain differentiability on our manifolds, we will be constraining ourselves to coordinate systems which are differentiable to each other. Essentially, what we're doing here is looking at an entire manifold, with all of its constituent subsections and thereon defined coordinate systems, and disregarding the coordinate systems that are not differentiable. This property manifests itself as the coordinate transformation between subsets of the manifold being smooth. 
+Technically speaking, differentiability is a property not of the manifold, but of the coordinate systems that are defined on it. And furthermore, not every coordinate system is differentiable. This is because ``differentiability" itself is not defined in terms of one coordinate system. Rather, differentiability arises due to a property of coordinate transformations between coordinate systems. In order to maintain differentiability on our manifolds, we will be constraining ourselves to coordinate systems which are differentiable to each other. Essentially, what we're doing here is looking at an entire manifold, with all of its constituent subsections and thereon defined coordinate systems, and disregarding the coordinate systems that are not differentiable. This property manifests itself as the coordinate transformation between subsets of the manifold being smooth. 
 
-As a justification, consider a one-dimensional function one would encounter in a calculus class, $f: \mathbb{R} \to \mathbb{R}$. When we say that $f$ is differentiable, we are saying that it is differentiable in the variable, or with respect to the variable. So, the derivative of $f$ with respect to its variable (say, $x$) is $\frac{df}{dx}$. Translate this now into the language of manifolds. If differentiability is to be defined on a point on the manifold, it's clear that this must be done in terms of the coordinates used to define that point. 
+As a justification, consider a one-dimensional function one would encounter in an introductory calculus class: $f: \mathbb{R} \to \mathbb{R}$. When we say that $f$ is differentiable, we are saying that it is differentiable in the variable, or with respect to the variable. So, the derivative of $f$ with respect to its variable (say, $x$) is $\frac{df}{dx}$. Translate this now into the language of manifolds. If differentiability is to be defined on a point on the manifold, it's clear that this must be done in terms of the coordinates used to define that point. 
 
 
 \begin{defn}
@@ -351,8 +351,7 @@ As we are breaking up the line into infinitesimal segments, we see that the func
 	A \textbf{covector} $\omega_1 : V^1 \to \mathbb{R}$ is a linear function of vectors. 
 \end{defn}
 
-Concretely, consider a spring with spring constant $k$ and with a mass $m$ attached to the end, oscillating without drag. The work necessary to pull the mass from the point $x = a$ to $x = b$ (being the starting and ending points of the line $\lambda$) is $W(\lambda) = \int_a^b -kx dx$.\footnote{We are technically getting ahead of ourselves here by presenting the function with specific coordinates. We have been entirely coordinate-free so far, and will have to wait until section 2.4 for the discussion of working with coordinates} The force (the covector) is $-kx e^x$, and the infinitesimal segment (the vector) is $dx e_x$. In general, a 1-functional over a 1-surface is the integrated form of a covector over vectors. 
-
+Concretely, consider a spring with spring constant $k$ and with a mass $m$ attached to the end, oscillating without drag. The work necessary to pull the mass from the point $x = a$ to $x = b$ (being the starting and ending points of the line $\lambda$) is $W(\lambda) = \int_a^b -kx dx$.\footnote{We are technically getting ahead of ourselves here by presenting the function with specific coordinates. We have been entirely coordinate-free so far, and will have to wait until section 2.4 for the discussion of working with coordinates} The infinitesimal segment (the vector) is $dx e_x$, and the force (the covector) is $-kx e^x$.\footnote{Note that $e^x$ is not an exponential function; that is, $e$ raised to the power of $x$. Rather, it is a basis vector, which we are, once again, technically getting ahead of ourselves by introducing at this point. Furthermore, the $x$ being raised in the covector and lowered in the vector is a meaningful difference. This will be explained further later.} In general, a 1-functional over a 1-surface is the integrated form of a covector over vectors. 
 
 
 
@@ -420,7 +419,7 @@ To finish up the generalization of the previous section, we establish the relati
 	Every linear k-functional has a corresponding k-form, such that for $f_k : S^k \to \mathbb{R}$, $f_k = \int_{\sigma^k} \omega_k(d\sigma^k)$. In words, a linear functional applied over a k-surface is the same as an integral of a k-form over the infinitesimal parallelepipedes of that k-surface. 
 \end{prop}
 
-Now is a good time to emphasize once again that we consider "physical" that which can be directly measured in a laboratory. Infinitesimals, therefore, are not truly physical. They are a limit of the finite case. We do not measure $\omega_k(d\sigma^k)$. Rather, we measure $\int_{\sigma^k}\omega_k(d\sigma^k)$. 
+Now is a good time to emphasize once again that we consider ``physical" that which can be directly measured in a laboratory. Infinitesimals, therefore, are not truly physical. They are a limit of the finite case. We do not measure $\omega_k(d\sigma^k)$. Rather, we measure $\int_{\sigma^k}\omega_k(d\sigma^k)$. 
 
 
 Suppose we have a mass functional $M \in F_3$ and some object $\tau \in S^3$, such that $M(\tau)$ is the mass of $\tau$.  As long as we remain finite, we can break up $\tau$ as we wish, determine the mass of each of the pieces, sum them, and we would get the same result as determining the mass of the entire ensemble, all while remaining entirely physical. The mass functional $M$ remains unchanged. As soon as we decide that we are going to be considering the infinitesimal limit, however, our tools change shape. We have that $M(\tau) = \int_\tau \rho(d\tau)$, where $\rho$ is a 3-form that determines density. It is fascinating to see that as we change the assumptions that we are working with, the math will, when properly physically motivated, change form as well to reflect these new assumptions. 
@@ -429,14 +428,14 @@ Suppose we have a mass functional $M \in F_3$ and some object $\tau \in S^3$, su
 
 \section{Wedge Product and Perpendicularity}
 
-Consider the problem now of constructing surfaces, volumes, and their higher dimensional equivalents. Arranging two 1-vectors $\vec{a}$ and $\vec{b}$ such that they both share a starting point allows one to construct a paralellogram (a 2-vector) with sides made up of the 1-vectors. The area and orientation of this 2-vector depends on the magnitudes and orientations of the two component 1-vectors. In 3D space, this orientation would be the line normal to the 2-surface, but we are not necessarily in 3D space. By flipping the direction of one of the vectors, the area of the resulting 2-vector would be the same as before, but the orientation (the normal) would be flipped. This same mechanism works for a 1-vector and a 2-vector, creating a 3-vector, as well as for the arbitrary m-vector and n-vector, creating an (m+n)-vector (though for vectors of degree greater than three, this is much harder to visualize). We require also that our method for combining k-vectors is anticommutative or skew-symmetric. To see why it must be this way, consider an x-y plane, where the x is traditionally the horizontal, and y the vertical. Switch now x and y, so that x is now the vertical, and y is now the horizontal. Rotating the axis such that y is once again the vertical will orient the x-axis in the "negative" horizontal direction. You could say that this is a (-x)-y plane. It is thus impossible to go from a y-x plane to an x-y plane purely through rotation. Instead, you need to also flip one of the coordinate axes, meaning x $\to$ -x, or y $\to$ -y. Once that is done, the original x-y plane can be reached. 
+Consider the problem now of constructing surfaces, volumes, and their higher dimensional equivalents. Arranging two 1-vectors $\vec{a}$ and $\vec{b}$ such that they both share a starting point allows one to construct a paralellogram (a 2-vector) with sides made up of the 1-vectors. The area and orientation of this 2-vector depends on the magnitudes and orientations of the two component 1-vectors. In 3D space, this orientation would be the line normal to the 2-surface, but we are not necessarily in 3D space. By flipping the direction of one of the vectors, the area of the resulting 2-vector would be the same as before, but the orientation (the normal) would be flipped. This same mechanism works for a 1-vector and a 2-vector, creating a 3-vector, as well as for the arbitrary m-vector and n-vector, creating an (m+n)-vector (though for vectors of degree greater than three, this is much harder to visualize). We require also that our method for combining k-vectors is anticommutative or skew-symmetric. To see why it must be this way, consider an x-y plane, where the x is traditionally the horizontal, and y the vertical. Switch now x and y, so that x is now the vertical, and y is now the horizontal. Rotating the axis such that y is once again the vertical will orient the x-axis in the ``negative" horizontal direction. You could say that this is a (-x)-y plane. It is thus impossible to go from a y-x plane to an x-y plane purely through rotation. Instead, you need to also flip one of the coordinate axes, meaning x $\to$ -x, or y $\to$ -y. Once that is done, the original x-y plane can be reached. 
 
 \begin{figure}[h]
 	\includegraphics[scale = .5]{images/wedge_prod.png}
 	\caption{After switching the axes, merely rotating them cannot return you to the original x-y plane. An additional flip of one of the axes is necessary.}
 \end{figure}
 
-\textbf{Show this from both directions. Basically a visual proof}
+
 
 The tool that combines k-vectors antisymmetrically is the \textbf{wedge product}.
 
@@ -464,7 +463,7 @@ Just as we can combine k-vectors to create vectors of higher rank, we can also d
 
 
 
-Similar to our ability to construct k-vectors out of lower rank vectors, we can construct k-forms out of lower rank forms. In other words, we can construct a "volume" form out of "area" forms. We define the \textbf{wedge product} on forms as the tool that combines forms. 
+Similar to our ability to construct k-vectors out of lower rank vectors, we can construct k-forms out of lower rank forms. In other words, we can construct a ``volume" form out of ``area" forms. We define the \textbf{wedge product} on forms as the tool that combines forms. 
 
 \begin{defn}
 	The \textbf{wedge product on forms} $\Omega_i \times \Omega_j \to \Omega_k$ generates k-forms such that if $\omega_i \wedge \omega_j = \omega_k$, and $v^i \wedge v^j = v^k$, then $\omega_k(v^k) = \omega_i(v^i) \wedge \omega_j(v^j)$. 
@@ -479,7 +478,7 @@ Similar to our ability to construct k-vectors out of lower rank vectors, we can 
 
 
 
-Up until this point in our discussion of k-forms and k-vectors, we've remained in a general coordinate-free form. For a conceptual understanding of the tools in use, this is just fine, and is in fact preferable. It shows that the math up until this point is "universal," and can be applied to any frame of reference without sacrificing scientific validity. Furthermore, it should be noted that nature itself is coordinate-free. The universe doesn't come prepackaged with coordinates, rather they are something that humans have created to streamline scientific investigation. The caveat to this is that while coordinate-free works well for conceptual understanding, it isn't all that useful for solving actual problems in physics, which is the entire point. Therefore, in this section, we will begin imposing coordinates on the systems we're working with. 
+Up until this point in our discussion of k-forms and k-vectors, we've remained in a general coordinate-free form. For a conceptual understanding of the tools in use, this is just fine, and is in fact preferable. It shows that the math up until this point is ``universal," and can be applied to any frame of reference without sacrificing scientific validity. Furthermore, it should be noted that nature itself is coordinate-free. The universe doesn't come prepackaged with coordinates, rather they are something that humans have created to streamline scientific investigation. The caveat to this is that while coordinate-free works well for conceptual understanding, it isn't all that useful for solving actual problems in physics, which is the entire point. Therefore, in this section, we will begin imposing coordinates on the systems we're working with. 
 
 
 Recall now definitions 1.1 and 1.2, and say we have a point $P$ on a manifold $X$, and let $dP$ be an infinitesimal segment starting at point $P$. At this moment, the vector is coordinate-free. In some neighborhood of $P$ there will be a coordinate system defined that we can use to describe $dP$. Mathematically, this relates to defining the coordinate system in terms of the \textbf{basis}, and assigning $dP$ directional components  along each basis vector, the sum of which gives us $dP$. So, \begin{gather}dP = dx^i \frac{\partial P}{\partial x^i} = dx^i e_i,\end{gather} where $e_i$ is the ith basis vector, and $dx^i$ is the vector component along that basis.\footnote{There is an implied sum over $i$ here. That is, $\sum_i^n dx^i e_i = dx^i e_i$} In other words, we can say that $dx^1e_1$ gives us an infinitesimal segment along $x^1$, $dx^2e_2$ along $x^2$, and so on. 
@@ -517,7 +516,7 @@ So, suppose we have a covector $\omega = \omega_i e^i$, where the covector compo
 So, \begin{gather}
 \omega_i \frac{\partial x^i}{\partial \hat{x}^j} \hat{e}^j = \hat{\omega}_j \hat{e}^j
 \end{gather}
-\begin{gather} \implies  \frac{\partial x^i}{\partial \hat{x}^j} \omega_i = \omega_j.
+\begin{gather} \implies  \frac{\partial x^i}{\partial \hat{x}^j} \omega_i = \hat{\omega}_j.
 \end{gather}
 
 Components of vectors transform in similar ways. If we have that $v = v^i e_i$, then $v^i$ will transform as \begin{gather}\hat{v}^j = v^i \frac{\partial \hat{x}^j}{\partial x^i} \end{gather} In general, an object that has such a relationship with objects in other coordinate systems is called a \textbf{tensor}. 
@@ -560,7 +559,7 @@ We can relate $B$ and $C$ by defining the \textbf{exterior derivative $\eth$ on 
 
 
 \begin{defn}
-	Let $f$ be a k-functional with associated k-form $\omega$, and let $g$ be a (k+1)-functional with associated (k+1)-form $\gamma$ such that $g = \eth f$. We define the \textbf{exterior derivative}\footnote{In most texts on the subject (cf. Curtis and Miller, "Differential Manifolds and Theoretical Physics") $\eth : \Omega_k \to \Omega_{k+1}$ , the exterior derivative is denoted simply with a $d$} $\eth : \Omega_k \to \Omega_{k+1}$ such that $\eth\omega = \gamma$.
+	Let $f$ be a k-functional with associated k-form $\omega$, and let $g$ be a (k+1)-functional with associated (k+1)-form $\gamma$ such that $g = \eth f$. We define the \textbf{exterior derivative}\footnote{In most texts on the subject (cf. Curtis and Miller, ``Differential Manifolds and Theoretical Physics"), the exterior derivative is denoted simply with a $d$} $\eth : \Omega_k \to \Omega_{k+1}$ such that $\eth\omega = \gamma$.
 \end{defn}
 
 
@@ -591,7 +590,7 @@ We can relate $B$ and $C$ by defining the \textbf{exterior derivative $\eth$ on 
 	\textbf{Stokes' Theorem}: For (k-1)-form $\omega$ and k-surface $\sigma$, $\int_{\partial \sigma}\omega = \int_{\sigma}\eth\omega$. 
 \end{coro}
 
-In many treatments of Electromagnetism (for example, "Classical Electromagnetic Radiation" by Heald and Marion), Stokes' Theorem is given in terms of the curl as \begin{gather}\int_S \nabla \times \vec{A} \cdot d\vec{S} = \oint_{\Gamma} \vec{A} \cdot d\vec{l}.\end{gather} This allows us to take a brief digression to see how the tools we have defined look in the more familiar 3D cases. 
+In many treatments of Electromagnetism (for example, ``Classical Electromagnetic Radiation" by Heald and Marion), Stokes' Theorem is given in terms of the curl as \begin{gather}\int_S \nabla \times \vec{A} \cdot d\vec{S} = \oint_{\Gamma} \vec{A} \cdot d\vec{l}.\end{gather} This allows us to take a brief digression to see how the tools we have defined look in the more familiar 3D cases. 
 
 We want to examine now how the exterior derivative explicity affects k-forms when written out in component form. In general, we have that for $\omega_k \in \Omega_k$, \begin{gather}\omega_k = \omega_{ab...c}e^a\wedge e^b \wedge ... \wedge e^c.\end{gather} It must be that an integral over the exterior derivative of a form results in one of the degrees of freedom being integrated away, putting the integral strictly on the boundary of the k-surface. \begin{gather} \eth \omega_k = \partial_a\omega_{bc...d}e^a\wedge e^b\wedge e^c\wedge ... \wedge e^d.\end{gather} So, suppose we have $f \in \Omega_0$, $v \in \Omega_1$, and $B \in \Omega_2$, and we apply the exterior derivative to each of them. We have that \begin{gather}\eth f = \partial_a f e^a,\end{gather} \begin{gather}\eth v = \partial_a v_b e^a \wedge e^b,\end{gather} and \begin{gather}\eth B = \partial_a B_{bc} e^a\wedge e^b \wedge e^c.\end{gather} 
 
@@ -629,7 +628,7 @@ The fact that $f$ was exact necessarily led to the fact that $f$ is also closed.
 	All exact forms are also closed forms.
 \end{prop}
 
-But the converse is not necessarily true. Say we have a 1-form $A$ such that $A = \frac{-y}{x^2 + y^2} e^x + \frac{x}{x^2 + y^2} e^y$. The exterior derivative of this form is zero, but it is not the exterior derivative of any other form. This can be plainly seen by calculating the integral of the form around a closed path, and not getting zero. There is also a discontinuity at the point $(x,y) = (0,0)$. In the language of vector calculus, this is a divergenceless field (meaning that there is no "sink"), like the magnetic field, or the vector potential in the Coulomb gauge.  
+But the converse is not necessarily true. Say we have a 1-form $A$ such that $A = \frac{-y}{x^2 + y^2} e^x + \frac{x}{x^2 + y^2} e^y$. The exterior derivative of this form is zero, but it is not the exterior derivative of any other form. This can be plainly seen by calculating the integral of the form around a closed path, and not getting zero. There is also a discontinuity at the point $(x,y) = (0,0)$. In the language of vector calculus, this is a divergenceless field (meaning that there is no ``sink"), like the magnetic field, or the vector potential in the Coulomb gauge.  
 
 
 \begin{prop}
@@ -644,14 +643,12 @@ Closed forms correspond to functionals that are zero on contractable closed surf
 
 \chapter*{Conclusion}
 
-- Summary of what was done
 
-- Explain the point once again (minimal tools to describe physical things)
+Through what we've done here, we've shown that when properly motivated, more esoteric mathematical tools follow quickly from the more immediately familiar and concrete. This was based around starting from finite objects and functionals, which are easily grasped from a physical sense, and from a judicious application of assumptions, deriving more abstract tools for physics. 
 
-- Briefly discuss things we didn't get the change to cover, such as metric tensor, symplectic form, maybe hodge dual? 
+The point of this is that, mathematically speaking, a great deal of what we do in physics is broken up into discrete conceptual chunks, but doesn't have to be. Electromagnetism is introduced with gradient, divergence, and curl, though these tools do not generalize into higher dimensions. K-forms can be combined arbitrarily, in the same way that states in Quantum Mechanics can be through the tensor product, and for the same reason both may not be arbitrarily decomposed. And observations and measurements may be considered as functionals over surfaces. Yet, these divisions between mathematical concepts need not be done, and the similarities need not be coincidental. By combining the thought process under one consistent umbrella of math, and thereby simplifying it, the math used in physics doesn't have to be so esoteric, and is in fact quite transparent. 
 
-
-
+There are, naturally, certain topics that we would have liked to cover, but were not able to, though they would have definitely led to interesting results. We would have, for instance, wished to bridge the gap into formal geometry through the introduction of the metric tensor and symplectic form. The former would have allowed us to define length (purposefully excluded from the discussion of k-functionals) and angles. The latter would have allowed a discussion of densities and areas, as well as an introduction into Hamiltonian mechanics. Furthermore, an aspect that remains unclear to us is a consistent concept of orientation. Is it based on manifolds being orientable, and so perhaps requiring perpendicularity, and therefore the metric tensor, or is it a ``direction" of integration of k-forms over k-vectors? This is not clear to us now, and remains an open avenue for study. 
 
 
 
